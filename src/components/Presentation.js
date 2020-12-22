@@ -10,7 +10,7 @@ const imgStyles = {
     height: "90vh"
 }
 
-const Jumbo = () => {
+const Presentation = () => {
   return (
     <Carousel style={carouselStyles} >
       <Carousel.Item>
@@ -28,4 +28,4 @@ const Jumbo = () => {
   );
 };
 
-export default Jumbo;
+export default Presentation;

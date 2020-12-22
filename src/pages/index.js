@@ -1,7 +1,11 @@
 import * as React from "react";
 
-import Jumbo from "../components/Jumbo";
+import Presentation from "../components/Presentation";
 import Layout from "../components/Layout";
+import Biographie from "../components/Biographie";
+import Competences from "../components/Competences";
+import Projets from "../components/Projets";
+import Contact from "../components/Contact";
 
 // styles
 const pageStyles = {
@@ -13,8 +17,11 @@ const IndexPage = () => {
   return (
     <main style={pageStyles}>
       <Layout>
-        <Jumbo/>
-        
+        <Presentation />
+        <Biographie />
+        <Competences />
+        <Projets />
+        <Contact />
       </Layout>
     </main>
   );
