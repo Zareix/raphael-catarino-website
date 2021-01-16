@@ -7,12 +7,13 @@ const jumboStyles = {
   width : "100%",
   backgroundImage: `url(${bgImage})`,
   backgroundPosition: "center",
+  margin: 0,
   color: "white"
 };
 
 const Presentation = () => {
   return (
-    <div style={jumboStyles} className="row m-0 align-items-center">
+    <div style={jumboStyles} className="row align-items-center">
       <div className="col text-center">
         <h1 className="">Raphaël Catarino</h1>
         <h2>Developpeur Full Stack</h2>
