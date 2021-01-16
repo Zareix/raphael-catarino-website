@@ -18,7 +18,7 @@ const IndexPage = () => {
     <main style={pageStyles}>
       <Layout>
         <Presentation />
-        <Biographie />
+        <Biographie id={"bio"}/>
         <Competences />
         <Projets />
         <Contact />
