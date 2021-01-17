@@ -13,9 +13,9 @@ const jumboStyles = {
 
 const Presentation = () => {
   return (
-    <div style={jumboStyles} className="row align-items-center">
-      <div className="col text-center">
-        <h1 className="">Raphaël Catarino</h1>
+    <div style={jumboStyles} className="container-fluid row align-items-center">
+      <div className="col text-center" style={{top : -40}}>
+        <h1>Raphaël Catarino</h1>
         <h2>Developpeur Full Stack</h2>
       </div>
     </div>
