@@ -8,7 +8,6 @@ const navStyles = {
   backgroundColor: `rgba(255, 255, 255, 0.7)`,
   width: "100%",
   margin: "0",
-  zIndex : 2
 };
 
 const linkStyles = {
@@ -19,22 +18,24 @@ const Navigation = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    function handleScroll() {
+      if (window.pageYOffset > 140) {
+        if (!visible) {
+          setVisible(true);
+        }
+      } else {
+        setVisible(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => {};
-  }, []);
+  }, [visible]);
 
-  const handleScroll = () => {
-    if (window.pageYOffset > 140) {
-      if (!visible) {
-        setVisible(true);
-      }
-    } else {
-      setVisible(false);
-    }
-  };
+  
 
   return (
-    <div style={navStyles}>
+    <div style={{position : "fixed", zIndex : 2}}>
       <Transition
         items={visible}
         from={{ marginTop: -100 }}
@@ -43,7 +44,7 @@ const Navigation = () => {
       >
         {visible => visible && (props => 
           <div style={props}>
-            <Navbar >  
+            <Navbar style={navStyles} >  
               <Navbar.Collapse className="justify-content-end">
                 <Nav>
                   <Nav.Link style={linkStyles} href="#bio">A propos</Nav.Link>
