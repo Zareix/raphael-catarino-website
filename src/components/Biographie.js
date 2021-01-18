@@ -1,28 +1,27 @@
 import React from "react";
 
-import { Spring, config } from "react-spring/renderprops";
-
 const bioStyles = {
-  height: "1000px",
-  width: "80%",
-  position: "relative",
-  top: -100,
-  borderRadius: 10,
+  borderTopLeftRadius : "10px",
+  borderTopRightRadius : "10px"
+}
+
+const bioTextStyles = {
+  fontSize: "20px",
 };
 
 const Biographie = (props) => {
   return (
-    <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} config={config.molasses}>
-      {(spring) => (
-        <div style={spring} >
-          <div style={bioStyles} className="container bg-white" id={props.id}>
-            <div className="row p-3 justify-content-center">
-              <h1 className="">Biographie</h1>
-            </div>
-          </div>
-        </div>
-      )}
-    </Spring>
+    <div style={bioStyles} className="container p-4" id={props.id}>
+      <div className="row pt-2 justify-content-center">
+        <h1 className="col-12 text-center">Biographie</h1>
+        <span style={bioTextStyles} className="col-8 mt-3 text-justify">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+          laudantium voluptatum quod nam non asperiores molestiae dignissimos
+          sunt iste, totam veniam reiciendis eaque impedit incidunt quidem
+          excepturi quo obcaecati ducimus?
+        </span>
+      </div>
+    </div>
   );
 };
 
