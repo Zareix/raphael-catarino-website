@@ -2,8 +2,10 @@ import React from 'react'
 
 const Competences = () => {
     return (
-        <div>
-            
+        <div className="container">
+            <div className="row">
+                
+            </div>
         </div>
     )
 }
