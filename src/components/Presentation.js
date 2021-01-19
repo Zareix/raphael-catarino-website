@@ -12,6 +12,7 @@ const jumboStyles = {
 };
 
 const Presentation = () => {
+  // TODO : Gatsby-background-image
   return (
     <div style={jumboStyles} className="container-fluid row align-items-center">
       <div className="col text-center" style={{top : -40}}>
