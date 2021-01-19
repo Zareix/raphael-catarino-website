@@ -32,7 +32,7 @@ const IndexPage = () => {
         >
           {(spring) => (
             <div style={spring, contentStyles} className="row justify-content-center">
-              <div style={{borderRadius : "24px"}} className="col-10 p-0 bg-white">
+              <div style={{borderRadius : "24px"}} className="col-10 p-0 bg-white shadow">
                 <Biographie id={"bio"} />
                 <Competences />
                 <Projets />
