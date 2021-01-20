@@ -82,17 +82,17 @@ const Competences = () => {
               ))}
             </div>
           </div>
-        </div>
-        <div className="col-12 p-4 justify-content-center text-center row">
-          <h3 className="col-6 border-bottom">Database</h3>
-          <div className="row col-12 justify-content-center">
-            {data.imagesDb.nodes.map((img) => (
-              <Img
-                key={img.id}
-                fluid={img.childImageSharp.fluid}
-                className="col-3"
-              ></Img>
-            ))}
+          <div className="col-12 p-4 justify-content-center text-center row">
+            <h3 className="col-6 border-bottom">Database</h3>
+            <div className="row col-12 justify-content-center">
+              {data.imagesDb.nodes.map((img) => (
+                <Img
+                  key={img.id}
+                  fluid={img.childImageSharp.fluid}
+                  className="col-3"
+                ></Img>
+              ))}
+            </div>
           </div>
         </div>
       </div>
