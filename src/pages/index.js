@@ -46,7 +46,6 @@ const IndexPage = () => {
             </div>
           )}
         </Spring>
-
         <Contact />
       </Layout>
     </main>
