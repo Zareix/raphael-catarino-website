@@ -11,7 +11,9 @@ const Competences = () => {
   // TODO : Use gatsby-image / graphql
   const data = useStaticQuery(graphql`
     query {
-      imagesWeb: allFile(filter: { relativeDirectory: { eq: "logoComp/web" } }) {
+      imagesWeb: allFile(
+        filter: { relativeDirectory: { eq: "logoComp/web" } }
+      ) {
         nodes {
           id
           childImageSharp {
@@ -20,8 +22,10 @@ const Competences = () => {
             }
           }
         }
-      },
-      imagesSoft: allFile(filter: { relativeDirectory: { eq: "logoComp/logiciels" } }) {
+      }
+      imagesSoft: allFile(
+        filter: { relativeDirectory: { eq: "logoComp/logiciels" } }
+      ) {
         nodes {
           id
           childImageSharp {
@@ -30,8 +34,10 @@ const Competences = () => {
             }
           }
         }
-      },
-      imagesDb: allFile(filter: { relativeDirectory: { eq: "logoComp/database" } }) {
+      }
+      imagesDb: allFile(
+        filter: { relativeDirectory: { eq: "logoComp/database" } }
+      ) {
         nodes {
           id
           childImageSharp {

@@ -1,13 +1,13 @@
-import React from "react";
+import React from "react"
 
 const bioStyles = {
-  borderTopLeftRadius : "10px",
-  borderTopRightRadius : "10px"
+  borderTopLeftRadius: "10px",
+  borderTopRightRadius: "10px",
 }
 
 const bioTextStyles = {
   fontSize: "20px",
-};
+}
 
 const Biographie = (props) => {
   return (
@@ -22,7 +22,7 @@ const Biographie = (props) => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Biographie;
+export default Biographie

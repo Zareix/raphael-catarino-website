@@ -32,8 +32,6 @@ const Navigation = () => {
     return () => {};
   }, [visible]);
 
-  
-
   return (
     <div style={{position : "fixed", zIndex : 2}}>
       <Transition
