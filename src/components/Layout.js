@@ -1,16 +1,15 @@
-import React from "react";
-import Navigation from "./Navbar";
+import React from "react"
+import Navigation from "./Navbar"
 import Footer from "./Footer"
-
 
 const Layout = (props) => {
   return (
     <div>
-      <Navigation/>
+      <Navigation />
       {props.children}
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
