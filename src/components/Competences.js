@@ -7,8 +7,7 @@ const compTextStyles = {
   fontSize: "20px",
 }
 
-const Competences = () => {
-  // TODO : Use gatsby-image / graphql
+const Competences = (props) => {
   const data = useStaticQuery(graphql`
     query {
       imagesWeb: allFile(
@@ -51,28 +50,26 @@ const Competences = () => {
   `)
 
   return (
-    <div className="container">
-      <div className="row justify-content-center">
-        <div className="col-10 row justify-content-center border-top p-4">
-          <h1 className="col-12 text-center">Compétences</h1>
-          <span style={compTextStyles} className="col-8 mt-3 text-center">
+    <div id={props.id}>
+        <div>
+          <h1>Compétences</h1>
+          <span style={compTextStyles}>
             Voici l'ensemble des langages que je maîtrise.
           </span>
-          <div className="col-12 p-4 justify-content-center text-center row">
-            <h3 className="col-6 border-bottom">Web</h3>
-            <div className="row col-12 justify-content-center">
+          <div>
+            <h3>Web</h3>
+            <div>
               {data.imagesWeb.nodes.map((img) => (
                 <Img
                   key={img.id}
                   fluid={img.childImageSharp.fluid}
-                  className="col-3"
                 ></Img>
               ))}
             </div>
           </div>
-          <div className="col-12 p-4 justify-content-center text-center row">
-            <h3 className="col-6 border-bottom">Software</h3>
-            <div className="row col-12 justify-content-center">
+          <div>
+            <h3>Software</h3>
+            <div>
               {data.imagesSoft.nodes.map((img) => (
                 <Img
                   key={img.id}
@@ -82,21 +79,19 @@ const Competences = () => {
               ))}
             </div>
           </div>
-          <div className="col-12 p-4 justify-content-center text-center row">
-            <h3 className="col-6 border-bottom">Database</h3>
-            <div className="row col-12 justify-content-center">
+          <div>
+            <h3>Database</h3>
+            <div>
               {data.imagesDb.nodes.map((img) => (
                 <Img
                   key={img.id}
                   fluid={img.childImageSharp.fluid}
-                  className="col-3"
                 ></Img>
               ))}
             </div>
           </div>
         </div>
       </div>
-    </div>
   )
 }
 

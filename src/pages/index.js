@@ -8,7 +8,7 @@ import Projets from "../components/Projets"
 import Contact from "../components/Contact"
 import { Spring, config } from "react-spring/renderprops"
 
-// styles
+
 const pageStyles = {
   color: "#232129",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
@@ -16,8 +16,6 @@ const pageStyles = {
 
 const contentStyles = {
   height: "1000px",
-  position: "relative",
-  top: -100,
 }
 
 const IndexPage = () => {
@@ -33,14 +31,13 @@ const IndexPage = () => {
         >
           {(spring) => (
             <div style={spring}>
-              <div style={contentStyles} className="row justify-content-center">
+              <div style={contentStyles}>
                 <div
                   style={{ borderRadius: "24px" }}
-                  className="col-10 p-0 bg-white shadow"
                 >
                   <Biographie id={"bio"} />
-                  <Competences />
-                  <Projets />
+                  <Competences id={"competences"}/>
+                  <Projets id={"projets"}/>
                 </div>
               </div>
             </div>

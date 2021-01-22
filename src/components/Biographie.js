@@ -11,16 +11,14 @@ const bioTextStyles = {
 
 const Biographie = (props) => {
   return (
-    <div style={bioStyles} className="container p-4" id={props.id}>
-      <div className="row pt-2 justify-content-center">
-        <h1 className="col-12 text-center">Biographie</h1>
-        <span style={bioTextStyles} className="col-8 mt-3 text-justify">
+    <div style={bioStyles} id={props.id}>
+        <h1>Biographie</h1>
+        <span style={bioTextStyles}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
           laudantium voluptatum quod nam non asperiores molestiae dignissimos
           sunt iste, totam veniam reiciendis eaque impedit incidunt quidem
           excepturi quo obcaecati ducimus?
         </span>
-      </div>
     </div>
   )
 }

@@ -7,11 +7,14 @@ const navStyles = {
   position: "fixed",
   backgroundColor: `rgba(255, 255, 255, 0.7)`,
   width: "100%",
+  height: "50px",
   margin: "0",
 }
 
 const linkStyles = {
   color: "#303F9F",
+  margin: "10px",
+  height: "100%",
 }
 
 const Navigation = () => {
@@ -44,17 +47,15 @@ const Navigation = () => {
           visible &&
           ((props) => (
             <div style={props}>
-              <Navbar style={navStyles}>
-                <Navbar.Collapse className="justify-content-end">
-                  <Nav>
-                    <Nav.Link style={linkStyles} href="#bio">
-                      A propos
-                    </Nav.Link>
-                    <Nav.Link style={linkStyles}>Mes projets</Nav.Link>
-                    <Nav.Link style={linkStyles}>Mes compétences</Nav.Link>
-                  </Nav>
-                </Navbar.Collapse>
-              </Navbar>
+              <div style={navStyles}>
+                <div  className="flex flex-row-reverse mr-3">
+                  <a style={linkStyles} href="#bio">
+                    A propos
+                  </a>
+                  <a style={linkStyles}>Mes projets</a>
+                  <a style={linkStyles}>Mes compétences</a>
+                </div>
+              </div>
             </div>
           ))
         }
