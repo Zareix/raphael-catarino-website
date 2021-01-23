@@ -3,8 +3,13 @@ import React from "react"
 import { useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
-const compTextStyles = {
-  fontSize: "20px",
+const compTitle = {
+  fontSize : "1.5rem"
+}
+
+const compImg = {
+  height : "100%",
+  width: "100%"
 }
 
 const Competences = (props) => {
@@ -16,7 +21,7 @@ const Competences = (props) => {
         nodes {
           id
           childImageSharp {
-            fluid {
+            fluid (maxWidth: 700){
               ...GatsbyImageSharpFluid_tracedSVG
             }
           }
@@ -51,24 +56,25 @@ const Competences = (props) => {
 
   return (
     <div id={props.id}>
-        <div>
-          <h1>Compétences</h1>
-          <span style={compTextStyles}>
+        <div className="text-center">
+          <h1 className="contTitle">Compétences</h1>
+          <p className="contText text-center">
             Voici l'ensemble des langages que je maîtrise.
-          </span>
+          </p>
           <div>
-            <h3>Web</h3>
-            <div>
+            <h3 style={compTitle}>Web</h3>
+            <div className="grid grid-cols-4 auto-rows-min justify-center justify-items-center">
               {data.imagesWeb.nodes.map((img) => (
                 <Img
                   key={img.id}
                   fluid={img.childImageSharp.fluid}
+                  style={compImg}
                 ></Img>
               ))}
             </div>
           </div>
           <div>
-            <h3>Software</h3>
+            <h3 style={compTitle}>Software</h3>
             <div>
               {data.imagesSoft.nodes.map((img) => (
                 <Img
@@ -80,7 +86,7 @@ const Competences = (props) => {
             </div>
           </div>
           <div>
-            <h3>Database</h3>
+            <h3 style={compTitle}>Database</h3>
             <div>
               {data.imagesDb.nodes.map((img) => (
                 <Img

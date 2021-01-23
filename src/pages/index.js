@@ -6,8 +6,10 @@ import Biographie from "../components/Biographie"
 import Competences from "../components/Competences"
 import Projets from "../components/Projets"
 import Contact from "../components/Contact"
+
 import { Spring, config } from "react-spring/renderprops"
 
+import "./index.css"
 
 const pageStyles = {
   color: "#232129",
@@ -16,6 +18,12 @@ const pageStyles = {
 
 const contentStyles = {
   height: "1000px",
+  width: "80%",
+  top: "-50px",
+  position: "relative",
+  backgroundColor: "white",
+  borderRadius: "30px",
+  padding: "3.5em",
 }
 
 const IndexPage = () => {
@@ -27,18 +35,14 @@ const IndexPage = () => {
           from={{ opacity: 0 }}
           to={{ opacity: 1 }}
           config={config.molasses}
-          delay={2000}
+          delay={1000}
         >
           {(spring) => (
             <div style={spring}>
-              <div style={contentStyles}>
-                <div
-                  style={{ borderRadius: "24px" }}
-                >
-                  <Biographie id={"bio"} />
-                  <Competences id={"competences"}/>
-                  <Projets id={"projets"}/>
-                </div>
+              <div style={contentStyles} className="mx-auto">
+                <Biographie id={"bio"} />
+                <Competences id={"competences"} />
+                <Projets id={"projets"} />
               </div>
             </div>
           )}
