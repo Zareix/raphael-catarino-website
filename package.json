@@ -2,7 +2,7 @@
   "name": "raphael-catarino-website",
   "version": "1.0.0",
   "private": true,
-  "description": "My Gatsby site",
+  "description": "Raphaël Catarino Website",
   "author": "Zareix",
   "keywords": [
     "gatsby"
@@ -22,6 +22,7 @@
     "gatsby": "^2.30.3",
     "gatsby-background-image": "^1.4.0",
     "gatsby-image": "^2.9.0",
+    "gatsby-plugin-manifest": "^2.11.0",
     "gatsby-plugin-mdx": "^1.8.0",
     "gatsby-plugin-postcss": "^3.6.0",
     "gatsby-plugin-sharp": "^2.12.2",

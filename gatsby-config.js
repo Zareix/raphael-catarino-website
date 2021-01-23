@@ -1,4 +1,10 @@
 module.exports = {
+  siteMetadata: {
+    title: "Raphaël Catarino",
+    description:
+      "Raphaël Catarino's portofolio : apprenez en plus sur moi ici !",
+    author: "Raphaël Catarino",
+  },
   plugins: [
     "gatsby-plugin-postcss",
     "gatsby-plugin-mdx",
@@ -20,5 +26,18 @@ module.exports = {
       },
       __key: "pages",
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Raphaël Catarino's Website",
+        short_name: "RaphaëlC",
+        start_url: "/",
+        background_color: "#6b37bf",
+        theme_color: "#6b37bf",
+        display: "standalone",
+        icon: "src/images/icon.png",
+        crossOrigin: `use-credentials`,
+      },
+    },
   ],
-};
+}
