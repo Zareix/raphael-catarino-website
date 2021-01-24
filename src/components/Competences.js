@@ -52,7 +52,7 @@ const Competences = (props) => {
   `)
 
   return (
-    <div id={props.id} className="mt-6 pt-6 border-t-2">
+    <div id={props.id} className="pt-8">
       <div className="text-center">
         <h1 className="contTitle">Compétences</h1>
         <p className="contText text-center">
@@ -67,7 +67,7 @@ const Competences = (props) => {
               <Img
                 key={img.id}
                 fluid={img.childImageSharp.fluid}
-                className="w-2/5 md:w-1/4"
+                className="w-2/5 md:w-1/5 ml-2 mr-2"
               ></Img>
             ))}
           </div>
@@ -81,7 +81,7 @@ const Competences = (props) => {
               <Img
                 key={img.id}
                 fluid={img.childImageSharp.fluid}
-                className="w-2/5 md:w-1/4"
+                className="w-2/5 md:w-1/5 ml-2 mr-2"
               ></Img>
             ))}
           </div>
@@ -95,7 +95,7 @@ const Competences = (props) => {
               <Img
                 key={img.id}
                 fluid={img.childImageSharp.fluid}
-                className="w-2/5 md:w-1/4"
+                className="w-2/5 md:w-1/5 ml-2 mr-2"
               ></Img>
             ))}
           </div>

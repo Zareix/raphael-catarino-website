@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-import { Navbar, Nav } from "react-bootstrap"
+import { Link } from "react-scroll"
 import { Transition } from "react-spring/renderprops"
 
 const navStyles = {
@@ -48,12 +48,40 @@ const Navigation = () => {
           ((props) => (
             <div style={props}>
               <div style={navStyles}>
-                <div  className="flex justify-center md:justify-end  md:mr-3">
-                  <a style={linkStyles} href="#bio">
+                <div className="flex justify-center md:justify-end md:mr-3">
+                  <Link
+                    style={linkStyles}
+                    activeClass="active"
+                    to="bio"
+                    spy={true}
+                    smooth={true}
+                    offset={-40}
+                    duration={500}
+                  >
                     A propos
-                  </a>
-                  <a style={linkStyles}>Mes projets</a>
-                  <a style={linkStyles}>Mes compétences</a>
+                  </Link>
+                  <Link
+                    style={linkStyles}
+                    activeClass="active"
+                    to="competences"
+                    spy={true}
+                    smooth={true}
+                    offset={-40}
+                    duration={500}
+                  >
+                    Mes compétences
+                  </Link>
+                  <Link
+                    style={linkStyles}
+                    activeClass="active"
+                    to="projets"
+                    spy={true}
+                    smooth={true}
+                    offset={-40}
+                    duration={500}
+                  >
+                    Mes projets
+                  </Link>
                 </div>
               </div>
             </div>
