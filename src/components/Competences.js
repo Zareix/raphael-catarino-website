@@ -59,7 +59,7 @@ const Competences = (props) => {
         <div className="text-center">
           <h1 className="contTitle">Compétences</h1>
           <p className="contText text-center">
-            Voici l'ensemble des langages que je maîtrise.
+            Voici l'ensemble des langages de programmation que je maîtrise.
           </p>
           <div>
             <h3 style={compTitle}>Web</h3>
