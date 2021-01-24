@@ -51,6 +51,12 @@ const Competences = (props) => {
     }
   `)
 
+  const catComp = [
+    { name: "Web", images: data.imagesWeb },
+    { name: "Software", images: data.imagesSoft },
+    { name: "Database", images: data.imagesDb },
+  ]
+
   return (
     <div id={props.id} className="pt-8">
       <div className="text-center">
@@ -58,48 +64,22 @@ const Competences = (props) => {
         <p className="contText text-center">
           Voici l'ensemble des langages de programmation que je maîtrise.
         </p>
-        <div>
-          <h3 style={compTitleStyles} className="w-6/12 border-t-2 mx-auto">
-            Web
-          </h3>
-          <div className="flex flex-wrap justify-items-center place-content-center">
-            {data.imagesWeb.nodes.map((img) => (
-              <Img
-                key={img.id}
-                fluid={img.childImageSharp.fluid}
-                className="w-2/5 md:w-1/5 ml-2 mr-2"
-              ></Img>
-            ))}
+        {catComp.map((cat) => (
+          <div>
+            <h3 style={compTitleStyles} className="w-6/12 border-t-2 mx-auto">
+              {cat.name}
+            </h3>
+            <div className="flex flex-wrap justify-items-center place-content-center">
+              {cat.images.nodes.map((img) => (
+                <Img
+                  key={img.id}
+                  fluid={img.childImageSharp.fluid}
+                  className="w-2/5 md:w-1/5 ml-2 mr-2"
+                ></Img>
+              ))}
+            </div>
           </div>
-        </div>
-        <div>
-          <h3 style={compTitleStyles} className="w-6/12 border-t-2 mx-auto">
-            Software
-          </h3>
-          <div className="flex flex-wrap justify-items-center place-content-center">
-            {data.imagesSoft.nodes.map((img) => (
-              <Img
-                key={img.id}
-                fluid={img.childImageSharp.fluid}
-                className="w-2/5 md:w-1/5 ml-2 mr-2"
-              ></Img>
-            ))}
-          </div>
-        </div>
-        <div>
-          <h3 style={compTitleStyles} className="w-6/12 border-t-2 mx-auto">
-            Database
-          </h3>
-          <div className="flex flex-wrap justify-items-center place-content-center">
-            {data.imagesDb.nodes.map((img) => (
-              <Img
-                key={img.id}
-                fluid={img.childImageSharp.fluid}
-                className="w-2/5 md:w-1/5 ml-2 mr-2"
-              ></Img>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   )
