@@ -9,7 +9,7 @@ import Contact from "../components/Contact"
 
 import { Spring, config } from "react-spring/renderprops"
 
-import "./index.css"
+import "../styles/index.css"
 
 const pageStyles = {
   color: "#232129",
@@ -23,7 +23,6 @@ const contentStyles = {
   position: "relative",
   backgroundColor: "white",
   borderRadius: "30px",
-  padding: "3.5em",
 }
 
 const IndexPage = () => {
@@ -39,7 +38,7 @@ const IndexPage = () => {
         >
           {(spring) => (
             <div style={spring}>
-              <div style={contentStyles} className="mx-auto">
+              <div style={contentStyles} className="mx-auto p-4 md:p-14">
                 <Biographie id={"bio"} />
                 <Competences id={"competences"} />
                 <Projets id={"projets"} />

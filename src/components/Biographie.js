@@ -8,9 +8,9 @@ const bioStyles = {
 
 const Biographie = (props) => {
   return (
-    <div style={bioStyles} id={props.id}>
+    <div style={bioStyles} id={props.id} className="grid grid-cols-1">
         <h1 className="contTitle">Biographie</h1>
-        <p className="contText text-justify pl-5 pr-5">
+        <p className="contText text-justify justify-self-center md:w-8/12">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
           laudantium voluptatum quod nam non asperiores molestiae dignissimos
           sunt iste, totam veniam reiciendis eaque impedit incidunt quidem
