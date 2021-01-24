@@ -13,7 +13,7 @@ import "../styles/index.css"
 
 const pageStyles = {
   color: "#232129",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif"
+  fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
 
 const contentStyles = {
@@ -21,7 +21,7 @@ const contentStyles = {
   position: "relative",
   backgroundColor: "white",
   borderRadius: "30px",
-  zIndex: 1
+  zIndex: 1,
 }
 
 const IndexPage = () => {
@@ -36,9 +36,12 @@ const IndexPage = () => {
         >
           {(spring) => (
             <div style={spring}>
-              <div style={contentStyles} className="mx-auto p-3 md:p-14 w-11/12 md:w-5/6 grid grid-cols-1 justify-center divide-y-4 gap-8">
+              <div
+                style={contentStyles}
+                className="mx-auto p-3 md:p-14 w-11/12 md:w-5/6 grid grid-cols-1 justify-center divide-y-4 gap-8"
+              >
                 <Biographie id={"bio"} />
-                <Competences id={"competences"}/>
+                <Competences id={"competences"} />
                 <Projets id={"projets"} />
               </div>
             </div>

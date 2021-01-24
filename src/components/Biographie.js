@@ -3,7 +3,7 @@ import React from "react"
 const bioStyles = {
   borderTopLeftRadius: "10px",
   borderTopRightRadius: "10px",
-  textAlign: "center"
+  textAlign: "center",
 }
 
 const Biographie = (props) => {
