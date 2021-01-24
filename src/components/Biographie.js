@@ -8,7 +8,7 @@ const bioStyles = {
 
 const Biographie = (props) => {
   return (
-    <div style={bioStyles} id={props.id}>
+    <div id={props.id} style={bioStyles}>
       <h1 className="contTitle">Biographie</h1>
       <p className="contText text-justify md:w-8/12">
         Depuis tout petit, je suis passionné par l'informatique et les nouvelles
