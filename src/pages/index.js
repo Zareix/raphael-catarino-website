@@ -5,7 +5,6 @@ import Layout from "../components/Layout"
 import Biographie from "../components/Biographie"
 import Competences from "../components/Competences"
 import Projets from "../components/Projets"
-import Contact from "../components/Contact"
 
 import { Spring, config } from "react-spring/renderprops"
 
