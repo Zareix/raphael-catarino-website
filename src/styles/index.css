@@ -1,13 +1,13 @@
 .contTitle {
-    font-size: 1.75rem;
+  font-size: 1.75rem;
 }
 
-.contText{
-    margin : auto;
-    font-size: 1.25rem;
+.contText {
+  margin: auto;
+  font-size: 1.25rem;
 }
 
 a.active {
-    color:#1a237e!important;
-    font-weight: bold;
+  color: #1a237e !important;
+  font-weight: bold;
 }
