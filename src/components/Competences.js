@@ -3,10 +3,10 @@ import React from "react"
 import { useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
-const compTitle = {
+const compTitleStyles = {
   fontSize: "1.5rem",
   marginTop: "1.5rem",
-  paddingTop: "0.5rem"
+  paddingTop: "0.5rem",
 }
 
 const Competences = (props) => {
@@ -59,7 +59,7 @@ const Competences = (props) => {
           Voici l'ensemble des langages de programmation que je maîtrise.
         </p>
         <div>
-          <h3 style={compTitle} className="w-6/12 border-t-2 mx-auto">
+          <h3 style={compTitleStyles} className="w-6/12 border-t-2 mx-auto">
             Web
           </h3>
           <div className="flex flex-wrap justify-items-center place-content-center">
@@ -73,7 +73,7 @@ const Competences = (props) => {
           </div>
         </div>
         <div>
-          <h3 style={compTitle} className="w-6/12 border-t-2 mx-auto">
+          <h3 style={compTitleStyles} className="w-6/12 border-t-2 mx-auto">
             Software
           </h3>
           <div className="flex flex-wrap justify-items-center place-content-center">
@@ -87,7 +87,7 @@ const Competences = (props) => {
           </div>
         </div>
         <div>
-          <h3 style={compTitle} className="w-6/12 border-t-2 mx-auto">
+          <h3 style={compTitleStyles} className="w-6/12 border-t-2 mx-auto">
             Database
           </h3>
           <div className="flex flex-wrap justify-items-center place-content-center">

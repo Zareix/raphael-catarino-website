@@ -48,7 +48,7 @@ const Navigation = () => {
           ((props) => (
             <div style={props}>
               <div style={navStyles}>
-                <div  className="flex justify-center md:justify-end  mr-3">
+                <div  className="flex justify-center md:justify-end  md:mr-3">
                   <a style={linkStyles} href="#bio">
                     A propos
                   </a>

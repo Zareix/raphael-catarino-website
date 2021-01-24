@@ -18,7 +18,6 @@ const pageStyles = {
 
 const contentStyles = {
   height: "1000px",
-  width: "80%",
   top: "-50px",
   position: "relative",
   backgroundColor: "white",
@@ -34,11 +33,10 @@ const IndexPage = () => {
           from={{ opacity: 0 }}
           to={{ opacity: 1 }}
           config={config.molasses}
-          delay={1000}
         >
           {(spring) => (
             <div style={spring}>
-              <div style={contentStyles} className="mx-auto p-4 md:p-14">
+              <div style={contentStyles} className="mx-auto p-3 md:p-14 w-11/12 md:w-5/6">
                 <Biographie id={"bio"} />
                 <Competences id={"competences"} />
                 <Projets id={"projets"} />
