@@ -14,7 +14,7 @@ import "../styles/index.css"
 const pageStyles = {
   color: "#232129",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
-  backgroundColor: "#F5F5F5" 
+  backgroundColor: "#F5F5F5",
 }
 
 const contentStyles = {
@@ -32,8 +32,8 @@ const IndexPage = () => {
       <Layout>
         <Presentation />
         <Spring
-          from={{ opacity: 0}}
-          to={{ opacity: 1}}
+          from={{ opacity: 0 }}
+          to={{ opacity: 1 }}
           config={config.molasses}
         >
           {(spring) => (

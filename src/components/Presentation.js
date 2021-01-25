@@ -29,7 +29,10 @@ const Presentation = () => {
       fluid={data.bgImage.childImageSharp.fluid}
       style={presStyles}
     >
-      <div style={{height : "90vh"}} className="flex justify-center items-center text-3xl">
+      <div
+        style={{ height: "90vh" }}
+        className="flex justify-center items-center text-3xl"
+      >
         <div className="text-center">
           <h1 className="font-bold text-4xl">Raphaël Catarino</h1>
           <h2>Etudiant en DUT Informatique</h2>

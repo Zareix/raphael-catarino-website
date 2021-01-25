@@ -45,7 +45,14 @@ const Projets = (props) => {
                 fluid={projet.frontmatter.featuredImage.childImageSharp.fluid}
                 alt={projet.frontmatter.title}
                 className="h-56"
-                imgStyle={projet.frontmatter.top ? {height : "14rem", '@media (min-width: 768px)': {height : "auto"}} : {}}
+                imgStyle={
+                  projet.frontmatter.top
+                    ? {
+                        height: "14rem",
+                        "@media (min-width: 768px)": { height: "auto" },
+                      }
+                    : {}
+                }
               />
               <div className="px-4 py-4 md:px-10">
                 <h1 className="font-bold text-lg">
