@@ -49,7 +49,7 @@ const Projets = (props) => {
                   projet.frontmatter.top
                     ? {
                         height: "14rem",
-                        "@media (min-width: 768px)": { height: "auto" },
+                        "@media (minWidth: 768px)": { height: "auto" },
                       }
                     : {}
                 }
