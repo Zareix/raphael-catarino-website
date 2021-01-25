@@ -57,6 +57,7 @@ const Navigation = () => {
                     smooth={true}
                     offset={-40}
                     duration={500}
+                    className="cursor-pointer"
                   >
                     A propos
                   </Link>
@@ -68,6 +69,7 @@ const Navigation = () => {
                     smooth={true}
                     offset={-40}
                     duration={500}
+                    className="cursor-pointer"
                   >
                     Mes compétences
                   </Link>
@@ -79,6 +81,7 @@ const Navigation = () => {
                     smooth={true}
                     offset={-40}
                     duration={500}
+                    className="cursor-pointer"
                   >
                     Mes projets
                   </Link>
