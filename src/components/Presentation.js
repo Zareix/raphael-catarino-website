@@ -3,14 +3,11 @@ import React from "react"
 import { useStaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
-import imgPres from "../images/imgPres.jpg"
-
 const presStyles = {
   height: "90vh",
   width: "100%",
   margin: 0,
   color: "white",
-  backgroundImage: `url(${imgPres})`,
 }
 
 const Presentation = () => {
@@ -27,22 +24,18 @@ const Presentation = () => {
     }
   `)
 
-  //<BackgroundImage
-  //Tag="presentation"
-  //fluid={data.bgImage.childImageSharp.fluid}
-  //style={presStyles}
-  //>
-
   return (
-    <div
+    <BackgroundImage
+      fluid={data.bgImage.childImageSharp.fluid}
       style={presStyles}
-      className="flex justify-center items-center text-3xl"
     >
-      <div className="text-center">
-        <h1 className="font-bold text-4xl">Raphaël Catarino</h1>
-        <h2>Etudiant en DUT Informatique</h2>
+      <div style={{height : "90vh"}} className="flex justify-center items-center text-3xl">
+        <div className="text-center">
+          <h1 className="font-bold text-4xl">Raphaël Catarino</h1>
+          <h2>Etudiant en DUT Informatique</h2>
+        </div>
       </div>
-    </div>
+    </BackgroundImage>
   )
 }
 
