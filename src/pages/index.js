@@ -14,6 +14,7 @@ import "../styles/index.css"
 const pageStyles = {
   color: "#232129",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  backgroundColor: "#F5F5F5" 
 }
 
 const contentStyles = {
@@ -31,15 +32,15 @@ const IndexPage = () => {
       <Layout>
         <Presentation />
         <Spring
-          from={{ opacity: 0 }}
-          to={{ opacity: 1 }}
+          from={{ opacity: 0}}
+          to={{ opacity: 1}}
           config={config.molasses}
         >
           {(spring) => (
             <div style={spring}>
               <div
                 style={contentStyles}
-                className="mx-auto p-3 md:p-14 w-11/12 md:w-5/6 grid grid-cols-1 justify-center divide-y-4 gap-8"
+                className="mx-auto p-5 md:p-14 w-11/12 md:w-5/6 grid grid-cols-1 justify-center divide-y-4 gap-8"
               >
                 <Biographie id={"bio"} />
                 <Competences id={"competences"} />
