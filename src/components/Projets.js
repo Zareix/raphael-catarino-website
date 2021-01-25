@@ -16,6 +16,8 @@ const Projets = (props) => {
               description
               github
               site
+              langages
+              top
               featuredImage {
                 childImageSharp {
                   fluid {
@@ -39,13 +41,12 @@ const Projets = (props) => {
         {projets.allMarkdownRemark.edges.map(({ node: projet }) => (
           <div key={projet.id} className="w-full lg:w-1/2 md:px-4 lg:px-6 py-5">
             <div className="bg-white hover:shadow-xl">
-              <div className="">
-                <Img
-                  fluid={projet.frontmatter.featuredImage.childImageSharp.fluid}
-                  alt={projet.frontmatter.title}
-                  className="h-56 w-full border-white border-8"
-                />
-              </div>
+              <Img
+                fluid={projet.frontmatter.featuredImage.childImageSharp.fluid}
+                alt={projet.frontmatter.title}
+                className="h-56"
+                imgStyle={projet.frontmatter.top ? {height : "14rem", '@media (min-width: 768px)': {height : "auto"}} : {}}
+              />
               <div className="px-4 py-4 md:px-10">
                 <h1 className="font-bold text-lg">
                   {projet.frontmatter.title}
@@ -53,21 +54,24 @@ const Projets = (props) => {
                 <p className="py-4 text-justify">
                   {projet.frontmatter.description}
                 </p>
+                <p className="italic">{projet.frontmatter.langages}</p>
                 <div className="flex pt-8 items-center">
                   <div className="w-full md:w-2/3 text-sm font-medium">
                     {projet.frontmatter.date}
                   </div>
                   <div className="flex text-sm font-medium text-white text-center gap-2">
-                    <a
-                      href={projet.frontmatter.github}
-                      className="bg-blue-600 p-2 rounded-full"
-                    >
-                      Github
-                    </a>
+                    {projet.frontmatter.github && (
+                      <a
+                        href={projet.frontmatter.github}
+                        className="bg-blue-600 p-2 rounded-full"
+                      >
+                        Github
+                      </a>
+                    )}
                     {projet.frontmatter.site && (
                       <a
                         href={projet.frontmatter.site}
-                        className="bg-blue-600 p-2 rounded-full"
+                        className="bg-blue-600 p-2 pr-3 pl-3 rounded-full"
                       >
                         Lien
                       </a>
