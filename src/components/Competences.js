@@ -20,6 +20,7 @@ const Competences = (props) => {
           childImageSharp {
             fluid(maxWidth: 700) {
               ...GatsbyImageSharpFluid_tracedSVG
+              originalName
             }
           }
         }
@@ -32,6 +33,7 @@ const Competences = (props) => {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid_tracedSVG
+              originalName
             }
           }
         }
@@ -44,6 +46,7 @@ const Competences = (props) => {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid_tracedSVG
+              originalName
             }
           }
         }
@@ -64,8 +67,8 @@ const Competences = (props) => {
         <p className="contText text-center">
           Voici l'ensemble des langages de programmation que je maîtrise.
         </p>
-        {catComp.map((cat) => (
-          <div>
+        {catComp.map((cat, index) => (
+          <div key={index}>
             <h3 style={compTitleStyles} className="w-6/12 border-t-2 mx-auto">
               {cat.name}
             </h3>
@@ -74,6 +77,7 @@ const Competences = (props) => {
                 <Img
                   key={img.id}
                   fluid={img.childImageSharp.fluid}
+                  alt={`${cat.name} ${img.childImageSharp.fluid.originalName}`}
                   className="w-2/5 md:w-1/5 ml-2 mr-2"
                 ></Img>
               ))}
