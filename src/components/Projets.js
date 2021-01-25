@@ -1,9 +1,86 @@
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 import React from "react"
 
 const Projets = (props) => {
-  return <div id={props.id}>
+  const projets = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark {
+        totalCount
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              date(formatString: "DD/MM/YYYY")
+              description
+              github
+              site
+              featuredImage {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
+            excerpt
+            html
+          }
+        }
+      }
+    }
+  `)
 
-  </div>
+  return (
+    <div id={props.id} className="pt-8">
+      <h1 className="contTitle text-center">Mes projets</h1>
+      <div className="flex flex-wrap px-6">
+        {projets.allMarkdownRemark.edges.map(({ node: projet }) => (
+          <div key={projet.id} className="w-full lg:w-1/2 md:px-4 lg:px-6 py-5">
+            <div className="bg-white hover:shadow-xl">
+              <div className="">
+                <Img
+                  fluid={projet.frontmatter.featuredImage.childImageSharp.fluid}
+                  alt={projet.frontmatter.title}
+                  className="h-56 w-full border-white border-8"
+                />
+              </div>
+              <div className="px-4 py-4 md:px-10">
+                <h1 className="font-bold text-lg">
+                  {projet.frontmatter.title}
+                </h1>
+                <p className="py-4 text-justify">
+                  {projet.frontmatter.description}
+                </p>
+                <div className="flex pt-8 items-center">
+                  <div className="w-full md:w-2/3 text-sm font-medium">
+                    {projet.frontmatter.date}
+                  </div>
+                  <div className="flex text-sm font-medium text-white text-center gap-2">
+                    <a
+                      href={projet.frontmatter.github}
+                      className="bg-blue-600 p-2 rounded-full"
+                    >
+                      Github
+                    </a>
+                    {projet.frontmatter.site && (
+                      <a
+                        href={projet.frontmatter.site}
+                        className="bg-blue-600 p-2 rounded-full"
+                      >
+                        Lien
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export default Projets
