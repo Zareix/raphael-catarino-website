@@ -10,10 +10,11 @@ import SEO from "../components/Seo"
 import { Spring, config } from "react-spring/renderprops"
 
 import "../styles/index.css"
+import "fontsource-open-sans"
 
 const pageStyles = {
+  fontFamily: "Open Sans",
   color: "#232129",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
   backgroundColor: "#F5F5F5",
 }
 
