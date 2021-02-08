@@ -16,7 +16,7 @@ const Presentation = () => {
       bgImage: file(relativePath: { eq: "imgPres.jpg" }) {
         id
         childImageSharp {
-          fluid(maxWidth: 1920) {
+          fluid(maxWidth: 1920, quality: 100) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
@@ -30,7 +30,7 @@ const Presentation = () => {
       style={presStyles}
     >
       <div
-        style={{ height: "90vh" }}
+        style={{ height: "90vh", backdropFilter: "blur(2px)" }}
         className="flex justify-center items-center text-3xl"
       >
         <div className="text-center">

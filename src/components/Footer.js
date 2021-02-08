@@ -1,7 +1,5 @@
 import React from "react"
 
-import { Link } from "gatsby"
-
 const footerStyles = {
   backgroundColor: "#424242",
   color: "#BDBDBD",
@@ -15,7 +13,6 @@ const Footer = () => {
       style={footerStyles}
       className="grid grid-cols-1 content-end justify-items-center p-10"
     >
-      {/*<Link to="/contact" className="underline">Contactez moi</Link>*/}
       <a href="mailto:raphcatarino@gmail.com" className="underline">
         Contactez moi
       </a>
