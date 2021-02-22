@@ -6,6 +6,7 @@ import Biographie from "../components/Biographie"
 import Competences from "../components/Competences"
 import Projets from "../components/Projets"
 import SEO from "../components/Seo"
+import ScrollButton from "../components/ScrollButton"
 
 import { Spring, config } from "react-spring/renderprops"
 
@@ -51,6 +52,7 @@ const IndexPage = () => {
           )}
         </Spring>
       </Layout>
+      <ScrollButton />
     </main>
   )
 }
