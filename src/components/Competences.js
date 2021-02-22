@@ -15,7 +15,7 @@ const Competences = (props) => {
   const data = useStaticQuery(graphql`
     query {
       imagesWeb: allFile(
-        filter: { relativeDirectory: { eq: "logoComp/web" } }
+        filter: { relativeDirectory: { eq: "logoComp/web" } }, sort: {fields: name}
       ) {
         nodes {
           id
@@ -29,7 +29,7 @@ const Competences = (props) => {
         }
       }
       imagesSoft: allFile(
-        filter: { relativeDirectory: { eq: "logoComp/logiciels" } }
+        filter: { relativeDirectory: { eq: "logoComp/logiciels" } }, sort: {fields: name}
       ) {
         nodes {
           id
@@ -43,7 +43,7 @@ const Competences = (props) => {
         }
       }
       imagesDb: allFile(
-        filter: { relativeDirectory: { eq: "logoComp/database" } }
+        filter: { relativeDirectory: { eq: "logoComp/database" } }, sort: {fields: name}
       ) {
         nodes {
           id
