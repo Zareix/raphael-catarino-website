@@ -8,6 +8,7 @@ const presStyles = {
   width: "100%",
   margin: 0,
   color: "white",
+  backgroundAttachment: "fixed"
 }
 
 const Presentation = () => {
