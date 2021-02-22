@@ -1,7 +1,9 @@
 import React from "react"
 
+import Competence from "./Competence"
+
+import ReactTooltip from 'react-tooltip';
 import { useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
 
 const compTitleStyles = {
   fontSize: "1.5rem",
@@ -17,6 +19,7 @@ const Competences = (props) => {
       ) {
         nodes {
           id
+          name
           childImageSharp {
             fluid(maxWidth: 700) {
               ...GatsbyImageSharpFluid_tracedSVG
@@ -30,6 +33,7 @@ const Competences = (props) => {
       ) {
         nodes {
           id
+          name
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid_tracedSVG
@@ -43,6 +47,7 @@ const Competences = (props) => {
       ) {
         nodes {
           id
+          name
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid_tracedSVG
@@ -74,17 +79,16 @@ const Competences = (props) => {
             </h3>
             <div className="flex flex-wrap justify-items-center place-content-center">
               {cat.images.nodes.map((img) => (
-                <Img
-                  key={img.id}
-                  fluid={img.childImageSharp.fluid}
-                  alt={`${cat.name} ${img.childImageSharp.fluid.originalName}`}
-                  className="w-2/5 md:w-1/5 ml-2 mr-2"
-                ></Img>
+                <div
+                  className="w-2/5 md:w-1/5 ml-2 mr-2">
+                  <Competence img={img} cat={cat} />
+                </div>
               ))}
             </div>
           </div>
         ))}
       </div>
+      <ReactTooltip place="bottom" effect="solid" offset={{top : 14}} backgroundColor="#2563EB" textColor="white" delayUpdate={0} clickable/>
     </div>
   )
 }
