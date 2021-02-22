@@ -12,7 +12,7 @@ const navStyles = {
 }
 
 const linkStyles = {
-  color: "#303F9F",
+  color: "#2563EB",
   margin: "10px",
   height: "100%",
 }
