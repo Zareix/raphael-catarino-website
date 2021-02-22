@@ -39,7 +39,7 @@ const Projets = (props) => {
       <div className="flex flex-wrap px-6">
         {projets.allMarkdownRemark.edges.map(({ node: projet }) => (
           <div key={projet.id} className="w-full lg:w-1/2 md:px-4 lg:px-6 py-5">
-            <div className="bg-white hover:shadow-xl">
+            <div className="h-full shadow-lg transform ease-out duration-500 hover:scale-105">
               <Img
                 fluid={projet.frontmatter.featuredImage.childImageSharp.fluid}
                 alt={projet.frontmatter.title}
@@ -57,7 +57,7 @@ const Projets = (props) => {
                   <div className="w-full md:w-2/3 text-sm font-medium">
                     {projet.frontmatter.date}
                   </div>
-                  <div className="flex text-sm font-medium text-white text-center gap-2">
+                  <div className="w-full flex justify-end gap-2 text-sm font-medium text-white text-center">
                     {projet.frontmatter.github && (
                       <a
                         href={projet.frontmatter.github}
