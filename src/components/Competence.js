@@ -6,7 +6,7 @@ const Competence = (props) => {
     const cat = props.cat
     const img = props.img
 
-    const name = img.name.substring(2).replace('#','/')
+    const name = img.name.substring(2).replace('_','/')
 
     return (
         <div>
