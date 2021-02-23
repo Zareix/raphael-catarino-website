@@ -3,7 +3,7 @@ import React from "react"
 import Competence from "./Competence"
 
 import ReactTooltip from 'react-tooltip';
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 const compTitleStyles = {
   fontSize: "1.5rem",
