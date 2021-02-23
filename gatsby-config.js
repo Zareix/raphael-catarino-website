@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: "Raphaël Catarino",
     description:
-      "Raphaël Catarino's portofolio : apprenez en plus sur moi ici !",
+      "Raphaël Catarino's portfolio : apprenez en plus sur moi !",
     author: "Raphaël Catarino",
   },
   plugins: [
