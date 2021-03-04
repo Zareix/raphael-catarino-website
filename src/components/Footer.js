@@ -1,23 +1,24 @@
 import React from "react"
 
-const footerStyles = {
-  backgroundColor: "#424242",
-  color: "#BDBDBD",
-  height: "15rem",
-  marginTop: "-120px",
-}
+import { styled } from "styled-components"
+
+const FooterStyled = styled.div`
+    background-color: #424242;
+    color: #BDBDBD;
+    height: 40vh;
+    bottom: 30vh;
+  `
 
 const Footer = () => {
   return (
-    <div
-      style={footerStyles}
+    <FooterStyled
       className="grid grid-cols-1 content-end justify-items-center p-10"
     >
       <a href="mailto:raphcatarino@gmail.com" className="underline">
         Contactez moi
       </a>
       <p>Raphaël Catarino - Portofolio ©</p>
-    </div>
+    </FooterStyled>
   )
 }
 

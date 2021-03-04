@@ -31,7 +31,6 @@ const Main = styled.div`
     border-radius: 30px;
     z-index: 1;
     display: grid;
-    padding: 1.5rem;
   `
 
 const defaultStyle = {
@@ -87,7 +86,7 @@ const IndexPage = () => {
 const Content = () => {
   return (
     <Main
-      className="md:p-14 w-11/12 md:w-5/6 divide-y-4 gap-8"
+      className="p-8 md:p-14 w-11/12 md:w-5/6 divide-y-4 gap-8"
     >
       <Biographie id={"bio"} />
       <Competences id={"competences"} />
