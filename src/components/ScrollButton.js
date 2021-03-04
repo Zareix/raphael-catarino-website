@@ -16,14 +16,13 @@ const scrollBtnStyles = {
 }
 
 const ScrollButton = () => {
-
     return (
         <div id="scrollBtn" style={scrollBtnStyles}>
             <FaArrowCircleUp
                 onClick={() => {
                     animateScroll.scrollToTop();
                 }}
-                size={30} 
+                size={30}
                 className="hover:opacity-80"
             />
         </div>

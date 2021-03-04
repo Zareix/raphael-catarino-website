@@ -6,6 +6,7 @@ module.exports = {
     author: "Raphaël Catarino",
   },
   plugins: [
+    `gatsby-plugin-image`,
     "gatsby-plugin-postcss",
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",

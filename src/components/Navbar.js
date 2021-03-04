@@ -55,7 +55,7 @@ const Navigation = () => {
                     to="bio"
                     spy={true}
                     smooth={true}
-                    offset={-40}
+                    offset={-70}
                     duration={500}
                     className="cursor-pointer"
                   >
@@ -67,7 +67,7 @@ const Navigation = () => {
                     to="competences"
                     spy={true}
                     smooth={true}
-                    offset={-40}
+                    offset={-70}
                     duration={500}
                     className="cursor-pointer"
                   >
@@ -79,7 +79,7 @@ const Navigation = () => {
                     to="projets"
                     spy={true}
                     smooth={true}
-                    offset={-40}
+                    offset={-70}
                     duration={500}
                     className="cursor-pointer"
                   >

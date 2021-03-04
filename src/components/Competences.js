@@ -80,6 +80,7 @@ const Competences = (props) => {
             <div className="flex flex-wrap justify-items-center place-content-center">
               {cat.images.nodes.map((img) => (
                 <div
+                  key={img.id}
                   className="w-2/5 md:w-1/5 ml-2 mr-2">
                   <Competence img={img} cat={cat} />
                 </div>
