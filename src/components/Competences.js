@@ -12,52 +12,45 @@ const compTitleStyles = {
 }
 
 const Competences = (props) => {
-  const data = useStaticQuery(graphql`
-    query {
-      imagesWeb: allFile(
-        filter: { relativeDirectory: { eq: "logoComp/web" } }, sort: {fields: name}
-      ) {
-        nodes {
-          id
-          name
-          childImageSharp {
-            fluid(maxWidth: 700) {
-              ...GatsbyImageSharpFluid_tracedSVG
-              originalName
-            }
-          }
-        }
-      }
-      imagesSoft: allFile(
-        filter: { relativeDirectory: { eq: "logoComp/logiciels" } }, sort: {fields: name}
-      ) {
-        nodes {
-          id
-          name
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid_tracedSVG
-              originalName
-            }
-          }
-        }
-      }
-      imagesDb: allFile(
-        filter: { relativeDirectory: { eq: "logoComp/database" } }, sort: {fields: name}
-      ) {
-        nodes {
-          id
-          name
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid_tracedSVG
-              originalName
-            }
-          }
-        }
+  const data = useStaticQuery(graphql`{
+  imagesWeb: allFile(
+    filter: {relativeDirectory: {eq: "logoComp/web"}}
+    sort: {fields: name}
+  ) {
+    nodes {
+      id
+      name
+      childImageSharp {
+        gatsbyImageData(width: 700, placeholder: TRACED_SVG, layout: CONSTRAINED)
       }
     }
-  `)
+  }
+  imagesSoft: allFile(
+    filter: {relativeDirectory: {eq: "logoComp/logiciels"}}
+    sort: {fields: name}
+  ) {
+    nodes {
+      id
+      name
+      childImageSharp {
+        gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
+      }
+    }
+  }
+  imagesDb: allFile(
+    filter: {relativeDirectory: {eq: "logoComp/database"}}
+    sort: {fields: name}
+  ) {
+    nodes {
+      id
+      name
+      childImageSharp {
+        gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
+      }
+    }
+  }
+}
+`)
 
   const catComp = [
     { name: "Web", images: data.imagesWeb },
@@ -89,7 +82,7 @@ const Competences = (props) => {
           </div>
         ))}
       </div>
-      <ReactTooltip place="bottom" effect="solid" offset={{top : 14}} backgroundColor="#2563EB" textColor="white" delayUpdate={0} clickable/>
+      <ReactTooltip place="bottom" effect="solid" offset={{ top: 14 }} backgroundColor="#2563EB" textColor="white" delayUpdate={0} clickable />
     </div>
   )
 }

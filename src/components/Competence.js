@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Competence = (props) => {
     const catName = props.cat.name
@@ -12,11 +12,10 @@ const Competence = (props) => {
         <div
             data-tip={name}
         >
-            <Img
+            <GatsbyImage
+                image={img.childImageSharp.gatsbyImageData}
                 key={img.id}
-                fluid={img.childImageSharp.fluid}
-                alt={catName + " " + name}
-            ></Img>
+                alt={catName + " " + name} />
         </div>
     )
 }

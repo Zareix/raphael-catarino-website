@@ -1,38 +1,35 @@
 import React from "react"
 
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Projets = (props) => {
-  const projets = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark {
-        totalCount
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              date(formatString: "DD/MM/YYYY")
-              description
-              github
-              site
-              langages
-              featuredImage {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
+  const projets = useStaticQuery(graphql`{
+  allMarkdownRemark {
+    totalCount
+    edges {
+      node {
+        id
+        frontmatter {
+          title
+          date(formatString: "DD/MM/YYYY")
+          description
+          github
+          site
+          langages
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH)
             }
-            excerpt
-            html
           }
         }
+        excerpt
+        html
       }
     }
-  `)
+  }
+}
+`)
 
   return (
     <div id={props.id} className="pt-8">
@@ -41,11 +38,10 @@ const Projets = (props) => {
         {projets.allMarkdownRemark.edges.map(({ node: projet }) => (
           <div key={projet.id} className="w-full lg:w-1/2 md:px-4 lg:px-6 py-5">
             <div className="h-full shadow-lg transform ease-out duration-500 hover:scale-105">
-              <Img
-                fluid={projet.frontmatter.featuredImage.childImageSharp.fluid}
+              <GatsbyImage
+                image={projet.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
                 alt={projet.frontmatter.title}
-                className="h-56"
-              />
+                className="h-56" />
               <div className="px-4 py-4 md:px-10">
                 <h1 className="font-bold text-lg">
                   {projet.frontmatter.title}
@@ -83,7 +79,7 @@ const Projets = (props) => {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default Projets
