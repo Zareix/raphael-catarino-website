@@ -4,12 +4,14 @@ import Competence from "./Competence"
 
 import ReactTooltip from 'react-tooltip';
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components";
 
-const compTitleStyles = {
-  fontSize: "1.5rem",
-  marginTop: "1.5rem",
-  paddingTop: "0.5rem",
-}
+
+const Title = styled.h3`
+    font-size : 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 0.5rem;
+  `
 
 const Competences = (props) => {
   const data = useStaticQuery(graphql`{
@@ -67,9 +69,9 @@ const Competences = (props) => {
         </p>
         {catComp.map((cat, index) => (
           <div key={index}>
-            <h3 style={compTitleStyles} className="w-6/12 border-t-2 mx-auto">
+            <Title className="w-6/12 border-t-2 mx-auto">
               {cat.name}
-            </h3>
+            </Title>
             <div className="flex flex-wrap justify-items-center place-content-center">
               {cat.images.nodes.map((img) => (
                 <div

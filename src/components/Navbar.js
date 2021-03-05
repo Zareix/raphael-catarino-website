@@ -2,20 +2,22 @@ import React, { useState, useEffect } from "react"
 
 import { Link } from "react-scroll"
 import { Transition } from "react-spring/renderprops"
+import styled from "styled-components"
 
-const navStyles = {
-  position: "fixed",
-  backgroundColor: `rgba(255, 255, 255, 0.7)`,
-  width: "100%",
-  height: "50px",
-  margin: "0",
-}
+const LinkStyled = styled(Link)`
+    color: #2563EB;
+    margin: 10px;
+    height: 100%;
+    cursor: pointer;
+  `
 
-const linkStyles = {
-  color: "#2563EB",
-  margin: "10px",
-  height: "100%",
-}
+const MyNavbar = styled.div`
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    height: 50px;
+    margin: 0;
+  `
 
 const Navigation = () => {
   const [visible, setVisible] = useState(false)
@@ -32,7 +34,7 @@ const Navigation = () => {
     }
 
     window.addEventListener("scroll", handleScroll)
-    return () => {}
+    return () => { }
   }, [visible])
 
   return (
@@ -47,46 +49,40 @@ const Navigation = () => {
           visible &&
           ((props) => (
             <div style={props}>
-              <div style={navStyles}>
+              <MyNavbar>
                 <div className="flex justify-center md:justify-end md:mr-3">
-                  <Link
-                    style={linkStyles}
+                  <LinkStyled
                     activeClass="active"
                     to="bio"
                     spy={true}
                     smooth={true}
                     offset={-70}
                     duration={500}
-                    className="cursor-pointer"
                   >
                     A propos
-                  </Link>
-                  <Link
-                    style={linkStyles}
+                  </LinkStyled>
+                  <LinkStyled
                     activeClass="active"
                     to="competences"
                     spy={true}
                     smooth={true}
                     offset={-70}
                     duration={500}
-                    className="cursor-pointer"
                   >
                     Mes compétences
-                  </Link>
-                  <Link
-                    style={linkStyles}
+                  </LinkStyled>
+                  <LinkStyled
                     activeClass="active"
                     to="projets"
                     spy={true}
                     smooth={true}
                     offset={-70}
                     duration={500}
-                    className="cursor-pointer"
                   >
                     Mes projets
-                  </Link>
+                  </LinkStyled>
                 </div>
-              </div>
+              </MyNavbar>
             </div>
           ))
         }

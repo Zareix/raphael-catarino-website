@@ -1,14 +1,15 @@
 import React from "react"
+import styled from "styled-components"
 
-const bioStyles = {
-  borderTopLeftRadius: "10px",
-  borderTopRightRadius: "10px",
-  textAlign: "center",
-}
-
+const BioStyled = styled.div`
+    border-top-left-radius : 10px;
+    border-top-right-radius : 10px;
+    text-align: center;
+  `
+  
 const Biographie = (props) => {
   return (
-    <div id={props.id} style={bioStyles} className="pt-4 md:pt-0">
+    <BioStyled id={props.id} className="pt-4 md:pt-0">
       <h1 className="contTitle">Biographie</h1>
       <p className="contText text-justify md:w-8/12">
         Depuis tout petit, je suis passionné par l'informatique et les nouvelles
@@ -20,7 +21,7 @@ const Biographie = (props) => {
         Vous trouverez sur ce site l'intégralité de mes compétences dans ce
         domaine ainsi que mes divers projets.
       </p>
-    </div>
+    </BioStyled>
   )
 }
 

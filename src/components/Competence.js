@@ -9,9 +9,7 @@ const Competence = (props) => {
     const name = img.name.substring(2).replace('_', '/')
 
     return (
-        <div
-            data-tip={name}
-        >
+        <div data-tip={name}>
             <GatsbyImage
                 image={img.childImageSharp.gatsbyImageData}
                 key={img.id}

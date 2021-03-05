@@ -2,22 +2,23 @@ import React from "react"
 
 import { FaArrowCircleUp } from "react-icons/fa";
 import { animateScroll } from "react-scroll"
+import styled from "styled-components";
 
-const scrollBtnStyles = {
-    textDecoration: "none",
-    position: "fixed",
-    bottom: "40px",
-    right: "1.5rem",
-    alignItems: "center",
-    justifyContent: "center",
-    cursor: "pointer",
-    opacity: "0.5",
-    zIndex: 10
-}
+const ButtonStyled = styled.div`
+        text-decoration: none;
+        position: fixed;
+        bottom: 40px;
+        right: 1.5rem;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0.5;
+        z-index: 1;
+    `
 
 const ScrollButton = () => {
     return (
-        <div id="scrollBtn" style={scrollBtnStyles}>
+        <ButtonStyled id="scrollBtn">
             <FaArrowCircleUp
                 onClick={() => {
                     animateScroll.scrollToTop();
@@ -25,7 +26,7 @@ const ScrollButton = () => {
                 size={30}
                 className="hover:opacity-80"
             />
-        </div>
+        </ButtonStyled>
     );
 };
 
