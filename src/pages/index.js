@@ -66,7 +66,7 @@ const IndexPage = () => {
       <SEO title="Portofolio" />
       <Layout>
         <Presentation />
-        <BeforeContent />
+        {showScroll ? <div style={{height : "30px"}}></div> : <BeforeContent />}
         <Transition in={showScroll} timeout={500}>
           {state => (
             <div style={{
