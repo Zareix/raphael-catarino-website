@@ -50,15 +50,15 @@ const Projets = (props) => {
                   {projet.frontmatter.description}
                 </p>
                 <p className="italic">{projet.frontmatter.langages}</p>
-                <div className="flex pt-8 items-center">
+                <div className="flex pt-8 items-center align-bottom h-full">
                   <div className="w-full md:w-2/3 text-sm font-medium">
                     {projet.frontmatter.date}
                   </div>
-                  <div className="w-full flex justify-end gap-2 text-sm font-medium text-white text-center">
+                  <div className="w-full flex justify-end gap-4 text-sm font-medium text-white text-center">
                     {projet.frontmatter.github && (
                       <a
                         href={projet.frontmatter.github}
-                        className="bg-blue-600 p-2 rounded-full"
+                        className="bg-blue-600 p-1 rounded-lg ring"
                       >
                         Github
                       </a>
@@ -66,7 +66,7 @@ const Projets = (props) => {
                     {projet.frontmatter.site && (
                       <a
                         href={projet.frontmatter.site}
-                        className="bg-blue-600 p-2 pr-3 pl-3 rounded-full"
+                        className="bg-blue-600 p-1 pr-3 pl-3 rounded-lg ring"
                       >
                         Lien
                       </a>
