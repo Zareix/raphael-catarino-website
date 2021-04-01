@@ -14,7 +14,7 @@ const Footer = () => {
     <FooterStyled
       className="grid grid-cols-1 content-end justify-items-center p-10"
     >
-      <a href="mailto:raphcatarino@gmail.com" className="underline">
+      <a href="mailto:contact@raphael-catarino.fr" className="underline">
         Contactez moi
       </a>
       <p>Raphaël Catarino - Portofolio ©</p>
