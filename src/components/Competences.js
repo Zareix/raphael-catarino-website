@@ -65,7 +65,7 @@ const Competences = (props) => {
       <div className="text-center">
         <h1 className="contTitle">Compétences</h1>
         <p className="contText text-center">
-          Voici l'ensemble des langages de programmation que je maîtrise.
+          Voici l'ensemble des langages et technologies de programmation que je maîtrise.
         </p>
         {catComp.map((cat, index) => (
           <div key={index}>
