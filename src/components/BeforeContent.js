@@ -6,11 +6,12 @@ import { Link } from "react-scroll"
 
 const Wrapper = styled.div`
         position : relative;
-        top: -22vh;
+        top: -10vh;
         width: 100%;
         height: 30px;
         display: grid;
         justify-content: center;
+        z-index: 30;
     `
 
 const BeforeContent = () => {
@@ -19,10 +20,10 @@ const BeforeContent = () => {
             <Link
                 to="bio"
                 smooth={true}
-                offset={-70}
+                offset={-120}
                 duration={800}
                 className="cursor-pointer">
-                <BsArrowDown className=" text-black" size={30} />
+                <BsArrowDown className="text-white" size={40} />
             </Link>
         </Wrapper>
     )

@@ -34,9 +34,9 @@ const Projets = (props) => {
   return (
     <div id={props.id} className="pt-8">
       <h1 className="contTitle text-center">Mes projets</h1>
-      <div className="flex flex-wrap px-6">
+      <div className="flex flex-wrap md:px-6">
         {projets.allMarkdownRemark.edges.map(({ node: projet }) => (
-          <div key={projet.id} className="w-full lg:w-1/2 md:px-4 lg:px-6 py-5">
+          <div key={projet.id} className="w-full md:w-1/2 md:px-6 py-5">
             <div className="h-full shadow-lg transform ease-out duration-500 hover:scale-105">
               <GatsbyImage
                 image={projet.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
@@ -58,7 +58,7 @@ const Projets = (props) => {
                     {projet.frontmatter.github && (
                       <a
                         href={projet.frontmatter.github}
-                        className="bg-blue-600 p-1 rounded-lg ring"
+                        className="bg-blue-600 p-1 rounded-lg ring-2"
                       >
                         Github
                       </a>
@@ -66,7 +66,7 @@ const Projets = (props) => {
                     {projet.frontmatter.site && (
                       <a
                         href={projet.frontmatter.site}
-                        className="bg-blue-600 p-1 pr-3 pl-3 rounded-lg ring"
+                        className="bg-blue-600 p-1 pr-3 pl-3 rounded-lg ring-2"
                       >
                         Lien
                       </a>

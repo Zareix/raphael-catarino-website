@@ -6,8 +6,6 @@ import styled from "styled-components"
 
 const LinkStyled = styled(Link)`
     color: #2563EB;
-    margin: 10px;
-    height: 100%;
     cursor: pointer;
   `
 
@@ -34,7 +32,6 @@ const Navigation = () => {
     }
 
     window.addEventListener("scroll", handleScroll)
-    return () => { }
   }, [visible])
 
   return (
@@ -50,7 +47,7 @@ const Navigation = () => {
           ((props) => (
             <div style={props}>
               <MyNavbar>
-                <div className="flex justify-center md:justify-end md:mr-3">
+                <div className="h-full flex justify-center md:justify-end items-center text-center md:text-justify gap-3 md:gap-6 md:mr-6">
                   <LinkStyled
                     activeClass="active"
                     to="bio"

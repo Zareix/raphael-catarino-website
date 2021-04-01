@@ -12,16 +12,16 @@ import Layout from "../components/Layout"
 import Biographie from "../components/Biographie"
 import Competences from "../components/Competences"
 import Projets from "../components/Projets"
-import SEO from "../components/Seo"
+import Seo from "../components/Seo"
 import ScrollButton from "../components/ScrollButton"
 import BeforeContent from "../components/BeforeContent";
 
 
-const pageStyles = {
-  fontFamily: "Open Sans",
-  color: "#232129",
-  backgroundColor: "#F5F5F5",
-}
+const Page = styled.main`
+  font-family: "Open Sans";
+  color: #232129;
+  background-color: #F5F5F5;
+`
 
 const Main = styled.div`
     top: -30vh;
@@ -31,6 +31,9 @@ const Main = styled.div`
     border-radius: 30px;
     z-index: 1;
     display: grid;
+    @media (max-width: 768px) {
+      top: -20vh;
+    }
   `
 
 const defaultStyle = {
@@ -62,11 +65,11 @@ const IndexPage = () => {
   }, [showScroll])
 
   return (
-    <main style={pageStyles}>
-      <SEO title="Portofolio" />
+    <Page>
+      <Seo title="Portfolio" />
       <Layout>
         <Presentation />
-        {showScroll ? <div style={{height : "30px"}}></div> : <BeforeContent />}
+        {showScroll ? <div style={{ height: "30px" }}></div> : <BeforeContent />}
         <Transition in={showScroll} timeout={500}>
           {state => (
             <div style={{
@@ -79,7 +82,7 @@ const IndexPage = () => {
           )}
         </Transition>
       </Layout >
-    </main >
+    </Page >
   )
 }
 
