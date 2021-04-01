@@ -12,7 +12,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     {
       resolve: 'gatsby-transformer-remark',
-      options:{
+      options: {
         plugins: [
           'gatsby-remark-relative-images',
           {
@@ -57,5 +57,5 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`
-  ],
+  ]
 }
