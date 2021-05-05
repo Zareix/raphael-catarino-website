@@ -25,7 +25,7 @@ const IndexPage = () => {
   return (
     <MainStyled>
       <div className="text-center">
-        <OfflineSvg className="h-80 md:h-96" />
+        <OfflineSvg className="h-64 md:h-96" />
         <p>Oups ! Page introuvable. </p>
         <LinkStyled to="/">Revenez à mon site</LinkStyled>
       </div>
