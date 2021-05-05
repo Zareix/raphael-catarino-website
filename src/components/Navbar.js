@@ -1,21 +1,41 @@
 import React, { useState, useEffect } from "react"
 
 import { Link } from "react-scroll"
-import { Transition } from "react-spring/renderprops"
 import styled from "styled-components"
 
 const LinkStyled = styled(Link)`
-    color: #2563EB;
-    cursor: pointer;
-  `
+  color: #2563eb;
+  cursor: pointer;
+  padding: 0 0.5em;
+
+  @media (min-width: 768px) {
+    padding: 0 1em;
+  }
+
+  &.active {
+    color: #1a237e !important;
+    font-weight: bold;
+  }
+`
 
 const MyNavbar = styled.div`
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.7);
-    width: 100%;
-    height: 50px;
-    margin: 0;
-  `
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  z-index: 2;
+  animation: scrollFromTop 500ms ease-out;
+
+  @keyframes scrollFromTop {
+    from {
+      transform: translateY(-50px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+`
 
 const Navigation = () => {
   const [visible, setVisible] = useState(false)
@@ -34,57 +54,43 @@ const Navigation = () => {
     window.addEventListener("scroll", handleScroll)
   }, [visible])
 
+  if (!visible) return null
+
   return (
-    <div style={{ position: "fixed", zIndex: 2 }}>
-      <Transition
-        items={visible}
-        from={{ marginTop: -100 }}
-        enter={{ marginTop: 0 }}
-        leave={{ marginTop: -100 }}
-      >
-        {(visible) =>
-          visible &&
-          ((props) => (
-            <div style={props}>
-              <MyNavbar>
-                <div className="h-full flex justify-center md:justify-end items-center text-center md:text-justify gap-3 md:gap-6 md:mr-6">
-                  <LinkStyled
-                    activeClass="active"
-                    to="bio"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                  >
-                    A propos
-                  </LinkStyled>
-                  <LinkStyled
-                    activeClass="active"
-                    to="competences"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                  >
-                    Mes compétences
-                  </LinkStyled>
-                  <LinkStyled
-                    activeClass="active"
-                    to="projets"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                  >
-                    Mes projets
-                  </LinkStyled>
-                </div>
-              </MyNavbar>
-            </div>
-          ))
-        }
-      </Transition>
-    </div>
+    <MyNavbar>
+      <div className="h-full flex divide-x divide-gray-400 justify-center md:justify-end items-center text-center md:text-justify md:mr-6">
+        <LinkStyled
+          activeClass="active"
+          to="bio"
+          spy
+          smooth
+          offset={-70}
+          duration={500}
+        >
+          A propos
+        </LinkStyled>
+        <LinkStyled
+          activeClass="active"
+          to="competences"
+          spy
+          smooth
+          offset={-70}
+          duration={500}
+        >
+          Mes compétences
+        </LinkStyled>
+        <LinkStyled
+          activeClass="active"
+          to="projets"
+          spy
+          smooth
+          offset={-70}
+          duration={500}
+        >
+          Mes projets
+        </LinkStyled>
+      </div>
+    </MyNavbar>
   )
 }
 

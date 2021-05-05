@@ -2,11 +2,11 @@ import React from "react"
 import styled from "styled-components"
 
 const BioStyled = styled.div`
-    border-top-left-radius : 10px;
-    border-top-right-radius : 10px;
-    text-align: center;
-  `
-  
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+`
+
 const Biographie = (props) => {
   return (
     <BioStyled id={props.id} className="pt-4 md:pt-0">

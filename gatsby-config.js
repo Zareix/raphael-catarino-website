@@ -43,6 +43,14 @@ module.exports = {
       __key: "pages",
     },
     {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /svg/
+        }
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Raphaël Catarino's Website",

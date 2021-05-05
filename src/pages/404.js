@@ -1,21 +1,35 @@
-import * as React from "react"
+import React from "react"
 
 import { Link } from "gatsby"
+import styled from "styled-components"
 
 import "../styles/index.css"
 
-const pageStyles = {
-  color: "#232129",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
+import OfflineSvg from "../images/svg/offline.svg"
+
+const MainStyled = styled.main`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+const LinkStyled = styled(Link)`
+  color: #2563eb;
+  cursor: pointer;
+  text-decoration: underline;
+`
 
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
-      <div>
-        ERREUR 404 : Oups ! Revenez à mon site <Link to="/">ici</Link>
+    <MainStyled>
+      <div className="text-center">
+        <OfflineSvg className="h-96" />
+        <p>Oups ! Page introuvable. </p>
+        <LinkStyled to="/">Revenez à mon site</LinkStyled>
       </div>
-    </main>
+    </MainStyled>
   )
 }
 

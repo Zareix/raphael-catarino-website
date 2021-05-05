@@ -1,3 +1,8 @@
+body {
+  font-family: "Open Sans";
+  color: #232129;
+}
+
 .contTitle {
   font-size: 1.75rem;
 }
@@ -7,7 +12,25 @@
   font-size: 1.25rem;
 }
 
-a.active {
-  color: #1a237e !important;
-  font-weight: bold;
+.fade-enter {
+  opacity: 0;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-enter-active {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 750ms;
+}
+.fade-exit-active {
+  transition: opacity 500ms;
+}
+
+.empty-content{
+  height: 1500px;
 }
