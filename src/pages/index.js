@@ -65,7 +65,7 @@ const IndexPage = () => {
               <div>
                 <Content />
                 <ScrollButton />
-              <div> 
+              </div> 
             ) : (
               <div>
                 <BeforeContent />
