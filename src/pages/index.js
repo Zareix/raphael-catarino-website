@@ -56,7 +56,10 @@ const IndexPage = () => {
             classNames="fade"
           >
             {showScroll ? (
-              <Content />
+              <div>
+                <Content />
+                <ScrollButton />
+              </div> 
             ) : (
               <div>
                 <BeforeContent />
@@ -76,7 +79,6 @@ const Content = () => {
       <Biographie id={"bio"} />
       <Competences id={"competences"} />
       <Projets id={"projets"} />
-      <ScrollButton />
     </Main>
   )
 }
