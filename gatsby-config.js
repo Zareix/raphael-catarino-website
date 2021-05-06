@@ -1,8 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "Raphaël Catarino",
+    title: "Portfolio",
+    titleTemplate: "Raphaël Catarino | %s",
     description:
-      "Raphaël Catarino's portfolio : apprenez en plus sur moi !",
+      "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
+    url: "https://www.raphael-catarino.fr", // No trailing slash allowed!
+    image: "/images/snape.jpg", // Path to your image you placed in the 'static' folder
     author: "Raphaël Catarino",
   },
   plugins: [
@@ -11,19 +14,19 @@ module.exports = {
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          'gatsby-remark-relative-images',
+          "gatsby-remark-relative-images",
           {
-            resolve: 'gatsby-remark-images',
+            resolve: "gatsby-remark-images",
             options: {
               maxWidth: 750,
-              linkImagesToOriginal: false
-            }
-          }
-        ]
-      }
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
     },
     "gatsby-transformer-sharp",
     {
@@ -46,9 +49,9 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /svg/
-        }
-      }
+          include: /svg/,
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -64,6 +67,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`
-  ]
+    `gatsby-plugin-styled-components`,
+  ],
 }

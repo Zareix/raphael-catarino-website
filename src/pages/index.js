@@ -44,7 +44,7 @@ const IndexPage = () => {
 
   return (
     <Page>
-      <Seo title="Portfolio" />
+      <Seo />
       <Layout>
         <Presentation />
         <SwitchTransition>

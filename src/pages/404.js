@@ -6,6 +6,7 @@ import styled from "styled-components"
 import "../styles/index.css"
 
 import OfflineSvg from "../images/svg/offline.svg"
+import Seo from "../components/Seo"
 
 const MainStyled = styled.main`
   height: 100vh;
@@ -23,13 +24,16 @@ const LinkStyled = styled(Link)`
 
 const IndexPage = () => {
   return (
-    <MainStyled>
-      <div className="text-center">
-        <OfflineSvg className="h-64 md:h-96" />
-        <p>Oups ! Page introuvable. </p>
-        <LinkStyled to="/">Revenez à mon site</LinkStyled>
-      </div>
-    </MainStyled>
+    <div>
+      <Seo title="404" />
+      <MainStyled>
+        <div className="text-center">
+          <OfflineSvg className="h-64 md:h-96" />
+          <p>Oups ! Page introuvable. </p>
+          <LinkStyled to="/">Revenez à mon site</LinkStyled>
+        </div>
+      </MainStyled>
+    </div>
   )
 }
 
