@@ -23,11 +23,7 @@ const Competences = (props) => {
           id
           name
           childImageSharp {
-            gatsbyImageData(
-              width: 700
-              placeholder: TRACED_SVG
-              layout: CONSTRAINED
-            )
+            gatsbyImageData(placeholder: TRACED_SVG)
           }
         }
       }
@@ -39,7 +35,7 @@ const Competences = (props) => {
           id
           name
           childImageSharp {
-            gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
+            gatsbyImageData(placeholder: TRACED_SVG)
           }
         }
       }
@@ -51,7 +47,7 @@ const Competences = (props) => {
           id
           name
           childImageSharp {
-            gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
+            gatsbyImageData(placeholder: TRACED_SVG)
           }
         }
       }

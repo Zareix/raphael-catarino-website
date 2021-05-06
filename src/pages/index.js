@@ -21,15 +21,9 @@ const Page = styled.main`
 `
 
 const Main = styled.div`
-  transform: translateY(-30vh);
   margin: auto;
   background-color: white;
-  border-radius: 30px;
   z-index: 1;
-  display: grid;
-  @media (max-width: 768px) {
-    transform: translateY(-20vh);
-  }
 `
 
 const IndexPage = () => {
@@ -66,7 +60,7 @@ const IndexPage = () => {
             ) : (
               <div>
                 <BeforeContent />
-                <div className="empty-content" />
+                <div id="bioPlaceholder" className="empty-content" />
               </div>
             )}
           </CSSTransition>
@@ -78,7 +72,7 @@ const IndexPage = () => {
 
 const Content = () => {
   return (
-    <Main className="p-8 md:p-14 w-11/12 md:w-5/6 divide-y-4 gap-8" id="main">
+    <Main id="main">
       <Biographie id={"bio"} />
       <Competences id={"competences"} />
       <Projets id={"projets"} />

@@ -1,15 +1,17 @@
 body {
   font-family: "Open Sans";
-  color: #232129;
+  color: #333333;
 }
 
 .contTitle {
   font-size: 1.75rem;
+  font-weight: 600;
 }
 
 .contText {
-  margin: auto;
   font-size: 1.25rem;
+  font-weight: 500;
+  color: #505050;
 }
 
 .fade-enter {

@@ -20,7 +20,7 @@ const Projets = (props) => {
               langages
               featuredImage {
                 childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH)
+                  gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR)
                 }
               }
             }

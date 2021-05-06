@@ -6,25 +6,26 @@ import { Link } from "react-scroll"
 
 const Wrapper = styled.div`
   position: relative;
-  top: -10vh;
+  top: -20vh;
   width: 100%;
-  height: 30px;
+  height: 45px;
   display: grid;
   justify-content: center;
   z-index: 30;
 `
 
 const BeforeContent = () => {
+
   return (
-    <Wrapper className="animate-bounce">
+    <Wrapper className="animate-bounce mix-blend-difference" id="scrollDownBtn">
       <Link
-        to="bio"
+        to="scrollDownBtn"
         smooth={true}
-        offset={-120}
+        offset={-50}
         duration={800}
         className="cursor-pointer"
       >
-        <BsArrowDown className="text-white" size={40} />
+        <BsArrowDown className="text-white" size={45} />
       </Link>
     </Wrapper>
   )
