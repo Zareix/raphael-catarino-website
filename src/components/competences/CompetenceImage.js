@@ -3,17 +3,16 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 const Competence = (props) => {
-  const catName = props.cat.name
-  const img = props.img
+  const { category, img } = props
 
   const name = img.name.substring(2).replace("_", "/")
 
   return (
-    <div data-tip={name}>
+    <div data-tip={name} className="w-1/3 md:w-1/4 p-2 md:p-5">
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}
         key={img.id}
-        alt={catName + " " + name}
+        alt={category + " " + name}
       />
     </div>
   )

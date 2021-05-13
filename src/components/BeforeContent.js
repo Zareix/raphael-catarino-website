@@ -6,18 +6,21 @@ import { Link } from "react-scroll"
 
 const Wrapper = styled.div`
   position: relative;
-  top: -20vh;
+  top: -15vh;
   width: 100%;
   height: 45px;
   display: grid;
   justify-content: center;
   z-index: 30;
+
+  @media (max-width: 768px) {
+    top: -20vh;
+  }
 `
 
 const BeforeContent = () => {
-
   return (
-    <Wrapper className="animate-bounce mix-blend-difference" id="scrollDownBtn">
+    <Wrapper id="scrollDownBtn" className="animate-bounce">
       <Link
         to="scrollDownBtn"
         smooth={true}

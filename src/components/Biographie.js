@@ -20,7 +20,7 @@ const BioStyled = styled.div`
 
 const Biographie = (props) => {
   return (
-    <BioStyled id={props.id} className="shadow-md">
+    <BioStyled id="bio" className="shadow-md">
       <h1 className="contTitle">Biographie</h1>
       <p className="contText text-justify mx-auto">
         Depuis tout petit, je suis passionné par l'informatique et les nouvelles

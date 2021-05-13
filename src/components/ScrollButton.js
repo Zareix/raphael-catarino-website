@@ -2,7 +2,18 @@ import React from "react"
 
 import { HiArrowCircleUp } from "react-icons/hi"
 import { animateScroll } from "react-scroll"
-import styled from "styled-components"
+import styled, { keyframes} from "styled-components"
+
+const fadeInScale = keyframes`
+  from{
+    transform : scale(0.5);
+    opacity : 0;
+  }
+  to{
+    transform : scale(1);
+    opacity : 0.5;
+  }
+`
 
 const ButtonStyled = styled.div`
   text-decoration: none;
@@ -14,6 +25,7 @@ const ButtonStyled = styled.div`
   cursor: pointer;
   opacity: 0.5;
   z-index: 1;
+  animation: ${fadeInScale} ease-out 500ms;
 `
 
 const ScrollButton = () => {

@@ -1,14 +1,14 @@
-import React from "react"
+import React, { Fragment } from "react"
 import Navigation from "./Navbar"
 import Footer from "./Footer"
 
 const Layout = (props) => {
   return (
-    <div>
+    <Fragment>
       <Navigation />
       {props.children}
       <Footer />
-    </div>
+    </Fragment>
   )
 }
 

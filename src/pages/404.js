@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 
 import { Link } from "gatsby"
 import styled from "styled-components"
@@ -14,27 +14,32 @@ const MainStyled = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.75rem;
 `
 
 const LinkStyled = styled(Link)`
   color: #2563eb;
   cursor: pointer;
   text-decoration: underline;
+
+  &:hover {
+    color: #1d4db6;
+  }
 `
 
-const IndexPage = () => {
+const NotFoundPage = () => {
   return (
-    <div>
+    <Fragment>
       <Seo title="404" />
-      <MainStyled>
-        <div className="text-center">
-          <OfflineSvg className="h-64 md:h-96" />
-          <p>Oups ! Page introuvable. </p>
-          <LinkStyled to="/">Revenez à mon site</LinkStyled>
-        </div>
+      <MainStyled id="404">
+        <OfflineSvg className="h-64 md:h-96" />
+        <h1 className="text-2xl">Oups ! Page introuvable. </h1>
+        <button className="px-3 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50">
+          <Link to="/">Revenez à l'accueil</Link>
+        </button>
       </MainStyled>
-    </div>
+    </Fragment>
   )
 }
 
-export default IndexPage
+export default NotFoundPage

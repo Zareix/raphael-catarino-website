@@ -3,17 +3,6 @@ body {
   color: #333333;
 }
 
-.contTitle {
-  font-size: 1.75rem;
-  font-weight: 600;
-}
-
-.contText {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #505050;
-}
-
 .fade-enter {
   opacity: 0;
 }
@@ -27,12 +16,35 @@ body {
   opacity: 0;
 }
 .fade-enter-active {
-  transition: opacity 750ms;
+  transition: opacity 1s;
 }
 .fade-exit-active {
-  transition: opacity 500ms;
+  transition: opacity 200ms;
 }
 
-.empty-content{
-  height: 1500px;
+.contTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.contText {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #505050;
+}
+
+.empty-content {
+  height: 400px;
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+.h-fit {
+  height: fit-content;
+}
+
+.h-10vh {
+  height: 10vh;
 }

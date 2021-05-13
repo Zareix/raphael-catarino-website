@@ -20,7 +20,10 @@ const Projets = (props) => {
               langages
               featuredImage {
                 childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR)
+                  gatsbyImageData(
+                    layout: FULL_WIDTH
+                    placeholder: DOMINANT_COLOR
+                  )
                 }
               }
             }
@@ -33,11 +36,11 @@ const Projets = (props) => {
   `)
 
   return (
-    <div id={props.id} className="pt-8">
+    <div id="projets">
       <h1 className="contTitle text-center">Mes projets</h1>
-      <div className="flex flex-wrap md:px-6">
+      <div className="flex flex-wrap justify-center md:px-6">
         {projets.allMarkdownRemark.edges.map(({ node: projet }) => (
-          <div key={projet.id} className="w-full md:w-1/2 md:px-6 py-5">
+          <div key={projet.id} className="w-11/12 md:w-1/2 md:px-6 py-5">
             <div className="h-full shadow-lg transform ease-out duration-500 hover:scale-105">
               <GatsbyImage
                 image={
@@ -45,7 +48,7 @@ const Projets = (props) => {
                     .gatsbyImageData
                 }
                 alt={projet.frontmatter.title}
-                className="h-56"
+                className="max-h-56"
               />
               <div className="px-4 py-4 md:px-10">
                 <h1 className="font-bold text-lg">

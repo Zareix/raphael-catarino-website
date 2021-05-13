@@ -5,16 +5,16 @@ import "../styles/index.css"
 import "fontsource-open-sans"
 
 import styled from "styled-components"
-import { CSSTransition, SwitchTransition } from "react-transition-group"
 
 import Presentation from "../components/Presentation"
 import Layout from "../components/Layout"
 import Biographie from "../components/Biographie"
-import Competences from "../components/Competences"
+import Competences from "../components/competences/Competences"
 import Projets from "../components/Projets"
 import Seo from "../components/Seo"
 import ScrollButton from "../components/ScrollButton"
 import BeforeContent from "../components/BeforeContent"
+import { CSSTransition, SwitchTransition } from "react-transition-group"
 
 const Page = styled.main`
   background-color: #f5f5f5;
@@ -27,59 +27,51 @@ const Main = styled.div`
 `
 
 const IndexPage = () => {
-  const [showScroll, setShowScroll] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const checkScrollTop = () => {
-      if (!showScroll && window.pageYOffset > 150) {
-        setShowScroll(true)
-      } else if (showScroll && window.pageYOffset <= 150) {
-        setShowScroll(false)
+      if (!scrolled && window.pageYOffset > 150) {
+        setScrolled(true)
+      } else if (scrolled && window.pageYOffset <= 150) {
+        setScrolled(false)
       }
     }
 
     window.addEventListener("scroll", checkScrollTop)
-    return () => {}
-  }, [showScroll])
+    return () => window.removeEventListener("scroll", checkScrollTop)
+  }, [scrolled])
 
   return (
     <Page>
       <Seo />
       <Layout>
         <Presentation />
-        <SwitchTransition>
-          <CSSTransition
-            key={showScroll ? "beforeContent" : "mainContent"}
-            addEndListener={(node, done) =>
-              node.addEventListener("transitionend", done, false)
-            }
-            classNames="fade"
-          >
-            {showScroll ? (
-              <div>
-                <Content />
-                <ScrollButton />
-              </div> 
-            ) : (
-              <div>
-                <BeforeContent />
-                <div id="bioPlaceholder" className="empty-content" />
-              </div>
-            )}
-          </CSSTransition>
-        </SwitchTransition>
+        <Main id="main">
+          <SwitchTransition>
+            <CSSTransition
+              key={scrolled ? "Before content" : "Biographie"}
+              addEndListener={(node, done) =>
+                node.addEventListener("transitionend", done, false)
+              }
+              classNames="fade"
+            >
+              {scrolled ? (
+                <Biographie />
+              ) : (
+                <React.Fragment>
+                  <BeforeContent />
+                  <div className="empty-content" />
+                </React.Fragment>
+              )}
+            </CSSTransition>
+          </SwitchTransition>
+          <Competences />
+          <Projets />
+        </Main>
+        {scrolled && <ScrollButton />}
       </Layout>
     </Page>
-  )
-}
-
-const Content = () => {
-  return (
-    <Main id="main">
-      <Biographie id={"bio"} />
-      <Competences id={"competences"} />
-      <Projets id={"projets"} />
-    </Main>
   )
 }
 
