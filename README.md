@@ -1,6 +1,4 @@
 # My website
 
-## WIP
-
-This repository is all about [my personal website](https://raphael-catarino.codes/).
+This repository is all about [my personal website](https://raphael-catarino.fr/).
 Made with Gatsby JS.
