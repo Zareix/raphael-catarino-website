@@ -2,7 +2,7 @@ import React from "react"
 
 import { HiArrowCircleUp } from "react-icons/hi"
 import { animateScroll } from "react-scroll"
-import styled, { keyframes} from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 const fadeInScale = keyframes`
   from{
