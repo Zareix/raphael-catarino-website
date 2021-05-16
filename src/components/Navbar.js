@@ -7,6 +7,8 @@ const LinkStyled = styled(Link)`
   color: #2563eb;
   cursor: pointer;
   padding: 0 0.5em;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 
   @media (min-width: 768px) {
     padding: 0 1em;
@@ -22,8 +24,8 @@ const MyNavbar = styled.div`
   position: fixed;
   background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
-  height: 50px;
   margin: 0;
+  padding: 0.75rem 0;
   z-index: 2;
   animation: scrollFromTop 500ms ease-out;
 
