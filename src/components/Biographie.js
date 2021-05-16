@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const BioStyled = styled.div`
   text-align: center;
-  width: 60%;
+  width: 40%;
   background-color: white;
   margin: auto;
   padding: 2rem 4rem;
@@ -12,7 +12,7 @@ const BioStyled = styled.div`
   transform: translateY(-15vh);
 
   @media (max-width: 768px) {
-    width: 95%;
+    width: 90%;
     padding: 1rem 2rem;
     padding-bottom: 2rem;
   }
@@ -21,8 +21,8 @@ const BioStyled = styled.div`
 const Biographie = (props) => {
   return (
     <BioStyled id="bio" className="shadow-md">
-      <h1 className="contTitle">Biographie</h1>
-      <p className="contText text-justify mx-auto">
+      <h1 className="text-xl font-bold">Biographie</h1>
+      <p className="text-base text-justify mx-auto">
         Depuis tout petit, je suis passionné par l'informatique et les nouvelles
         technologies. Ainsi, après avoir obtenu mon Baccalauréat général
         scientifique, puis mon DUT Informatique à l'IUT de Paris Rives de Seine

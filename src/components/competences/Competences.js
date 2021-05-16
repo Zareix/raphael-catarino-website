@@ -43,7 +43,7 @@ const TitleCat = (props) => {
   return (
     <h3
       className={
-        "contTitle text-white bg-gradient-to-br from-blue-500 to-blue-600 py-2 px-6" +
+        "text-2xl font-bold text-white bg-gradient-to-br from-blue-500 to-blue-600 py-2 px-6" +
         (fromRight ? "" : " text-right")
       }
     >
@@ -109,21 +109,25 @@ const Competences = (props) => {
   const [refWeb, inViewWeb] = useInView({
     triggerOnce: true,
     delay: 500,
+    threshold: 0.3,
   })
 
   const [refMobile, inViewMobile] = useInView({
     triggerOnce: true,
     delay: 500,
+    threshold: 0.3,
   })
 
   const [refSoft, inViewSoft] = useInView({
     triggerOnce: true,
     delay: 500,
+    threshold: 0.3,
   })
 
   const [refData, inViewData] = useInView({
     triggerOnce: true,
     delay: 500,
+    threshold: 0.3,
   })
 
   const catComp = [
@@ -134,82 +138,89 @@ const Competences = (props) => {
   ]
 
   return (
-    <div id="competences" className="pt-8 space-y-16 overflow-hidden pb-20 mt-12">
+    <div
+      id="competences"
+      className="pt-8 space-y-16 overflow-hidden pb-20 mt-12"
+    >
       <div className="text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2">Compétences</h2>
-        <h3 className="text-xl md:text-2xl text-gray-600 w-4/5 mx-auto">
+        <h2 className="text-3xl font-bold">Compétences</h2>
+        <h3 className="text-lg text-gray-600 w-4/5 mx-auto">
           Voici l'ensemble des langages de programmation et technologies que je
           maîtrise.
         </h3>
       </div>
 
       {/* Web */}
-      <SectionFromLeft
-        className={
-          inViewWeb
-            ? "transform -translate-x-0 opacity-100"
-            : "transform -translate-x-3/4 opacity-0"
-        }
-        ref={refWeb}
-      >
-        <ImagesContainer>
-          {catComp[0].images.map((img) => (
-            <CompetenceImage img={img} category={catComp[0].name} />
-          ))}
-        </ImagesContainer>
-        <TitleCat>{catComp[0].name}</TitleCat>
-      </SectionFromLeft>
+      <div id="comp-web" className="flex" ref={refWeb}>
+        <SectionFromLeft
+          className={
+            inViewWeb
+              ? "transform -translate-x-0 opacity-100"
+              : "transform -translate-x-3/4 opacity-0"
+          }
+        >
+          <ImagesContainer>
+            {catComp[0].images.map((img) => (
+              <CompetenceImage img={img} category={catComp[0].name} />
+            ))}
+          </ImagesContainer>
+          <TitleCat>{catComp[0].name}</TitleCat>
+        </SectionFromLeft>
+      </div>
 
       {/* Mobile */}
-      <SectionFromRight
-        className={
-          inViewMobile
-            ? "transform translate-x-0 opacity-100"
-            : "transform translate-x-3/4 opacity-0"
-        }
-        ref={refMobile}
-      >
-        <ImagesContainer>
-          {catComp[1].images.map((img) => (
-            <CompetenceImage img={img} category={catComp[0].name} />
-          ))}
-        </ImagesContainer>
-        <TitleCat fromRight>{catComp[1].name}</TitleCat>
-      </SectionFromRight>
+      <div id="comp-mobile" ref={refMobile}>
+        <SectionFromRight
+          className={
+            inViewMobile
+              ? "transform translate-x-0 opacity-100"
+              : "transform translate-x-3/4 opacity-0"
+          }
+        >
+          <ImagesContainer>
+            {catComp[1].images.map((img) => (
+              <CompetenceImage img={img} category={catComp[0].name} />
+            ))}
+          </ImagesContainer>
+          <TitleCat fromRight>{catComp[1].name}</TitleCat>
+        </SectionFromRight>
+      </div>
 
       {/* Software */}
-      <SectionFromLeft
-        className={
-          inViewSoft
-            ? "transform -translate-x-0 opacity-100"
-            : "transform -translate-x-3/4 opacity-0"
-        }
-        ref={refSoft}
-      >
-        <ImagesContainer>
-          {catComp[2].images.map((img) => (
-            <CompetenceImage img={img} category={catComp[1].name} />
-          ))}
-        </ImagesContainer>
-        <TitleCat>{catComp[2].name}</TitleCat>
-      </SectionFromLeft>
+      <div id="comp-software" ref={refSoft}>
+        <SectionFromLeft
+          className={
+            inViewSoft
+              ? "transform -translate-x-0 opacity-100"
+              : "transform -translate-x-3/4 opacity-0"
+          }
+        >
+          <ImagesContainer>
+            {catComp[2].images.map((img) => (
+              <CompetenceImage img={img} category={catComp[1].name} />
+            ))}
+          </ImagesContainer>
+          <TitleCat>{catComp[2].name}</TitleCat>
+        </SectionFromLeft>
+      </div>
 
       {/* Database */}
-      <SectionFromRight
-        className={
-          inViewData
-            ? "transform translate-x-0 opacity-100"
-            : "transform translate-x-3/4 opacity-0"
-        }
-        ref={refData}
-      >
-        <ImagesContainer>
-          {catComp[3].images.map((img) => (
-            <CompetenceImage img={img} category={catComp[2].name} />
-          ))}
-        </ImagesContainer>
-        <TitleCat fromRight>{catComp[3].name}</TitleCat>
-      </SectionFromRight>
+      <div id="comp-database" ref={refData}>
+        <SectionFromRight
+          className={
+            inViewData
+              ? "transform translate-x-0 opacity-100"
+              : "transform translate-x-3/4 opacity-0"
+          }
+        >
+          <ImagesContainer>
+            {catComp[3].images.map((img) => (
+              <CompetenceImage img={img} category={catComp[2].name} />
+            ))}
+          </ImagesContainer>
+          <TitleCat fromRight>{catComp[3].name}</TitleCat>
+        </SectionFromRight>
+      </div>
 
       <ReactTooltip
         place="bottom"

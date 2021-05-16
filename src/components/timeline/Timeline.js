@@ -65,7 +65,7 @@ const Timeline = () => {
             borderTop: "4px solid rgb(0, 169, 194)",
           }}
           contentArrowStyle={{ borderRight: "7px solid  rgb(0, 169, 194)" }}
-          date="Avril 2021 à Aout 2021"
+          date="Avril à août 2021"
           iconStyle={{ background: "rgb(0, 169, 194)", color: "#fff" }}
           icon={<MdWork />}
         >

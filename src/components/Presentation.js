@@ -3,7 +3,6 @@ import React from "react"
 import styled from "styled-components"
 
 import Illustration from "../images/svg/presentation_illustration.svg"
-import Blob from "../images/svg/presentation_blob.svg"
 
 const PresentationSection = styled.section`
   margin: 0;
@@ -20,11 +19,6 @@ const PresentationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
-`
-
-const BlobStyled = styled(Blob)`
-  position: absolute;
-  transform: translateY(-25%);
 `
 
 const Presentation = () => {

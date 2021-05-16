@@ -6,7 +6,7 @@ import { Link } from "react-scroll"
 
 const Wrapper = styled.div`
   position: relative;
-  top: -15vh;
+  top: -10vh;
   width: 100%;
   height: 45px;
   display: grid;

@@ -7,11 +7,13 @@ const LinkStyled = styled(Link)`
   color: #2563eb;
   cursor: pointer;
   padding: 0 0.5em;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 
   @media (min-width: 768px) {
     padding: 0 1em;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 
   &.active {
