@@ -134,10 +134,10 @@ const Competences = (props) => {
   ]
 
   return (
-    <div id="competences" className="pt-8 space-y-16 overflow-hidden pb-20">
+    <div id="competences" className="pt-8 space-y-16 overflow-hidden pb-20 mt-12">
       <div className="text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-2">Compétences</h2>
-        <h3 className="text-xl md:text-2xl w-4/5 mx-auto">
+        <h3 className="text-xl md:text-2xl text-gray-600 w-4/5 mx-auto">
           Voici l'ensemble des langages de programmation et technologies que je
           maîtrise.
         </h3>
