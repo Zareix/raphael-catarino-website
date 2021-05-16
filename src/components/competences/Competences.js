@@ -163,7 +163,7 @@ const Competences = (props) => {
       {/* Mobile */}
       <SectionFromRight
         className={
-          "shadow-md " + inViewMobile
+          inViewMobile
             ? "transform translate-x-0 opacity-100"
             : "transform translate-x-3/4 opacity-0"
         }
@@ -180,7 +180,7 @@ const Competences = (props) => {
       {/* Software */}
       <SectionFromLeft
         className={
-          "shadow-md " + inViewSoft
+          inViewSoft
             ? "transform -translate-x-0 opacity-100"
             : "transform -translate-x-3/4 opacity-0"
         }
@@ -197,7 +197,7 @@ const Competences = (props) => {
       {/* Database */}
       <SectionFromRight
         className={
-          "shadow-md " + inViewData
+          inViewData
             ? "transform translate-x-0 opacity-100"
             : "transform translate-x-3/4 opacity-0"
         }
