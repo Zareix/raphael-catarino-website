@@ -37,10 +37,10 @@ const Projets = (props) => {
 
   return (
     <div id="projets">
-      <h1 className="contTitle text-center">Mes projets</h1>
-      <div className="flex flex-wrap justify-center md:px-6">
+      <h1 className="text-3xl md:text-4xl font-bold text-center">Mes projets</h1>
+      <div className="flex flex-wrap justify-center md:px-6 md:mt-6">
         {projets.allMarkdownRemark.edges.map(({ node: projet }) => (
-          <div key={projet.id} className="w-11/12 md:w-1/2 md:px-6 py-5">
+          <div key={projet.id} className="w-11/12 md:w-1/3 md:px-6 py-5">
             <div className="h-full shadow-lg transform ease-out duration-500 hover:scale-105">
               <GatsbyImage
                 image={

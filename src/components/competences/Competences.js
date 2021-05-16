@@ -8,13 +8,13 @@ import styled from "styled-components"
 import { useInView } from "react-intersection-observer"
 
 const Section = styled.section`
-  width: 80%;
+  width: 60%;
   overflow: hidden;
-  box-shadow: 0px 10px 16px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 16px 20px 8px rgba(0, 0, 0, 0.1);
   transition: all 1s ease-out;
 
   @media (max-width: 758px) {
-    width: 95%;
+    width: 90%;
   }
 `
 
@@ -67,6 +67,18 @@ const Competences = (props) => {
           }
         }
       }
+      imagesMobile: allFile(
+        filter: { relativeDirectory: { eq: "logoComp/mobile" } }
+        sort: { fields: name }
+      ) {
+        nodes {
+          id
+          name
+          childImageSharp {
+            gatsbyImageData(placeholder: TRACED_SVG)
+          }
+        }
+      }
       imagesSoft: allFile(
         filter: { relativeDirectory: { eq: "logoComp/logiciels" } }
         sort: { fields: name }
@@ -99,6 +111,11 @@ const Competences = (props) => {
     delay: 500,
   })
 
+  const [refMobile, inViewMobile] = useInView({
+    triggerOnce: true,
+    delay: 500,
+  })
+
   const [refSoft, inViewSoft] = useInView({
     triggerOnce: true,
     delay: 500,
@@ -111,15 +128,16 @@ const Competences = (props) => {
 
   const catComp = [
     { name: "Web", images: data.imagesWeb.nodes },
+    { name: "Mobile", images: data.imagesMobile.nodes },
     { name: "Software", images: data.imagesSoft.nodes },
     { name: "Database", images: data.imagesDb.nodes },
   ]
 
   return (
-    <div id="competences" className="pt-8 space-y-16 overflow-hidden pb-8">
+    <div id="competences" className="pt-8 space-y-16 overflow-hidden pb-20">
       <div className="text-center">
-        <h2 className="contTitle">Compétences</h2>
-        <h3 className="contText w-4/5 mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-2">Compétences</h2>
+        <h3 className="text-xl md:text-2xl w-4/5 mx-auto">
           Voici l'ensemble des langages de programmation et technologies que je
           maîtrise.
         </h3>
@@ -142,39 +160,56 @@ const Competences = (props) => {
         <TitleCat>{catComp[0].name}</TitleCat>
       </SectionFromLeft>
 
-      {/* Software */}
+      {/* Mobile */}
       <SectionFromRight
         className={
-          inViewSoft
+          "shadow-md " + inViewMobile
             ? "transform translate-x-0 opacity-100"
             : "transform translate-x-3/4 opacity-0"
         }
-        ref={refSoft}
+        ref={refMobile}
       >
         <ImagesContainer>
           {catComp[1].images.map((img) => (
-            <CompetenceImage img={img} category={catComp[1].name} />
+            <CompetenceImage img={img} category={catComp[0].name} />
           ))}
         </ImagesContainer>
         <TitleCat fromRight>{catComp[1].name}</TitleCat>
       </SectionFromRight>
 
-      {/* Database */}
+      {/* Software */}
       <SectionFromLeft
         className={
-          inViewData
+          "shadow-md " + inViewSoft
             ? "transform -translate-x-0 opacity-100"
             : "transform -translate-x-3/4 opacity-0"
         }
-        ref={refData}
+        ref={refSoft}
       >
         <ImagesContainer>
           {catComp[2].images.map((img) => (
-            <CompetenceImage img={img} category={catComp[2].name} />
+            <CompetenceImage img={img} category={catComp[1].name} />
           ))}
         </ImagesContainer>
         <TitleCat>{catComp[2].name}</TitleCat>
       </SectionFromLeft>
+
+      {/* Database */}
+      <SectionFromRight
+        className={
+          "shadow-md " + inViewData
+            ? "transform translate-x-0 opacity-100"
+            : "transform translate-x-3/4 opacity-0"
+        }
+        ref={refData}
+      >
+        <ImagesContainer>
+          {catComp[3].images.map((img) => (
+            <CompetenceImage img={img} category={catComp[2].name} />
+          ))}
+        </ImagesContainer>
+        <TitleCat fromRight>{catComp[3].name}</TitleCat>
+      </SectionFromRight>
 
       <ReactTooltip
         place="bottom"

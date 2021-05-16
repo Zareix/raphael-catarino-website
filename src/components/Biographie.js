@@ -7,14 +7,14 @@ const BioStyled = styled.div`
   background-color: white;
   margin: auto;
   padding: 2rem 4rem;
+  padding-top: 1.5rem;
   border-radius: 16px;
-  transform: translateY(-20vh);
+  transform: translateY(-15vh);
 
   @media (max-width: 768px) {
     width: 95%;
     padding: 1rem 2rem;
     padding-bottom: 2rem;
-    transform: translateY(-15vh);
   }
 `
 

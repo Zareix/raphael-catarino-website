@@ -47,6 +47,7 @@
     "react-scroll": "^1.8.1",
     "react-tooltip": "^4.2.15",
     "react-transition-group": "^4.4.1",
+    "react-vertical-timeline-component": "^3.3.3",
     "styled-components": "^5.2.1",
     "tailwindcss": "^2.0.3"
   },
