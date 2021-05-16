@@ -15,6 +15,7 @@ import Seo from "../components/Seo"
 import ScrollButton from "../components/ScrollButton"
 import BeforeContent from "../components/BeforeContent"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
+import Timeline from "../components/timeline/Timeline"
 
 const Page = styled.main`
   background-color: #f5f5f5;
@@ -66,6 +67,7 @@ const IndexPage = () => {
               )}
             </CSSTransition>
           </SwitchTransition>
+          <Timeline/>
           <Competences />
           <Projets />
         </Main>
