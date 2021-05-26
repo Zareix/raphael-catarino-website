@@ -5,7 +5,7 @@ module.exports = {
     description:
       "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
     url: "https://www.raphael-catarino.fr", // No trailing slash allowed!
-    image: "/images/page-snape.jpg", // Path to your image you placed in the 'static' folder
+    image: "/images/page-snape.png", // Path to your image you placed in the 'static' folder
     author: "Raphaël Catarino",
   },
   plugins: [
