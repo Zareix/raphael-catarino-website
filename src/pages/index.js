@@ -10,7 +10,7 @@ import Presentation from "../components/Presentation"
 import Layout from "../components/Layout"
 import Biographie from "../components/Biographie"
 import Competences from "../components/competences/Competences"
-import Projets from "../components/Projets"
+import Projets from "../components/Projets/Projets"
 import Seo from "../components/Seo"
 import ScrollButton from "../components/ScrollButton"
 import BeforeContent from "../components/BeforeContent"
@@ -60,10 +60,10 @@ const IndexPage = () => {
               {scrolled ? (
                 <Biographie />
               ) : (
-                <React.Fragment>
+                <>
                   <BeforeContent />
                   <div className="empty-content" />
-                </React.Fragment>
+                </>
               )}
             </CSSTransition>
           </SwitchTransition>
