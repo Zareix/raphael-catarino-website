@@ -10,7 +10,7 @@ const Competence = (props) => {
   return (
     <div
       data-tip={name}
-      className="w-1/3 md:w-1/4 p-2 md:p-5 my-auto flex justify-center"
+      className="w-1/3 md:w-1/5 p-2 md:p-5 my-auto flex justify-center"
     >
       <GatsbyImage
         image={img.childImageSharp.gatsbyImageData}

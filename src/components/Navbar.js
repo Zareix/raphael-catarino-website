@@ -12,8 +12,6 @@ const LinkStyled = styled(Link)`
 
   @media (min-width: 768px) {
     padding: 0 1em;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 
   &.active {
@@ -22,23 +20,14 @@ const LinkStyled = styled(Link)`
   }
 `
 
-const MyNavbar = styled.div`
+const MyNavbar = styled.nav`
   position: fixed;
   background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
   margin: 0;
   padding: 0.75rem 0;
   z-index: 2;
-  animation: scrollFromTop 500ms ease-out;
-
-  @keyframes scrollFromTop {
-    from {
-      transform: translateY(-50px);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
+  transition: transform 350ms ease-in-out;
 `
 
 const Navigation = () => {
@@ -58,10 +47,13 @@ const Navigation = () => {
     window.addEventListener("scroll", handleScroll)
   }, [visible])
 
-  if (!visible) return null
-
   return (
-    <MyNavbar>
+    <MyNavbar
+      id="navbar"
+      className={
+        visible ? "transform translate-y-0" : "transform -translate-y-full"
+      }
+    >
       <div className="h-full flex divide-x divide-gray-400 justify-center md:justify-end items-center text-center md:text-justify md:mr-6">
         <LinkStyled
           activeClass="active"
