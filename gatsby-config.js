@@ -5,9 +5,10 @@ module.exports = {
     description:
       "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
     url: "https://www.raphael-catarino.fr", // No trailing slash allowed!
-    image: "/page-snape.png", // Path to your image you placed in the 'static' folder
+    image: "/images/page-snap.png", // Path to your image you placed in the 'static' folder
     author: "Raphaël Catarino",
   },
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     `gatsby-plugin-image`,
     "gatsby-plugin-postcss",
