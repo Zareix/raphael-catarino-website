@@ -10,8 +10,12 @@ import "./custom.css"
 
 import { MdSchool, MdWork } from "react-icons/md"
 
-const Title = (props) => <h3 className="text-xl font-semibold">{props.children}</h3>
-const SubTitle = (props) => <h4 className="text-lg text-gray-600">{props.children}</h4>
+const Title = (props) => (
+  <h3 className="text-xl font-semibold">{props.children}</h3>
+)
+const SubTitle = (props) => (
+  <h4 className="text-lg text-gray-600">{props.children}</h4>
+)
 
 const Timeline = () => {
   return (
@@ -36,7 +40,7 @@ const Timeline = () => {
             Lycée La Rochefoucauld
           </SubTitle>
         </VerticalTimelineElement>
-        
+
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
           contentStyle={{
@@ -72,7 +76,9 @@ const Timeline = () => {
           <Title className="vertical-timeline-element-title">
             Développeur testing et automatisation
           </Title>
-          <SubTitle className="vertical-timeline-element-subtitle">Keolis</SubTitle>
+          <SubTitle className="vertical-timeline-element-subtitle">
+            Keolis
+          </SubTitle>
         </VerticalTimelineElement>
 
         <VerticalTimelineElement

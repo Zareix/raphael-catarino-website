@@ -67,7 +67,7 @@ const IndexPage = () => {
               )}
             </CSSTransition>
           </SwitchTransition>
-          <Timeline/>
+          <Timeline />
           <Competences />
           <Projets />
         </Main>
