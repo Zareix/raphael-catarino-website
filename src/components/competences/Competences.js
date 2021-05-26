@@ -160,8 +160,12 @@ const Competences = (props) => {
           }
         >
           <ImagesContainer>
-            {catComp[0].images.map((img) => (
-              <CompetenceImage img={img} category={catComp[0].name} />
+            {catComp[0].images.map((img, index) => (
+              <CompetenceImage
+                img={img}
+                category={catComp[0].name}
+                key={index}
+              />
             ))}
           </ImagesContainer>
           <TitleCat>{catComp[0].name}</TitleCat>
@@ -178,8 +182,12 @@ const Competences = (props) => {
           }
         >
           <ImagesContainer>
-            {catComp[1].images.map((img) => (
-              <CompetenceImage img={img} category={catComp[0].name} />
+            {catComp[1].images.map((img, index) => (
+              <CompetenceImage
+                img={img}
+                category={catComp[0].name}
+                key={index}
+              />
             ))}
           </ImagesContainer>
           <TitleCat fromRight>{catComp[1].name}</TitleCat>
@@ -196,8 +204,12 @@ const Competences = (props) => {
           }
         >
           <ImagesContainer>
-            {catComp[2].images.map((img) => (
-              <CompetenceImage img={img} category={catComp[1].name} />
+            {catComp[2].images.map((img, index) => (
+              <CompetenceImage
+                img={img}
+                category={catComp[1].name}
+                key={index}
+              />
             ))}
           </ImagesContainer>
           <TitleCat>{catComp[2].name}</TitleCat>
@@ -214,8 +226,12 @@ const Competences = (props) => {
           }
         >
           <ImagesContainer>
-            {catComp[3].images.map((img) => (
-              <CompetenceImage img={img} category={catComp[2].name} />
+            {catComp[3].images.map((img, index) => (
+              <CompetenceImage
+                img={img}
+                category={catComp[2].name}
+                key={index}
+              />
             ))}
           </ImagesContainer>
           <TitleCat fromRight>{catComp[3].name}</TitleCat>
