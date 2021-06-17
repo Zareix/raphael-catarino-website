@@ -28,7 +28,7 @@ const Presentation = () => {
         <div className="md:w-1/2">
           <div className="mx-auto w-fit">
             <h1 className="font-bold text-4xl md:text-5xl">Raphaël Catarino</h1>
-            <h2 className="mt-2">Développeur full-stack</h2>
+            <h2 className="mt-2">Développeur full stack</h2>
           </div>
         </div>
         <div className="w-full md:w-1/2">

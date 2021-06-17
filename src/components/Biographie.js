@@ -26,8 +26,9 @@ const Biographie = (props) => {
         Depuis tout petit, je suis passionné par l'informatique et les nouvelles
         technologies. Ainsi, après avoir obtenu mon Baccalauréat général
         scientifique, puis mon DUT Informatique à l'IUT de Paris Rives de Seine
-        (anciennement Descartes), je suis à la recherche d’une alternance de 3
-        ans dans le cadre de mon cursus ingénieur “Logiciels et SI” à l’EFREI.
+        (anciennement Descartes), je suis actuellement en alternance en tant que
+        développeur full stack en parallèle d'un cursus d'ingénieur “Logiciels
+        et SI” à EFREI Paris.
         <br></br>
         J'aimerais ainsi continuer dans ce domaine pour en faire mon métier et
         vivre de ma passion.
