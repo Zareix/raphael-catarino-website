@@ -13,10 +13,8 @@ const FooterStyled = styled.div`
 
 const Footer = () => {
   return (
-    <FooterStyled className="grid grid-cols-1 content-end justify-items-center p-10 gap-3">
-      <div>
-        <Contact />
-      </div>
+    <FooterStyled className="grid content-end justify-items-center p-10 gap-3">
+      <Contact />
       <p>Raphaël Catarino - Portofolio ©</p>
     </FooterStyled>
   )
