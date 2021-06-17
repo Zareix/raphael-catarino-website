@@ -26,7 +26,8 @@
   transform: translateY(15px);
 }
 
-.ReactModal__Body--open {
+.ReactModal__Body--open,
+.ReactMod__Html--open {
   overflow: hidden;
 }
 
@@ -36,6 +37,6 @@
 
 @media (max-width: 768px) {
   .ReactModal__Content {
-    inset: 60px 10px !important;
+    inset: 60px 10px 10px !important;
   }
 }
