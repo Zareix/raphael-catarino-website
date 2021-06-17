@@ -88,6 +88,11 @@ const ContactModal = (props) => {
               <p className="col-start-2 col-span-3">Contactez moi</p>
               <CgClose size={30} className="cursor-pointer" onClick={close} />
             </div>
+            <input
+              type="hidden"
+              name="form-name"
+              value="contact"
+            />
             <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
               <div className="col-span-2 lg:col-span-1">
                 <div className=" relative ">
