@@ -26,8 +26,7 @@
   transform: translateY(15px);
 }
 
-.ReactModal__Body--open,
-.ReactModal__Html--open {
+.ReactModal__Body--open {
   overflow: hidden;
 }
 
