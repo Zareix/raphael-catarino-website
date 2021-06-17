@@ -7,7 +7,7 @@ import Contact from "./contact/Contact"
 const FooterStyled = styled.div`
   background-color: #424242;
   color: #bdbdbd;
-  height: 40vh;
+  height: 100vh;
   bottom: 30vh;
 `
 

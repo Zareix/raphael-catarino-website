@@ -13,7 +13,7 @@ const Contact = () => {
       >
         Me contacter
       </button>
-      <ContactModal visible={isOpen} close={() => setIsOpen(false)}/>
+      <ContactModal visible={isOpen} close={() => setIsOpen(false)} />
     </>
   )
 }
