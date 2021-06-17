@@ -17,6 +17,7 @@ const modalStyles = {
     background: null,
     borderRadius: null,
     inset: null,
+    padding: null,
   },
 }
 
