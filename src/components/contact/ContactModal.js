@@ -19,10 +19,23 @@ const modalStyles = {
   },
 }
 
-function encode(data) {
+function encode2(data) {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&")
+}
+
+function encode(object) {
+  var encodedString = '';
+  for (var prop in object) {
+      if (object.hasOwnProperty(prop)) {
+          if (encodedString.length > 0) {
+              encodedString += '&';
+          }
+          encodedString += encodeURI(prop + '=' + object[prop]);
+      }
+  }
+  return encodedString;
 }
 
 const ContactModal = (props) => {
@@ -37,12 +50,11 @@ const ContactModal = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const form = e.target
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": form.getAttribute("name"),
+        "form-name": "contact",
         ...state,
       }),
     })
