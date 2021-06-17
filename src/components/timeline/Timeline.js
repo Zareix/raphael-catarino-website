@@ -32,6 +32,30 @@ const Timeline = () => {
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
           contentStyle={{
+            borderTop: "4px solid rgb(222, 0, 38)",
+          }}
+          contentArrowStyle={{ borderRight: "7px solid  rgb(222, 0, 38)" }}
+          date="2021 à 2024"
+          iconStyle={{ background: "rgb(222, 0, 38)", color: "#fff" }}
+          icon={<MdWork />}
+          onTimelineElementClick={() =>
+            openInNewTab("https://particuliers.societegenerale.fr/")
+          }
+          iconOnClick={() =>
+            openInNewTab("https://particuliers.societegenerale.fr/")
+          }
+        >
+          <Title className="vertical-timeline-element-title">
+            Développeur Full Stack (Alternance)
+          </Title>
+          <SubTitle className="vertical-timeline-element-subtitle">
+            Société Générale
+          </SubTitle>
+        </VerticalTimelineElement>
+
+        <VerticalTimelineElement
+          className="vertical-timeline-element--education"
+          contentStyle={{
             borderTop: "4px solid rgb(33, 150, 243)",
           }}
           contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
