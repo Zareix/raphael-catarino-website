@@ -2,6 +2,8 @@ import React from "react"
 
 import styled from "styled-components"
 
+import Contact from "./contact/Contact"
+
 const FooterStyled = styled.div`
   background-color: #424242;
   color: #bdbdbd;
@@ -11,10 +13,10 @@ const FooterStyled = styled.div`
 
 const Footer = () => {
   return (
-    <FooterStyled className="grid grid-cols-1 content-end justify-items-center p-10">
-      <a href="mailto:contact@raphael-catarino.fr" className="underline">
-        Contactez moi
-      </a>
+    <FooterStyled className="grid grid-cols-1 content-end justify-items-center p-10 gap-3">
+      <div>
+        <Contact />
+      </div>
       <p>Raphaël Catarino - Portofolio ©</p>
     </FooterStyled>
   )
