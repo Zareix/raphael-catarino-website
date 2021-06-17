@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import "../styles/index.css"
 
 import styled from "styled-components"
+import { CSSTransition, SwitchTransition } from "react-transition-group"
 
 import Presentation from "../components/Presentation"
 import Layout from "../components/Layout"
@@ -13,7 +14,6 @@ import Projets from "../components/Projets/Projets"
 import Seo from "../components/Seo"
 import ScrollButton from "../components/ScrollButton"
 import BeforeContent from "../components/BeforeContent"
-import { CSSTransition, SwitchTransition } from "react-transition-group"
 import Timeline from "../components/timeline/Timeline"
 
 const Page = styled.main`
