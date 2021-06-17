@@ -2,7 +2,6 @@ import * as React from "react"
 import { useState, useEffect } from "react"
 
 import "../styles/index.css"
-import "fontsource-open-sans"
 
 import styled from "styled-components"
 
