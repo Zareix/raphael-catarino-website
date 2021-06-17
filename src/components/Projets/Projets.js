@@ -7,7 +7,7 @@ import { AiFillGithub } from "react-icons/ai"
 const Button = (props) => (
   <button
     type="button"
-    class="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-sm shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+    class="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white font-semibold w-full transition ease-in duration-200 text-center text-sm shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
   >
     {props.children}
   </button>
@@ -62,7 +62,7 @@ const Projets = (props) => {
               />
 
               <div className="px-4 py-4 md:px-10">
-                <h1 className="font-bold text-lg">
+                <h1 className="font-semibold text-lg">
                   {projet.frontmatter.title}
                 </h1>
 
