@@ -13,7 +13,14 @@ const Contact = () => {
       >
         Me contacter
       </button>
-      <ContactModal visible={isOpen} close={() => setIsOpen(false)}/>
+      <form hidden name="contact" netlify>
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="text" name="nom" />
+        <input type="email" name="email" />
+        <input type="text" name="sujet" />
+        <input type="text" name="contenu" />
+      </form>
+      <ContactModal visible={isOpen} close={() => setIsOpen(false)} />
     </>
   )
 }

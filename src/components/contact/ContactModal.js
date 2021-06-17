@@ -19,24 +19,10 @@ const modalStyles = {
   },
 }
 
-function encode2(data) {
-  return Object.keys(data)
+const encode = (data) =>
+  Object.keys(data)
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&")
-}
-
-function encode(object) {
-  var encodedString = ""
-  for (var prop in object) {
-    if (object.hasOwnProperty(prop)) {
-      if (encodedString.length > 0) {
-        encodedString += "&"
-      }
-      encodedString += encodeURI(prop + "=" + object[prop])
-    }
-  }
-  return encodedString
-}
 
 const ContactModal = (props) => {
   const { visible, close } = props
@@ -44,9 +30,8 @@ const ContactModal = (props) => {
   const [state, setState] = useState({})
   const [sent, setSent] = useState(false)
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setState({ ...state, [e.target.name]: e.target.value })
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -103,7 +88,6 @@ const ContactModal = (props) => {
               <p className="col-start-2 col-span-3">Contactez moi</p>
               <CgClose size={30} className="cursor-pointer" onClick={close} />
             </div>
-            <input type="hidden" name="form-name" value="contact" />
             <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
               <div className="col-span-2 lg:col-span-1">
                 <div className=" relative ">
@@ -147,7 +131,7 @@ const ContactModal = (props) => {
                     className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     id="comment"
                     placeholder="Que voulez-vous me dire ?"
-                    name="content"
+                    name="contenu"
                     rows="5"
                     cols="40"
                     onChange={handleChange}
