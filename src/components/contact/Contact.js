@@ -13,12 +13,13 @@ const Contact = () => {
       >
         Me contacter
       </button>
+      {/* Hidden forms for netlify that match the real one --> due to how modal works */}
       <form hidden name="contact" netlify>
         <input type="hidden" name="form-name" value="contact" />
         <input type="text" name="nom" />
         <input type="email" name="email" />
         <input type="text" name="sujet" />
-        <input type="text" name="contenu" />
+        <textarea type="text" name="contenu" />
       </form>
       <ContactModal visible={isOpen} close={() => setIsOpen(false)} />
     </>
