@@ -26,6 +26,11 @@
   transform: translateY(15px);
 }
 
+.ReactModal__Body--open,
+.ReactModal__Html--open {
+  overflow: hidden;
+}
+
 #contactContent {
   min-height: 6rem;
 }
