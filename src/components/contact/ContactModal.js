@@ -26,16 +26,16 @@ function encode2(data) {
 }
 
 function encode(object) {
-  var encodedString = '';
+  var encodedString = ""
   for (var prop in object) {
-      if (object.hasOwnProperty(prop)) {
-          if (encodedString.length > 0) {
-              encodedString += '&';
-          }
-          encodedString += encodeURI(prop + '=' + object[prop]);
+    if (object.hasOwnProperty(prop)) {
+      if (encodedString.length > 0) {
+        encodedString += "&"
       }
+      encodedString += encodeURI(prop + "=" + object[prop])
+    }
   }
-  return encodedString;
+  return encodedString
 }
 
 const ContactModal = (props) => {
@@ -93,6 +93,7 @@ const ContactModal = (props) => {
           className="flex w-full space-x-3"
           name="contact"
           method="post"
+          action="/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
@@ -108,7 +109,7 @@ const ContactModal = (props) => {
                 <div className=" relative ">
                   <input
                     type="text"
-                    name="name"
+                    name="nom"
                     id="contact-form-name"
                     className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Votre nom"
