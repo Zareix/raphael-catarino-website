@@ -10,3 +10,16 @@
 .ReactModal__Overlay--before-close {
   opacity: 0;
 }
+
+.ReactModal__Content {
+  transform: translateY(0);
+  transition: transform 300ms ease-in-out;
+}
+
+.ReactModal__Content--after-open {
+  transform: translateY(-15px);
+}
+
+.ReactModal__Content--before-close {
+  transform: translateY(15px);
+}
