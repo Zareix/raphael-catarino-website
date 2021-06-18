@@ -3,17 +3,18 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { AiFillGithub } from "react-icons/ai"
+import { FormattedMessage } from "react-intl"
 
-const Button = (props) => (
+const Button = () => (
   <button
     type="button"
     className="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white font-semibold w-full transition ease-in duration-200 text-center text-sm shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
   >
-    {props.children}
+    <FormattedMessage id="projectLinkText" />
   </button>
 )
 
-const Projets = (props) => {
+const Projets = () => {
   const projets = useStaticQuery(graphql`
     {
       allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
@@ -47,7 +48,9 @@ const Projets = (props) => {
 
   return (
     <div id="projets">
-      <h1 className="text-3xl font-bold text-center">Mes projets</h1>
+      <h1 className="text-3xl font-bold text-center">
+        <FormattedMessage id="projectMainTitle" />
+      </h1>
       <div className="flex flex-wrap justify-center md:px-6 md:mt-6">
         {projets.allMarkdownRemark.edges.map(({ node: projet }) => (
           <div key={projet.id} className="w-11/12 md:w-1/3 md:px-6 py-5">
@@ -80,7 +83,12 @@ const Projets = (props) => {
                   {/* Liens */}
                   <div className="w-full flex justify-end gap-4 text-sm font-medium text-white text-center">
                     {projet.frontmatter.github && (
-                      <a href={projet.frontmatter.github} className="my-auto">
+                      <a
+                        href={projet.frontmatter.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="my-auto"
+                      >
                         <AiFillGithub
                           className="text-gray-900 hover:text-gray-700"
                           size={35}
@@ -88,8 +96,12 @@ const Projets = (props) => {
                       </a>
                     )}
                     {projet.frontmatter.site && (
-                      <a href={projet.frontmatter.site}>
-                        <Button>Lien</Button>
+                      <a
+                        href={projet.frontmatter.site}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button />
                       </a>
                     )}
                   </div>

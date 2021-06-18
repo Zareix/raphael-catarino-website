@@ -69,5 +69,12 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: "gatsby-plugin-i18n",
+      options: {
+        langKeyDefault: "fr",
+        useLangKeyLayout: false,
+      },
+    },
   ],
 }

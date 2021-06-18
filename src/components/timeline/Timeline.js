@@ -5,6 +5,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component"
 import styled from "styled-components"
+import { FormattedMessage } from "react-intl"
 
 import "react-vertical-timeline-component/style.min.css"
 import "./custom.css"
@@ -46,10 +47,10 @@ const Timeline = () => {
           }
         >
           <Title className="vertical-timeline-element-title">
-            Développeur Full Stack (Alternance)
+            <FormattedMessage id="timelineSGTitle" />
           </Title>
           <SubTitle className="vertical-timeline-element-subtitle">
-            Société Générale
+            <FormattedMessage id="timelineSGSubtitle" />
           </SubTitle>
         </VerticalTimelineElement>
 
@@ -66,10 +67,10 @@ const Timeline = () => {
           iconOnClick={() => openInNewTab("https://www.efrei.fr")}
         >
           <Title className="vertical-timeline-element-title">
-            Ecole d'ingénieur informatique
+            <FormattedMessage id="timelineEFREITitle" />
           </Title>
           <SubTitle className="vertical-timeline-element-subtitle">
-            EFREI Paris
+            <FormattedMessage id="timelineEFREISubtitle" />
           </SubTitle>
         </VerticalTimelineElement>
 
@@ -86,10 +87,10 @@ const Timeline = () => {
           iconOnClick={() => openInNewTab("https://www.keolis.com")}
         >
           <Title className="vertical-timeline-element-title">
-            Développeur testing et automatisation
+            <FormattedMessage id="timelineKeolisTitle" />
           </Title>
           <SubTitle className="vertical-timeline-element-subtitle">
-            Keolis
+            <FormattedMessage id="timelineKeolisSubtitle" />
           </SubTitle>
         </VerticalTimelineElement>
 
@@ -108,10 +109,10 @@ const Timeline = () => {
           iconOnClick={() => openInNewTab("https://iutparis-seine.u-paris.fr/")}
         >
           <Title className="vertical-timeline-element-title">
-            DUT Informatique
+            <FormattedMessage id="timelineIUTTitle" />
           </Title>
           <SubTitle className="vertical-timeline-element-subtitle">
-            IUT de Paris - Rives De Seine (Anciennement Descartes)
+            <FormattedMessage id="timelineIUTSubtitle" />
           </SubTitle>
         </VerticalTimelineElement>
 
@@ -128,10 +129,10 @@ const Timeline = () => {
           iconOnClick={() => openInNewTab("https://laroche.org/")}
         >
           <Title className="vertical-timeline-element-title">
-            Baccalauréat général scientifique
+            <FormattedMessage id="timelineBacTitle" />
           </Title>
           <SubTitle className="vertical-timeline-element-subtitle">
-            Lycée La Rochefoucauld
+            <FormattedMessage id="timelineBacSubtitle" />
           </SubTitle>
         </VerticalTimelineElement>
       </VerticalTimeline>

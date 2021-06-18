@@ -6,6 +6,7 @@ import ReactTooltip from "react-tooltip"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { useInView } from "react-intersection-observer"
+import { FormattedMessage } from "react-intl"
 
 const Section = styled.section`
   width: 60%;
@@ -143,10 +144,11 @@ const Competences = (props) => {
       className="pt-8 space-y-16 overflow-hidden pb-20 mt-12"
     >
       <div className="text-center">
-        <h2 className="text-3xl font-bold">Compétences</h2>
+        <h2 className="text-3xl font-bold">
+          <FormattedMessage id="competencesSectionTitle" />
+        </h2>
         <h3 className="text-lg text-gray-600 w-4/5 mx-auto">
-          Voici l'ensemble des langages de programmation et technologies que je
-          maîtrise.
+          <FormattedMessage id="competencesSectionSubtitle" />
         </h3>
       </div>
 

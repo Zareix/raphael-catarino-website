@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { FormattedMessage } from "react-intl"
 
 import ContactModal from "./ContactModal"
 
@@ -11,7 +12,7 @@ const Contact = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="px-4 py-1 transition ease-in duration-200 rounded-full hover:bg-gray-800  hover:text-white border-2 border-gray-800 focus:outline-none"
       >
-        Me contacter
+        <FormattedMessage id="contactBtnText" />
       </button>
 
       {/* Hidden forms that match the real one for netlify to detect --> due to how modal works in js dynamically */}

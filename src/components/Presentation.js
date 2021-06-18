@@ -1,6 +1,7 @@
 import React from "react"
 
 import styled from "styled-components"
+import { FormattedMessage } from "react-intl"
 
 import Illustration from "../images/svg/presentation_illustration.svg"
 
@@ -28,7 +29,9 @@ const Presentation = () => {
         <div className="md:w-1/2">
           <div className="mx-auto w-fit">
             <h1 className="font-bold text-4xl md:text-5xl">Raphaël Catarino</h1>
-            <h2 className="mt-2">Développeur full stack</h2>
+            <h2 className="mt-2">
+              <FormattedMessage id="presTitle" />
+            </h2>
           </div>
         </div>
         <div className="w-full md:w-1/2">

@@ -1,4 +1,5 @@
 import React from "react"
+import { FormattedMessage } from "react-intl"
 
 import styled from "styled-components"
 
@@ -15,7 +16,7 @@ const Footer = () => {
   return (
     <FooterStyled className="grid content-end justify-items-center p-10 gap-3">
       <Contact />
-      <p>Raphaël Catarino - Portofolio ©</p>
+      <p>Raphaël Catarino - <FormattedMessage id="footerPageTitle"/> ©</p>
     </FooterStyled>
   )
 }

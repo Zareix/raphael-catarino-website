@@ -4,6 +4,7 @@ import Modal from "react-modal"
 import { CgClose } from "react-icons/cg"
 
 import "./contactModal.css"
+import { FormattedMessage } from "react-intl"
 
 Modal.setAppElement(`#___gatsby`)
 
@@ -70,10 +71,10 @@ const ContactModal = (props) => {
               onClick={close}
             />
             <p className="col-start-2 col-span-3 border-b border-gray-400 pb-2">
-              Message envoyé !
+              <FormattedMessage id="contactMessageSentTitle" />
             </p>
             <p className="col-start-2 col-span-3 pt-2">
-              Je vous repondrai au plus vite
+              <FormattedMessage id="contactMessageSentSubtitle" />
             </p>
           </div>
         </div>
