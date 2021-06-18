@@ -47,3 +47,14 @@ body {
 .h-10vh {
   height: 10vh;
 }
+
+.link-active {
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--tw-text-opacity)) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .link-active {
+    color: rgba(255, 255, 255, var(--tw-text-opacity)) !important;
+  }
+}

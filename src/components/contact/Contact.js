@@ -9,6 +9,7 @@ const Contact = () => {
   return (
     <>
       <button
+        id="openContactBtn"
         onClick={() => setIsOpen(!isOpen)}
         className="px-4 py-1 transition ease-in duration-200 rounded-full hover:bg-gray-800  hover:text-white border-2 border-gray-800 focus:outline-none"
       >

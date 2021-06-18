@@ -24,6 +24,7 @@ const Main = styled.div`
   margin: auto;
   background-color: white;
   z-index: 1;
+}
 `
 
 const Home = () => {

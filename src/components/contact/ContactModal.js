@@ -4,14 +4,14 @@ import Modal from "react-modal"
 import { CgClose } from "react-icons/cg"
 
 import "./contactModal.css"
-import { FormattedMessage } from "react-intl"
+import { FormattedMessage, useIntl } from "react-intl"
 
 Modal.setAppElement(`#___gatsby`)
 
 const modalStyles = {
   overlay: {
     backgroundColor: "rgb(47,47,47, 0.75)",
-    zIndex: "10",
+    zIndex: "50",
   },
   content: {
     border: null,
@@ -32,6 +32,7 @@ const ContactModal = (props) => {
 
   const [state, setState] = useState({})
   const [sent, setSent] = useState(false)
+  const intl = useIntl()
 
   const handleChange = (e) =>
     setState({ ...state, [e.target.name]: e.target.value })
@@ -91,7 +92,9 @@ const ContactModal = (props) => {
         >
           <div className="w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
             <div className="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">
-              <p className="col-start-2 col-span-3">Contactez moi</p>
+              <p className="col-start-2 col-span-3">
+                <FormattedMessage id="contactFormTitle" />
+              </p>
               <CgClose size={30} className="cursor-pointer" onClick={close} />
             </div>
             <input type="hidden" name="form-name" value="contact" />
@@ -103,7 +106,9 @@ const ContactModal = (props) => {
                     name="nom"
                     id="contactName"
                     className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                    placeholder="Votre nom"
+                    placeholder={intl.formatMessage({
+                      id: "contactPlaceholderName",
+                    })}
                     onChange={handleChange}
                   />
                 </div>
@@ -115,7 +120,9 @@ const ContactModal = (props) => {
                     id="contactEmail"
                     name="email"
                     className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                    placeholder="Votre email"
+                    placeholder={intl.formatMessage({
+                      id: "contactPlaceholderEmail",
+                    })}
                     onChange={handleChange}
                   />
                 </div>
@@ -127,7 +134,9 @@ const ContactModal = (props) => {
                     id="contactSubject"
                     name="sujet"
                     className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                    placeholder="Sujet"
+                    placeholder={intl.formatMessage({
+                      id: "contactPlaceholderSubject",
+                    })}
                     onChange={handleChange}
                   />
                 </div>
@@ -137,7 +146,9 @@ const ContactModal = (props) => {
                   <textarea
                     className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     id="contactContent"
-                    placeholder="Que voulez-vous me dire ?"
+                    placeholder={intl.formatMessage({
+                      id: "contactPlaceholderContent",
+                    })}
                     name="contenu"
                     rows="5"
                     cols="40"
@@ -150,7 +161,7 @@ const ContactModal = (props) => {
                   type="submit"
                   className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
-                  Envoyer
+                  <FormattedMessage id="contactSendBtn" />
                 </button>
               </div>
             </div>
