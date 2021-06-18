@@ -60,7 +60,11 @@ const Navigation = () => {
           <div className=" flex items-center">
             <button
               className="flex-shrink-0 cursor-pointer outline-none"
-              onClick={animateScroll.scrollToTop}
+              onClick={ () => {
+                    setIsDrawerOpen(false)
+                    animateScroll.scrollToTop()
+                 }
+              }
             >
               <StaticImage
                 className="h-8 w-8 dark:hidden"
