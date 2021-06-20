@@ -4,7 +4,9 @@ import { Link, animateScroll } from "react-scroll"
 import { StaticImage } from "gatsby-plugin-image"
 import { FaChevronDown } from "react-icons/fa"
 import { FormattedMessage, useIntl } from "react-intl"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
+
+import LangSelector from "./LangSelector"
 
 const Overlay = styled.div`
   width: 100%;
@@ -44,7 +46,6 @@ const Navigation = () => {
       }
     }
 
-
     window.addEventListener("scroll", handleScroll)
   }, [visible])
 
@@ -57,6 +58,8 @@ const Navigation = () => {
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen)
   }
+
+  const closeDrawer = () => setIsDrawerOpen(false)
 
   return (
     <nav
@@ -90,8 +93,9 @@ const Navigation = () => {
             </button>
             <div className="hidden md:block">
               <div className="ml-10 flex justify-center items-baseline space-x-4">
-                {links.map((link) => (
+                {links.map((link, i) => (
                   <Link
+                    key={i}
                     className="cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     activeClass="link-active"
                     spy
@@ -112,9 +116,9 @@ const Navigation = () => {
               </div>
             </div>
           </div>
-          {/*<div className="block">
-            <div className="ml-4 flex items-center md:ml-6">languages selector + switchTheme</div>
-          </div>*/}
+          <div className="hidden md:flex ml-4 items-center md:ml-6">
+            <LangSelector />
+          </div>
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={toggleDrawer}
@@ -134,30 +138,36 @@ const Navigation = () => {
         <>
           <div
             id="navbarDrawer"
-            className="md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-800 "
+            className="md:hidden px-2 pt-2 pb-3 sm:px-3 bg-white dark:bg-gray-800 "
           >
-            {links.map((link) => (
+            {links.map((link, i) => (
               <Link
-                className="cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                key={i}
+                className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900  block px-3 py-2 rounded-md text-base font-medium"
                 to={link.to}
                 activeClass="link-active"
                 spy
                 smooth
                 offset={-70}
                 duration={500}
-                onClick={() => setIsDrawerOpen(false)}
+                onClick={closeDrawer}
               >
                 {link.label}
               </Link>
             ))}
             <button
-              className="outline-none cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-base font-medium"
+              className="outline-none cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-base font-medium"
               onClick={openContactForm}
             >
               <FormattedMessage id="contactBtnText" />
             </button>
+            <LangSelector mobile closeNavDrawer={closeDrawer} />
           </div>
-          <Overlay id="navbarOverlay" onClick={() => setIsDrawerOpen(false)} />
+          <Overlay
+            id="navbarOverlay"
+            className="md:hidden"
+            onClick={closeDrawer}
+          />
         </>
       )}
     </nav>
