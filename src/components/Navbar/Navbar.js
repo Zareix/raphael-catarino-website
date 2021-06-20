@@ -80,15 +80,15 @@ const Navigation = () => {
           >
             <StaticImage
               className="h-8 w-8 dark:hidden"
-              src="../images/icon.png"
+              src="../../images/icon.png"
               alt="icon nav bar"
-              placeholder="blurred"
+              placeholder="tracedSVG"
             />
             <StaticImage
               className="h-8 w-8 hidden dark:block"
-              src="../images/iconWhite.png"
+              src="../../images/iconWhite.png"
               alt="icon nav bar"
-              placeholder="blurred"
+              placeholder="tracedSVG"
             />
           </button>
           <div className="hidden md:flex ml-10 justify-center items-baseline space-x-4">
