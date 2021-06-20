@@ -170,7 +170,7 @@ const Competences = (props) => {
               />
             ))}
           </ImagesContainer>
-          <TitleCat>{catComp[0].name}</TitleCat>
+          <TitleCat><FormattedMessage id="compWebTitle"/></TitleCat>
         </SectionFromLeft>
       </div>
 
@@ -192,7 +192,7 @@ const Competences = (props) => {
               />
             ))}
           </ImagesContainer>
-          <TitleCat fromRight>{catComp[1].name}</TitleCat>
+          <TitleCat fromRight><FormattedMessage id="compMobileTitle"/></TitleCat>
         </SectionFromRight>
       </div>
 
@@ -214,7 +214,7 @@ const Competences = (props) => {
               />
             ))}
           </ImagesContainer>
-          <TitleCat>{catComp[2].name}</TitleCat>
+          <TitleCat><FormattedMessage id="compSoftwareTitle"/></TitleCat>
         </SectionFromLeft>
       </div>
 
@@ -236,7 +236,7 @@ const Competences = (props) => {
               />
             ))}
           </ImagesContainer>
-          <TitleCat fromRight>{catComp[3].name}</TitleCat>
+          <TitleCat fromRight><FormattedMessage id="compDataBaseTitle"/></TitleCat>
         </SectionFromRight>
       </div>
 
