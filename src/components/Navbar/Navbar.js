@@ -63,76 +63,71 @@ const Navigation = () => {
 
   return (
     <nav
+      id="navbar"
       className={
         "z-50 shadow fixed w-full transition-transform duration-300 ease-in-out" +
         (visible ? " transform translate-y-0" : " transform -translate-y-full")
       }
     >
-      <div className="px-5 md:px-12 bg-white dark:bg-gray-800 ">
-        <div className="flex items-center justify-between h-16">
-          <div className=" flex items-center">
+      <div className="px-5 md:px-12 bg-white dark:bg-gray-800 flex items-center justify-between h-16">
+        <div className="flex items-center">
+          <button
+            className="flex-shrink-0 cursor-pointer outline-none"
+            onClick={() => {
+              setIsDrawerOpen(false)
+              animateScroll.scrollToTop()
+            }}
+          >
+            <StaticImage
+              className="h-8 w-8 dark:hidden"
+              src="../images/icon.png"
+              alt="icon nav bar"
+              placeholder="blurred"
+            />
+            <StaticImage
+              className="h-8 w-8 hidden dark:block"
+              src="../images/iconWhite.png"
+              alt="icon nav bar"
+              placeholder="blurred"
+            />
+          </button>
+          <div className="hidden md:flex ml-10 justify-center items-baseline space-x-4">
+            {links.map((link, i) => (
+              <Link
+                key={i}
+                className="cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                activeClass="link-active"
+                spy
+                smooth
+                offset={-70}
+                duration={500}
+                to={link.to}
+              >
+                {link.label}
+              </Link>
+            ))}
             <button
-              className="flex-shrink-0 cursor-pointer outline-none"
-              onClick={() => {
-                setIsDrawerOpen(false)
-                animateScroll.scrollToTop()
-              }}
+              className="outline-none cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              onClick={openContactForm}
             >
-              <StaticImage
-                className="h-8 w-8 dark:hidden"
-                src="../images/icon.png"
-                alt="icon nav bar"
-                placeholder="blurred"
-              />
-              <StaticImage
-                className="h-8 w-8 hidden dark:block"
-                src="../images/iconWhite.png"
-                alt="icon nav bar"
-                placeholder="blurred"
-              />
-            </button>
-            <div className="hidden md:block">
-              <div className="ml-10 flex justify-center items-baseline space-x-4">
-                {links.map((link, i) => (
-                  <Link
-                    key={i}
-                    className="cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    activeClass="link-active"
-                    spy
-                    smooth
-                    offset={-70}
-                    duration={500}
-                    to={link.to}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <button
-                  className="outline-none cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  onClick={openContactForm}
-                >
-                  <FormattedMessage id="contactBtnText" />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="hidden md:flex ml-4 items-center md:ml-6">
-            <LangSelector />
-          </div>
-          <div className="-mr-2 flex md:hidden">
-            <button
-              onClick={toggleDrawer}
-              className="text-gray-800 dark:text-white hover:text-gray-500 inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
-            >
-              <FaChevronDown
-                size={20}
-                className={`transition-transform transform duration-300 ${
-                  isDrawerOpen ? "rotate-180" : "rotate-0"
-                }`}
-              />
+              <FormattedMessage id="contactBtnText" />
             </button>
           </div>
         </div>
+        <div className="hidden md:flex ml-4 items-center md:ml-6">
+          <LangSelector />
+        </div>
+        <button
+          onClick={toggleDrawer}
+          className="-mr-2 flex md:hidden text-gray-800 dark:text-white hover:text-gray-500 inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+        >
+          <FaChevronDown
+            size={20}
+            className={`transition-transform transform duration-300 ${
+              isDrawerOpen ? "rotate-180" : "rotate-0"
+            }`}
+          />
+        </button>
       </div>
       {isDrawerOpen && (
         <>

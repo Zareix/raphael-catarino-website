@@ -9,13 +9,13 @@ const lang = [
     countryCode: "FR",
     title: "Français",
     redirect: "/fr/",
-    locale : "fr"
+    locale: "fr",
   },
   {
     countryCode: "US",
     title: "English",
     redirect: "/en/",
-    locale : "en"
+    locale: "en",
   },
 ]
 
@@ -34,8 +34,10 @@ const LangSelector = (props) => {
           <button
             key={i}
             className={
-              "flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600 border  rounded-md outline-none shadow-sm" +
-              (location.pathname.includes(l.locale) ? " border-gray-300 " : " dark:border-gray-600")
+              "flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600 border rounded-md outline-none shadow-sm" +
+              (location.pathname.includes(l.locale)
+                ? " border-gray-300 "
+                : " dark:border-gray-600")
             }
             onClick={() => {
               setSelectedLang(l.countryCode)
@@ -79,7 +81,10 @@ const LangSelector = (props) => {
             {lang.map((l, i) => (
               <button
                 key={i}
-                className="flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600"
+                className={
+                  "flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
+                  (location.pathname.includes(l.locale) && " font-semibold")
+                }
                 onClick={() => {
                   setSelectedLang(l.countryCode)
                   navigate(l.redirect, {
