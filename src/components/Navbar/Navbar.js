@@ -4,6 +4,14 @@ import { Link, animateScroll } from "react-scroll"
 import { StaticImage } from "gatsby-plugin-image"
 import { FaChevronDown } from "react-icons/fa"
 import { FormattedMessage, useIntl } from "react-intl"
+import styled, { keyframes } from "styled-components"
+
+const Overlay = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+`
 
 const Navigation = () => {
   const [visible, setVisible] = useState(false)
@@ -26,7 +34,7 @@ const Navigation = () => {
   ]
 
   useEffect(() => {
-    function handleScroll() {
+    const handleScroll = () => {
       if (window.pageYOffset > 140) {
         if (!visible) {
           setVisible(true)
@@ -36,12 +44,14 @@ const Navigation = () => {
       }
     }
 
+
     window.addEventListener("scroll", handleScroll)
   }, [visible])
 
   const openContactForm = () => {
     let e = document.getElementById("openContactBtn")
     if (e) e.click()
+    setIsDrawerOpen(false)
   }
 
   const toggleDrawer = () => {
@@ -51,20 +61,19 @@ const Navigation = () => {
   return (
     <nav
       className={
-        "bg-white dark:bg-gray-800 shadow fixed w-full z-30 transition-transform duration-300 ease-in-out" +
+        "z-50 shadow fixed w-full transition-transform duration-300 ease-in-out" +
         (visible ? " transform translate-y-0" : " transform -translate-y-full")
       }
     >
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="px-5 md:px-12 bg-white dark:bg-gray-800 ">
         <div className="flex items-center justify-between h-16">
           <div className=" flex items-center">
             <button
               className="flex-shrink-0 cursor-pointer outline-none"
-              onClick={ () => {
-                    setIsDrawerOpen(false)
-                    animateScroll.scrollToTop()
-                 }
-              }
+              onClick={() => {
+                setIsDrawerOpen(false)
+                animateScroll.scrollToTop()
+              }}
             >
               <StaticImage
                 className="h-8 w-8 dark:hidden"
@@ -122,8 +131,11 @@ const Navigation = () => {
         </div>
       </div>
       {isDrawerOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <>
+          <div
+            id="navbarDrawer"
+            className="md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-800 "
+          >
             {links.map((link) => (
               <Link
                 className="cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -145,7 +157,8 @@ const Navigation = () => {
               <FormattedMessage id="contactBtnText" />
             </button>
           </div>
-        </div>
+          <Overlay id="navbarOverlay" onClick={() => setIsDrawerOpen(false)} />
+        </>
       )}
     </nav>
   )

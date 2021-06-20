@@ -12,19 +12,17 @@ import Biographie from "./Biographie"
 import Competences from "./competences/Competences"
 import Projets from "./Projets/Projets"
 import Seo from "./Seo"
-import ScrollButton from "./ScrollButton"
 import BeforeContent from "./BeforeContent"
 import Timeline from "./timeline/Timeline"
 
-const Page = styled.main`
+const Page = styled.div`
   background-color: #f5f5f5;
 `
 
-const Main = styled.div`
+const Main = styled.main`
   margin: auto;
   background-color: white;
   z-index: 1;
-}
 `
 
 const Home = () => {
@@ -71,7 +69,6 @@ const Home = () => {
           <Competences />
           <Projets />
         </Main>
-        {scrolled && <ScrollButton />}
       </Layout>
     </Page>
   )

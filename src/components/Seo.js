@@ -53,8 +53,6 @@ const SEO = ({ title, description, image, article }) => {
         <meta name="twitter:creator" content={twitterUsername} />
       )*/}
 
-      {seo.url && <meta property="twitter:url" content={seo.url} />}
-
       {seo.title && <meta name="twitter:title" content={seo.title} />}
 
       {seo.description && (

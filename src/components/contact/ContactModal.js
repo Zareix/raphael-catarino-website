@@ -11,7 +11,7 @@ Modal.setAppElement(`#___gatsby`)
 const modalStyles = {
   overlay: {
     backgroundColor: "rgb(47,47,47, 0.75)",
-    zIndex: "50",
+    zIndex: "60",
   },
   content: {
     border: null,

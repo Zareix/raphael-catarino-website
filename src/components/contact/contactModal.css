@@ -1,4 +1,8 @@
 .ReactModal__Overlay {
+  width: 100vw;
+  backdrop-filter: blur(2px);
+  background-color: rgb(47,47,47, 0.75);
+  z-index: 60;
   opacity: 0;
   transition: opacity 300ms ease-in-out;
 }
@@ -12,14 +16,18 @@
 }
 
 .ReactModal__Content {
-  transform: translateY(0);
+  transform: translateY(15px);
   transition: transform 300ms ease-in-out;
 
+  border: none;
+  background: none;
+  border-radius: none;
+  padding: none;
   inset: 60px 40px !important;
 }
 
 .ReactModal__Content--after-open {
-  transform: translateY(-15px);
+  transform: translateY(0);
 }
 
 .ReactModal__Content--before-close {
@@ -29,6 +37,11 @@
 .ReactModal__Body--open,
 .ReactMod__Html--open {
   overflow: hidden;
+}
+
+#formModalContact{
+  margin: auto;
+  height: min-content;
 }
 
 #contactContent {
