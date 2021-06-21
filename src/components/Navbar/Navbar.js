@@ -8,6 +8,8 @@ import styled from "styled-components"
 
 import LangSelector from "./LangSelector"
 
+const minPageOffset = 140
+
 const Overlay = styled.div`
   width: 100%;
   height: 100vh;
@@ -37,7 +39,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > 140) {
+      if (window.pageYOffset > minPageOffset) {
         if (!visible) {
           setVisible(true)
         }
@@ -46,7 +48,23 @@ const Navigation = () => {
       }
     }
 
+    const handleMouseMove = (e) => {
+      if (window.pageYOffset > minPageOffset) return
+      if (
+        e.clientY <
+        5 * parseFloat(getComputedStyle(document.documentElement).fontSize)
+      )
+        setVisible(true)
+      else setVisible(false)
+    }
+
     window.addEventListener("scroll", handleScroll)
+    window.addEventListener("mousemove", handleMouseMove)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("mousemove", handleMouseMove)
+    }
   }, [visible])
 
   const openContactForm = () => {
@@ -119,13 +137,14 @@ const Navigation = () => {
         </div>
         <button
           onClick={toggleDrawer}
-          className="-mr-2 flex md:hidden text-gray-800 dark:text-white hover:text-gray-500 inline-flex items-center justify-center p-2 rounded-md focus:outline-none select-none"
+          className="-mr-2 inline-flex md:hidden text-gray-800 dark:text-white hover:text-gray-500  items-center justify-center p-2 rounded-md focus:outline-none select-none"
         >
           <FaChevronDown
             size={20}
-            className={`transition-transform transform duration-300 ${
-              isDrawerOpen ? "rotate-180" : "rotate-0"
-            }`}
+            className={
+              "transition-transform transform duration-300" +
+              (isDrawerOpen ? " rotate-180" : " rotate-0")
+            }
           />
         </button>
       </div>
