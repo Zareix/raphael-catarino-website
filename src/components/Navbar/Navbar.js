@@ -119,7 +119,7 @@ const Navigation = () => {
         </div>
         <button
           onClick={toggleDrawer}
-          className="-mr-2 flex md:hidden text-gray-800 dark:text-white hover:text-gray-500 inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+          className="-mr-2 flex md:hidden text-gray-800 dark:text-white hover:text-gray-500 inline-flex items-center justify-center p-2 rounded-md focus:outline-none select-none"
         >
           <FaChevronDown
             size={20}
