@@ -3,7 +3,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { AiFillGithub } from "react-icons/ai"
-import { FormattedMessage } from "react-intl"
+import { FormattedDate, FormattedMessage, useIntl } from "react-intl"
 
 const Button = () => (
   <button
@@ -23,8 +23,9 @@ const Projets = () => {
           node {
             id
             frontmatter {
-              title
-              date(formatString: "DD/MM/YYYY")
+              titleFr
+              titleEn
+              date
               description
               github
               site
@@ -38,13 +39,25 @@ const Projets = () => {
                 }
               }
             }
-            excerpt
-            html
           }
         }
       }
     }
   `)
+
+  const intl = useIntl()
+
+  const getProjectTitleDesc = (frontmatter) => {
+    let locale = intl.locale.substring(0, 2)
+    switch (locale) {
+      case "fr":
+        return [frontmatter.titleFr, frontmatter.description]
+      case "en":
+        return [frontmatter.titleEn, frontmatter.description]
+      default:
+        return [frontmatter.titleFr, frontmatter.description]
+    }
+  }
 
   return (
     <div id="projets">
@@ -60,24 +73,29 @@ const Projets = () => {
                   projet.frontmatter.featuredImage.childImageSharp
                     .gatsbyImageData
                 }
-                alt={projet.frontmatter.title}
+                alt={getProjectTitleDesc(projet.frontmatter)[0]}
                 className="max-h-56"
               />
 
               <div className="px-4 py-4 md:px-10">
                 <h1 className="font-semibold text-lg">
-                  {projet.frontmatter.title}
+                  {getProjectTitleDesc(projet.frontmatter)[0]}
                 </h1>
 
                 <p className="py-4 text-justify">
-                  {projet.frontmatter.description}
+                  {getProjectTitleDesc(projet.frontmatter)[1]}
                 </p>
 
                 <p className="italic">{projet.frontmatter.langages}</p>
 
                 <div className="flex pt-8 items-center align-bottom h-full">
                   <div className="w-full md:w-2/3 text-sm font-medium">
-                    {projet.frontmatter.date}
+                    <FormattedDate
+                      value={projet.frontmatter.date}
+                      year="numeric"
+                      month="long"
+                      day="2-digit"
+                    />
                   </div>
 
                   {/* Liens */}

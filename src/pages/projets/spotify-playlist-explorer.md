@@ -1,5 +1,6 @@
 ---
-title: "Spotify Playlist Explorer"
+titleFr: "Spotify Playlist Explorer"
+titleEn: "Spotify Playlist Explorer"
 date: "2021-01-25"
 github: "https://github.com/Zareix/Spotify-playlist-explorer"
 site: "https://spotify-explorer.raphael-catarino.fr"

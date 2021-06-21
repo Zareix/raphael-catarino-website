@@ -1,5 +1,6 @@
 ---
-title: "KUWYS"
+titleFr: "KUWYS"
+titleEn: "KUWYS"
 date: "2021-04-01"
 github: "https://github.com/Zareix/pjs4-ts"
 site: "https://pjs4-iut-ts.web.app/"

@@ -1,5 +1,6 @@
 ---
-title: "Wishlist"
+titleFr: "Wishlist"
+titleEn: "Wishlist"
 date: "2021-05-26"
 github: "https://github.com/Zareix/raphael-wishlist"
 site: "https://wishlist.raphael-catarino.fr"
