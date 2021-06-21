@@ -20,7 +20,7 @@ const lang = [
 ]
 
 const LangSelector = (props) => {
-  const { mobile, closeNavDrawer } = props
+  const { mobile, closeNavDrawer, navVisible } = props
   const intl = useIntl()
   const [isOpen, setIsOpen] = useState(false)
   const [selectedLang, setSelectedLang] = useState(
@@ -35,7 +35,7 @@ const LangSelector = (props) => {
             key={i}
             className={
               "flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600 border rounded-md outline-none shadow-sm" +
-              (location.pathname.includes(l.locale)
+              (window.location.pathname.includes(l.locale)
                 ? " border-gray-300 "
                 : " dark:border-gray-600")
             }
@@ -72,7 +72,7 @@ const LangSelector = (props) => {
       >
         <ReactCountryFlag countryCode={selectedLang} svg className="text-lg" />
       </button>
-      {isOpen && (
+      {navVisible && isOpen && (
         <div
           id="langSelectorDrawer"
           className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5"
@@ -83,7 +83,7 @@ const LangSelector = (props) => {
                 key={i}
                 className={
                   "flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
-                  (location.pathname.includes(l.locale) && " font-semibold")
+                  (window.location.pathname.includes(l.locale) && " font-semibold")
                 }
                 onClick={() => {
                   setSelectedLang(l.countryCode)

@@ -19,7 +19,7 @@ const Overlay = styled.div`
 
 const Navigation = () => {
   const [visible, setVisible] = useState(false)
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
   const intl = useIntl()
 
   const links = [
@@ -45,6 +45,7 @@ const Navigation = () => {
         }
       } else {
         setVisible(false)
+        setIsNavDrawerOpen(false)
       }
     }
 
@@ -52,10 +53,13 @@ const Navigation = () => {
       if (window.pageYOffset > minPageOffset) return
       if (
         e.clientY <
-        5 * parseFloat(getComputedStyle(document.documentElement).fontSize)
+        10 * parseFloat(getComputedStyle(document.documentElement).fontSize)
       )
         setVisible(true)
-      else setVisible(false)
+      else {
+        setVisible(false)
+        setIsNavDrawerOpen(false)
+      }
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -65,19 +69,20 @@ const Navigation = () => {
       window.removeEventListener("scroll", handleScroll)
       window.removeEventListener("mousemove", handleMouseMove)
     }
-  }, [visible])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const openContactForm = () => {
     let e = document.getElementById("openContactBtn")
     if (e) e.click()
-    setIsDrawerOpen(false)
+    setIsNavDrawerOpen(false)
   }
 
   const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen)
+    setIsNavDrawerOpen(!isNavDrawerOpen)
   }
 
-  const closeDrawer = () => setIsDrawerOpen(false)
+  const closeNavDrawer = () => setIsNavDrawerOpen(false)
 
   return (
     <nav
@@ -92,7 +97,7 @@ const Navigation = () => {
           <button
             className="flex-shrink-0 cursor-pointer outline-none"
             onClick={() => {
-              setIsDrawerOpen(false)
+              closeNavDrawer()
               animateScroll.scrollToTop()
             }}
           >
@@ -133,7 +138,7 @@ const Navigation = () => {
           </div>
         </div>
         <div className="hidden md:flex ml-4 items-center md:ml-6">
-          <LangSelector />
+          <LangSelector navVisible={visible} />
         </div>
         <button
           onClick={toggleDrawer}
@@ -143,12 +148,12 @@ const Navigation = () => {
             size={20}
             className={
               "transition-transform transform duration-300" +
-              (isDrawerOpen ? " rotate-180" : " rotate-0")
+              (isNavDrawerOpen ? " rotate-180" : " rotate-0")
             }
           />
         </button>
       </div>
-      {isDrawerOpen && (
+      {isNavDrawerOpen && (
         <>
           <div
             id="navbarDrawer"
@@ -164,7 +169,7 @@ const Navigation = () => {
                 smooth
                 offset={-70}
                 duration={500}
-                onClick={closeDrawer}
+                onClick={closeNavDrawer}
               >
                 {link.label}
               </Link>
@@ -175,13 +180,13 @@ const Navigation = () => {
             >
               <FormattedMessage id="contactBtnText" />
             </button>
-            <LangSelector mobile closeNavDrawer={closeDrawer} />
+            <LangSelector mobile closeNavDrawer={closeNavDrawer} navVisible={visible} />
           </div>
-          <Overlay
+          {visible && <Overlay
             id="navbarOverlay"
             className="md:hidden"
-            onClick={closeDrawer}
-          />
+            onClick={closeNavDrawer}
+          />}
         </>
       )}
     </nav>
