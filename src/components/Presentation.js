@@ -7,10 +7,28 @@ import Illustration from "../images/svg/presentation_illustration.svg"
 
 const PresentationSection = styled.section`
   margin: 0;
-  color: white;
   height: 100vh;
   font-size: 1.875rem;
   line-height: 2.25rem;
+
+  @media (prefers-color-scheme: dark) {
+    .illustration-screen-right,
+    .illustration-camera {
+      fill: #1f2937;
+    }
+
+    .illustration-screen-left {
+      fill: #111827;
+    }
+
+    .illustration-text > * {
+      fill: white;
+    }
+
+    .illustration-computer {
+      fill: #e2e8f0;
+    }
+  }
 `
 
 const PresentationWrapper = styled.div`
@@ -24,12 +42,14 @@ const PresentationWrapper = styled.div`
 
 const Presentation = () => {
   return (
-    <PresentationSection className="bg-gradient-to-br from-red-900 to-purple-900">
+    <PresentationSection className="bg-gradient-to-br from-red-800 to-purple-800 dark:from-red-900 dark:to-purple-900">
       <PresentationWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
           <div className="mx-auto w-fit">
-            <h1 className="font-bold text-4xl md:text-5xl">Raphaël Catarino</h1>
-            <h2 className="mt-2">
+            <h1 className="font-bold text-4xl md:text-5xl text-gray-50">
+              Raphaël Catarino
+            </h1>
+            <h2 className="mt-2 text-gray-300">
               <FormattedMessage id="presTitle" />
             </h2>
           </div>

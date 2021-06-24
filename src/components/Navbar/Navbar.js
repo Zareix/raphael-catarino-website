@@ -86,40 +86,40 @@ const Navigation = () => {
 
   return (
     <nav
-      id="navbar"
+      id='navbar'
       className={
         "z-50 shadow fixed w-full transition-transform duration-300 ease-in-out" +
         (visible ? " transform translate-y-0" : " transform -translate-y-full")
       }
     >
-      <div className="px-5 md:px-12 bg-white dark:bg-gray-800 flex items-center justify-between h-16">
-        <div className="flex items-center">
+      <div className='px-5 md:px-12 bg-white dark:bg-gray-800 flex items-center justify-between h-16'>
+        <div className='flex items-center'>
           <button
-            className="flex-shrink-0 cursor-pointer outline-none"
+            className='flex-shrink-0 cursor-pointer outline-none'
             onClick={() => {
               closeNavDrawer()
               animateScroll.scrollToTop()
             }}
           >
             <StaticImage
-              className="h-8 w-8 dark:hidden"
-              src="../../images/icon.png"
-              alt="icon nav bar"
-              placeholder="tracedSVG"
+              className='h-8 w-8 dark:hidden'
+              src='../../images/icon.png'
+              alt='icon nav bar'
+              placeholder='tracedSVG'
             />
             <StaticImage
-              className="h-8 w-8 hidden dark:block"
-              src="../../images/iconWhite.png"
-              alt="icon nav bar"
-              placeholder="tracedSVG"
+              className='h-8 w-8 hidden dark:block'
+              src='../../images/iconWhite.png'
+              alt='icon nav bar'
+              placeholder='tracedSVG'
             />
           </button>
-          <div className="hidden md:flex ml-10 justify-center items-baseline space-x-4">
+          <div className='hidden md:flex ml-10 justify-center items-baseline space-x-4'>
             {links.map((link, i) => (
               <Link
                 key={i}
-                className="cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                activeClass="link-active"
+                className='cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                activeClass='link-active'
                 spy
                 smooth
                 offset={-70}
@@ -130,19 +130,19 @@ const Navigation = () => {
               </Link>
             ))}
             <button
-              className="outline-none cursor-pointer text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              className='outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium'
               onClick={openContactForm}
             >
-              <FormattedMessage id="contactBtnText" />
+              <FormattedMessage id='contactBtnText' />
             </button>
           </div>
         </div>
-        <div className="hidden md:flex ml-4 items-center md:ml-6">
+        <div className='hidden md:flex ml-4 items-center md:ml-6'>
           <LangSelector navVisible={visible} />
         </div>
         <button
           onClick={toggleDrawer}
-          className="-mr-2 inline-flex md:hidden text-gray-800 dark:text-white hover:text-gray-500  items-center justify-center p-2 rounded-md focus:outline-none select-none"
+          className='-mr-2 inline-flex md:hidden text-gray-800 dark:text-white hover:text-gray-400  items-center justify-center p-2 rounded-md focus:outline-none select-none'
         >
           <FaChevronDown
             size={20}
@@ -156,15 +156,15 @@ const Navigation = () => {
       {isNavDrawerOpen && (
         <>
           <div
-            id="navbarDrawer"
-            className="md:hidden px-2 pt-2 pb-3 sm:px-3 bg-white dark:bg-gray-800 "
+            id='navbarDrawer'
+            className='md:hidden px-2 pt-2 pb-3 sm:px-3 bg-white dark:bg-gray-800 '
           >
             {links.map((link, i) => (
               <Link
                 key={i}
-                className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900  block px-3 py-2 rounded-md text-base font-medium"
+                className='cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900  block px-3 py-2 rounded-md text-base font-medium'
                 to={link.to}
-                activeClass="link-active"
+                activeClass='link-active'
                 spy
                 smooth
                 offset={-70}
@@ -175,18 +175,24 @@ const Navigation = () => {
               </Link>
             ))}
             <button
-              className="outline-none cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-base font-medium"
+              className='outline-none cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-base font-medium'
               onClick={openContactForm}
             >
-              <FormattedMessage id="contactBtnText" />
+              <FormattedMessage id='contactBtnText' />
             </button>
-            <LangSelector mobile closeNavDrawer={closeNavDrawer} navVisible={visible} />
+            <LangSelector
+              mobile
+              closeNavDrawer={closeNavDrawer}
+              navVisible={visible}
+            />
           </div>
-          {visible && <Overlay
-            id="navbarOverlay"
-            className="md:hidden"
-            onClick={closeNavDrawer}
-          />}
+          {visible && (
+            <Overlay
+              id='navbarOverlay'
+              className='md:hidden'
+              onClick={closeNavDrawer}
+            />
+          )}
         </>
       )}
     </nav>

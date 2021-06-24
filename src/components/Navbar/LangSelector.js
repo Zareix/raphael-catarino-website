@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import ReactCountryFlag from "react-country-flag"
 import { navigate } from "gatsby-link"
@@ -26,6 +26,22 @@ const LangSelector = (props) => {
   const [selectedLang, setSelectedLang] = useState(
     intl.locale.startsWith("en") ? "US" : "FR"
   )
+
+  let timeOutId
+
+  useEffect(() => {
+    if (!navVisible) setIsOpen(false)
+  }, [navVisible])
+
+  const onBlurHandler = () => {
+    timeOutId = setTimeout(() => {
+      setIsOpen(false)
+    })
+  }
+
+  const onFocusHandler = () => {
+    clearTimeout(timeOutId)
+  }
 
   if (mobile)
     return (
@@ -58,32 +74,35 @@ const LangSelector = (props) => {
     )
 
   return (
-    <div className="relative inline-block text-left">
+    <div
+      className="relative inline-block text-left"
+      onFocus={onFocusHandler}
+      onBlur={onBlurHandler}
+    >
       <button
         type="button"
-        className="shadow-sm flex items-center justify-center w-full rounded-md px-4 py-2 border border-gray-300 bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-100 dark:hover:bg-gray-500 transition ease-in duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-200 focus:ring-gray-400"
+        className="shadow-sm flex items-center justify-center w-full rounded-md px-4 py-2 border border-gray-300 bg-white dark:border-gray-400 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-100 dark:hover:bg-gray-400 transition ease-in duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-200 focus:ring-gray-400"
         id="langSelector"
         onClick={() => setIsOpen(!isOpen)}
-        onBlur={() => {
-          setTimeout(() => {
-            setIsOpen(false)
-          }, 300)
-        }}
+        aria-haspopup="menu"
+        aria-expanded={isOpen}
       >
         <ReactCountryFlag countryCode={selectedLang} svg className="text-lg" />
       </button>
-      {navVisible && isOpen && (
+      {isOpen && navVisible && (
         <div
           id="langSelectorDrawer"
-          className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5"
+          className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-700"
         >
-          <div className="py-1 flex flex-col">
+          <div className="py-1">
             {lang.map((l, i) => (
               <button
                 key={i}
                 className={
-                  "flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
-                  (window.location.pathname.includes(l.locale) && " font-semibold")
+                  "w-full flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
+                  (window.location.pathname.includes(l.locale)
+                    ? " font-semibold"
+                    : "")
                 }
                 onClick={() => {
                   setSelectedLang(l.countryCode)
@@ -92,7 +111,11 @@ const LangSelector = (props) => {
                   })
                 }}
               >
-                <ReactCountryFlag svg countryCode={l.countryCode} />
+                <ReactCountryFlag
+                  svg
+                  countryCode={l.countryCode}
+                  className="text-lg"
+                />
                 <span className="ml-2">{l.title}</span>
               </button>
             ))}

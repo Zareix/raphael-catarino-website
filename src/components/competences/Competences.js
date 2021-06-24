@@ -9,13 +9,18 @@ import { useInView } from "react-intersection-observer"
 import { FormattedMessage } from "react-intl"
 
 const Section = styled.section`
-  width: 60%;
+  width: 55%;
   overflow: hidden;
-  box-shadow: 0 16px 20px 8px rgba(0, 0, 0, 0.1);
   transition: all 1s ease-out;
+  box-shadow: 0 16px 20px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
 
   @media (max-width: 758px) {
     width: 90%;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #1e293b;
   }
 `
 
@@ -44,7 +49,7 @@ const TitleCat = (props) => {
   return (
     <h3
       className={
-        "text-2xl font-bold text-white bg-gradient-to-br from-blue-500 to-blue-600 py-2 px-6" +
+        "text-gray-100 text-2xl font-bold py-2 px-6 bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-800 dark:to-blue-900" +
         (fromRight ? "" : " text-right")
       }
     >
@@ -53,7 +58,7 @@ const TitleCat = (props) => {
   )
 }
 
-const Competences = (props) => {
+const Competences = () => {
   const data = useStaticQuery(graphql`
     {
       imagesWeb: allFile(
@@ -139,21 +144,21 @@ const Competences = (props) => {
   ]
 
   return (
-    <div
+    <section
       id="competences"
       className="pt-8 space-y-16 overflow-hidden pb-20 mt-12"
     >
-      <div className="text-center">
+      <div className="text-center -mb-8">
         <h2 className="text-3xl font-bold">
           <FormattedMessage id="competencesSectionTitle" />
         </h2>
-        <h3 className="text-lg text-gray-600 w-4/5 mx-auto">
+        <h3 className="text-lg text-gray-600 dark:text-gray-400 w-4/5 mx-auto">
           <FormattedMessage id="competencesSectionSubtitle" />
         </h3>
       </div>
 
       {/* Web */}
-      <div id="comp-web" className="flex" ref={refWeb}>
+      <article id="compWeb" className="flex" ref={refWeb}>
         <SectionFromLeft
           className={
             inViewWeb
@@ -170,12 +175,14 @@ const Competences = (props) => {
               />
             ))}
           </ImagesContainer>
-          <TitleCat><FormattedMessage id="compWebTitle"/></TitleCat>
+          <TitleCat>
+            <FormattedMessage id="compWebTitle" />
+          </TitleCat>
         </SectionFromLeft>
-      </div>
+      </article>
 
       {/* Mobile */}
-      <div id="comp-mobile" ref={refMobile}>
+      <article id="compMobile" ref={refMobile}>
         <SectionFromRight
           className={
             inViewMobile
@@ -192,12 +199,14 @@ const Competences = (props) => {
               />
             ))}
           </ImagesContainer>
-          <TitleCat fromRight><FormattedMessage id="compMobileTitle"/></TitleCat>
+          <TitleCat fromRight>
+            <FormattedMessage id="compMobileTitle" />
+          </TitleCat>
         </SectionFromRight>
-      </div>
+      </article>
 
       {/* Software */}
-      <div id="comp-software" ref={refSoft}>
+      <article id="compSoftware" ref={refSoft}>
         <SectionFromLeft
           className={
             inViewSoft
@@ -214,12 +223,14 @@ const Competences = (props) => {
               />
             ))}
           </ImagesContainer>
-          <TitleCat><FormattedMessage id="compSoftwareTitle"/></TitleCat>
+          <TitleCat>
+            <FormattedMessage id="compSoftwareTitle" />
+          </TitleCat>
         </SectionFromLeft>
-      </div>
+      </article>
 
       {/* Database */}
-      <div id="comp-database" ref={refData}>
+      <article id="compDatabase" ref={refData}>
         <SectionFromRight
           className={
             inViewData
@@ -236,9 +247,11 @@ const Competences = (props) => {
               />
             ))}
           </ImagesContainer>
-          <TitleCat fromRight><FormattedMessage id="compDataBaseTitle"/></TitleCat>
+          <TitleCat fromRight>
+            <FormattedMessage id="compDataBaseTitle" />
+          </TitleCat>
         </SectionFromRight>
-      </div>
+      </article>
 
       <ReactTooltip
         place="bottom"
@@ -249,7 +262,7 @@ const Competences = (props) => {
         delayUpdate={0}
         clickable
       />
-    </div>
+    </section>
   )
 }
 

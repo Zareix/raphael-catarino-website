@@ -1,0 +1,8 @@
+.vertical-timeline.vertical-timeline-custom-line::before {
+  background-color: #c5c5c5;
+}
+
+.vertical-timeline-element-content {
+  @apply dark:bg-gray-800;
+  @apply shadow-lg;
+}

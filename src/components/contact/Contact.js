@@ -11,12 +11,14 @@ const Contact = () => {
       <button
         id="openContactBtn"
         onClick={() => setIsOpen(!isOpen)}
-        className="px-4 py-1 transition ease-in duration-200 rounded-full hover:bg-gray-800  hover:text-white border-2 border-gray-800 focus:outline-none"
+        className="px-4 py-1 transition ease-in duration-200 rounded-full focus:outline-none border-2 border-gray-200 hover:bg-gray-200 hover:text-gray-800 dark:border-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
       >
         <FormattedMessage id="contactBtnText" />
       </button>
 
-      {/* Hidden forms that match the real one for netlify to detect --> due to how modal works in js dynamically */}
+      <ContactModal visible={isOpen} close={() => setIsOpen(false)} />
+
+      {/* Hidden forms that match the real one for netlify to detect --> due to how react-modal renders dynamically */}
       <form
         hidden
         name="contact"
@@ -28,7 +30,6 @@ const Contact = () => {
         <input type="text" name="sujet" />
         <textarea type="text" name="contenu" />
       </form>
-      <ContactModal visible={isOpen} close={() => setIsOpen(false)} />
     </>
   )
 }

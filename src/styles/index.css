@@ -1,5 +1,9 @@
+html,
 body {
-  color: #333333;
+  @apply text-gray-800;
+  @apply bg-gray-50;
+  @apply dark:text-gray-50;
+  @apply dark:bg-gray-900;
 }
 
 .fade-enter {

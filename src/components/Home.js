@@ -15,13 +15,8 @@ import Seo from "./Seo"
 import BeforeContent from "./BeforeContent"
 import Timeline from "./timeline/Timeline"
 
-const Page = styled.div`
-  background-color: #f5f5f5;
-`
-
 const Main = styled.main`
   margin: auto;
-  background-color: white;
   z-index: 1;
 `
 
@@ -42,25 +37,25 @@ const Home = () => {
   }, [scrolled])
 
   return (
-    <Page>
+    <>
       <Seo />
       <Layout>
         <Presentation />
-        <Main id="main">
+        <Main id='main'>
           <SwitchTransition>
             <CSSTransition
               key={scrolled ? "Before content" : "Biographie"}
               addEndListener={(node, done) =>
                 node.addEventListener("transitionend", done, false)
               }
-              classNames="fade"
+              classNames='fade'
             >
               {scrolled ? (
                 <Biographie />
               ) : (
                 <>
                   <BeforeContent />
-                  <div className="empty-content" />
+                  <div className='empty-content' />
                 </>
               )}
             </CSSTransition>
@@ -70,7 +65,7 @@ const Home = () => {
           <Projets />
         </Main>
       </Layout>
-    </Page>
+    </>
   )
 }
 
