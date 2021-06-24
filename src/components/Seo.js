@@ -28,7 +28,7 @@ const SEO = ({ title, description, image, article }) => {
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
-      <meta name="robots" content="nosnippet" />
+      <meta name="robots" content="nosnippet, max-snippet:0, noimageindex" />
 
       {/* Open Graph & Facebook */}
       {seo.url && <meta property="og:url" content={seo.url} />}
@@ -45,7 +45,12 @@ const SEO = ({ title, description, image, article }) => {
         <meta property="og:description" content={seo.description} />
       )}
 
-      {seo.image && <meta property="og:image" content={seo.image} />}
+      {seo.image && (
+        <>
+          <meta property="thumbnail" content={seo.image} />
+          <meta property="og:image" content={seo.image} />
+        </>
+       )}
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
