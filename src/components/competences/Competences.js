@@ -52,7 +52,7 @@ const Competences = () => {
         </h3>
       </div>
       {categories.map(({ node: cat }) => (
-        <Competence competence={cat} />
+        <Competence competence={cat} key={cat.id} />
       ))}
       <ReactTooltip
         place="bottom"

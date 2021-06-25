@@ -112,7 +112,6 @@ const Competence = (props) => {
   return (
     <article
       className="flex"
-      key={competence.id}
       id={competence.fields.slug.replace("/competences/", "").replace("/", "")}
       ref={ref}
     >

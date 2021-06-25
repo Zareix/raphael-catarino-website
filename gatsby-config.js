@@ -8,7 +8,6 @@ module.exports = {
     image: "/images/page-snap.png", // Path to your image you placed in the 'static' folder
     author: "Raphaël Catarino",
   },
-  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     `gatsby-plugin-image`,
     "gatsby-plugin-postcss",
@@ -16,13 +15,33 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Raphaël Catarino's Website",
-        short_name: "RaphaëlC",
+        short_name: "Raphaël C.",
+        description:
+          "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
         start_url: "/",
-        background_color: "#6b37bf",
         theme_color: "#6b37bf",
-        display: "standalone",
-        icon: "src/svg/favicon.svg",
-        crossOrigin: `use-credentials`,
+        background_color: "#F9FAFB",
+        display: "browser",
+        icon: "src/images/svg/favicon.svg",
+        purpose: "maskable",
+        lang: `fr`,
+        localize: [
+          {
+            start_url: `/fr/`,
+            lang: `fr`,
+            name: `Raphaël Catarino - Portfolio`,
+            short_name: `Raphaël C.`,
+            description:
+              "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
+          },
+          {
+            start_url: `/en/`,
+            lang: `en`,
+            name: `Raphaël Catarino's Website`,
+            short_name: `Raphaël C.`,
+            description: "Learn more about me, my skills and projects !",
+          },
+        ],
       },
     },
     "gatsby-plugin-mdx",
