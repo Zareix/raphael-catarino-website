@@ -33,6 +33,9 @@ const Home = () => {
     }
 
     window.addEventListener("scroll", checkScrollTop)
+
+    if (window.pageYOffset > 150) setScrolled(true)
+
     return () => window.removeEventListener("scroll", checkScrollTop)
   }, [scrolled])
 
@@ -40,22 +43,22 @@ const Home = () => {
     <>
       <Seo />
       <Layout>
-        <Presentation />
-        <Main id='main'>
+        <Main id="main">
+          <Presentation />
           <SwitchTransition>
             <CSSTransition
               key={scrolled ? "Before content" : "Biographie"}
               addEndListener={(node, done) =>
                 node.addEventListener("transitionend", done, false)
               }
-              classNames='fade'
+              classNames="fade"
             >
               {scrolled ? (
                 <Biographie />
               ) : (
                 <>
                   <BeforeContent />
-                  <div className='empty-content' />
+                  <div className="empty-content" />
                 </>
               )}
             </CSSTransition>

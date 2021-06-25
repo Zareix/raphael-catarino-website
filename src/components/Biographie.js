@@ -2,9 +2,9 @@ import React from "react"
 import { FormattedMessage } from "react-intl"
 import styled from "styled-components"
 
-const BioStyled = styled.div`
+const BioStyled = styled.section`
   text-align: center;
-  width: 40%;
+  width: 35%;
   margin: auto;
   padding: 2rem 4rem;
   padding-top: 1.5rem;
@@ -20,13 +20,13 @@ const BioStyled = styled.div`
 
 const Biographie = (props) => {
   return (
-    <BioStyled id='bio' className='shadow-md bg-white dark:bg-gray-800'>
-      <h1 className='text-xl font-bold'>
-        <FormattedMessage id='bioTitle' />
+    <BioStyled id="bio" className="shadow-md bg-white dark:bg-gray-800">
+      <h1 className="text-xl font-bold">
+        <FormattedMessage id="bioTitle" />
       </h1>
-      <p className='text-base text-justify mx-auto'>
+      <p className="text-base text-justify mx-auto">
         <FormattedMessage
-          id='bio'
+          id="bio"
           values={{
             linebreak: <br />,
           }}

@@ -12,8 +12,21 @@ module.exports = {
   plugins: [
     `gatsby-plugin-image`,
     "gatsby-plugin-postcss",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Raphaël Catarino's Website",
+        short_name: "RaphaëlC",
+        start_url: "/",
+        background_color: "#6b37bf",
+        theme_color: "#6b37bf",
+        display: "standalone",
+        icon: "src/svg/favicon.svg",
+        crossOrigin: `use-credentials`,
+      },
+    },
     "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
+    `gatsby-plugin-sharp`,
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -53,19 +66,6 @@ module.exports = {
         rule: {
           include: /svg/,
         },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: "Raphaël Catarino's Website",
-        short_name: "RaphaëlC",
-        start_url: "/",
-        background_color: "#6b37bf",
-        theme_color: "#6b37bf",
-        display: "standalone",
-        icon: "src/images/icon.png",
-        crossOrigin: `use-credentials`,
       },
     },
     `gatsby-plugin-react-helmet`,

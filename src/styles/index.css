@@ -57,8 +57,21 @@ body {
   color: rgba(31, 41, 55, var(--tw-text-opacity)) !important;
 }
 
+nav > * #navIcon {
+  height: 100%;
+  width: auto;
+}
+
+nav > * #navIcon > * path {
+  fill: #1f2937;
+}
+
 @media (prefers-color-scheme: dark) {
   .link-active {
     color: rgba(255, 255, 255, var(--tw-text-opacity)) !important;
+  }
+
+  nav > * #navIcon > * path {
+    fill: #f9fafb;
   }
 }

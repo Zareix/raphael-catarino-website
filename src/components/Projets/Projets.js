@@ -22,7 +22,10 @@ const Content = styled.div`
 const Projets = () => {
   const query = useStaticQuery(graphql`
     {
-      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      allMarkdownRemark(
+        sort: { fields: frontmatter___date, order: DESC }
+        filter: { fileAbsolutePath: { glob: "**/projets/**" } }
+      ) {
         totalCount
         edges {
           node {
@@ -90,7 +93,7 @@ const Projets = () => {
                 <h1 className="font-semibold text-lg">
                   {getProjectTitleDesc(projet.frontmatter).title}
                 </h1>
-                <aside className="w-fit mt-1 ml-2 px-2 border-l-4 italic rounded-sm rounded-r-md border-gray-400 bg-gray-200  dark:border-gray-400 dark:bg-gray-700">
+                <aside className="w-fit mt-1 ml-1 pl-3 pr-2 border-l-4 italic rounded-sm rounded-r-md border-gray-400 bg-gray-200  dark:border-gray-400 dark:bg-gray-700">
                   {projet.frontmatter.langages}
                 </aside>
                 <p className="text-justify flex-grow mt-3">

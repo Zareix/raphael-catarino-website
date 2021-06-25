@@ -24,7 +24,7 @@ const BeforeContent = () => {
       <Link
         to="scrollDownBtn"
         smooth={true}
-        offset={-50}
+        offset={-100}
         duration={800}
         className="cursor-pointer"
       >

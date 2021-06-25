@@ -3,21 +3,18 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 const Competence = (props) => {
-  const { category, img } = props
-
-  const name = img.name.substring(2).replace("_", "/")
+  const { category, img, imgTitle, key } = props
 
   return (
-    <div
-      data-tip={name}
-      className="w-1/3 md:w-1/5 p-2 md:p-5 my-auto flex justify-center"
-    >
-      <GatsbyImage
-        image={img.childImageSharp.gatsbyImageData}
-        key={img.id}
-        alt={category + " " + name}
-      />
-    </div>
+    <GatsbyImage
+      image={img.childImageSharp.gatsbyImageData}
+      key={img.id}
+      alt={category + " " + imgTitle}
+      data-tip={imgTitle}
+      className="w-1/3 md:w-1/5"
+      objectFit="contain"
+      imgClassName="p-1 md:p-3"
+    />
   )
 }
 
