@@ -1,7 +1,6 @@
 import React from "react"
 
 import styled from "styled-components"
-import { useInView } from "react-intersection-observer"
 
 import CompetenceImage from "./CompetenceImage"
 import { useIntl } from "react-intl"
@@ -9,7 +8,6 @@ import { useIntl } from "react-intl"
 const Section = styled.section`
   width: 50%;
   overflow: hidden;
-  transition: all 1s ease-out;
   box-shadow: 0 16px 20px 8px rgba(0, 0, 0, 0.1);
   background-color: white;
   border-radius: 16px;
@@ -48,8 +46,7 @@ const ImagesContainer = styled.div`
   padding: 0 1.5rem;
 `
 
-const TitleCat = (props) => {
-  const { fromRight } = props
+const TitleCat = ({ fromRight, children }) => {
   return (
     <h3
       className={
@@ -57,45 +54,24 @@ const TitleCat = (props) => {
         (fromRight ? "" : " text-right")
       }
     >
-      {props.children}
+      {children}
     </h3>
   )
 }
 
 const Container = (props) =>
   props.index % 2 === 0 ? (
-    <SectionFromLeft
-      className={
-        props.inView
-          ? "transform -translate-x-0 opacity-100"
-          : "transform -translate-x-3/4 md:-translate-x-1/2 opacity-0"
-      }
-      {...props}
-    >
+    <SectionFromLeft data-aos="fade-right" {...props}>
       {props.children}
     </SectionFromLeft>
   ) : (
-    <SectionFromRight
-      className={
-        props.inView
-          ? "transform translate-x-0 opacity-100"
-          : "transform translate-x-3/4 md:translate-x-1/2 opacity-0"
-      }
-      {...props}
-    >
+    <SectionFromRight data-aos="fade-left" {...props}>
       {props.children}
     </SectionFromRight>
   )
 
-const Competence = (props) => {
-  const { competence } = props
+const Competence = ({ competence }) => {
   const intl = useIntl()
-
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    delay: 500,
-    threshold: 0.3,
-  })
 
   const getTitle = (c) => {
     let locale = intl.locale.substring(0, 2)
@@ -113,9 +89,8 @@ const Competence = (props) => {
     <article
       className="flex"
       id={competence.fields.slug.replace("/competences/", "").replace("/", "")}
-      ref={ref}
     >
-      <Container index={competence.frontmatter.index} inView={inView}>
+      <Container index={competence.frontmatter.index}>
         <ImagesContainer>
           {competence.frontmatter.images.map((img, index) => (
             <CompetenceImage

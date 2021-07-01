@@ -8,7 +8,6 @@ import French from "../../lang/fr.json"
 import Home from "../components/Home"
 
 const IndexPage = () => {
-  
   useEffect(() => {
     let navigatorLang = navigator.language
     if (navigatorLang.startsWith("en")) navigate("en/")
