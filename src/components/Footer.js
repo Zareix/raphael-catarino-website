@@ -9,7 +9,9 @@ const FooterStyled = styled.div`
   background-color: #424242;
   height: 30vh;
   bottom: 30vh;
-  padding: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 0.75rem;
+  margin-top: 5rem;
   display: grid;
   align-content: end;
   justify-items: center;

@@ -5,6 +5,9 @@ import "../styles/index.css"
 
 import styled from "styled-components"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
+import AOS from "aos"
+
+import "aos/dist/aos.css"
 
 import Presentation from "./Presentation"
 import Layout from "./Layout"
@@ -33,8 +36,12 @@ const Home = () => {
     }
 
     window.addEventListener("scroll", checkScrollTop)
-
     if (window.pageYOffset > 150) setScrolled(true)
+
+    AOS.init({
+      duration: 750,
+      anchorPlacement: "bottom-top",
+    })
 
     return () => window.removeEventListener("scroll", checkScrollTop)
   }, [scrolled])
