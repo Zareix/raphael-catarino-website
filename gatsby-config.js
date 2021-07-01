@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: "Portfolio",
@@ -94,6 +98,14 @@ module.exports = {
       options: {
         langKeyDefault: "fr",
         useLangKeyLayout: false,
+      },
+    },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.DATOCMS_API_TOKEN,
+        preview: false,
+        disableLiveReload: false,
       },
     },
   ],
