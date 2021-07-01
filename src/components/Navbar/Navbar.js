@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react"
 
 import { Link, animateScroll } from "react-scroll"
 import { FaChevronDown } from "react-icons/fa"
-import { FormattedMessage, useIntl } from "react-intl"
 import styled from "styled-components"
 
 import LangSelector from "./LangSelector"
 
 import NavIcon from "../../images/svg/favicon.svg"
+import { graphql, useStaticQuery } from "gatsby"
 
 const minPageOffset = 140
 
@@ -21,22 +21,26 @@ const Overlay = styled.div`
 const Navigation = () => {
   const [visible, setVisible] = useState(false)
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
-  const intl = useIntl()
 
-  const links = [
-    {
-      label: intl.formatMessage({ id: "navBioText" }),
-      to: "bio",
-    },
-    {
-      label: intl.formatMessage({ id: "navCompText" }),
-      to: "competences",
-    },
-    {
-      label: intl.formatMessage({ id: "navProjectText" }),
-      to: "projets",
-    },
-  ]
+  const navData = useStaticQuery(graphql`
+    query NavQuery {
+      datoCmsNavbar {
+        links {
+          id
+          label
+          target
+        }
+        contactBtnVisible
+        labelContactLink
+      }
+    }
+  `)
+
+  const {
+    links,
+    contactBtnVisible: isContactVisible,
+    labelContactLink,
+  } = navData.datoCmsNavbar
 
   useEffect(() => {
     const handleScroll = () => {
@@ -116,17 +120,19 @@ const Navigation = () => {
                 smooth
                 offset={-70}
                 duration={500}
-                to={link.to}
+                to={link.target}
               >
                 {link.label}
               </Link>
             ))}
-            <button
-              className="outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              onClick={openContactForm}
-            >
-              <FormattedMessage id="contactBtnText" />
-            </button>
+            {isContactVisible && (
+              <button
+                className="outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                onClick={openContactForm}
+              >
+                {labelContactLink}
+              </button>
+            )}
           </div>
         </div>
         <div className="hidden md:flex ml-4 items-center md:ml-6">
@@ -155,7 +161,7 @@ const Navigation = () => {
               <Link
                 key={i}
                 className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900  block px-3 py-2 rounded-md text-base font-medium"
-                to={link.to}
+                to={link.target}
                 activeClass="link-active"
                 spy
                 smooth
@@ -170,7 +176,7 @@ const Navigation = () => {
               className="outline-none cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-base font-medium"
               onClick={openContactForm}
             >
-              <FormattedMessage id="contactBtnText" />
+              {labelContactLink}
             </button>
             <LangSelector
               mobile

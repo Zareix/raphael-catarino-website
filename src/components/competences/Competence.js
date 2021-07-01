@@ -70,7 +70,7 @@ const Container = (props) =>
     </SectionFromRight>
   )
 
-const Competence = ({ competence }) => {
+const Competence = ({ competence, index }) => {
   const intl = useIntl()
 
   const getTitle = (c) => {
@@ -86,24 +86,19 @@ const Competence = ({ competence }) => {
   }
 
   return (
-    <article
-      className="flex"
-      id={competence.fields.slug.replace("/competences/", "").replace("/", "")}
-    >
-      <Container index={competence.frontmatter.index}>
+    <article className="flex" id={competence.title}>
+      <Container index={index}>
         <ImagesContainer>
-          {competence.frontmatter.images.map((img, index) => (
+          {competence.icons.map((img, index) => (
             <CompetenceImage
-              img={img}
-              imgTitle={competence.frontmatter.imagesTitles[index]}
-              category={getTitle(competence)}
               key={index}
+              gatsbyImageData={img.gatsbyImageData}
+              imgTitle={img.title}
+              category={competence.title}
             />
           ))}
         </ImagesContainer>
-        <TitleCat fromRight={!(competence.frontmatter.index % 2 === 0)}>
-          {getTitle(competence)}
-        </TitleCat>
+        <TitleCat fromRight={!(index % 2 === 0)}>{competence.title}</TitleCat>
       </Container>
     </article>
   )

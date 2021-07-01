@@ -8,35 +8,21 @@ import Competence from "./Competence"
 
 const Competences = () => {
   const query = useStaticQuery(graphql`
-    {
-      allMarkdownRemark(
-        sort: { fields: frontmatter___index, order: ASC }
-        filter: { fileAbsolutePath: { glob: "**/competences/**" } }
-      ) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              index
-              titleFr
-              titleEn
-              images {
-                childImageSharp {
-                  gatsbyImageData(placeholder: TRACED_SVG)
-                }
-              }
-              imagesTitles
-            }
+    query Skills {
+      allDatoCmsCompetence(sort: { fields: position }) {
+        nodes {
+          id
+          title
+          icons {
+            title
+            gatsbyImageData(placeholder: TRACED_SVG)
           }
         }
       }
     }
   `)
 
-  const categories = query.allMarkdownRemark.edges
+  const categories = query.allDatoCmsCompetence.nodes
 
   return (
     <section
@@ -51,8 +37,8 @@ const Competences = () => {
           <FormattedMessage id="competencesSectionSubtitle" />
         </h3>
       </div>
-      {categories.map(({ node: cat }) => (
-        <Competence competence={cat} key={cat.id} />
+      {categories.map((cat, index) => (
+        <Competence competence={cat} key={cat.id} index={index} />
       ))}
       <ReactTooltip
         place="bottom"
