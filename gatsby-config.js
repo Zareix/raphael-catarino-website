@@ -84,5 +84,6 @@ module.exports = {
         disableLiveReload: false,
       },
     },
+    "gatsby-plugin-netlify",
   ],
 }
