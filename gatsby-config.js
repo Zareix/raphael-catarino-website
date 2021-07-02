@@ -48,24 +48,7 @@ module.exports = {
         ],
       },
     },
-    "gatsby-plugin-mdx",
     `gatsby-plugin-sharp`,
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 750,
-              linkImagesToOriginal: false,
-              tracedSVG: true,
-              backgroundColor: "transparent",
-            },
-          },
-        ],
-      },
-    },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
@@ -93,13 +76,6 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
-    {
-      resolve: "gatsby-plugin-i18n",
-      options: {
-        langKeyDefault: "fr",
-        useLangKeyLayout: false,
-      },
-    },
     {
       resolve: `gatsby-source-datocms`,
       options: {

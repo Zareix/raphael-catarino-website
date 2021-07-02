@@ -2,7 +2,6 @@ import React, { useState } from "react"
 
 import Modal from "react-modal"
 import { CgClose } from "react-icons/cg"
-import { FormattedMessage, useIntl } from "react-intl"
 import { useForm } from "react-hook-form"
 import styled from "styled-components"
 
@@ -33,9 +32,7 @@ const encode = (data) =>
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&")
 
-const ContactModal = (props) => {
-  const { visible, close } = props
-
+const ContactModal = ({ data, visible, close }) => {
   const {
     register,
     handleSubmit,
@@ -43,7 +40,6 @@ const ContactModal = (props) => {
     reset,
   } = useForm()
   const [sent, setSent] = useState(false)
-  const intl = useIntl()
 
   const onSubmit = (data) => {
     console.log(data)
@@ -89,10 +85,10 @@ const ContactModal = (props) => {
               onClick={closeModal}
             />
             <p className="col-start-2 col-span-3 border-b border-gray-400 pb-2">
-              <FormattedMessage id="contactMessageSentTitle" />
+              {data.contactSentTitle}
             </p>
             <p className="col-start-2 col-span-3 pt-2">
-              <FormattedMessage id="contactMessageSentSubtitle" />
+              {data.contactSentSubtitle}
             </p>
           </div>
         </div>
@@ -109,9 +105,7 @@ const ContactModal = (props) => {
         >
           <div className="w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
             <div className="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">
-              <p className="col-start-2 col-span-3">
-                <FormattedMessage id="contactFormTitle" />
-              </p>
+              <p className="col-start-2 col-span-3">{data.contactTitle}</p>
               <CgClose
                 size={30}
                 className="cursor-pointer"
@@ -126,15 +120,11 @@ const ContactModal = (props) => {
                   name="nom"
                   id="contactName"
                   className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  placeholder={intl.formatMessage({
-                    id: "contactPlaceholderName",
-                  })}
+                  placeholder={data.contactPlaceholderName}
                   {...register("nom", { required: true })}
                 />
                 {errors.nom && (
-                  <ErrorMessage>
-                    <FormattedMessage id="contactNameError" />
-                  </ErrorMessage>
+                  <ErrorMessage>{data.contactErreurName}</ErrorMessage>
                 )}
               </div>
               <div className="col-span-2 lg:col-span-1">
@@ -143,15 +133,11 @@ const ContactModal = (props) => {
                   id="contactEmail"
                   name="email"
                   className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  placeholder={intl.formatMessage({
-                    id: "contactPlaceholderEmail",
-                  })}
+                  placeholder={data.contactPlaceholderEmail}
                   {...register("email", { required: true })}
                 />
                 {errors.email && (
-                  <ErrorMessage>
-                    <FormattedMessage id="contactEmailError" />
-                  </ErrorMessage>
+                  <ErrorMessage>{data.contactErreurEmail}</ErrorMessage>
                 )}
               </div>
               <div className="col-span-2">
@@ -160,15 +146,11 @@ const ContactModal = (props) => {
                   id="contactSubject"
                   name="sujet"
                   className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  placeholder={intl.formatMessage({
-                    id: "contactPlaceholderSubject",
-                  })}
+                  placeholder={data.contactPlaceholderSujet}
                   {...register("sujet", { required: true })}
                 />
                 {errors.sujet && (
-                  <ErrorMessage>
-                    <FormattedMessage id="contactSubjectError" />
-                  </ErrorMessage>
+                  <ErrorMessage>{data.contactErreurSujet}</ErrorMessage>
                 )}
               </div>
               <div className="col-span-2">
@@ -176,9 +158,7 @@ const ContactModal = (props) => {
                   <textarea
                     className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     id="contactContent"
-                    placeholder={intl.formatMessage({
-                      id: "contactPlaceholderContent",
-                    })}
+                    placeholder={data.contactPlaceholderContenu}
                     name="contenu"
                     rows="5"
                     cols="40"
@@ -186,9 +166,7 @@ const ContactModal = (props) => {
                   ></textarea>
                 </label>
                 {errors.contenu && (
-                  <ErrorMessage>
-                    <FormattedMessage id="contactContentError" />
-                  </ErrorMessage>
+                  <ErrorMessage>{data.contactErreurNom}</ErrorMessage>
                 )}
               </div>
               <div className="col-span-2 text-right">
@@ -196,7 +174,7 @@ const ContactModal = (props) => {
                   type="submit"
                   className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
-                  <FormattedMessage id="contactSendBtn" />
+                  {data.contactSendBtn}
                 </button>
               </div>
             </div>

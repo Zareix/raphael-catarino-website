@@ -1,7 +1,6 @@
 import React from "react"
 
 import styled from "styled-components"
-import { FormattedMessage } from "react-intl"
 
 import Illustration from "../images/svg/presentation_illustration.svg"
 
@@ -40,18 +39,16 @@ const PresentationWrapper = styled.div`
   align-content: center;
 `
 
-const Presentation = () => {
+const Presentation = ({ data }) => {
   return (
     <PresentationSection className="bg-gradient-to-br from-red-800 to-purple-800 dark:from-red-900 dark:to-purple-900">
       <PresentationWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
           <div className="mx-auto w-fit">
             <h1 className="font-bold text-4xl md:text-5xl text-gray-50">
-              Raphaël Catarino
+              {data.presTitle}
             </h1>
-            <h2 className="mt-2 text-gray-300">
-              <FormattedMessage id="presTitle" />
-            </h2>
+            <h2 className="mt-2 text-gray-300">{data.presSubtitle}</h2>
           </div>
         </div>
         <div className="w-full md:w-1/2">

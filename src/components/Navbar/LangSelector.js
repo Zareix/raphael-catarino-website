@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 
 import ReactCountryFlag from "react-country-flag"
 import { navigate } from "gatsby-link"
-import { useIntl } from "react-intl"
 
 const lang = [
   {
@@ -19,12 +18,10 @@ const lang = [
   },
 ]
 
-const LangSelector = (props) => {
-  const { mobile, closeNavDrawer, navVisible } = props
-  const intl = useIntl()
+const LangSelector = ({ mobile, closeNavDrawer, navVisible, location }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedLang, setSelectedLang] = useState(
-    intl.locale.startsWith("en") ? "US" : "FR"
+    location.pathname.includes("en") ? "US" : "FR"
   )
 
   let timeOutId
@@ -51,7 +48,7 @@ const LangSelector = (props) => {
             key={i}
             className={
               "flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600 border rounded-md outline-none shadow-sm" +
-              (window.location.pathname.includes(l.locale)
+              (selectedLang === l.countryCode
                 ? " border-gray-300 "
                 : " dark:border-gray-600")
             }
@@ -101,9 +98,7 @@ const LangSelector = (props) => {
                 key={i}
                 className={
                   "w-full flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
-                  (window.location.pathname.includes(l.locale)
-                    ? " font-semibold"
-                    : "")
+                  (selectedLang === l.countryCode ? " font-semibold" : "")
                 }
                 onClick={() => {
                   setSelectedLang(l.countryCode)

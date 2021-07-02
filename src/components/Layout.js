@@ -2,12 +2,15 @@ import React from "react"
 import Navigation from "./Navbar/Navbar"
 import Footer from "./Footer"
 
-const Layout = (props) => {
+const Layout = ({ data, children, location }) => {
   return (
     <>
-      <Navigation />
-      {props.children}
-      <Footer />
+      <Navigation data={data.datoCmsNavbar} location={location} />
+      {children}
+      <Footer
+        dataContact={data.datoCmsContactForm}
+        message={data.datoCmsSiteConfig.footerMessage}
+      />
     </>
   )
 }

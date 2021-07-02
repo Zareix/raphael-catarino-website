@@ -23,7 +23,7 @@ const Main = styled.main`
   z-index: 1;
 `
 
-const Home = ({ data }) => {
+const Home = ({ data, location }) => {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -40,6 +40,7 @@ const Home = ({ data }) => {
 
     AOS.init({
       duration: 750,
+      delay: 100,
       anchorPlacement: "bottom-top",
     })
 
@@ -49,9 +50,9 @@ const Home = ({ data }) => {
   return (
     <>
       <Seo />
-      <Layout>
+      <Layout data={data} location={location}>
         <Main id="main">
-          <Presentation />
+          <Presentation data={data.datoCmsSiteConfig} />
           <SwitchTransition>
             <CSSTransition
               key={scrolled ? "Before content" : "Biographie"}

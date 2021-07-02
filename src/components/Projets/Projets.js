@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { AiFillGithub } from "react-icons/ai"
 import { HiOutlineLink } from "react-icons/hi"
-import { FormattedMessage, FormattedDate } from "react-intl"
 import styled from "styled-components"
 
 const Content = styled.div`
@@ -20,14 +19,15 @@ const Content = styled.div`
   }
 `
 
-const Projets = ({ data }) => {
+const Projets = ({ data, title, subtitle }) => {
   const projets = data.edges
 
   return (
     <section id="projets">
-      <h1 className="text-3xl font-bold text-center">
-        <FormattedMessage id="projectMainTitle" />
-      </h1>
+      <h2 className="text-3xl font-bold text-center">{title}</h2>
+      <h3 className="text-lg text-gray-600 dark:text-gray-400 w-4/5 mx-auto">
+        {subtitle}
+      </h3>
       <div className="flex flex-wrap justify-center md:px-6 md:mt-6 xl:w-10/12 mx-auto">
         {projets.map(({ node: projet }) => (
           <article
@@ -53,14 +53,7 @@ const Projets = ({ data }) => {
                 </aside>
                 <p className="text-justify flex-grow mt-3">{projet.desc}</p>
                 <div className="flex items-end mt-3 text-sm">
-                  <div className="flex-grow font-medium">
-                    <FormattedDate
-                      value={projet.date}
-                      year="numeric"
-                      month="long"
-                      day="2-digit"
-                    />
-                  </div>
+                  <div className="flex-grow font-medium">{projet.date}</div>
                   {/* Liens */}
                   <div className="flex justify-end gap-4 font-medium text-white text-center">
                     {projet.isOnGithub && (
@@ -113,7 +106,7 @@ export const fragmentProjects = graphql`
     technologies {
       nom
     }
-    date
+    date(formatString: "DD MMMM YYYY", locale: $locale)
     isOnGithub
     githubLink
     isProjectLink

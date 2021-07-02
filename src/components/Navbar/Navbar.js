@@ -7,7 +7,7 @@ import styled from "styled-components"
 import LangSelector from "./LangSelector"
 
 import NavIcon from "../../images/svg/favicon.svg"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 
 const minPageOffset = 140
 
@@ -18,29 +18,11 @@ const Overlay = styled.div`
   backdrop-filter: blur(2px);
 `
 
-const Navigation = () => {
+const Navigation = ({ data, location }) => {
   const [visible, setVisible] = useState(false)
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
 
-  const navData = useStaticQuery(graphql`
-    query NavBar {
-      datoCmsNavbar {
-        links {
-          id
-          label
-          target
-        }
-        contactBtnVisible
-        labelContactLink
-      }
-    }
-  `)
-
-  const {
-    links,
-    contactBtnVisible: isContactVisible,
-    labelContactLink,
-  } = navData.datoCmsNavbar
+  const { links, contactBtnVisible: isContactVisible, labelContactLink } = data
 
   useEffect(() => {
     const handleScroll = () => {
@@ -136,7 +118,7 @@ const Navigation = () => {
           </div>
         </div>
         <div className="hidden md:flex ml-4 items-center md:ml-6">
-          <LangSelector navVisible={visible} />
+          <LangSelector navVisible={visible} location={location} />
         </div>
         <button
           onClick={toggleDrawer}
@@ -155,7 +137,7 @@ const Navigation = () => {
         <>
           <div
             id="navbarDrawer"
-            className="md:hidden px-2 pt-2 pb-3 sm:px-3 bg-white dark:bg-gray-800 "
+            className="md:hidden -mt-1 px-2 pt-2 pb-3 sm:px-3 bg-white dark:bg-gray-800 "
           >
             {links.map((link, i) => (
               <Link
@@ -182,6 +164,7 @@ const Navigation = () => {
               mobile
               closeNavDrawer={closeNavDrawer}
               navVisible={visible}
+              location={location}
             />
           </div>
           {visible && (
@@ -198,3 +181,15 @@ const Navigation = () => {
 }
 
 export default Navigation
+
+export const fragmentNavbar = graphql`
+  fragment Navbar on DatoCmsNavbar {
+    links {
+      id
+      label
+      target
+    }
+    contactBtnVisible
+    labelContactLink
+  }
+`

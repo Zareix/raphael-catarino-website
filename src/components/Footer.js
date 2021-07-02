@@ -1,5 +1,4 @@
 import React from "react"
-import { FormattedMessage } from "react-intl"
 
 import styled from "styled-components"
 
@@ -18,13 +17,11 @@ const FooterStyled = styled.footer`
   gap: 0.75rem;
 `
 
-const Footer = () => {
+const Footer = ({ dataContact, message }) => {
   return (
     <FooterStyled className="text-gray-200 dark:text-gray-300 dark:bg-gray-700">
-      <Contact />
-      <p>
-        Raphaël Catarino - <FormattedMessage id="footerPageTitle" /> ©
-      </p>
+      <Contact data={dataContact} />
+      <p>{message}</p>
     </FooterStyled>
   )
 }
