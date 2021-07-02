@@ -124,7 +124,7 @@ const ContactModal = ({ data, visible, close }) => {
                   {...register("nom", { required: true })}
                 />
                 {errors.nom && (
-                  <ErrorMessage>{data.contactErreurName}</ErrorMessage>
+                  <ErrorMessage>{data.contactErreurNom}</ErrorMessage>
                 )}
               </div>
               <div className="col-span-2 lg:col-span-1">
@@ -166,7 +166,7 @@ const ContactModal = ({ data, visible, close }) => {
                   ></textarea>
                 </label>
                 {errors.contenu && (
-                  <ErrorMessage>{data.contactErreurNom}</ErrorMessage>
+                  <ErrorMessage>{data.contactErreurContenu}</ErrorMessage>
                 )}
               </div>
               <div className="col-span-2 text-right">
