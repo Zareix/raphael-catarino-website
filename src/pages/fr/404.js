@@ -1,12 +1,12 @@
 import React from "react"
 
-import "../styles/index.css"
-import Page404 from "../images/svg/page404.svg"
+import "../../styles/index.css"
+import Page404 from "../../images/svg/page404.svg"
 
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
-import Seo from "../components/Seo"
+import Seo from "../../components/Seo"
 
 const MainStyled = styled.main`
   height: 100vh;
@@ -35,8 +35,8 @@ const NotFoundPage = ({ data }) => {
 export default NotFoundPage
 
 export const query = graphql`
-  {
-    datoCmsSiteConfig {
+  query pageNotFoundFr {
+    datoCmsSiteConfig(locale: { eq: "fr" }) {
       notFoundMessage
       notFoundButtonText
     }

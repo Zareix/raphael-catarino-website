@@ -17,7 +17,7 @@ export default IndexPage
 
 export const queryIndex = graphql`
   query Index($locale: String!) {
-    datoCmsBiography {
+    datoCmsBiography(locale: { eq: $locale }) {
       ...Bio
     }
 
