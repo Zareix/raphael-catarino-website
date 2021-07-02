@@ -3,7 +3,6 @@ import React from "react"
 import styled from "styled-components"
 
 import CompetenceImage from "./CompetenceImage"
-import { useIntl } from "react-intl"
 
 const Section = styled.section`
   width: 50%;
@@ -71,20 +70,6 @@ const Container = (props) =>
   )
 
 const Competence = ({ competence, index }) => {
-  const intl = useIntl()
-
-  const getTitle = (c) => {
-    let locale = intl.locale.substring(0, 2)
-    switch (locale) {
-      case "fr":
-        return c.frontmatter.titleFr
-      case "en":
-        return c.frontmatter.titleEn
-      default:
-        return c.frontmatter.titleFr
-    }
-  }
-
   return (
     <article className="flex" id={competence.title}>
       <Container index={index}>

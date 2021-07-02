@@ -78,6 +78,7 @@ const LangSelector = (props) => {
       className="relative inline-block text-left"
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
+      role="menu"
     >
       <button
         type="button"

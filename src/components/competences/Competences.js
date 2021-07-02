@@ -1,28 +1,13 @@
 import React from "react"
 
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import ReactTooltip from "react-tooltip"
 import { FormattedMessage } from "react-intl"
 
 import Competence from "./Competence"
 
-const Competences = () => {
-  const query = useStaticQuery(graphql`
-    query Skills {
-      allDatoCmsCompetence(sort: { fields: position }) {
-        nodes {
-          id
-          title
-          icons {
-            title
-            gatsbyImageData(placeholder: TRACED_SVG)
-          }
-        }
-      }
-    }
-  `)
-
-  const categories = query.allDatoCmsCompetence.nodes
+const Competences = ({ data }) => {
+  const categories = data.edges
 
   return (
     <section
@@ -37,7 +22,7 @@ const Competences = () => {
           <FormattedMessage id="competencesSectionSubtitle" />
         </h3>
       </div>
-      {categories.map((cat, index) => (
+      {categories.map(({ node: cat }, index) => (
         <Competence competence={cat} key={cat.id} index={index} />
       ))}
       <ReactTooltip
@@ -54,3 +39,14 @@ const Competences = () => {
 }
 
 export default Competences
+
+export const fragmentComp = graphql`
+  fragment Comp on DatoCmsCompetence {
+    id
+    title
+    icons {
+      title
+      gatsbyImageData(placeholder: TRACED_SVG)
+    }
+  }
+`

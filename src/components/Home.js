@@ -23,7 +23,7 @@ const Main = styled.main`
   z-index: 1;
 `
 
-const Home = () => {
+const Home = ({ data }) => {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const Home = () => {
               classNames="fade"
             >
               {scrolled ? (
-                <Biographie />
+                <Biographie data={data.datoCmsBiography} />
               ) : (
                 <>
                   <BeforeContent />
@@ -70,9 +70,9 @@ const Home = () => {
               )}
             </CSSTransition>
           </SwitchTransition>
-          <Timeline />
-          <Competences />
-          <Projets />
+          <Timeline data={data.allDatoCmsTimeline} />
+          <Competences data={data.allDatoCmsCompetence} />
+          <Projets data={data.allDatoCmsProject} />
         </Main>
       </Layout>
     </>

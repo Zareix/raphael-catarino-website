@@ -23,7 +23,7 @@ const Navigation = () => {
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
 
   const navData = useStaticQuery(graphql`
-    query NavQuery {
+    query NavBar {
       datoCmsNavbar {
         links {
           id

@@ -1,6 +1,6 @@
-import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import { FormattedMessage } from "react-intl"
+
+import { graphql } from "gatsby"
 import styled from "styled-components"
 
 const BioStyled = styled.section`
@@ -19,22 +19,20 @@ const BioStyled = styled.section`
   }
 `
 
-const Biographie = () => {
-  const { datoCmsBiography: bio } = useStaticQuery(graphql`
-    query BioQuery {
-      datoCmsBiography {
-        title
-        content
-      }
-    }
-  `)
-
+const Biographie = ({ data }) => {
   return (
     <BioStyled id="bio" className="shadow-md bg-white dark:bg-gray-800">
-      <h1 className="text-xl font-bold">{bio.title}</h1>
-      <p className="text-base text-justify mx-auto">{bio.content}</p>
+      <h1 className="text-xl font-bold">{data.title}</h1>
+      <p className="text-base text-justify mx-auto">{data.content}</p>
     </BioStyled>
   )
 }
 
 export default Biographie
+
+export const fragmentBio = graphql`
+  fragment Bio on DatoCmsBiography {
+    title
+    content
+  }
+`
