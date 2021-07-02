@@ -2,7 +2,7 @@ const path = require(`path`)
 
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }) => {
-  reporter.info(`Website built !`)
+  reporter.info(`Website built successfully!`)
 }
 // Create blog pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
