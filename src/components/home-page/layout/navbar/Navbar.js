@@ -6,7 +6,7 @@ import styled from "styled-components"
 
 import LangSelector from "./LangSelector"
 
-import NavIcon from "../../images/svg/favicon.svg"
+import NavIcon from "../../../../images/svg/favicon.svg"
 import { graphql } from "gatsby"
 
 const minPageOffset = 140

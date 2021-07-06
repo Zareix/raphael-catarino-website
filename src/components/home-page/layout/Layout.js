@@ -9,7 +9,7 @@ const Layout = ({ data, children, location }) => {
       {children}
       <Footer
         dataContact={data.datoCmsContactForm}
-        message={data.datoCmsSiteConfig.footerMessage}
+        message={data.datoCmsFooter.footerMessage}
       />
     </>
   )

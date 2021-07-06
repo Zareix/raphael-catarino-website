@@ -51,6 +51,21 @@ module.exports = {
     `gatsby-plugin-sharp`,
     "gatsby-transformer-sharp",
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images-datocms`,
+            options: {
+              apiToken: process.env.DATOCMS_API_TOKEN,
+              maxWidth: 590,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",

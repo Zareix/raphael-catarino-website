@@ -25,7 +25,7 @@ const Projets = ({ data, title, subtitle }) => {
   return (
     <section id="projets">
       <h2 className="text-3xl font-bold text-center">{title}</h2>
-      <h3 className="text-lg text-gray-600 dark:text-gray-400 w-4/5 mx-auto">
+      <h3 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mx-auto">
         {subtitle}
       </h3>
       <div className="flex flex-wrap justify-center md:px-6 md:mt-6 xl:w-10/12 mx-auto">

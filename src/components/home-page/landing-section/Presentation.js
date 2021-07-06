@@ -2,7 +2,7 @@ import React from "react"
 
 import styled from "styled-components"
 
-import Illustration from "../images/svg/presentation_illustration.svg"
+import Illustration from "../../../images/svg/presentation_illustration.svg"
 
 const PresentationSection = styled.section`
   margin: 0;

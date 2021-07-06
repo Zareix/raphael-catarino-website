@@ -2,7 +2,7 @@ import React from "react"
 
 import styled from "styled-components"
 
-import Contact from "./contact/Contact"
+import Contact from "../contact/Contact"
 
 const FooterStyled = styled.footer`
   background-color: #424242;

@@ -1,16 +1,97 @@
-import React, { useEffect } from "react"
+import * as React from "react"
+import { useState, useEffect } from "react"
 
+import "../styles/index.css"
+
+import styled from "styled-components"
+import { CSSTransition, SwitchTransition } from "react-transition-group"
 import { graphql, navigate } from "gatsby"
+import { HelmetDatoCms } from "gatsby-source-datocms"
+import AOS from "aos"
 
-import Home from "../components/Home"
+import "aos/dist/aos.css"
 
+import Presentation from "../components/home-page/landing-section/Presentation"
+import Layout from "../components/home-page/layout/Layout"
+import Biographie from "../components/home-page/biographie/Biographie"
+import Competences from "../components/home-page/competences/Competences"
+import Projets from "../components/home-page/projets/Projets"
+import BeforeContent from "../components/home-page/BeforeContent"
+import Timeline from "../components/home-page/timeline/Timeline"
+
+const Main = styled.main`
+  margin: auto;
+  z-index: 1;
+`
 const IndexPage = ({ data, location }) => {
+  const [scrolled, setScrolled] = useState(false)
+
   useEffect(() => {
+    const checkScrollTop = () => {
+      if (!scrolled && window.pageYOffset > 150) {
+        setScrolled(true)
+      } else if (scrolled && window.pageYOffset <= 150) {
+        setScrolled(false)
+      }
+    }
+
     let navigatorLang = navigator.language
     if (navigatorLang.startsWith("en")) navigate("en/")
-  }, [])
 
-  return <Home data={data} location={location} />
+    window.addEventListener("scroll", checkScrollTop)
+    if (window.pageYOffset > 150) setScrolled(true)
+
+    AOS.init({
+      duration: 750,
+      delay: 100,
+      anchorPlacement: "bottom-top",
+    })
+
+    return () => window.removeEventListener("scroll", checkScrollTop)
+  }, [scrolled])
+
+  return (
+    <>
+      <HelmetDatoCms
+        favicon={data.datoCmsSite.faviconMetaTags}
+        seo={data.datoCmsHomePage.seoMetaTags}
+      />
+      <Layout data={data} location={location}>
+        <Main id="main">
+          <Presentation data={data.datoCmsHomePage} />
+          <SwitchTransition>
+            <CSSTransition
+              key={scrolled ? "Before content" : "Biographie"}
+              addEndListener={(node, done) =>
+                node.addEventListener("transitionend", done, false)
+              }
+              classNames="fade"
+            >
+              {scrolled ? (
+                <Biographie data={data.datoCmsBiography} />
+              ) : (
+                <>
+                  <BeforeContent />
+                  <div className="empty-content" />
+                </>
+              )}
+            </CSSTransition>
+          </SwitchTransition>
+          <Timeline data={data.allDatoCmsTimeline} />
+          <Competences
+            data={data.allDatoCmsCompetence}
+            title={data.datoCmsHomePage.compTitle}
+            subtitle={data.datoCmsHomePage.compSubtitle}
+          />
+          <Projets
+            data={data.allDatoCmsProject}
+            title={data.datoCmsHomePage.projectsTitle}
+            subtitle={data.datoCmsHomePage.projectsSubtitle}
+          />
+        </Main>
+      </Layout>
+    </>
+  )
 }
 
 export default IndexPage
@@ -62,12 +143,26 @@ export const queryIndex = graphql`
       ...Contact
     }
 
-    datoCmsSiteConfig(locale: { eq: $locale }) {
+    datoCmsHomePage(locale: { eq: $locale }) {
       presTitle
       presSubtitle
       compTitle
       compSubtitle
+      projectsTitle
+      projectsSubtitle
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+    }
+
+    datoCmsFooter(locale: { eq: $locale }) {
       footerMessage
+    }
+
+    datoCmsSite(locale: { eq: $locale }) {
+      faviconMetaTags {
+        ...GatsbyDatoCmsFaviconMetaTags
+      }
     }
   }
 `

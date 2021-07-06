@@ -23,7 +23,12 @@ const Biographie = ({ data }) => {
   return (
     <BioStyled id="bio" className="shadow-md bg-white dark:bg-gray-800">
       <h1 className="text-xl font-bold">{data.title}</h1>
-      <p className="text-base text-justify mx-auto">{data.content}</p>
+      <div
+        className="text-base text-justify"
+        dangerouslySetInnerHTML={{
+          __html: data.contentNode.childMarkdownRemark.html,
+        }}
+      />
     </BioStyled>
   )
 }
@@ -33,6 +38,10 @@ export default Biographie
 export const fragmentBio = graphql`
   fragment Bio on DatoCmsBiography {
     title
-    content
+    contentNode {
+      childMarkdownRemark {
+        html
+      }
+    }
   }
 `
