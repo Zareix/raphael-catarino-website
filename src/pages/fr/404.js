@@ -19,9 +19,7 @@ const MainStyled = styled.main`
 const NotFoundPage = ({ data }) => {
   return (
     <MainStyled id="404">
-      <HelmetDatoCms seo={data.datoCmsPageNotFound.seoMetaTags}>
-        <meta name="robots" content="noindex" />
-      </HelmetDatoCms>
+      <HelmetDatoCms seo={data.datoCmsPageNotFound.seoMetaTags} />
       <Page404 className="h-64 md:h-96" />
       <h1 className="text-2xl">{data.datoCmsPageNotFound.notFoundMessage}</h1>
       <Link to="/">
