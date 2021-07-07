@@ -2,7 +2,7 @@ import React from "react"
 
 import styled from "styled-components"
 import { BsArrowDown } from "react-icons/bs"
-import { Link } from "react-scroll"
+import { animateScroll as scroll } from "react-scroll"
 
 const Wrapper = styled.div`
   position: relative;
@@ -19,17 +19,16 @@ const Wrapper = styled.div`
 `
 
 const BeforeContent = () => {
+  const doScroll = () =>
+    scroll.scrollMore(500, {
+      duration: 800,
+    })
+
   return (
-    <Wrapper id="scrollDownBtn" className="animate-bounce">
-      <Link
-        to="scrollDownBtn"
-        smooth={true}
-        offset={-100}
-        duration={800}
-        className="cursor-pointer"
-      >
+    <Wrapper id="bio" className="animate-bounce">
+      <button className="cursor-pointer" onClick={doScroll}>
         <BsArrowDown className="text-white" size={45} />
-      </Link>
+      </button>
     </Wrapper>
   )
 }

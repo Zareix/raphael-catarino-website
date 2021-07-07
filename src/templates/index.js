@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 
 import "../styles/index.css"
 
@@ -18,37 +18,25 @@ import Competences from "../components/home-page/competences/Competences"
 import Projets from "../components/home-page/projets/Projets"
 import BeforeContent from "../components/home-page/BeforeContent"
 import Timeline from "../components/home-page/timeline/Timeline"
+import useScrolled from "../components/hooks/use-scroll"
 
 const Main = styled.main`
   margin: auto;
   z-index: 1;
 `
 const IndexPage = ({ data, location }) => {
-  const [scrolled, setScrolled] = useState(false)
+  const { scrolled } = useScrolled()
 
   useEffect(() => {
-    const checkScrollTop = () => {
-      if (!scrolled && window.pageYOffset > 150) {
-        setScrolled(true)
-      } else if (scrolled && window.pageYOffset <= 150) {
-        setScrolled(false)
-      }
-    }
-
     let navigatorLang = navigator.language
     if (navigatorLang.startsWith("en")) navigate("en/")
-
-    window.addEventListener("scroll", checkScrollTop)
-    if (window.pageYOffset > 150) setScrolled(true)
 
     AOS.init({
       duration: 750,
       delay: 100,
       anchorPlacement: "bottom-top",
     })
-
-    return () => window.removeEventListener("scroll", checkScrollTop)
-  }, [scrolled])
+  }, [])
 
   return (
     <>
@@ -87,6 +75,9 @@ const IndexPage = ({ data, location }) => {
             data={data.allDatoCmsProject}
             title={data.datoCmsHomePage.projectsTitle}
             subtitle={data.datoCmsHomePage.projectsSubtitle}
+            defaultShownItems={data.datoCmsHomePage.projectDefaultShown}
+            stepShowMore={data.datoCmsHomePage.projectsShowMoreStep}
+            showMoreLabel={data.datoCmsHomePage.projectsLabelShowMoreBtn}
           />
         </Main>
       </Layout>
@@ -153,6 +144,9 @@ export const queryIndex = graphql`
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
+      projectDefaultShown
+      projectsShowMoreStep
+      projectsLabelShowMoreBtn
     }
 
     datoCmsFooter(locale: { eq: $locale }) {
