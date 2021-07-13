@@ -7,6 +7,7 @@ import styled from "styled-components"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 import { graphql, navigate } from "gatsby"
 import { HelmetDatoCms } from "gatsby-source-datocms"
+import { Helmet } from "react-helmet"
 import AOS from "aos"
 
 import "aos/dist/aos.css"
@@ -40,6 +41,11 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <>
+      <Helmet
+        htmlAttributes={{
+          lang: data.datoCmsSite.locale,
+        }}
+      />
       <HelmetDatoCms
         favicon={data.datoCmsSite.faviconMetaTags}
         seo={data.datoCmsHomePage.seoMetaTags}
@@ -89,6 +95,32 @@ export default IndexPage
 
 export const queryIndex = graphql`
   query Index($locale: String!) {
+    datoCmsHomePage(locale: { eq: $locale }) {
+      presTitle
+      presSubtitle
+      compTitle
+      compSubtitle
+      projectsTitle
+      projectsSubtitle
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+      projectDefaultShown
+      projectsShowMoreStep
+      projectsLabelShowMoreBtn
+    }
+
+    datoCmsFooter(locale: { eq: $locale }) {
+      footerMessage
+    }
+
+    datoCmsSite(locale: { eq: $locale }) {
+      locale
+      faviconMetaTags {
+        ...GatsbyDatoCmsFaviconMetaTags
+      }
+    }
+
     datoCmsBiography(locale: { eq: $locale }) {
       ...Bio
     }
@@ -132,31 +164,6 @@ export const queryIndex = graphql`
 
     datoCmsContactForm(locale: { eq: $locale }) {
       ...Contact
-    }
-
-    datoCmsHomePage(locale: { eq: $locale }) {
-      presTitle
-      presSubtitle
-      compTitle
-      compSubtitle
-      projectsTitle
-      projectsSubtitle
-      seoMetaTags {
-        ...GatsbyDatoCmsSeoMetaTags
-      }
-      projectDefaultShown
-      projectsShowMoreStep
-      projectsLabelShowMoreBtn
-    }
-
-    datoCmsFooter(locale: { eq: $locale }) {
-      footerMessage
-    }
-
-    datoCmsSite(locale: { eq: $locale }) {
-      faviconMetaTags {
-        ...GatsbyDatoCmsFaviconMetaTags
-      }
     }
   }
 `

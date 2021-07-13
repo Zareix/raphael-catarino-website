@@ -6,6 +6,7 @@ import Page404 from "../../images/svg/page404.svg"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import { HelmetDatoCms } from "gatsby-source-datocms"
+import { Helmet } from "react-helmet"
 
 const MainStyled = styled.main`
   height: 100vh;
@@ -19,6 +20,11 @@ const MainStyled = styled.main`
 const NotFoundPage = ({ data }) => {
   return (
     <MainStyled id="404">
+      <Helmet
+        htmlAttributes={{
+          lang: "en",
+        }}
+      />
       <HelmetDatoCms seo={data.datoCmsPageNotFound.seoMetaTags} />
       <Page404 className="h-64 md:h-96" />
       <h1 className="text-2xl">{data.datoCmsPageNotFound.notFoundMessage}</h1>
