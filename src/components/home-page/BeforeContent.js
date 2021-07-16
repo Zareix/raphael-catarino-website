@@ -1,7 +1,7 @@
 import React from "react"
 
 import styled from "styled-components"
-import { BsArrowDown } from "react-icons/bs"
+import { BsArrowDown } from "@react-icons/all-files/bs/BsArrowDown"
 import { animateScroll as scroll } from "react-scroll"
 
 const Wrapper = styled.div`

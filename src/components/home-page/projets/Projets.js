@@ -2,8 +2,8 @@ import React, { useState } from "react"
 
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { AiFillGithub } from "react-icons/ai"
-import { HiOutlineLink } from "react-icons/hi"
+import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub"
+import { HiOutlineLink } from "@react-icons/all-files/hi/HiOutlineLink"
 import styled from "styled-components"
 
 const Content = styled.div`

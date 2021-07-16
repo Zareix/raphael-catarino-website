@@ -22,7 +22,8 @@ import Timeline from "../components/home-page/timeline/Timeline"
 import useScrolled from "../components/hooks/use-scroll"
 
 const Main = styled.main`
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 1;
 `
 const IndexPage = ({ data, location }) => {

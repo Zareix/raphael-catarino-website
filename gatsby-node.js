@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  // Create index page for each locale and the default
   result.data.datoCmsSite.locales.forEach((locale) => {
     createPage({
       path: locale,
@@ -26,7 +27,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
   createPage({
     path: "/",
     component: index,
