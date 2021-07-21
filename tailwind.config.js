@@ -1,9 +1,17 @@
 module.exports = {
-  important : true,
+  important: true,
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "media",
   theme: {
-    extend: {},
+    extend: {
+      zIndex: {
+        60: "60",
+        70: "70",
+        80: "80",
+        90: "90",
+        100: "100",
+      },
+    },
   },
   variants: {
     extend: {

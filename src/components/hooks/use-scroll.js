@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react"
 
-const useScrolled = (offset) => {
+const useScroll = (offset) => {
   const [scrolled, setScrolled] = useState(false)
+  const [scrollAmount, setScrollAmount] = useState(0)
   const scrollOffset = offset ? offset : 140
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrollAmount(window.pageYOffset)
       if (window.pageYOffset > scrollOffset) setScrolled(true)
       else setScrolled(false)
     }
@@ -17,7 +19,7 @@ const useScrolled = (offset) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return { scrolled }
+  return { scrolled, scrollAmount }
 }
 
-export default useScrolled
+export default useScroll

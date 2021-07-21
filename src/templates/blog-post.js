@@ -7,6 +7,7 @@ import styled from "styled-components"
 import PostBody from "../components/blog/blog-post/PostBody"
 import Layout from "../components/blog/layout/Layout"
 import PostHeader from "../components/blog/blog-post/PostHeader"
+import useScroll from "../components/hooks/use-scroll"
 
 const Content = styled.section`
   width: 75%;
@@ -15,9 +16,18 @@ const Content = styled.section`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    width: 100%;
-    margin: 0;
-    border-radius: 0;
+    width: ${(props) =>
+      props.scrollAmount >= 200
+        ? "100%"
+        : Math.round(((props.scrollAmount * 100) / 200 / 100) * 20) + 85 + "%"};
+    margin: 0 auto;
+    margin-top: 7rem;
+    border-radius: ${(props) =>
+      props.scrollAmount >= 100
+        ? "0px"
+        : 16 -
+          Math.round(((props.scrollAmount * 100) / 100 / 100) * 16) +
+          "px"};
   }
 `
 
@@ -25,6 +35,7 @@ const BlogPost = ({
   data: { site, post, footer, contact, allDatoCmsBlogPost },
   location,
 }) => {
+  const { scrollAmount } = useScroll()
   return (
     <>
       <HelmetDatoCms favicon={site.favicon} seo={post.seo} />
@@ -37,7 +48,10 @@ const BlogPost = ({
         sidePanel
         langSlug={"blog"}
       >
-        <Content className="bg-white dark:bg-gray-800 shadow-md pb-10 md:pb-0">
+        <Content
+          scrollAmount={scrollAmount}
+          className="bg-white dark:bg-gray-800 shadow-md pb-10 md:pb-0"
+        >
           <PostHeader
             title={post.title}
             subtitle={post.subtitle}

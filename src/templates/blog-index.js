@@ -8,21 +8,31 @@ import PostHeader from "../components/blog/blog-post/PostHeader"
 import styled from "styled-components"
 
 const BlogList = styled.section`
+  width: 80%;
   margin: auto;
   margin-bottom: 4rem;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const Post = styled(Link)`
+  width: 40%;
   padding-bottom: 2rem;
   overflow: hidden;
   border-radius: 1rem;
 
   @media (max-width: 768px) {
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
+    width: 90%;
+    margin-right: 1rem;
+    margin-left: 1rem;
   }
 `
 
@@ -44,7 +54,7 @@ const BlogIndex = ({
         isIndex
         langSlug={"blog"}
       >
-        <h1 className="text-center text-3xl mt-12 mb-6 font-bold">
+        <h1 className="text-center text-3xl mt-20 md:mt-12 mb-6 font-bold">
           {indexData.title}
         </h1>
         <h2 className="text-lg text-gray-600 dark:text-gray-400 w-4/5 mx-auto">
@@ -67,6 +77,7 @@ const BlogIndex = ({
                   publishDate={post.publishDate}
                   updateDate={post.updateDate}
                   smallImage
+                  isIndex
                 />
               </Post>
             ))}

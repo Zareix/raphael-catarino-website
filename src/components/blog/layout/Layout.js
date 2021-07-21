@@ -18,7 +18,7 @@ const Layout = ({
     links: [
       {
         label: "Home",
-        target: "/blog/",
+        target: "/blog",
       },
       {
         label: "Portfolio",
@@ -46,7 +46,7 @@ const Layout = ({
       />
       <main
         className={
-          "flex md:w-11/12 mx-auto mb-0" + (sidePanel ? "" : " flex-col")
+          "flex md:w-11/12 mx-auto mb-0 z-10" + (sidePanel ? "" : " flex-col")
         }
       >
         {children}
