@@ -10,6 +10,7 @@ const PostHeader = ({
   author,
   publishDate,
   updateDate,
+  smallImage,
 }) => {
   return (
     <>
@@ -17,15 +18,15 @@ const PostHeader = ({
         image={featuredImage.gatsbyImageData}
         alt={featuredImage.alt}
         title={featuredImage.title}
-        className="w-full h-96"
+        className={smallImage ? "w-full h-72" : "w-full h-96"}
         objectFit="cover"
       />
       <div className="mx-10 mt-8">
-        <h1 className="text-4xl font-bold">{title}</h1>
+        <h1 className="text-3xl font-bold">{title}</h1>
         <h2 className="my-2 text-2xl font-semibold text-gray-600 dark:text-gray-400">
           {subtitle}
         </h2>
-        <div className="flex flex-wrap gap-1 md:gap-3 items-center">
+        <div className="flex flex-col md:flex-row gap-1 md:gap-3 md:items-center">
           <div className="flex gap-2 items-center">
             <IoMdPerson size={30} className="border rounded-full p-1" />
             <i>{author}</i>

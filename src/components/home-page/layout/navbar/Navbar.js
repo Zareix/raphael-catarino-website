@@ -20,9 +20,17 @@ const Overlay = styled.div`
 `
 
 const Navigation = ({
-  data: { links, contactBtnVisible: isContactVisible, labelContactLink },
-  location,
+  data: {
+    links,
+    contactBtnVisible,
+    labelContactLink,
+    blogBtnVisible,
+    labelBlogLink,
+  },
   alwaysDisplayed,
+  iconBtnTarget,
+  langSlug,
+  location,
 }) => {
   const { scrolled } = useScrolled()
   const { isMobile } = useWindowWidth()
@@ -88,8 +96,8 @@ const Navigation = ({
     >
       <div className="px-5 md:px-12 bg-white dark:bg-gray-800 flex items-center  h-16">
         <div className="flex-grow flex items-center h-full py-3">
-          {location.pathname.replace(/(\/(..)\/)\?/).trim() === "/" ||
-          location.pathname.replace(/(\/(..)\/)\?/).trim() === " " ? (
+          {location.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
+          location.pathname.replace(/(\/(..)\/)/, "").trim() === "" ? (
             <button
               className="flex-shrink-0 cursor-pointer outline-none h-full"
               onClick={() => {
@@ -102,7 +110,7 @@ const Navigation = ({
           ) : (
             <GatsbyLink
               className="flex-shrink-0 cursor-pointer outline-none h-full"
-              to="/"
+              to={iconBtnTarget}
             >
               <NavIcon id="navIcon" />
             </GatsbyLink>
@@ -115,7 +123,13 @@ const Navigation = ({
                   {link.target.includes("/") ? (
                     <GatsbyLink
                       className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                      to={location.pathname.match(/(\/(..))/)[1] + link.target}
+                      to={
+                        (location.pathname.match(/(\/(..)\/)/)
+                          ? location.pathname
+                              .match(/(\/(..)\/)/)[1]
+                              .slice(0, -1)
+                          : "") + link.target
+                      }
                     >
                       {link.label}
                     </GatsbyLink>
@@ -140,7 +154,15 @@ const Navigation = ({
 
         {!isMobile && (
           <>
-            {isContactVisible && (
+            {blogBtnVisible && (
+              <GatsbyLink
+                className="outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-full text-sm font-medium"
+                to="blog"
+              >
+                {labelBlogLink}
+              </GatsbyLink>
+            )}
+            {contactBtnVisible && (
               <button
                 className="outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-full text-sm font-medium"
                 onClick={openContactForm}
@@ -152,6 +174,7 @@ const Navigation = ({
               <LangSelector
                 navVisible={visible || alwaysDisplayed}
                 location={location}
+                extSlug={langSlug}
               />
             </div>
           </>
@@ -207,6 +230,7 @@ const Navigation = ({
               closeNavDrawer={closeNavDrawer}
               navVisible={visible}
               location={location}
+              extSlug={langSlug}
             />
           </div>
           {visible && <Overlay id="navbarOverlay" onClick={closeNavDrawer} />}
@@ -227,5 +251,7 @@ export const fragmentNavbar = graphql`
     }
     contactBtnVisible
     labelContactLink
+    blogBtnVisible
+    labelBlogLink
   }
 `

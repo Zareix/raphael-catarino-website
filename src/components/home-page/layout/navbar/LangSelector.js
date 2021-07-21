@@ -18,11 +18,18 @@ const lang = [
   },
 ]
 
-const LangSelector = ({ mobile, closeNavDrawer, navVisible, location }) => {
+const LangSelector = ({
+  mobile,
+  closeNavDrawer,
+  navVisible,
+  extSlug,
+  location,
+}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedLang, setSelectedLang] = useState(
     location.pathname.includes("en") ? "US" : "FR"
   )
+  const linkExtension = extSlug ? extSlug : ""
 
   let timeOutId
 
@@ -55,9 +62,7 @@ const LangSelector = ({ mobile, closeNavDrawer, navVisible, location }) => {
             onClick={() => {
               setSelectedLang(l.countryCode)
               closeNavDrawer()
-              navigate(l.redirect, {
-                replace: true,
-              })
+              navigate(l.redirect + linkExtension)
             }}
           >
             <ReactCountryFlag
@@ -102,9 +107,7 @@ const LangSelector = ({ mobile, closeNavDrawer, navVisible, location }) => {
                 }
                 onClick={() => {
                   setSelectedLang(l.countryCode)
-                  navigate(l.redirect, {
-                    replace: true,
-                  })
+                  navigate(l.redirect + linkExtension)
                 }}
               >
                 <ReactCountryFlag

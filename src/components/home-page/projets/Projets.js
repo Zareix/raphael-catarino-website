@@ -30,9 +30,7 @@ const Projets = ({
   const [shownItems, setShownItems] = useState(defaultShownItems)
   const projets = data.edges
 
-  const showMore = () => {
-    setShownItems(shownItems + stepShowMore)
-  }
+  const showMore = () => setShownItems(shownItems + stepShowMore)
 
   return (
     <section id="projets">

@@ -12,12 +12,10 @@ const BlogPost = ({
 }) => {
   return (
     <Layout
-      data={{
-        footer,
-        contact,
-        latestPosts: allDatoCmsBlogPost.latestPosts,
-        currentPostId: post.id,
-      }}
+      footerData={footer}
+      contactData={contact}
+      latestPosts={allDatoCmsBlogPost.latestPosts}
+      currentPostId={post.id}
       location={location}
     >
       <HelmetDatoCms favicon={site.favicon} seo={post.seo} />

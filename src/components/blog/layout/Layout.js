@@ -1,53 +1,64 @@
 import React from "react"
-import styled from "styled-components"
 
 import Footer from "../../home-page/layout/Footer"
 import Navigation from "../../home-page/layout/navbar/Navbar"
 import SidePanel from "./SidePanel"
 
-const Content = styled.section`
-  width: 75%;
-  margin: 3rem;
-  border-radius: 16px;
-  overflow: hidden;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    margin: 0;
-    border-radius: 0;
-  }
-`
-
-const Layout = ({ children, data, location }) => {
+const Layout = ({
+  children,
+  footerData,
+  contactData,
+  latestPosts,
+  currentPostId,
+  location,
+  sidePanel,
+  langSlug,
+}) => {
   const navData = {
     links: [
       {
         label: "Home",
-        target: "/",
-      },
-      {
-        label: "Blog",
         target: "/blog/",
       },
+      {
+        label: "Portfolio",
+        target: "/",
+      },
     ],
-    labelContactLink: data.contact.contactBtnText,
+    labelContactLink: contactData.contactBtnText,
     contactBtnVisible: false,
+    blogBtnVisible: false,
+    labelBlogLink: "Blog",
   }
 
   return (
     <>
-      <Navigation location={location} data={navData} alwaysDisplayed />
-      <main className="flex md:w-11/12 mx-auto mb-0">
-        <Content className="bg-white dark:bg-gray-800 shadow-md pb-10 md:pb-0">
-          {children}
-        </Content>
-        <SidePanel
-          latestPosts={data.latestPosts}
-          currentPostId={data.currentPostId}
-          location={location}
-        />
+      <Navigation
+        location={location}
+        data={navData}
+        alwaysDisplayed
+        iconBtnTarget={
+          (location.pathname.match(/(\/(..)\/)/)
+            ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
+            : "") + "/blog/"
+        }
+        langSlug={langSlug}
+      />
+      <main
+        className={
+          "flex md:w-11/12 mx-auto mb-0" + (sidePanel ? "" : " flex-col")
+        }
+      >
+        {children}
+        {sidePanel && (
+          <SidePanel
+            latestPosts={latestPosts}
+            currentPostId={currentPostId}
+            location={location}
+          />
+        )}
       </main>
-      <Footer dataContact={data.contact} message={data.footer.footerMessage} />
+      <Footer dataContact={contactData} message={footerData.footerMessage} />
     </>
   )
 }

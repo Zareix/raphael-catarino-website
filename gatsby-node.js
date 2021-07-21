@@ -7,9 +7,11 @@ exports.onPostBuild = ({ reporter }) => {
 // Create blog pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const index = path.resolve(`src/templates/index.js`)
+  const indexTemplate = path.resolve(`src/templates/index.js`)
+  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
+  const blogIndexTemplate = path.resolve(`src/templates/blog-index.js`)
 
-  const result = await graphql(`
+  const siteData = await graphql(`
     query {
       datoCmsSite {
         locales
@@ -18,10 +20,10 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   // Create index page for each locale and the default
-  result.data.datoCmsSite.locales.forEach((locale) => {
+  siteData.data.datoCmsSite.locales.forEach((locale) => {
     createPage({
       path: locale,
-      component: index,
+      component: indexTemplate,
       context: {
         locale: locale,
       },
@@ -29,10 +31,66 @@ exports.createPages = async ({ graphql, actions }) => {
   })
   createPage({
     path: "/",
-    component: index,
+    component: indexTemplate,
     context: {
       locale: "fr",
     },
+  })
+
+  const blogPosts = await graphql(`
+    query BlogPosts {
+      allDatoCmsBlogPost {
+        edges {
+          node {
+            id
+            slug
+            locale
+          }
+        }
+      }
+    }
+  `)
+
+  // Create blog posts page for each locale
+  siteData.data.datoCmsSite.locales.forEach(async (locale) => {
+    blogPosts.data.allDatoCmsBlogPost.edges
+      .filter(({ node: post }) => post.locale === locale)
+      .forEach(({ node: post }) => {
+        if (locale === "fr")
+          createPage({
+            path: "blog/" + post.slug,
+            component: blogPostTemplate,
+            context: {
+              id: post.id,
+              locale: locale,
+            },
+          })
+
+        createPage({
+          path: locale + "/blog/" + post.slug,
+          component: blogPostTemplate,
+          context: {
+            id: post.id,
+            locale: locale,
+          },
+        })
+      })
+
+    if (locale === "fr")
+      createPage({
+        path: "blog",
+        component: blogIndexTemplate,
+        context: {
+          locale: locale,
+        },
+      })
+    createPage({
+      path: locale + "/blog/",
+      component: blogIndexTemplate,
+      context: {
+        locale: locale,
+      },
+    })
   })
 }
 
