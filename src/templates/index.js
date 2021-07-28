@@ -99,6 +99,9 @@ export const queryIndex = graphql`
     datoCmsHomePage(locale: { eq: $locale }) {
       presTitle
       presSubtitle
+      backgroundPresentation {
+        url
+      }
       compTitle
       compSubtitle
       projectsTitle

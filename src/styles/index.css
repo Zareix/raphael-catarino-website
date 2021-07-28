@@ -5,6 +5,7 @@ body {
   @apply dark:text-gray-50;
   @apply dark:bg-gray-900;
 }
+
 main {
   margin-bottom: 5rem;
 }

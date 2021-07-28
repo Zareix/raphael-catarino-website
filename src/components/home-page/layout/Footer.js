@@ -9,11 +9,12 @@ const FooterStyled = styled.footer`
   height: 30vh;
   bottom: 30vh;
   padding-top: 2.5rem;
-  padding-bottom: 0.75rem;
+  padding-bottom: 2rem;
   display: grid;
   align-content: end;
   justify-items: center;
   gap: 0.75rem;
+  border-top-right-radius: 60px;
 `
 
 const Footer = ({ dataContact, message }) => {

@@ -64,7 +64,7 @@ const Projets = ({
                 <p className="text-justify flex-grow mt-3">{projet.desc}</p>
                 <div className="flex items-end mt-3 text-sm">
                   <div className="flex-grow font-medium">{projet.date}</div>
-                  <div className="flex justify-end gap-4 font-medium text-white text-center">
+                  <div className="flex justify-end items-center gap-4 font-medium text-white text-center">
                     {projet.isOnGithub && (
                       <a
                         href={projet.githubLink}

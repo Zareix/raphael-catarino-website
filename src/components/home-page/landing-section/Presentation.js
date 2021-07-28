@@ -6,7 +6,13 @@ import Illustration from "../../../images/svg/presentation_illustration.svg"
 
 const PresentationSection = styled.section`
   margin: 0;
-  height: 100vh;
+  width: 100%;
+  height: 95vh;
+  background-image: url(${(props) => props.bgSvg});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom-left-radius: 80px;
   font-size: 1.875rem;
   line-height: 2.25rem;
 
@@ -27,10 +33,11 @@ const PresentationSection = styled.section`
     .illustration-computer {
       fill: #e2e8f0;
     }
-  }
+  } ;
 `
 
 const PresentationWrapper = styled.div`
+  z-index: 10;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +48,7 @@ const PresentationWrapper = styled.div`
 
 const Presentation = ({ data }) => {
   return (
-    <PresentationSection className="bg-gradient-to-br from-red-800 to-purple-800 dark:from-red-900 dark:to-purple-900">
+    <PresentationSection bgSvg={data.backgroundPresentation.url}>
       <PresentationWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
           <div className="mx-auto w-fit">

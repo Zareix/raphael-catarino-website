@@ -27,7 +27,6 @@ module.exports = {
         background_color: "#F9FAFB",
         display: "browser",
         icon: "src/images/svg/favicon.svg",
-        purpose: "maskable",
         lang: `fr`,
         localize: [
           {

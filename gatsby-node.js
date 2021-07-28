@@ -12,7 +12,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogIndexTemplate = path.resolve(`src/templates/blog-index.js`)
 
   const siteData = await graphql(`
-    query {
+    query IndexLocales {
       datoCmsSite {
         locales
       }
