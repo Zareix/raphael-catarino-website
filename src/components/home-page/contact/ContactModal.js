@@ -49,7 +49,7 @@ const ContactModal = ({ data, visible, close }) => {
     formState: { errors },
     reset,
   } = useForm()
-  const [sent, setSent] = useState(true)
+  const [sent, setSent] = useState(false)
 
   const onSubmit = (data) => {
     console.log(data)
