@@ -8,7 +8,7 @@ const PresentationSection = styled.section`
   margin: 0;
   width: 100%;
   height: 100vh;
-  background-image: url(${(props) => props.bgSvg});
+  //background-image: url(${(props) => props.bgSvg});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,7 +48,10 @@ const PresentationWrapper = styled.div`
 
 const Presentation = ({ data }) => {
   return (
-    <PresentationSection bgSvg={data.backgroundPresentation.url}>
+    <PresentationSection
+      bgSvg={data.backgroundPresentation.url}
+      className="bg-gradient-to-br from-red-800 to-purple-800 dark:from-red-900 dark:to-purple-900"
+    >
       <PresentationWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
           <div className="mx-auto w-fit">
