@@ -7,12 +7,12 @@ import Illustration from "../../../images/svg/presentation_illustration.svg"
 const PresentationSection = styled.section`
   margin: 0;
   width: 100%;
-  height: 95vh;
+  height: 100vh;
   background-image: url(${(props) => props.bgSvg});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-bottom-left-radius: 80px;
+  //border-bottom-left-radius: 80px;
   font-size: 1.875rem;
   line-height: 2.25rem;
 
