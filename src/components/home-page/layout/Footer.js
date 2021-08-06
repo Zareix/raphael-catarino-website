@@ -14,7 +14,6 @@ const FooterStyled = styled.footer`
   align-content: end;
   justify-items: center;
   gap: 0.75rem;
-  //border-top-right-radius: 60px;
 `
 
 const Footer = ({ dataContact, message }) => {

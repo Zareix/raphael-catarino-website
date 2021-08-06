@@ -8,13 +8,19 @@ const PresentationSection = styled.section`
   margin: 0;
   width: 100%;
   height: 100vh;
-  //background-image: url(${(props) => props.bgSvg});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  //border-bottom-left-radius: 80px;
   font-size: 1.875rem;
   line-height: 2.25rem;
+
+  .text-section::after {
+    content: "";
+    display: block;
+    height: 20px;
+    width: 150px;
+    border-bottom: rgba(249, 250, 251, 0.3) 3px solid;
+  }
 
   @media (prefers-color-scheme: dark) {
     .illustration-screen-right,
@@ -33,7 +39,7 @@ const PresentationSection = styled.section`
     .illustration-computer {
       fill: #e2e8f0;
     }
-  } ;
+  }
 `
 
 const PresentationWrapper = styled.div`
@@ -48,17 +54,14 @@ const PresentationWrapper = styled.div`
 
 const Presentation = ({ data }) => {
   return (
-    <PresentationSection
-      bgSvg={data.backgroundPresentation.url}
-      className="bg-gradient-to-br from-red-800 to-purple-800 dark:from-red-900 dark:to-purple-900"
-    >
+    <PresentationSection className="bg-gradient-to-br from-red-800 to-purple-800 dark:from-red-900 dark:to-purple-900">
       <PresentationWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
-          <div className="mx-auto w-fit">
+          <div className="mx-auto w-fit text-section">
             <h1 className="font-bold text-4xl md:text-5xl text-gray-50">
               {data.presTitle}
             </h1>
-            <h2 className="mt-2 text-gray-300">{data.presSubtitle}</h2>
+            <h2 className="mt-2 text-gray-400">{data.presSubtitle}</h2>
           </div>
         </div>
         <div className="w-full md:w-1/2">

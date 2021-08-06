@@ -13,16 +13,11 @@ const Competences = ({ data, title, subtitle }) => {
   }, [])
 
   return (
-    <section
-      id="competences"
-      className="pt-8 space-y-16 overflow-hidden pb-20 mt-12"
-    >
-      <div className="text-center -mb-8">
-        <h2 className="text-3xl font-bold">{title}</h2>
-        <h3 className="text-lg text-gray-600 dark:text-gray-400 w-4/5 mx-auto">
-          {subtitle}
-        </h3>
-      </div>
+    <section id="competences" className="pt-8 overflow-hidden pb-20 mt-12">
+      <h2 className="text-3xl font-bold text-center">{title}</h2>
+      <h3 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mb-8  mx-auto">
+        {subtitle}
+      </h3>
       {categories.map(({ node: cat }, index) => (
         <Competence competence={cat} key={cat.id} index={index} />
       ))}

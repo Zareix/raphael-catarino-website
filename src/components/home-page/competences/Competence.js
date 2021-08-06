@@ -71,7 +71,7 @@ const Container = (props) =>
 
 const Competence = ({ competence, index }) => {
   return (
-    <article className="flex" id={competence.title}>
+    <article className="flex mb-16" id={competence.title}>
       <Container index={index}>
         <ImagesContainer>
           {competence.icons.map((img, index) => (

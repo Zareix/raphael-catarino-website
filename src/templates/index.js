@@ -30,15 +30,15 @@ const IndexPage = ({ data, location }) => {
   const { scrolled } = useScrolled()
 
   useEffect(() => {
-    let navigatorLang = navigator.language
-    if (navigatorLang.startsWith("en")) navigate("en/")
+    if (location.pathname === "/")
+      navigator.language.startsWith("en") && navigate("en/")
 
     AOS.init({
       duration: 750,
       delay: 100,
       anchorPlacement: "bottom-top",
     })
-  }, [])
+  }, [location])
 
   return (
     <>
@@ -72,7 +72,11 @@ const IndexPage = ({ data, location }) => {
               )}
             </CSSTransition>
           </SwitchTransition>
-          <Timeline data={data.allDatoCmsTimeline} />
+          <Timeline
+            data={data.allDatoCmsTimeline}
+            title={data.datoCmsHomePage.timelineTitle}
+            subtitle={data.datoCmsHomePage.timelineSubtitle}
+          />
           <Competences
             data={data.allDatoCmsCompetence}
             title={data.datoCmsHomePage.compTitle}
@@ -99,9 +103,8 @@ export const queryIndex = graphql`
     datoCmsHomePage(locale: { eq: $locale }) {
       presTitle
       presSubtitle
-      backgroundPresentation {
-        url
-      }
+      timelineTitle
+      timelineSubtitle
       compTitle
       compSubtitle
       projectsTitle
