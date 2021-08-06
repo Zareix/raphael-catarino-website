@@ -6,7 +6,7 @@ const useWindowWidth = () => {
   const isOnBrowser = typeof window !== "undefined"
   const [width, setWidth] = useState(isOnBrowser ? window.innerWidth : 1200)
   const [isMobile, setIsMobile] = useState(
-    isOnBrowser && window.innerWidth < mobileBreakpoint
+    isOnBrowser && window.innerWidth <= mobileBreakpoint
   )
 
   useEffect(() => {
