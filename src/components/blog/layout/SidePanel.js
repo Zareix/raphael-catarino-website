@@ -18,7 +18,7 @@ const SidePanel = ({ latestPosts, currentPostId, location }) => {
 
   if (isMobile) return <></>
   return (
-    <section className="w-1/4">
+    <section className="w-1/4" id="sidePanel">
       <div className="sticky top-24">
         <article className="mt-12 py-4 bg-white dark:bg-gray-800  shadow-md rounded-2xl overflow-hidden ">
           <h2 className="mx-3 mb-3 font-bold text-xl text-center">

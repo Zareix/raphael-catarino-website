@@ -2,10 +2,12 @@ import React, { useState } from "react"
 
 import { graphql, Link } from "gatsby"
 import { HelmetDatoCms } from "gatsby-source-datocms"
+import styled from "styled-components"
 
 import Layout from "../components/blog/layout/Layout"
 import PostHeader from "../components/blog/blog-post/PostHeader"
-import styled from "styled-components"
+
+import NoPostSvg from "../images/svg/no_posts.svg"
 
 const BlogList = styled.section`
   width: 80%;
@@ -36,8 +38,16 @@ const Post = styled(Link)`
   }
 `
 
+const Empty = styled.div`
+  margin: 0 auto;
+  margin-top: 3rem;
+  min-height: 30rem;
+  text-align: center;
+  font-size: 1.2rem;
+`
+
 const BlogIndex = ({
-  data: { site, indexData, footer, contact, allDatoCmsBlogPost },
+  data: { site, indexData, allDatoCmsBlogPost, footer, contact },
   location,
 }) => {
   const [shownItems, setShownItems] = useState(indexData.defaultShowMore)
@@ -53,6 +63,7 @@ const BlogIndex = ({
         location={location}
         isIndex
         langSlug={"blog"}
+        navData={indexData}
       >
         <h1 className="text-center text-3xl mt-20 md:mt-12 mb-6 font-bold">
           {indexData.title}
@@ -61,6 +72,12 @@ const BlogIndex = ({
           {indexData.subtitle}
         </h2>
         <BlogList>
+          {allDatoCmsBlogPost.allPosts.length === 0 && (
+            <Empty id="noPosts">
+              <NoPostSvg className="h-48" />
+              <p className="mt-2">{indexData.noPostMessage}</p>
+            </Empty>
+          )}
           {allDatoCmsBlogPost.allPosts
             .slice(0, shownItems)
             .map(({ node: post }) => (
@@ -76,8 +93,10 @@ const BlogIndex = ({
                   author={post.author}
                   publishDate={post.publishDate}
                   updateDate={post.updateDate}
-                  smallImage
+                  small
                   isIndex
+                  dateText={indexData.dateText}
+                  updatedDateText={indexData.updatedDateText}
                 />
               </Post>
             ))}
@@ -111,9 +130,18 @@ export const queryBlogIndex = graphql`
       }
       title
       subtitle
+      navLinks {
+        label
+        target
+      }
+      navContactBtnVisible
+      navLabelContactLink
       defaultShowMore
       stepShowMore
       showMoreLabel
+      dateText
+      updatedDateText
+      noPostMessage
     }
 
     allDatoCmsBlogPost(

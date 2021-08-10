@@ -11,7 +11,7 @@ import useScroll from "../components/hooks/use-scroll"
 
 const Content = styled.section`
   width: 75%;
-  margin: 3rem;
+  margin: 3rem 1rem;
   border-radius: 16px;
   overflow: hidden;
 
@@ -32,7 +32,7 @@ const Content = styled.section`
 `
 
 const BlogPost = ({
-  data: { site, post, footer, contact, allDatoCmsBlogPost },
+  data: { site, post, footer, contact, allDatoCmsBlogPost, settings },
   location,
 }) => {
   const { scrollAmount } = useScroll()
@@ -47,6 +47,7 @@ const BlogPost = ({
         location={location}
         sidePanel
         langSlug={"blog"}
+        navData={settings}
       >
         <Content
           scrollAmount={scrollAmount}
@@ -59,8 +60,13 @@ const BlogPost = ({
             author={post.author}
             publishDate={post.publishDate}
             updateDate={post.updateDate}
+            dateText={settings.dateText}
+            updatedDateText={settings.updatedDateText}
           />
-          <PostBody content={post.content} />
+          <PostBody
+            content={post.content}
+            copiedMessage={settings.copiedMessage}
+          />
         </Content>
       </Layout>
     </>
@@ -76,6 +82,19 @@ export const queryBlogPost = graphql`
         ...GatsbyDatoCmsFaviconMetaTags
       }
     }
+
+    settings: datoCmsBlogIndex(locale: { eq: $locale }) {
+      navLinks {
+        label
+        target
+      }
+      navContactBtnVisible
+      navLabelContactLink
+      dateText
+      updatedDateText
+      copiedMessage
+    }
+
     post: datoCmsBlogPost(id: { eq: $id }, locale: { eq: $locale }) {
       seo: seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
@@ -100,16 +119,20 @@ export const queryBlogPost = graphql`
               title
             }
           }
-          ... on DatoCmsBlogCodeBlock {
+          ... on DatoCmsBlogPostCodeBlock {
             id: originalId
             code
             language
-            highlightedLines
+            showLineNumbers
+          }
+          ... on DatoCmsBlogPostAside {
+            id: originalId
+            content
           }
         }
       }
       featuredImage {
-        gatsbyImageData(placeholder: TRACED_SVG, width: 500)
+        gatsbyImageData(placeholder: TRACED_SVG, width: 1000)
         alt
         title
       }

@@ -1,41 +1,47 @@
 import React from "react"
+import styled from "styled-components"
 
 import Footer from "../../home-page/layout/Footer"
 import Navigation from "../../home-page/layout/navbar/Navbar"
 import SidePanel from "./SidePanel"
 
+const Main = styled.main`
+  z-index: 10;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 0;
+  flex-direction: ${({ sidePanelEnabled }) =>
+    sidePanelEnabled ? "row" : "column"};
+
+  @media (min-width: 768px) {
+    width: 95%;
+  }
+`
+
 const Layout = ({
   children,
   footerData,
   contactData,
+  navData,
   latestPosts,
   currentPostId,
   location,
   sidePanel,
   langSlug,
 }) => {
-  const navData = {
-    links: [
-      {
-        label: "Home",
-        target: "/blog",
-      },
-      {
-        label: "Portfolio",
-        target: "/",
-      },
-    ],
-    labelContactLink: contactData.contactBtnText,
-    contactBtnVisible: false,
+  const navigationData = {
+    links: navData.navLinks,
+    labelContactLink: navData.navLabelContactLink,
+    contactBtnVisible: navData.navContactBtnVisible,
     blogBtnVisible: false,
-    labelBlogLink: "Blog",
+    labelBlogLink: "",
   }
 
   return (
     <>
       <Navigation
         location={location}
-        data={navData}
+        data={navigationData}
         alwaysDisplayed
         iconBtnTarget={
           (location.pathname.match(/(\/(..)\/)/)
@@ -44,11 +50,7 @@ const Layout = ({
         }
         langSlug={langSlug}
       />
-      <main
-        className={
-          "flex md:w-11/12 mx-auto mb-0 z-10" + (sidePanel ? "" : " flex-col")
-        }
-      >
+      <Main sidePanelEnabled={sidePanel}>
         {children}
         {sidePanel && (
           <SidePanel
@@ -57,7 +59,7 @@ const Layout = ({
             location={location}
           />
         )}
-      </main>
+      </Main>
       <Footer dataContact={contactData} message={footerData.footerMessage} />
     </>
   )
