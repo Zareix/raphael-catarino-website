@@ -57,7 +57,7 @@ const BlogPost = ({
             title={post.title}
             subtitle={post.subtitle}
             featuredImage={post.featuredImage}
-            author={post.author}
+            authors={post.authors}
             publishDate={post.publishDate}
             updateDate={post.updateDate}
             dateText={settings.dateText}
@@ -103,7 +103,14 @@ export const queryBlogPost = graphql`
       title
       subtitle
       slug
-      author
+      authors {
+        name
+        profilPicture {
+          gatsbyImageData(placeholder: TRACED_SVG, width: 50)
+          alt
+          title
+        }
+      }
       publishDate(formatString: "DD/MM/YYYY", locale: $locale)
       updateDate(formatString: "DD/MM/YYYY", locale: $locale)
       content {
@@ -114,7 +121,7 @@ export const queryBlogPost = graphql`
             id: originalId
             imageTitle
             image {
-              gatsbyImageData(placeholder: TRACED_SVG, width: 800)
+              gatsbyImageData(placeholder: TRACED_SVG, width: 1000)
               alt
               title
             }

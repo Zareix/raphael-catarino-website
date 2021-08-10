@@ -109,7 +109,7 @@ const Aside = styled.aside`
 
 export const BlogPostImage = ({ image, title }) => {
   return (
-    <div className="mx-4 p-4 pb-1 rounded-md bg-gray-50 dark:bg-gray-700">
+    <div className="-mt-2 mx-4 p-4 pb-1 rounded-md bg-gray-50 dark:bg-gray-700">
       <GatsbyImage
         image={image.gatsbyImageData}
         alt={image.alt}
@@ -147,7 +147,7 @@ const PostBody = ({ content, copiedMessage }) => {
               )
             } else if (record.__typename === "DatoCmsBlogPostCodeBlock") {
               return (
-                <div className="relative">
+                <div className="relative max-w-3xl -mt-2">
                   <CopyButton
                     onClick={() => copyToClipBoard(record.code)}
                     className="text-gray-100 hover:text-white"
@@ -161,7 +161,6 @@ const PostBody = ({ content, copiedMessage }) => {
                     showLineNumbers={record.showLineNumbers}
                     customStyle={{
                       marginBottom: "1rem",
-                      maxWidth: "48rem",
                       borderRadius: "6px",
                     }}
                   >
@@ -188,7 +187,7 @@ const PostBody = ({ content, copiedMessage }) => {
       </ContentWrapper>
       <CopiedToClipboard
         open={copied}
-        className="shadow-lg bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-50"
+        className="shadow-md bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-50"
       >
         {copiedMessage}
       </CopiedToClipboard>

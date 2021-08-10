@@ -1,14 +1,15 @@
 import React from "react"
 
 import { GatsbyImage } from "gatsby-plugin-image"
-import { IoMdPerson } from "@react-icons/all-files/io/IoMdPerson"
+
+import PostAuthorsList from "./PostAuthorsList"
 import useWindowWidth from "../../hooks/use-window-width"
 
 const PostHeader = ({
   title,
   subtitle,
   featuredImage,
-  author,
+  authors,
   publishDate,
   updateDate,
   isIndex,
@@ -32,21 +33,18 @@ const PostHeader = ({
         </h1>
         <h2
           className={
-            "my-2 font-semibold text-gray-600 dark:text-gray-400" +
+            "my-2 font-semibold text-gray-500 dark:text-gray-300" +
             (isIndex ? " text-xl" : " text-2xl")
           }
         >
           {subtitle}
         </h2>
         <div className="flex gap-1 md:items-center flex-wrap flex-col md:flex-row">
-          <div className="flex gap-2 items-center">
-            <IoMdPerson size={30} className="border rounded-full p-1" />
-            <i>{author}</i>
-          </div>{" "}
+          <PostAuthorsList authors={authors} />{" "}
           {!isIndex && !isMobile && <b>·</b>}
           <div
             className={
-              "text-sm flex gap-1" +
+              "text-sm flex gap-1 text-gray-500 dark:text-gray-400" +
               (isIndex ? " w-full" : "") +
               (isMobile && !isIndex ? " flex-col" : "")
             }

@@ -90,7 +90,7 @@ const BlogIndex = ({
                   title={post.title}
                   subtitle={post.subtitle}
                   featuredImage={post.featuredImage}
-                  author={post.author}
+                  authors={post.authors}
                   publishDate={post.publishDate}
                   updateDate={post.updateDate}
                   small
@@ -154,7 +154,14 @@ export const queryBlogIndex = graphql`
           title
           subtitle
           slug
-          author
+          authors {
+            name
+            profilPicture {
+              gatsbyImageData(placeholder: TRACED_SVG, width: 50)
+              alt
+              title
+            }
+          }
           publishDate(formatString: "DD/MM/YYYY", locale: $locale)
           updateDate(formatString: "DD/MM/YYYY", locale: $locale)
           featuredImage {
