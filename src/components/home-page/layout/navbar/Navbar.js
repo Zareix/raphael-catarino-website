@@ -122,7 +122,7 @@ const Navigation = ({
           exit="exit"
           id="navbar"
           className={
-            "z-50 w-full shadow" +
+            "z-50 w-full shadow-md" +
             (alwaysDisplayed ? " sticky top-0" : " fixed")
           }
         >
