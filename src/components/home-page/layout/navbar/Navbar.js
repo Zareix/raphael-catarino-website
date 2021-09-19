@@ -11,6 +11,7 @@ import NavIcon from "../../../../images/svg/favicon.svg"
 import { graphql } from "gatsby"
 import useScroll from "../../../hooks/use-scroll"
 import useWindowWidth from "../../../hooks/use-window-width"
+import { AnimatePresence, motion } from "framer-motion"
 
 const Overlay = styled.div`
   position: fixed;
@@ -20,6 +21,30 @@ const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(2px);
 `
+
+const slideIn = {
+  hidden: {
+    y: "-100%",
+  },
+  visible: {
+    y: "-2.5rem",
+    transition: {
+      duration: 1,
+      type: "spring",
+      stiffness: 120,
+      damping: 15,
+    },
+  },
+  exit: {
+    y: "-110%",
+    transition: {
+      duration: 1,
+      type: "spring",
+      stiffness: 100,
+      damping: 20,
+    },
+  },
+}
 
 const Navigation = ({
   data: {
@@ -34,7 +59,7 @@ const Navigation = ({
   langSlug,
   location,
 }) => {
-  const { scrolled } = useScroll()
+  const { scrolled, scrollAmount } = useScroll()
   const { isMobile } = useWindowWidth()
   const [visible, setVisible] = useState(scrolled)
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
@@ -42,18 +67,17 @@ const Navigation = ({
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (scrolled || alwaysDisplayed) return
-      if (
-        e.clientY <
-        10 * parseFloat(getComputedStyle(document.documentElement).fontSize)
-      ) {
+      if (e.clientY < 200) {
         setTimeout(() => {
           setVisible(true)
         })
       } else {
-        setTimeout(() => {
-          setVisible(false)
-          setIsNavDrawerOpen(false)
-        })
+        if (visible) {
+          setTimeout(() => {
+            setVisible(false)
+            setIsNavDrawerOpen(false)
+          })
+        }
       }
     }
 
@@ -74,7 +98,7 @@ const Navigation = ({
       setIsNavDrawerOpen(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scrolled])
+  }, [scrollAmount])
 
   const openContactForm = () => {
     let e = document.getElementById("openContactBtn")
@@ -89,189 +113,191 @@ const Navigation = ({
   const closeNavDrawer = () => setIsNavDrawerOpen(false)
 
   return (
-    <nav
-      id="navbar"
-      className={
-        "z-50 w-full transition-transform duration-300 ease-in-out transform shadow" +
-        (alwaysDisplayed
-          ? " sticky top-0"
-          : !visible
-          ? " -translate-y-full fixed"
-          : " fixed")
-      }
-    >
-      <div className="px-5 md:px-12 bg-white dark:bg-gray-800 flex items-center relative z-70 h-16">
-        <div className="flex-grow flex items-center h-full py-3">
-          {location.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
-          location.pathname.replace(/(\/(..)\/)/, "").trim() === "" ? (
-            <button
-              className="flex-shrink-0 cursor-pointer outline-none h-full"
-              onClick={() => {
-                closeNavDrawer()
-                animateScroll.scrollToTop()
-              }}
-            >
-              <NavIcon id="navIcon" />
-            </button>
-          ) : (
-            <GatsbyLink
-              className="flex-shrink-0 cursor-pointer outline-none h-full"
-              to={iconBtnTarget}
-            >
-              <NavIcon id="navIcon" />
-            </GatsbyLink>
-          )}
-
-          {!isMobile && (
-            <ul className="flex ml-10 justify-center items-baseline space-x-4">
-              {links.map((link, i) => (
-                <li key={i}>
-                  {link.target.includes("/") ? (
-                    <GatsbyLink
-                      className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                      activeClassName="link-active"
-                      to={
-                        (location.pathname.match(/(\/(..)\/)/)
-                          ? location.pathname
-                              .match(/(\/(..)\/)/)[1]
-                              .slice(0, -1)
-                          : "") + link.target
-                      }
-                    >
-                      {link.label}
-                    </GatsbyLink>
-                  ) : (
-                    <Link
-                      className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                      activeClass="link-active"
-                      spy
-                      smooth
-                      offset={-70}
-                      duration={800}
-                      to={link.target}
-                    >
-                      {link.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-
-        {!isMobile && (
-          <>
-            {blogBtnVisible && (
-              <GatsbyLink
-                className="outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-full text-sm font-medium"
-                activeClassName="link-active"
-                to="blog"
-              >
-                {labelBlogLink}
-              </GatsbyLink>
-            )}
-            {contactBtnVisible && (
-              <button
-                className="outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-full text-sm font-medium"
-                onClick={openContactForm}
-              >
-                {labelContactLink}
-              </button>
-            )}
-            <div className="flex ml-4 items-center md:ml-6">
-              <LangSelector
-                navVisible={visible || alwaysDisplayed}
-                location={location}
-                extSlug={langSlug}
-              />
+    <AnimatePresence>
+      {visible && (
+        <motion.nav
+          variants={slideIn}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          id="navbar"
+          className={
+            "z-50 w-full shadow" +
+            (alwaysDisplayed ? " sticky top-0" : " fixed")
+          }
+        >
+          <div className="px-5 md:px-12 pt-10 bg-white dark:bg-gray-800 flex items-center relative z-70">
+            <div className="flex-grow flex items-center h-full py-3">
+              {location.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
+              location.pathname.replace(/(\/(..)\/)/, "").trim() === "" ? (
+                <button
+                  className="flex-shrink-0 cursor-pointer outline-none h-14"
+                  onClick={() => {
+                    closeNavDrawer()
+                    animateScroll.scrollToTop()
+                  }}
+                >
+                  <NavIcon id="navIcon" />
+                </button>
+              ) : (
+                <GatsbyLink
+                  className="flex-shrink-0 cursor-pointer outline-none h-14"
+                  to={iconBtnTarget}
+                >
+                  <NavIcon id="navIcon" />
+                </GatsbyLink>
+              )}
+              {!isMobile && (
+                <ul className="flex ml-10 justify-center items-baseline space-x-4">
+                  {links.map((link, i) => (
+                    <li key={i}>
+                      {link.target.includes("/") ? (
+                        <GatsbyLink
+                          className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          activeClassName="link-active"
+                          to={
+                            (location.pathname.match(/(\/(..)\/)/)
+                              ? location.pathname
+                                  .match(/(\/(..)\/)/)[1]
+                                  .slice(0, -1)
+                              : "") + link.target
+                          }
+                        >
+                          {link.label}
+                        </GatsbyLink>
+                      ) : (
+                        <Link
+                          className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          activeClass="link-active"
+                          spy
+                          smooth
+                          offset={-70}
+                          duration={800}
+                          to={link.target}
+                        >
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-          </>
-        )}
-        {isMobile && (
-          <button
-            onClick={toggleDrawer}
-            className="-mr-2 inline-flex text-gray-800 dark:text-white hover:text-gray-400  items-center justify-center p-2 rounded-md focus:outline-none select-none"
-          >
-            <FaChevronDown
-              size={20}
-              className={
-                "transition-transform transform duration-300" +
-                (isNavDrawerOpen && " rotate-180")
-              }
-            />
-          </button>
-        )}
-      </div>
-      {isMobile && isNavDrawerOpen && (
-        <>
-          <div
-            id="navbarDrawer"
-            className="px-2 pt-2 pb-3 sm:px-3 bg-white dark:bg-gray-800 w-full fixed z-60"
-          >
-            <ul>
-              {links.map((link, i) => (
-                <li>
-                  {link.target.includes("/") ? (
-                    <GatsbyLink
-                      className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
-                      activeClassName="link-active"
-                      to={
-                        (location.pathname.match(/(\/(..)\/)/)
-                          ? location.pathname
-                              .match(/(\/(..)\/)/)[1]
-                              .slice(0, -1)
-                          : "") + link.target
-                      }
-                      onClick={() => setTimeout(closeNavDrawer)}
-                    >
-                      {link.label}
-                    </GatsbyLink>
-                  ) : (
-                    <Link
-                      key={i}
-                      className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
-                      to={link.target}
-                      activeClass="link-active"
-                      spy
-                      smooth
-                      offset={-70}
-                      duration={800}
-                      onClick={() => setTimeout(closeNavDrawer)}
-                    >
-                      {link.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-            {contactBtnVisible && (
+            {!isMobile && (
+              <>
+                {blogBtnVisible && (
+                  <GatsbyLink
+                    className="outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-full text-sm font-medium"
+                    activeClassName="link-active"
+                    to="blog"
+                  >
+                    {labelBlogLink}
+                  </GatsbyLink>
+                )}
+                {contactBtnVisible && (
+                  <button
+                    className="outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-full text-sm font-medium"
+                    onClick={openContactForm}
+                  >
+                    {labelContactLink}
+                  </button>
+                )}
+                <div className="flex ml-4 items-center md:ml-6">
+                  <LangSelector
+                    navVisible={visible || alwaysDisplayed}
+                    location={location}
+                    extSlug={langSlug}
+                  />
+                </div>
+              </>
+            )}
+            {isMobile && (
               <button
-                className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
-                onClick={openContactForm}
+                onClick={toggleDrawer}
+                className="-mr-2 inline-flex text-gray-800 dark:text-white hover:text-gray-400  items-center justify-center p-2 rounded-md focus:outline-none select-none"
               >
-                {labelContactLink}
+                <FaChevronDown
+                  size={20}
+                  className={
+                    "transition-transform transform duration-300" +
+                    (isNavDrawerOpen && " rotate-180")
+                  }
+                />
               </button>
             )}
-            {blogBtnVisible && (
-              <GatsbyLink
-                className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
-                to="blog"
-              >
-                {labelBlogLink}
-              </GatsbyLink>
-            )}
-            <LangSelector
-              mobile
-              closeNavDrawer={closeNavDrawer}
-              navVisible={visible || alwaysDisplayed}
-              location={location}
-              extSlug={langSlug}
-            />
           </div>
-          <Overlay id="navbarOverlay" onClick={closeNavDrawer} />
-        </>
+          {isMobile && isNavDrawerOpen && (
+            <>
+              <div
+                id="navbarDrawer"
+                className="px-2 pt-2 pb-3 sm:px-3 bg-white dark:bg-gray-800 w-full fixed z-60"
+              >
+                <ul>
+                  {links.map((link, i) => (
+                    <li>
+                      {link.target.includes("/") ? (
+                        <GatsbyLink
+                          className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
+                          activeClassName="link-active"
+                          to={
+                            (location.pathname.match(/(\/(..)\/)/)
+                              ? location.pathname
+                                  .match(/(\/(..)\/)/)[1]
+                                  .slice(0, -1)
+                              : "") + link.target
+                          }
+                          onClick={() => setTimeout(closeNavDrawer)}
+                        >
+                          {link.label}
+                        </GatsbyLink>
+                      ) : (
+                        <Link
+                          key={i}
+                          className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
+                          to={link.target}
+                          activeClass="link-active"
+                          spy
+                          smooth
+                          offset={-70}
+                          duration={800}
+                          onClick={() => setTimeout(closeNavDrawer)}
+                        >
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                {contactBtnVisible && (
+                  <button
+                    className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
+                    onClick={openContactForm}
+                  >
+                    {labelContactLink}
+                  </button>
+                )}
+                {blogBtnVisible && (
+                  <GatsbyLink
+                    className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
+                    to="blog"
+                  >
+                    {labelBlogLink}
+                  </GatsbyLink>
+                )}
+                <LangSelector
+                  mobile
+                  closeNavDrawer={closeNavDrawer}
+                  navVisible={visible || alwaysDisplayed}
+                  location={location}
+                  extSlug={langSlug}
+                />
+              </div>
+              <Overlay id="navbarOverlay" onClick={closeNavDrawer} />
+            </>
+          )}
+        </motion.nav>
       )}
-    </nav>
+    </AnimatePresence>
   )
 }
 

@@ -12,6 +12,7 @@ const Main = styled.main`
   margin-bottom: 0;
   flex-direction: ${({ sidePanelEnabled }) =>
     sidePanelEnabled ? "row" : "column"};
+  min-height: 80vh;
 
   @media (min-width: 768px) {
     width: 95%;
