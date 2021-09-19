@@ -74,7 +74,7 @@ const BlogIndex = ({
         <BlogList>
           {allDatoCmsBlogPost.allPosts.length === 0 && (
             <Empty id="noPosts">
-              <NoPostSvg className="h-48" />
+              <NoPostSvg className="h-48 max-w-full" />
               <p className="mt-2">{indexData.noPostMessage}</p>
             </Empty>
           )}

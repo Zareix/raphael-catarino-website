@@ -13,6 +13,7 @@ import "react-vertical-timeline-component/style.min.css"
 const TimelineSection = styled.section`
   overflow: hidden;
   max-width: 100vw;
+  margin-top: 8rem;
 
   .vertical-timeline.vertical-timeline-custom-line::before {
     background-color: #c5c5c5;
@@ -48,7 +49,7 @@ const Timeline = ({ data, title, subtitle }) => {
   const openInNewTab = (url) => window.open(url, "_blank").focus()
 
   return (
-    <TimelineSection id="timeline" className="">
+    <TimelineSection id="timeline">
       <h1 className="text-3xl font-bold text-center">{title}</h1>
       <h2 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mb-8">
         {subtitle}
