@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 import "../styles/index.css"
 
@@ -9,6 +9,7 @@ import { graphql, navigate } from "gatsby"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import { Helmet } from "react-helmet"
 import AOS from "aos"
+import { AnimatePresence } from "framer-motion"
 
 import "aos/dist/aos.css"
 
@@ -20,6 +21,7 @@ import Projets from "../components/home-page/projets/Projets"
 import BeforeContent from "../components/home-page/BeforeContent"
 import Timeline from "../components/home-page/timeline/Timeline"
 import useScrolled from "../components/hooks/use-scroll"
+import Loading from "../components/loading/Loading"
 
 const Main = styled.main`
   margin-left: auto;
@@ -28,10 +30,15 @@ const Main = styled.main`
 `
 const IndexPage = ({ data, location }) => {
   const { scrolled } = useScrolled()
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     if (location.pathname === "/")
       navigator.language.startsWith("en") && navigate("en/")
+
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
 
     AOS.init({
       duration: 750,
@@ -51,6 +58,9 @@ const IndexPage = ({ data, location }) => {
         favicon={data.datoCmsSite.faviconMetaTags}
         seo={data.datoCmsHomePage.seoMetaTags}
       />
+      <AnimatePresence initial={false}>
+        {isLoading && <Loading />}
+      </AnimatePresence>
       <Layout data={data} location={location}>
         <Main id="main">
           <Presentation data={data.datoCmsHomePage} />
