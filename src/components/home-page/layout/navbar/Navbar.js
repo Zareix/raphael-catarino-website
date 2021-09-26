@@ -106,15 +106,13 @@ const Navigation = ({
     setIsNavDrawerOpen(false)
   }
 
-  const toggleDrawer = () => {
-    setIsNavDrawerOpen(!isNavDrawerOpen)
-  }
+  const toggleDrawer = () => setIsNavDrawerOpen(!isNavDrawerOpen)
 
   const closeNavDrawer = () => setIsNavDrawerOpen(false)
 
   return (
     <AnimatePresence>
-      {visible && (
+      {(visible || alwaysDisplayed) && (
         <motion.nav
           variants={slideIn}
           initial="hidden"
