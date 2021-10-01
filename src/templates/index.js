@@ -22,6 +22,7 @@ import BeforeContent from "../components/home-page/BeforeContent"
 import Timeline from "../components/home-page/timeline/Timeline"
 import useScrolled from "../components/hooks/use-scroll"
 import Loading from "../components/loading/Loading"
+import ReactTooltip from "react-tooltip"
 
 const Main = styled.main`
   margin-left: auto;
@@ -44,6 +45,10 @@ const IndexPage = ({ data, location }) => {
       duration: 750,
       delay: 100,
       anchorPlacement: "bottom-top",
+    })
+
+    document.addEventListener("aos:in", () => {
+      ReactTooltip.rebuild()
     })
   }, [location])
 
