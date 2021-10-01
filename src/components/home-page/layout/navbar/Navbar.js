@@ -129,7 +129,7 @@ const Navigation = ({
               {location.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
               location.pathname.replace(/(\/(..)\/)/, "").trim() === "" ? (
                 <button
-                  className="flex-shrink-0 cursor-pointer outline-none h-14"
+                  className="flex-shrink-0 cursor-pointer outline-none h-10"
                   onClick={() => {
                     closeNavDrawer()
                     animateScroll.scrollToTop()
@@ -139,16 +139,19 @@ const Navigation = ({
                 </button>
               ) : (
                 <GatsbyLink
-                  className="flex-shrink-0 cursor-pointer outline-none h-14"
+                  className="flex-shrink-0 cursor-pointer outline-none h-10"
                   to={iconBtnTarget}
                 >
                   <NavIcon id="navIcon" />
                 </GatsbyLink>
               )}
               {!isMobile && (
-                <ul className="flex ml-10 justify-center items-baseline space-x-4">
+                <ul className="flex ml-10 justify-center items-center space-x-4">
                   {links.map((link, i) => (
-                    <li key={i}>
+                    <li
+                      key={i}
+                      classNames="h-full flex items-center text-center"
+                    >
                       {link.target.includes("/") ? (
                         <GatsbyLink
                           className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -217,8 +220,8 @@ const Navigation = ({
                 <FaChevronDown
                   size={20}
                   className={
-                    "transition-transform transform duration-300" +
-                    (isNavDrawerOpen && " rotate-180")
+                    "transition-transform transform duration-500" +
+                    (isNavDrawerOpen ? " rotate-180" : "")
                   }
                 />
               </button>
@@ -268,7 +271,7 @@ const Navigation = ({
                 </ul>
                 {contactBtnVisible && (
                   <button
-                    className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
+                    className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400  px-3 py-2 rounded-md text-base font-medium"
                     onClick={openContactForm}
                   >
                     {labelContactLink}
