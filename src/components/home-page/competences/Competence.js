@@ -79,9 +79,7 @@ const Container = (props) =>
 
 const Competence = ({ competence, index }) => {
   return (
-    <CompetenceWrapper
-      id={competence.title?.replaceAll(" ", "_").toLowerCase()}
-    >
+    <CompetenceWrapper id={competence.title}>
       <Container index={index}>
         <ImagesContainer>
           {competence.icons.map((img, index) => (
