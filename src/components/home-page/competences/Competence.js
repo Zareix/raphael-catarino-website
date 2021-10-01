@@ -4,6 +4,14 @@ import styled from "styled-components"
 
 import CompetenceImage from "./CompetenceImage"
 
+const CompetenceWrapper = styled.article`
+  display: flex;
+
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+`
+
 const Section = styled.section`
   width: 50%;
   overflow: hidden;
@@ -71,7 +79,7 @@ const Container = (props) =>
 
 const Competence = ({ competence, index }) => {
   return (
-    <article className="flex mb-16" id={competence.title}>
+    <CompetenceWrapper id={competence.title.replaceAll(" ", "_").toLowerCase()}>
       <Container index={index}>
         <ImagesContainer>
           {competence.icons.map((img, index) => (
@@ -85,7 +93,7 @@ const Competence = ({ competence, index }) => {
         </ImagesContainer>
         <TitleCat fromRight={!(index % 2 === 0)}>{competence.title}</TitleCat>
       </Container>
-    </article>
+    </CompetenceWrapper>
   )
 }
 

@@ -13,7 +13,7 @@ import "react-vertical-timeline-component/style.min.css"
 const TimelineSection = styled.section`
   overflow: hidden;
   max-width: 100vw;
-  margin-top: 8rem;
+  margin-top: 5rem;
 
   .vertical-timeline.vertical-timeline-custom-line::before {
     background-color: #c5c5c5;

@@ -13,7 +13,7 @@ const Competences = ({ data, title, subtitle }) => {
   }, [])
 
   return (
-    <section id="competences" className="pt-8 overflow-hidden pb-20 mt-12">
+    <section id="competences" className="overflow-hidden mt-20 pb-20">
       <h2 className="text-3xl font-bold text-center">{title}</h2>
       <h3 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mb-8  mx-auto">
         {subtitle}
