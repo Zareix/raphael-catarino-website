@@ -16,6 +16,10 @@ const MyModal = styled(motion.div)`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
+
+  textarea {
+    max-height: 350px;
+  }
 `
 
 const ErrorMessage = styled.span`
