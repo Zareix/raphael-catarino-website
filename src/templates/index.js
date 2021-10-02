@@ -46,10 +46,6 @@ const IndexPage = ({ data, location }) => {
       delay: 100,
       anchorPlacement: "bottom-top",
     })
-
-    document.addEventListener("aos:in", () => {
-      ReactTooltip.rebuild()
-    })
   }, [location])
 
   return (

@@ -23,8 +23,7 @@ const Competences = ({ data, title, subtitle }) => {
       ))}
       <ReactTooltip
         place="bottom"
-        effect="solid"
-        offset={{ top: 75 }}
+        effect="float"
         backgroundColor="#2563EB"
         textColor="white"
         clickable
