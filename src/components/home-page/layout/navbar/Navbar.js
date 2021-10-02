@@ -150,7 +150,7 @@ const Navigation = ({
                   {links.map((link, i) => (
                     <li
                       key={i}
-                      classNames="h-full flex items-center text-center"
+                      className="h-full flex items-center text-center"
                     >
                       {link.target.includes("/") ? (
                         <GatsbyLink
