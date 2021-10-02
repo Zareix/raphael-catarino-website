@@ -7,22 +7,32 @@ import ContactModal from "./ContactModal"
 const Contact = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const open = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+    window.onscroll = () => window.scrollTo(scrollLeft, scrollTop)
+    setIsOpen(true)
+  }
+
+  const close = () => {
+    window.onscroll = () => {}
+    setIsOpen(false)
+  }
+
   return (
     <>
       <button
         id="openContactBtn"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          isOpen ? close() : open()
+        }}
         className="px-4 py-1 transition ease-in duration-200 rounded-full focus:outline-none border-2 border-gray-200 hover:bg-gray-200 hover:text-gray-800 dark:border-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
         aria-label="Open contact modal"
       >
         {data.contactBtnText}
       </button>
 
-      <ContactModal
-        visible={isOpen}
-        close={() => setIsOpen(false)}
-        data={data}
-      />
+      <ContactModal visible={isOpen} close={close} data={data} />
 
       {/* Hidden forms that match the real one for netlify to detect --> due to how react-modal renders dynamically */}
       <form
