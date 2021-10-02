@@ -18,7 +18,7 @@ const MyModal = styled(motion.div)`
   backdrop-filter: blur(3px);
 
   textarea {
-    max-height: 350px;
+    max-height: 40vh;
   }
 `
 
