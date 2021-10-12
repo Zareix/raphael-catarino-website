@@ -296,7 +296,7 @@ const Navigation = ({
                     {contactBtnVisible && (
                       <button
                         className={
-                          "cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400  p-2 rounded-md text-base font-medium" +
+                          "cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400  p-2 text-base font-medium" +
                           (blogBtnVisible ? " w-1/2 text-right" : " mx-auto")
                         }
                         onClick={openContactForm}
@@ -307,7 +307,7 @@ const Navigation = ({
                     {blogBtnVisible && (
                       <GatsbyLink
                         className={
-                          "cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block p-2 rounded-md text-base font-medium" +
+                          "cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block p-2 text-base font-medium" +
                           (contactBtnVisible ? " w-1/2 text-left" : " mx-auto")
                         }
                         to="blog"
