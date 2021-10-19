@@ -5,3 +5,35 @@
 body {
   font-family: "Open Sans";
 }
+
+::-webkit-scrollbar {
+  height: 1rem;
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600;
+  @apply border-gray-50;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-700;
+}
+
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300;
+    @apply border-gray-900;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-100;
+  }
+}
