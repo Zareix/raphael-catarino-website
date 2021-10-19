@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 
 import ReactCountryFlag from "react-country-flag"
 import { navigate } from "gatsby-link"
+import styled from "styled-components"
 
 const lang = [
   {
@@ -17,6 +18,16 @@ const lang = [
     locale: "en",
   },
 ]
+
+const LangSelectorDrawer = styled.div`
+  position: absolute;
+  right: 0px;
+  width: 14rem;
+  margin-top: 0.5rem;
+  transform-origin: top right;
+  box-shadow: 0px 2px 12px 2px hsl(0deg 0% 0% / 5%);
+  border-radius: 0.375rem;
+`
 
 const LangSelector = ({
   mobile,
@@ -93,9 +104,9 @@ const LangSelector = ({
         <ReactCountryFlag countryCode={selectedLang} svg className="text-lg" />
       </button>
       {isOpen && navVisible && (
-        <div
+        <LangSelectorDrawer
           id="langSelectorDrawer"
-          className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-700"
+          className="bg-white dark:bg-gray-700"
         >
           <div className="py-1">
             {lang.map((l, i) => (
@@ -119,7 +130,7 @@ const LangSelector = ({
               </button>
             ))}
           </div>
-        </div>
+        </LangSelectorDrawer>
       )}
     </div>
   )
