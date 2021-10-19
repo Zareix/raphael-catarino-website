@@ -1,21 +1,11 @@
-import React, { useEffect } from "react"
+import React from "react"
 
 import { graphql } from "gatsby"
-import tippy, { followCursor } from "tippy.js"
 
 import Competence from "./Competence"
 
 const Competences = ({ data, title, subtitle }) => {
   const categories = data.edges
-
-  useEffect(() => {
-    tippy("[data-tip-content]", {
-      arrow: true,
-      interactive: true,
-      followCursor: "horizontal",
-      plugins: [followCursor],
-    })
-  }, [])
 
   return (
     <section id="competences" className="overflow-hidden mt-20 pb-20">
