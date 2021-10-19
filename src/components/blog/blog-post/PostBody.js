@@ -3,9 +3,10 @@ import React, { useState } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { StructuredText } from "react-datocms"
 import styled, { keyframes } from "styled-components"
-import { HiClipboardList } from "@react-icons/all-files/hi/HiClipboardList"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { atomOneDark as codeBlockTheme } from "react-syntax-highlighter/dist/esm/styles/hljs"
+
+import CopyIcon from "../../../images/svg/icons/copy.svg"
 
 const ContentWrapper = styled.article`
   padding: 1.75rem 2.25rem;
@@ -153,7 +154,7 @@ const PostBody = ({ content, copiedMessage }) => {
                     className="text-gray-100 hover:text-white"
                     aria-label="Copy to clipboard"
                   >
-                    <HiClipboardList size={25} />
+                    <CopyIcon className="h-5 w-5" />
                   </CopyButton>
                   <SyntaxHighlighter
                     language={record.language}

@@ -1,14 +1,15 @@
 import React from "react"
 
-import { IoMdPerson } from "@react-icons/all-files/io/IoMdPerson"
-import { BsFillPeopleFill } from "@react-icons/all-files/bs/BsFillPeopleFill"
 import { GatsbyImage } from "gatsby-plugin-image"
+
+import AuthorIcon from "../../../images/svg/icons/author.svg"
+import AuthorsIcon from "../../../images/svg/icons/authors.svg"
 
 const PostAuthorsList = ({ authors }) => {
   return (
     <div className="flex items-center">
       {authors.length > 1 ? (
-        <BsFillPeopleFill size={32} className="border rounded-full p-1" />
+        <AuthorsIcon className="border rounded-full p-1 h-7 w-7" />
       ) : authors[0].profilPicture ? (
         <GatsbyImage
           image={authors[0].profilPicture.gatsbyImageData}
@@ -18,7 +19,7 @@ const PostAuthorsList = ({ authors }) => {
           title={authors[0].profilPicture.title}
         />
       ) : (
-        <IoMdPerson size={32} className="border rounded-full p-1" />
+        <AuthorIcon className="border rounded-full p-1 h-7 w-7" />
       )}
       <span className="ml-1 italic">
         {authors.map((author, index) => (

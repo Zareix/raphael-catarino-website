@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react"
 
 import { Link, animateScroll } from "react-scroll"
-import { FaChevronDown } from "@react-icons/all-files/fa/FaChevronDown"
 import styled from "styled-components"
 import { Link as GatsbyLink } from "gatsby"
 
 import LangSelector from "./LangSelector"
 
+import ArrowDownIcon from "../../../../images/svg/icons/arrowDown.svg"
 import NavIcon from "../../../../images/svg/favicon.svg"
 import { graphql } from "gatsby"
 import useScroll from "../../../hooks/use-scroll"
@@ -235,10 +235,9 @@ const Navigation = ({
                 onClick={toggleDrawer}
                 className="-mr-2 inline-flex text-gray-800 dark:text-white hover:text-gray-400  items-center justify-center p-2 rounded-md focus:outline-none select-none"
               >
-                <FaChevronDown
-                  size={20}
+                <ArrowDownIcon
                   className={
-                    "transition-transform transform duration-500" +
+                    "h-6 w-6 transition-transform transform duration-500" +
                     (isNavDrawerOpen ? " rotate-180" : "")
                   }
                 />

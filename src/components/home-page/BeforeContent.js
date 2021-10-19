@@ -1,8 +1,9 @@
 import React from "react"
 
 import styled from "styled-components"
-import { BsArrowDown } from "@react-icons/all-files/bs/BsArrowDown"
 import { animateScroll as scroll } from "react-scroll"
+
+import ScrollDownArrowIcon from "../../images/svg/icons/scrollDownArrow.svg"
 
 const Wrapper = styled.div`
   position: relative;
@@ -27,7 +28,7 @@ const BeforeContent = () => {
   return (
     <Wrapper id="bio" className="animate-bounce">
       <button className="cursor-pointer" onClick={doScroll}>
-        <BsArrowDown className="text-white" size={45} />
+        <ScrollDownArrowIcon className="text-white h-8 w-8" />
       </button>
     </Wrapper>
   )

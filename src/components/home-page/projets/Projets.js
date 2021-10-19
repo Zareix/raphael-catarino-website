@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 
 import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub"
-import { HiOutlineLink } from "@react-icons/all-files/hi/HiOutlineLink"
 import styled from "styled-components"
+import { GatsbyImage } from "gatsby-plugin-image"
+
+import GithubIcon from "../../../images/svg/icons/github.svg"
+import ExternalLinkIcon from "../../../images/svg/icons/externalLink.svg"
 
 const Content = styled.div`
   display: flex;
@@ -64,17 +65,14 @@ const Projets = ({
                 <p className="text-justify flex-grow mt-3">{projet.desc}</p>
                 <div className="flex items-end mt-3 text-sm">
                   <div className="flex-grow font-medium">{projet.date}</div>
-                  <div className="flex justify-end items-center gap-4 font-medium text-white text-center">
+                  <div className="flex justify-end items-center gap-2 font-medium text-white text-center">
                     {projet.isOnGithub && (
                       <a
                         href={projet.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <AiFillGithub
-                          className="transition-color ease-in duration-200 text-gray-900 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-50"
-                          size={35}
-                        />
+                        <GithubIcon className="h-7 w-7 transition-color ease-in duration-200 text-gray-900 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-50" />
                       </a>
                     )}
                     {projet.isProjectLink && (
@@ -83,8 +81,8 @@ const Projets = ({
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <HiOutlineLink
-                          className="transition-color ease-in duration-200 text-gray-900 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-50"
+                        <ExternalLinkIcon
+                          className="h-7 w-7 transition-color ease-in duration-200 text-gray-900 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-50"
                           size={30}
                         />
                       </a>

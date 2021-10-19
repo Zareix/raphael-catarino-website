@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 
-import { CgClose } from "@react-icons/all-files/cg/CgClose"
 import { useForm } from "react-hook-form"
 import styled from "styled-components"
 import { AnimatePresence, motion } from "framer-motion"
+
+import CloseIcon from "../../../images/svg/icons/close.svg"
 
 const MyModal = styled(motion.div)`
   position: fixed;
@@ -122,9 +123,8 @@ const ContactModal = ({ data, visible, close }) => {
           {sent ? (
             <div className="w-full max-w-2xl px-2 md:px-5 py-10 mx-3 md:m-auto bg-white rounded-lg shadow dark:bg-gray-800">
               <div className="mb-6 text-2xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">
-                <CgClose
-                  size={30}
-                  className="cursor-pointer col-start-5"
+                <CloseIcon
+                  className="cursor-pointer col-start-5 h-7 w-7"
                   onClick={closeModal}
                 />
                 <p className="col-start-2 col-span-3 border-b border-gray-400 pb-2">
@@ -153,9 +153,8 @@ const ContactModal = ({ data, visible, close }) => {
               <div className="w-full max-w-2xl px-5 py-10 mx-3 md:m-auto bg-white rounded-lg shadow dark:bg-gray-800">
                 <div className="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">
                   <p className="col-start-2 col-span-3">{data.contactTitle}</p>
-                  <CgClose
-                    size={30}
-                    className="cursor-pointer"
+                  <CloseIcon
+                    className="cursor-pointer h-7 w-7"
                     onClick={closeModal}
                   />
                 </div>
