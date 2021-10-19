@@ -9,7 +9,7 @@ const Competence = (props) => {
     <GatsbyImage
       image={gatsbyImageData}
       alt={category + " " + imgTitle}
-      data-tip={imgTitle}
+      data-tip-content={imgTitle}
       className="w-1/3 md:w-1/5"
       objectFit="contain"
       imgClassName="p-1 md:p-3"

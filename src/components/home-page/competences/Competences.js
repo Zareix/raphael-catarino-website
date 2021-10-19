@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 
 import { graphql } from "gatsby"
-import ReactTooltip from "react-tooltip"
+import tippy, { followCursor } from "tippy.js"
 
 import Competence from "./Competence"
 
@@ -9,7 +9,12 @@ const Competences = ({ data, title, subtitle }) => {
   const categories = data.edges
 
   useEffect(() => {
-    setTimeout(() => ReactTooltip.rebuild(), 3000)
+    tippy("[data-tip-content]", {
+      arrow: true,
+      interactive: true,
+      followCursor: "horizontal",
+      plugins: [followCursor],
+    })
   }, [])
 
   return (
@@ -21,13 +26,6 @@ const Competences = ({ data, title, subtitle }) => {
       {categories.map(({ node: cat }, index) => (
         <Competence competence={cat} key={cat.id} index={index} />
       ))}
-      <ReactTooltip
-        place="bottom"
-        effect="float"
-        backgroundColor="#2563EB"
-        textColor="white"
-        clickable
-      />
     </section>
   )
 }
