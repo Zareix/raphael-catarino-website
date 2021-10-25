@@ -112,7 +112,7 @@ export const fragmentProjects = graphql`
   fragment Project on DatoCmsProject {
     id
     featuredImage {
-      gatsbyImageData(placeholder: DOMINANT_COLOR)
+      gatsbyImageData(placeholder: DOMINANT_COLOR, width: 500)
     }
     title
     desc

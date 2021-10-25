@@ -28,7 +28,7 @@ export const fragmentComp = graphql`
     title
     icons {
       title
-      gatsbyImageData(placeholder: TRACED_SVG)
+      gatsbyImageData(placeholder: TRACED_SVG, width: 200)
     }
   }
 `
