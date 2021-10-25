@@ -39,7 +39,7 @@ const Projets = ({
       <h2 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mx-auto">
         {subtitle}
       </h2>
-      <div className="flex flex-wrap justify-center md:px-6 md:mt-6 xl:w-10/12 mx-auto">
+      <div className="flex flex-wrap justify-center w-full 2xl:w-9/12 mx-auto">
         {projets.slice(0, shownItems).map(({ node: projet }) => (
           <article
             key={projet.id}

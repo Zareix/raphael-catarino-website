@@ -13,7 +13,7 @@ const CompetenceWrapper = styled.article`
 `
 
 const Section = styled.section`
-  width: 50%;
+  width: clamp(600px, 50%, 950px);
   overflow: hidden;
   box-shadow: 0 16px 20px 8px rgba(0, 0, 0, 0.1);
   background-color: white;
