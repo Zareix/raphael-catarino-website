@@ -8,7 +8,6 @@ import { CSSTransition, SwitchTransition } from "react-transition-group"
 import { graphql, navigate } from "gatsby"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import { Helmet } from "react-helmet"
-import AOS from "aos"
 import { AnimatePresence } from "framer-motion"
 
 import "aos/dist/aos.css"
@@ -38,13 +37,7 @@ const IndexPage = ({ data, location }) => {
 
     setTimeout(() => {
       setIsLoading(false)
-    }, 1500)
-
-    AOS.init({
-      duration: 750,
-      delay: 100,
-      anchorPlacement: "bottom-top",
-    })
+    }, 2000)
   }, [location])
 
   return (

@@ -21,7 +21,6 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@tippyjs/react": "^4.2.5",
-    "aos": "^2.3.4",
     "autoprefixer": "^10.3.7",
     "babel-plugin-styled-components": "^1.13.3",
     "framer-motion": "^4.1.17",
@@ -51,6 +50,7 @@
     "react-svg": "^14.0.17",
     "react-syntax-highlighter": "^15.4.4",
     "react-transition-group": "^4.4.2",
+    "react-tsparticles": "^1.36.0",
     "react-vertical-timeline-component": "^3.5.2",
     "styled-components": "^5.3.3",
     "tailwindcss": "^2.2.17"

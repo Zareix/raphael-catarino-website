@@ -16,6 +16,7 @@ module.exports = {
     FAST_DEV: true,
     DEV_WEBPACK_CACHE: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true,
   },
   plugins: [
     `gatsby-plugin-image`,
