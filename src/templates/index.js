@@ -10,8 +10,6 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 import { Helmet } from "react-helmet"
 import { AnimatePresence } from "framer-motion"
 
-import "aos/dist/aos.css"
-
 import Presentation from "../components/home-page/landing-section/Presentation"
 import Layout from "../components/home-page/layout/Layout"
 import Biographie from "../components/home-page/biographie/Biographie"
