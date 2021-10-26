@@ -59,7 +59,7 @@ const IndexPage = ({ data, location }) => {
         seo={data.datoCmsHomePage.seoMetaTags}
       />
       <AnimatePresence initial={false}>
-        {isLoading && <Loading />}
+        {isLoading && <Loading text={data.datoCmsHomePage.loadingText} />}
       </AnimatePresence>
       <Layout data={data} location={location}>
         <Main id="main">
@@ -111,6 +111,7 @@ export default IndexPage
 export const queryIndex = graphql`
   query Index($locale: String!) {
     datoCmsHomePage(locale: { eq: $locale }) {
+      loadingText
       presTitle
       presSubtitle
       timelineTitle
