@@ -68,13 +68,9 @@ const TitleCat = ({ fromRight, children }) => {
 
 const Container = (props) =>
   props.index % 2 === 0 ? (
-    <SectionFromLeft data-aos="fade-right" {...props}>
-      {props.children}
-    </SectionFromLeft>
+    <SectionFromLeft {...props}>{props.children}</SectionFromLeft>
   ) : (
-    <SectionFromRight data-aos="fade-left" {...props}>
-      {props.children}
-    </SectionFromRight>
+    <SectionFromRight {...props}>{props.children}</SectionFromRight>
   )
 
 const Competence = ({ competence, index }) => {
