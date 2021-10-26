@@ -62,8 +62,12 @@ const LoadingAnimation = styled.div`
     position: absolute;
     z-index: 10130;
     inset: 5px;
-    background-color: rgba(17, 24, 39);
+    background-color: rgba(249, 250, 251);
     border-radius: 14px;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba(17, 24, 39);
+    }
   }
 
   &::before {
@@ -73,8 +77,12 @@ const LoadingAnimation = styled.div`
     z-index: 10100;
     height: 500%;
     width: 50px;
-    background-color: white;
+    background-color: rgba(17, 24, 39);
     animation: ${loading} infinite 2.5s;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba(249, 250, 251);
+    }
   }
 `
 
