@@ -3,6 +3,7 @@ import React from "react"
 import styled from "styled-components"
 
 import Illustration from "../../../images/svg/presentation_illustration.svg"
+import ParticlesSection from "./ParticlesSection"
 
 const PresentationSection = styled.section`
   margin: 0;
@@ -13,6 +14,7 @@ const PresentationSection = styled.section`
   background-size: cover;
   font-size: 1.875rem;
   line-height: 2.25rem;
+  display: grid;
 
   .text-section::after {
     content: "";
@@ -50,11 +52,15 @@ const PresentationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
+  grid-area: 1/1;
 `
 
 const Presentation = ({ data }) => {
   return (
-    <PresentationSection className="bg-gradient-to-br from-red-800 to-purple-800 dark:from-red-900 dark:to-purple-900">
+    <PresentationSection>
+      <div style={{ gridArea: "1/1" }}>
+        <ParticlesSection />
+      </div>
       <PresentationWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
           <div className="mx-auto w-fit text-section">
