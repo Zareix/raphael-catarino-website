@@ -20,7 +20,6 @@ const slideIn = {
   visible: {
     y: "-2.5rem",
     transition: {
-      duration: 1,
       type: "spring",
       stiffness: 120,
       damping: 15,
@@ -29,7 +28,6 @@ const slideIn = {
   exit: {
     y: "-110%",
     transition: {
-      duration: 1,
       type: "spring",
       stiffness: 100,
       damping: 20,

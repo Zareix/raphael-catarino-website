@@ -1,5 +1,7 @@
 import React from "react"
 
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import styled from "styled-components"
 
 import CompetenceImage from "./CompetenceImage"
@@ -12,7 +14,8 @@ const CompetenceWrapper = styled.article`
   }
 `
 
-const Section = styled.section`
+const Section = styled(motion.section)`
+  position: relative;
   width: clamp(600px, 50%, 950px);
   overflow: hidden;
   box-shadow: 0 16px 20px 8px rgba(0, 0, 0, 0.1);
@@ -66,12 +69,67 @@ const TitleCat = ({ fromRight, children }) => {
   )
 }
 
-const Container = (props) =>
-  props.index % 2 === 0 ? (
-    <SectionFromLeft {...props}>{props.children}</SectionFromLeft>
+const variantsFromLeft = {
+  notInView: {
+    opacity: 0,
+    x: "-50%",
+  },
+  inView: {
+    opacity: 1,
+    x: "0",
+  },
+}
+
+const variantsFromRight = {
+  notInView: {
+    opacity: 0,
+    x: "50%",
+  },
+  inView: {
+    opacity: 1,
+    x: "0",
+  },
+}
+
+const transitionProperty = {
+  x: {
+    type: "spring",
+    stiffness: 60,
+    damping: 12,
+  },
+  opacity: {
+    duration: 0.75,
+  },
+}
+
+const Container = (props) => {
+  const [sectionRef, sectionInView] = useInView({
+    rootMargin: "-200px 0px",
+    triggerOnce: true,
+  })
+
+  return props.index % 2 === 0 ? (
+    <SectionFromLeft
+      ref={sectionRef}
+      {...props}
+      animate={sectionInView ? "inView" : "notInView"}
+      variants={variantsFromLeft}
+      transition={transitionProperty}
+    >
+      {props.children}
+    </SectionFromLeft>
   ) : (
-    <SectionFromRight {...props}>{props.children}</SectionFromRight>
+    <SectionFromRight
+      ref={sectionRef}
+      {...props}
+      animate={sectionInView ? "inView" : "notInView"}
+      variants={variantsFromRight}
+      transition={transitionProperty}
+    >
+      {props.children}
+    </SectionFromRight>
   )
+}
 
 const Competence = ({ competence, index }) => {
   return (
