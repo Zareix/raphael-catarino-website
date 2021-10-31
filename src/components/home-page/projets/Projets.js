@@ -6,6 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 import GithubIcon from "../../../images/svg/icons/github.svg"
 import ExternalLinkIcon from "../../../images/svg/icons/externalLink.svg"
+import Tippy from "@tippyjs/react"
 
 const Content = styled.div`
   display: flex;
@@ -67,25 +68,39 @@ const Projets = ({
                   <div className="flex-grow font-medium">{projet.date}</div>
                   <div className="flex justify-end items-center gap-2 font-medium text-white text-center">
                     {projet.isOnGithub && (
-                      <a
-                        href={projet.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Tippy
+                        content="Github"
+                        arrow
+                        animation="shift-away"
+                        placement="top"
                       >
-                        <GithubIcon className="h-7 w-7 transition-color ease-in duration-200 text-gray-900 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-50" />
-                      </a>
+                        <a
+                          href={projet.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <GithubIcon className="h-7 w-7 transition-color ease-in duration-200 text-gray-900 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-50" />
+                        </a>
+                      </Tippy>
                     )}
                     {projet.isProjectLink && (
-                      <a
-                        href={projet.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Tippy
+                        content="Link"
+                        arrow
+                        animation="shift-away"
+                        placement="top"
                       >
-                        <ExternalLinkIcon
-                          className="h-7 w-7 transition-color ease-in duration-200 text-gray-900 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-50"
-                          size={30}
-                        />
-                      </a>
+                        <a
+                          href={projet.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLinkIcon
+                            className="h-7 w-7 transition-color ease-in duration-200 text-gray-900 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-50"
+                            size={30}
+                          />
+                        </a>
+                      </Tippy>
                     )}
                   </div>
                 </div>
