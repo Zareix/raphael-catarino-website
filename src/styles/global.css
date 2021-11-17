@@ -37,3 +37,9 @@ body {
     @apply bg-gray-100;
   }
 }
+
+@layer utilities {
+  .w-fit {
+    width: fit-content;
+  }
+}

@@ -6,10 +6,6 @@ body {
   @apply dark:bg-gray-900;
 }
 
-main {
-  margin-bottom: 5rem;
-}
-
 .fade-enter {
   opacity: 0;
 }
@@ -29,36 +25,12 @@ main {
   transition: opacity 200ms;
 }
 
-.contTitle {
-  font-size: 1.75rem;
-  font-weight: 600;
-}
-
-.contText {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #505050;
-}
-
 .empty-content {
   height: 400px;
 }
 
-.w-fit {
-  width: fit-content;
-}
-
-.h-fit {
-  height: fit-content;
-}
-
-.h-10vh {
-  height: 10vh;
-}
-
 .link-active {
-  --tw-text-opacity: 1;
-  color: rgba(31, 41, 55, var(--tw-text-opacity)) !important;
+  @apply text-gray-800;
 }
 
 nav > * #navIcon {
@@ -72,7 +44,7 @@ nav > * #navIcon > * path {
 
 @media (prefers-color-scheme: dark) {
   .link-active {
-    color: rgba(255, 255, 255, var(--tw-text-opacity)) !important;
+    @apply text-white;
   }
 
   nav > * #navIcon > * path {

@@ -23,6 +23,7 @@ import Loading from "../components/loading/Loading"
 const Main = styled.main`
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 5rem;
   z-index: 1;
 `
 const IndexPage = ({ data, location }) => {
