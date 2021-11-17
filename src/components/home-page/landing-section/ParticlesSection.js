@@ -8,6 +8,7 @@ const ParticlesSection = () => {
       className="bg-blue-900 h-full"
       id="tsparticles"
       options={{
+        fullScreen: false,
         pauseOnOutsideViewport: true,
         background: {
           color: {
