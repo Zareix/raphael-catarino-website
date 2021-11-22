@@ -30,7 +30,7 @@ const Biographie = ({ data }) => {
   return (
     <BioStyled
       id="bio"
-      className="bg-white shadow-md hover:shadow-xl rounded-3xl transition-all duration-500 ease-in-out"
+      className="bg-white dark:bg-gray-800 shadow-md hover:shadow-xl rounded-3xl transition-all duration-500 ease-in-out"
     >
       <h1 className="text-center text-2xl font-bold mb-4">{data.title}</h1>
       <div
