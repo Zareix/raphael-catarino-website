@@ -113,7 +113,6 @@ const ContactModal = ({ data, visible, close }) => {
     <AnimatePresence>
       {visible && (
         <MyModal
-          contentLabel="Formulaire de contact"
           id="formModalContact"
           variants={fadeIn}
           initial="hidden"
@@ -149,6 +148,11 @@ const ContactModal = ({ data, visible, close }) => {
               data-netlify-honeypot="bot-field"
               id="formContact"
               onSubmit={handleSubmit(onSubmit)}
+              drag="y"
+              onDragEnd={(_event, info) => {
+                if (info.offset.y > window.innerHeight / 4) closeModal()
+              }}
+              dragSnapToOrigin
             >
               <div className="w-full max-w-2xl px-5 py-10 mx-3 md:m-auto bg-white rounded-lg shadow dark:bg-gray-800">
                 <div className="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">

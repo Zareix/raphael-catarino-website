@@ -34,7 +34,7 @@ const Contact = ({ data }) => {
 
       <ContactModal visible={isOpen} close={close} data={data} />
 
-      {/* Hidden forms that match the real one for netlify to detect --> due to how react-modal renders dynamically */}
+      {/* Hidden forms that match the real one for netlify to detect */}
       <form
         hidden
         name="contact"
