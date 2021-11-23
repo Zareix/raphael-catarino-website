@@ -18,7 +18,6 @@ const Section = styled(motion.section)`
   position: relative;
   width: clamp(600px, 50%, 950px);
   overflow: hidden;
-  box-shadow: 0 16px 20px 8px rgba(0, 0, 0, 0.1);
   background-color: white;
   border-radius: 16px;
   margin: auto;
@@ -102,7 +101,7 @@ const transitionProperty = {
   },
 }
 
-const Container = (props) => {
+const AnimatedContainer = (props) => {
   const [sectionRef, sectionInView] = useInView({
     rootMargin: "-200px 0px",
     triggerOnce: true,
@@ -134,7 +133,7 @@ const Container = (props) => {
 const Competence = ({ competence, index }) => {
   return (
     <CompetenceWrapper id={competence.title}>
-      <Container index={index}>
+      <AnimatedContainer index={index} className="shadow-hover">
         <ImagesContainer>
           {competence.icons.map((img, index) => (
             <CompetenceImage
@@ -146,7 +145,7 @@ const Competence = ({ competence, index }) => {
           ))}
         </ImagesContainer>
         <TitleCat fromRight={!(index % 2 === 0)}>{competence.title}</TitleCat>
-      </Container>
+      </AnimatedContainer>
     </CompetenceWrapper>
   )
 }

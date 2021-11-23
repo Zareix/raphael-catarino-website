@@ -1,5 +1,4 @@
 module.exports = {
-  important: true,
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "media",
   theme: {

@@ -42,6 +42,10 @@ nav > * #navIcon > * path {
   fill: #1f2937;
 }
 
+.shadow-hover {
+  @apply shadow-md hover:shadow-xl transition-shadow duration-500 ease-in-out;
+}
+
 @media (prefers-color-scheme: dark) {
   .link-active {
     @apply text-white;
