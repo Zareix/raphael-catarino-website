@@ -64,14 +64,16 @@ const IndexPage = ({ data, location }) => {
               }
               classNames="fade"
             >
-              {scrolled ? (
-                <Biographie data={data.datoCmsBiography} />
-              ) : (
-                <>
-                  <BeforeContent />
-                  <div className="empty-content" />
-                </>
-              )}
+              <section id="bio">
+                {scrolled ? (
+                  <Biographie data={data.datoCmsBiography} />
+                ) : (
+                  <>
+                    <BeforeContent />
+                    <div className="empty-content" />
+                  </>
+                )}
+              </section>
             </CSSTransition>
           </SwitchTransition>
           <Timeline

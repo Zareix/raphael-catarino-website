@@ -3,7 +3,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
-const BioStyled = styled.section`
+const BioStyled = styled.div`
   width: 40%;
   margin: auto;
   margin-bottom: calc(-15vh + 3rem);
@@ -28,10 +28,7 @@ const BioStyled = styled.section`
 
 const Biographie = ({ data }) => {
   return (
-    <BioStyled
-      id="bio"
-      className="bg-white dark:bg-gray-800 shadow-hover rounded-3xl"
-    >
+    <BioStyled className="bg-white dark:bg-gray-800 shadow-hover rounded-3xl">
       <h1 className="text-center text-2xl font-bold mb-4">{data.title}</h1>
       <div
         className="font-medium text-base text-justify"
