@@ -26,7 +26,7 @@ const BeforeContent = () => {
     })
 
   return (
-    <Wrapper className="animate-bounce">
+    <Wrapper id="bio" className="animate-bounce">
       <button className="cursor-pointer" onClick={doScroll}>
         <ScrollDownArrowIcon className="text-white h-8 w-8" />
       </button>

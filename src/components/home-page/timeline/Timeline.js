@@ -65,6 +65,7 @@ const Timeline = ({ data, title, subtitle }) => {
             contentStyle={{
               borderTop: "4px solid " + item.color.rgb,
             }}
+            textClassName="dark:bg-gray-800 shadow-hover rounded-xl"
             contentArrowStyle={{ borderRight: "7px solid " + item.color.rgb }}
             date={item.date}
             iconStyle={{ background: item.color.rgb, color: "#fff" }}

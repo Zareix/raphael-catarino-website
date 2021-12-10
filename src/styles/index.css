@@ -9,18 +9,19 @@ body {
 .fade-enter {
   opacity: 0;
 }
-
 .fade-exit {
   opacity: 1;
 }
-
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 1s;
 }
-
 .fade-exit-active {
   opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 1s;
+}
+.fade-exit-active {
   transition: opacity 200ms;
 }
 
@@ -43,10 +44,6 @@ nav > * #navIcon > * path {
 
 .shadow-hover {
   @apply shadow-md hover:shadow-xl transition-shadow duration-500 ease-in-out;
-}
-
-.vertical-timeline-element-content {
-  @apply dark:bg-gray-800 shadow-hover rounded-xl !important;
 }
 
 @media (prefers-color-scheme: dark) {
