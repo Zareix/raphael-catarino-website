@@ -150,7 +150,7 @@ const ContactModal = ({ data, visible, close }) => {
               onSubmit={handleSubmit(onSubmit)}
               drag="y"
               onDragEnd={(_event, info) => {
-                if (info.offset.y > window.innerHeight / 4) closeModal()
+                if (Math.abs(info.offset.y) > 100) closeModal()
               }}
               dragSnapToOrigin
             >
