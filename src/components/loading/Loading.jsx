@@ -53,14 +53,14 @@ const LoadingAnimation = styled.div`
   border-radius: 14px;
 
   span {
-    z-index: 10150;
+    z-index: 10200;
   }
 
   &::after {
     content: "";
     display: block;
     position: absolute;
-    z-index: 10130;
+    z-index: 10150;
     inset: 5px;
     background-color: rgba(249, 250, 251);
     border-radius: 14px;

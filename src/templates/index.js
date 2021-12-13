@@ -10,7 +10,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 import { Helmet } from "react-helmet"
 import { AnimatePresence } from "framer-motion"
 
-import Presentation from "../components/home-page/landing-section/Presentation"
+import Hero from "../components/home-page/hero/Hero"
 import Layout from "../components/home-page/layout/Layout"
 import Biographie from "../components/home-page/biographie/Biographie"
 import Competences from "../components/home-page/competences/Competences"
@@ -55,7 +55,7 @@ const IndexPage = ({ data, location }) => {
       </AnimatePresence>
       <Layout data={data} location={location}>
         <Main id="main">
-          <Presentation data={data.datoCmsHomePage} />
+          <Hero data={data.datoCmsHomePage} />
           <SwitchTransition>
             <CSSTransition
               key={scrolled ? "Before content" : "Biographie"}

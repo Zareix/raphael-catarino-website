@@ -46,7 +46,7 @@ const Projets = ({
             key={projet.id}
             className="w-full sm:w-1/2 lg:w-1/3 py-5 px-6"
           >
-            <div className="h-full shadow-lg rounded overflow-hidden flex flex-col bg-white dark:bg-gray-800 transform ease-out duration-500 hover:scale-105">
+            <div className="h-full shadow-lg rounded overflow-hidden flex flex-col bg-white dark:bg-gray-800 ease-out duration-500 hover:scale-105">
               <GatsbyImage
                 image={projet.featuredImage.gatsbyImageData}
                 alt={projet.title}
@@ -63,9 +63,9 @@ const Projets = ({
                     </span>
                   ))}
                 </aside>
-                <p className="text-justify flex-grow mt-3">{projet.desc}</p>
+                <p className="text-justify grow mt-3">{projet.desc}</p>
                 <div className="flex items-end mt-3 text-sm">
-                  <div className="flex-grow font-medium">{projet.date}</div>
+                  <div className="grow font-medium">{projet.date}</div>
                   <div className="flex justify-end items-center gap-2 font-medium text-white text-center">
                     {projet.isOnGithub && (
                       <Tippy

@@ -1,6 +1,5 @@
 module.exports = {
-  purge: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: "media",
+  content: ["./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       zIndex: {
@@ -10,15 +9,6 @@ module.exports = {
         90: "90",
         100: "100",
       },
-    },
-  },
-  variants: {
-    extend: {
-      backgroundColor: ["checked"],
-      borderColor: ["checked"],
-      inset: ["checked"],
-      zIndex: ["hover", "active"],
-      display: ["dark"],
     },
   },
   plugins: [],

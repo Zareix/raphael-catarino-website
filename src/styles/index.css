@@ -1,10 +1,4 @@
-html,
-body {
-  @apply text-gray-800;
-  @apply bg-gray-50;
-  @apply dark:text-gray-50;
-  @apply dark:bg-gray-900;
-}
+@tailwind utilities;
 
 .fade-enter {
   opacity: 0;
@@ -41,12 +35,14 @@ nav > * #navIcon > * path {
   fill: #1f2937;
 }
 
-.shadow-hover {
-  @apply shadow-md hover:shadow-xl transition-shadow duration-500 ease-in-out;
+@layer utilities {
+  .shadow-hover {
+    @apply shadow-md hover:shadow-xl transition-shadow duration-500 ease-in-out !important;
+  }
 }
 
 .vertical-timeline-element-content {
-  @apply dark:bg-gray-800 shadow-hover rounded-xl !important;
+  @apply dark:bg-gray-800 rounded-xl shadow-hover !important;
 }
 
 @media (prefers-color-scheme: dark) {

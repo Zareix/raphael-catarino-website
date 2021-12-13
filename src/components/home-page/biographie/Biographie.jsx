@@ -31,7 +31,7 @@ const Biographie = ({ data }) => {
     <BioStyled className="bg-white dark:bg-gray-800 shadow-hover rounded-3xl">
       <h1 className="text-center text-2xl font-bold mb-4">{data.title}</h1>
       <div
-        className="font-medium text-base text-justify"
+        className="font-medium text-base text-justify first-letter:font-bold first-letter:text-6xl first-letter:float-left first-letter:mr-1 first-letter:font-serif"
         dangerouslySetInnerHTML={{
           __html: data.contentNode.childMarkdownRemark.html,
         }}

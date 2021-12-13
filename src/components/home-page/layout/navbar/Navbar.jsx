@@ -141,11 +141,11 @@ const Navigation = ({
           }
         >
           <div className="px-5 md:px-12 pt-10 bg-white dark:bg-gray-800 flex items-center relative z-70">
-            <div className="flex-grow flex items-center h-full py-3">
+            <div className="grow flex items-center h-full py-3">
               {location.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
               location.pathname.replace(/(\/(..)\/)/, "").trim() === "" ? (
                 <button
-                  className="flex-shrink-0 cursor-pointer outline-none h-10"
+                  className="shrink-0 cursor-pointer outline-none h-10"
                   onClick={() => {
                     closeNavDrawer()
                     animateScroll.scrollToTop()
@@ -155,7 +155,7 @@ const Navigation = ({
                 </button>
               ) : (
                 <GatsbyLink
-                  className="flex-shrink-0 cursor-pointer outline-none h-10"
+                  className="shrink-0 cursor-pointer outline-none h-10"
                   to={iconBtnTarget}
                 >
                   <NavIcon id="navIcon" />
@@ -235,7 +235,7 @@ const Navigation = ({
               >
                 <ArrowDownIcon
                   className={
-                    "h-6 w-6 transition-transform transform duration-500" +
+                    "h-6 w-6 transition-transform duration-500" +
                     (isNavDrawerOpen ? " rotate-180" : "")
                   }
                 />
