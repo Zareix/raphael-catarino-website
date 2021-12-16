@@ -63,13 +63,7 @@ const Overlay = styled(motion.div)`
 `
 
 const Navigation = ({
-  data: {
-    links,
-    contactBtnVisible,
-    labelContactLink,
-    blogBtnVisible,
-    labelBlogLink,
-  },
+  data: { links, contactBtnVisible, labelContactLink, blogBtnVisible, labelBlogLink },
   alwaysDisplayed,
   iconBtnTarget,
   langSlug,
@@ -88,12 +82,10 @@ const Navigation = ({
           setVisible(true)
         })
       } else {
-        if (visible) {
-          setTimeout(() => {
-            setVisible(false)
-            setIsNavDrawerOpen(false)
-          })
-        }
+        setTimeout(() => {
+          setIsNavDrawerOpen(false)
+          setVisible(false)
+        })
       }
     }
 
@@ -110,8 +102,8 @@ const Navigation = ({
     if (scrolled) {
       setVisible(true)
     } else {
-      setVisible(false)
       setIsNavDrawerOpen(false)
+      setVisible(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrollAmount])
@@ -135,10 +127,7 @@ const Navigation = ({
           animate="visible"
           exit="exit"
           id="navbar"
-          className={
-            "z-50 w-full shadow-md" +
-            (alwaysDisplayed ? " sticky top-0" : " fixed")
-          }
+          className={"z-50 w-full shadow-md" + (alwaysDisplayed ? " sticky top-0" : " fixed")}
         >
           <div className="px-5 md:px-12 pt-10 bg-white dark:bg-gray-800 flex items-center relative z-70">
             <div className="grow flex items-center h-full py-3">
@@ -164,19 +153,14 @@ const Navigation = ({
               {!isMobile && (
                 <ul className="flex ml-10 justify-center items-center space-x-4">
                   {links.map((link, i) => (
-                    <li
-                      key={i}
-                      className="h-full flex items-center text-center"
-                    >
+                    <li key={i} className="h-full flex items-center text-center">
                       {link.target.includes("/") ? (
                         <GatsbyLink
                           className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                           activeClassName="link-active"
                           to={
                             (location.pathname.match(/(\/(..)\/)/)
-                              ? location.pathname
-                                  .match(/(\/(..)\/)/)[1]
-                                  .slice(0, -1)
+                              ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
                               : "") + link.target
                           }
                         >
@@ -188,7 +172,7 @@ const Navigation = ({
                           activeClass="link-active"
                           spy
                           smooth
-                          offset={-70}
+                          offset={link.target === "bio" ? -200 : -70}
                           duration={800}
                           to={link.target}
                         >
@@ -255,16 +239,14 @@ const Navigation = ({
                 >
                   <ul>
                     {links.map((link, i) => (
-                      <li>
+                      <li key={i}>
                         {link.target.includes("/") ? (
                           <GatsbyLink
-                            className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
+                            className="cursor-pointer w-max whitespace-nowrap text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
                             activeClassName="link-active"
                             to={
                               (location.pathname.match(/(\/(..)\/)/)
-                                ? location.pathname
-                                    .match(/(\/(..)\/)/)[1]
-                                    .slice(0, -1)
+                                ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
                                 : "") + link.target
                             }
                             onClick={() => setTimeout(closeNavDrawer)}
@@ -274,12 +256,12 @@ const Navigation = ({
                         ) : (
                           <Link
                             key={i}
-                            className="cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
+                            className="cursor-pointer w-max whitespace-nowrap text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
                             to={link.target}
                             activeClass="link-active"
                             spy
                             smooth
-                            offset={-70}
+                            offset={link.target === "bio" ? -200 : -70}
                             duration={800}
                             onClick={() => setTimeout(closeNavDrawer)}
                           >

@@ -37,6 +37,10 @@ const HeroSection = styled.section`
       fill: #e2e8f0;
     }
   }
+
+  @media (max-width: 768px) {
+    height: 80vh;
+  }
 `
 
 const HeroWrapper = styled.div`

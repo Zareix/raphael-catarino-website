@@ -23,7 +23,27 @@
 }
 
 .link-active {
-  @apply text-gray-800;
+  @apply text-gray-800 dark:text-white relative;
+}
+
+@keyframes linkUnderline {
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: 0.75rem;
+  }
+}
+
+.link-active::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.25rem;
+  height: 0.1rem;
+  animation: linkUnderline 500ms ease-out forwards;
+  @apply bg-gray-300 dark:bg-gray-500;
 }
 
 nav > * #navIcon {
@@ -42,14 +62,10 @@ nav > * #navIcon > * path {
 }
 
 .vertical-timeline-element-content {
-  @apply dark:bg-gray-800 rounded-xl shadow-hover !important;
+  @apply dark:bg-gray-800 rounded-xl shadow-hover cursor-pointer !important;
 }
 
 @media (prefers-color-scheme: dark) {
-  .link-active {
-    @apply text-white;
-  }
-
   nav > * #navIcon > * path {
     fill: #f9fafb;
   }

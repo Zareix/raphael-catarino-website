@@ -7,8 +7,8 @@ const useScroll = (offset) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollAmount(window.pageYOffset)
-      if (window.pageYOffset > scrollOffset) setScrolled(true)
+      setScrollAmount(window.scrollY)
+      if (window.scrollY > scrollOffset) setScrolled(true)
       else setScrolled(false)
     }
 

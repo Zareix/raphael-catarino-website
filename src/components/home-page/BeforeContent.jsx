@@ -10,18 +10,14 @@ const Wrapper = styled.div`
   top: -10vh;
   width: 100%;
   height: 45px;
-  display: grid;
+  display: flex;
   justify-content: center;
   z-index: 30;
-
-  @media (max-width: 768px) {
-    top: -20vh;
-  }
 `
 
 const BeforeContent = () => {
   const doScroll = () =>
-    scroll.scrollMore(500, {
+    scroll.scrollMore(window.innerWidth <= 768 ? 400 : 500, {
       duration: 800,
     })
 

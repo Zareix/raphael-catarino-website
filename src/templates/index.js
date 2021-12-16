@@ -31,8 +31,7 @@ const IndexPage = ({ data, location }) => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    if (location.pathname === "/")
-      navigator.language.startsWith("en") && navigate("en/")
+    if (location.pathname === "/") navigator.language.startsWith("en") && navigate("en/")
 
     setTimeout(() => {
       setIsLoading(false)
@@ -59,9 +58,7 @@ const IndexPage = ({ data, location }) => {
           <SwitchTransition>
             <CSSTransition
               key={scrolled ? "Before content" : "Biographie"}
-              addEndListener={(node, done) =>
-                node.addEventListener("transitionend", done, false)
-              }
+              addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
               classNames="fade"
             >
               <section id="bio">
@@ -137,10 +134,7 @@ export const queryIndex = graphql`
       ...Bio
     }
 
-    allDatoCmsCompetence(
-      filter: { locale: { eq: $locale } }
-      sort: { fields: position }
-    ) {
+    allDatoCmsCompetence(filter: { locale: { eq: $locale } }, sort: { fields: position }) {
       edges {
         node {
           ...Comp
@@ -148,10 +142,7 @@ export const queryIndex = graphql`
       }
     }
 
-    allDatoCmsTimeline(
-      filter: { locale: { eq: $locale } }
-      sort: { fields: position }
-    ) {
+    allDatoCmsTimeline(filter: { locale: { eq: $locale } }, sort: { fields: position }) {
       edges {
         node {
           ...Timeline
@@ -159,10 +150,7 @@ export const queryIndex = graphql`
       }
     }
 
-    allDatoCmsProject(
-      filter: { locale: { eq: $locale } }
-      sort: { fields: date, order: DESC }
-    ) {
+    allDatoCmsProject(filter: { locale: { eq: $locale } }) {
       edges {
         node {
           ...Project

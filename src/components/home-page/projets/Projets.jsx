@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -9,17 +9,17 @@ import GithubIcon from "../../../images/svg/icons/github.svg"
 import ExternalLinkIcon from "../../../images/svg/icons/externalLink.svg"
 import SelectedProject from "./SelectedProject"
 
-const Projets = ({
-  data,
-  title,
-  subtitle,
-  defaultShownItems,
-  stepShowMore,
-  showMoreLabel,
-}) => {
+const Projets = ({ data, title, subtitle, defaultShownItems, stepShowMore, showMoreLabel }) => {
   const [shownItems, setShownItems] = useState(defaultShownItems)
   const [selectedProject, setSelectedProject] = useState()
   const projets = data.edges
+
+  useEffect(() => {
+    projets.sort((x, y) => {
+      let c = Date.parse(y.node.ogDate) - Date.parse(x.node.ogDate)
+      return c > 0 ? 1 : c < 0 ? -1 : 0
+    })
+  }, [projets])
 
   const showMore = () => setShownItems(shownItems + stepShowMore)
 
@@ -51,12 +51,7 @@ const Projets = ({
                   </div>
                   <div className="absolute bottom-0 left-0 -mb-4 ml-3 flex flex-row">
                     {project.isOnGithub && (
-                      <Tippy
-                        content="Github"
-                        offset={[0, 12]}
-                        arrow
-                        animation="shift-away"
-                      >
+                      <Tippy content="Github" offset={[0, 12]} arrow animation="shift-away">
                         <a
                           href={project.githubLink}
                           target="_blank"
@@ -68,12 +63,7 @@ const Projets = ({
                       </Tippy>
                     )}
                     {project.isProjectLink && (
-                      <Tippy
-                        content="Lien"
-                        arrow
-                        animation="shift-away"
-                        offset={[0, 12]}
-                      >
+                      <Tippy content="Lien" arrow animation="shift-away" offset={[0, 12]}>
                         <a
                           href={project.link}
                           target="_blank"
@@ -104,10 +94,7 @@ const Projets = ({
           </button>
         )}
       </section>
-      <SelectedProject
-        project={selectedProject}
-        deselect={() => setSelectedProject(undefined)}
-      />
+      <SelectedProject project={selectedProject} deselect={() => setSelectedProject(undefined)} />
     </>
   )
 }
@@ -128,6 +115,7 @@ export const fragmentProjects = graphql`
       nom
     }
     date(formatString: "DD MMMM YYYY", locale: $locale)
+    ogDate: date
     isOnGithub
     githubLink
     isProjectLink

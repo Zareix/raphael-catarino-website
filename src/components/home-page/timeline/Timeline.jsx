@@ -1,9 +1,6 @@
 import React from "react"
 
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component"
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 import { ReactSVG } from "react-svg"
@@ -19,12 +16,16 @@ const TimelineSection = styled.section`
     background-color: #c5c5c5;
   }
 
-  .vertical-timeline-element-icon svg {
-    width: 100%;
-    height: 100%;
-    inset: 0;
-    margin: 0;
-    padding: 0.8rem;
+  .vertical-timeline-element-icon {
+    cursor: pointer;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      margin: 0;
+      padding: 0.8rem;
+    }
   }
 
   @media (max-width: 1170px) {
@@ -38,13 +39,9 @@ const TimelineSection = styled.section`
   }
 `
 
-const TimelineItemTitle = (props) => (
-  <h3 className="text-lg font-semibold">{props.children}</h3>
-)
+const TimelineItemTitle = (props) => <h3 className="text-lg font-semibold">{props.children}</h3>
 const TimelineItemSubTitle = (props) => (
-  <h4 className="text-base text-gray-600 dark:text-gray-300">
-    {props.children}
-  </h4>
+  <h4 className="text-base text-gray-600 dark:text-gray-300">{props.children}</h4>
 )
 
 const Timeline = ({ data, title, subtitle }) => {
