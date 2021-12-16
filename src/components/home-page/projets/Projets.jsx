@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Tippy from "@tippyjs/react"
-import { motion } from "framer-motion"
 
 import GithubIcon from "../../../images/svg/icons/github.svg"
 import ExternalLinkIcon from "../../../images/svg/icons/externalLink.svg"
@@ -33,11 +32,10 @@ const Projets = ({ data, title, subtitle, defaultShownItems, stepShowMore, showM
         <div className="container mx-auto px-0 md:px-4 py-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-items-center gap-4 px-4 md:px-0">
             {projets.slice(0, shownItems).map(({ node: project }) => (
-              <motion.article
+              <button
                 key={project.id}
                 className=" bg-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-white group shadow-xl hover:shadow-sm cursor-pointer w-full rounded-3xl flex flex-col items-center justify-center transition-colors duration-500 ease-in-out"
                 onClick={() => setSelectedProject(project)}
-                layoutId={project.id}
               >
                 <div className="relative mt-2 mx-2">
                   <div className="h-56 rounded-2xl shadow overflow-hidden">
@@ -77,11 +75,11 @@ const Projets = ({ data, title, subtitle, defaultShownItems, stepShowMore, showM
                   </div>
                 </div>
                 <div className="pt-10 pb-6 w-full px-4">
-                  <h2 className="font-medium leading-none text-base tracking-wider text-gray-400 group-hover:text-gray-100 dark:text-gray-300 dark:group-hover:text-gray-800">
+                  <h2 className="text-justify font-medium leading-none text-base tracking-wider text-gray-400 group-hover:text-gray-100 dark:text-gray-300 dark:group-hover:text-gray-800">
                     {project.title}
                   </h2>
                 </div>
-              </motion.article>
+              </button>
             ))}
           </div>
         </div>

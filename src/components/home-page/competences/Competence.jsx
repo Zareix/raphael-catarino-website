@@ -1,7 +1,6 @@
 import React from "react"
 
 import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
 import styled from "styled-components"
 
 import CompetenceImage from "./CompetenceImage"
@@ -93,37 +92,37 @@ const variantsFromRight = {
 const transitionProperty = {
   x: {
     type: "spring",
-    stiffness: 60,
-    damping: 12,
+    stiffness: 40,
+    damping: 10,
   },
   opacity: {
     duration: 0.75,
   },
 }
 
-const AnimatedContainer = (props) => {
-  const [sectionRef, sectionInView] = useInView({
-    rootMargin: "-200px 0px",
-    triggerOnce: true,
-  })
+const viewportOptions = {
+  once: true,
+  margin: "0px 0px -200px 0px",
+}
 
+const AnimatedContainer = (props) => {
   return props.index % 2 === 0 ? (
     <SectionFromLeft
-      ref={sectionRef}
       {...props}
-      animate={sectionInView ? "inView" : "notInView"}
-      variants={variantsFromLeft}
+      initial={variantsFromLeft.notInView}
+      whileInView={variantsFromLeft.inView}
       transition={transitionProperty}
+      viewport={viewportOptions}
     >
       {props.children}
     </SectionFromLeft>
   ) : (
     <SectionFromRight
-      ref={sectionRef}
       {...props}
-      animate={sectionInView ? "inView" : "notInView"}
-      variants={variantsFromRight}
+      initial={variantsFromRight.notInView}
+      whileInView={variantsFromRight.inView}
       transition={transitionProperty}
+      viewport={viewportOptions}
     >
       {props.children}
     </SectionFromRight>

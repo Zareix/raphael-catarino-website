@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { AnimatePresence, motion } from "framer-motion"
 
 import CloseIcon from "../../../images/svg/icons/close.svg"
+import { fadeIn, slideInFromTop } from "../../utils/framer-motion-variants"
 
 const MyModal = styled(motion.div)`
   position: fixed;
@@ -26,48 +27,6 @@ const MyModal = styled(motion.div)`
 const ErrorMessage = styled.span`
   color: #ef4444;
 `
-
-const slideForm = {
-  hidden: {
-    y: "-50%",
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      type: "spring",
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-  exit: {
-    y: "100%",
-    opacity: 0,
-    transition: {
-      duration: 0.4,
-    },
-  },
-}
-
-const fadeIn = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-      type: "spring",
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-  exit: {
-    opacity: 0,
-  },
-}
 
 const encode = (data) =>
   Object.keys(data)
@@ -122,21 +81,16 @@ const ContactModal = ({ data, visible, close }) => {
           {sent ? (
             <div className="w-full max-w-2xl px-2 md:px-5 py-10 mx-3 md:m-auto bg-white rounded-lg shadow dark:bg-gray-800">
               <div className="mb-6 text-2xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">
-                <CloseIcon
-                  className="cursor-pointer col-start-5 h-7 w-7"
-                  onClick={closeModal}
-                />
+                <CloseIcon className="cursor-pointer col-start-5 h-7 w-7" onClick={closeModal} />
                 <p className="col-start-2 col-span-3 border-b border-gray-400 pb-2">
                   {data.contactSentTitle}
                 </p>
-                <p className="col-start-2 col-span-3 pt-2">
-                  {data.contactSentSubtitle}
-                </p>
+                <p className="col-start-2 col-span-3 pt-2">{data.contactSentSubtitle}</p>
               </div>
             </div>
           ) : (
             <motion.form
-              variants={slideForm}
+              variants={slideInFromTop}
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -158,7 +112,7 @@ const ContactModal = ({ data, visible, close }) => {
                 <div className="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">
                   <p className="col-start-2 col-span-3">{data.contactTitle}</p>
                   <CloseIcon
-                    className="cursor-pointer h-7 w-7"
+                    className="cursor-pointer h-7 w-7 hover:text-gray-600"
                     onClick={closeModal}
                   />
                 </div>
@@ -173,9 +127,7 @@ const ContactModal = ({ data, visible, close }) => {
                       placeholder={data.contactPlaceholderName}
                       {...register("nom", { required: true })}
                     />
-                    {errors.nom && (
-                      <ErrorMessage>{data.contactErreurNom}</ErrorMessage>
-                    )}
+                    {errors.nom && <ErrorMessage>{data.contactErreurNom}</ErrorMessage>}
                   </div>
                   <div className="col-span-2 lg:col-span-1">
                     <input
@@ -186,9 +138,7 @@ const ContactModal = ({ data, visible, close }) => {
                       placeholder={data.contactPlaceholderEmail}
                       {...register("email", { required: true })}
                     />
-                    {errors.email && (
-                      <ErrorMessage>{data.contactErreurEmail}</ErrorMessage>
-                    )}
+                    {errors.email && <ErrorMessage>{data.contactErreurEmail}</ErrorMessage>}
                   </div>
                   <div className="col-span-2">
                     <input
@@ -199,9 +149,7 @@ const ContactModal = ({ data, visible, close }) => {
                       placeholder={data.contactPlaceholderSujet}
                       {...register("sujet", { required: true })}
                     />
-                    {errors.sujet && (
-                      <ErrorMessage>{data.contactErreurSujet}</ErrorMessage>
-                    )}
+                    {errors.sujet && <ErrorMessage>{data.contactErreurSujet}</ErrorMessage>}
                   </div>
                   <div className="col-span-2">
                     <label className="text-gray-700" htmlFor="contenu">
@@ -215,9 +163,7 @@ const ContactModal = ({ data, visible, close }) => {
                         {...register("contenu", { required: true })}
                       ></textarea>
                     </label>
-                    {errors.contenu && (
-                      <ErrorMessage>{data.contactErreurContenu}</ErrorMessage>
-                    )}
+                    {errors.contenu && <ErrorMessage>{data.contactErreurContenu}</ErrorMessage>}
                   </div>
                   <div className="col-span-2 text-right">
                     <button
