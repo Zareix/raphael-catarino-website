@@ -14,8 +14,8 @@ const Competences = () => {
       <h3 className="mx-auto mb-8 w-4/5 text-center text-lg text-gray-600  dark:text-gray-400">
         {competences.subtitle}
       </h3>
-      <div>
-        {competences.categories.map(({ node: cat }, index) => (
+      <div className="flex snap-x snap-mandatory w-full overflow-x-auto px-[50%] pb-6 gap-6">
+        {categories.map(({ node: cat }, index) => (
           <Competence competence={cat} key={cat.id} index={index} />
         ))}
       </div>
