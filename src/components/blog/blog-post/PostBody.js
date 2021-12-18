@@ -28,7 +28,7 @@ const ContentWrapper = styled.article`
     color: rgba(75, 85, 99, 1) !important;
 
     //dark:text-gray-400
-    @media (prefers-color-scheme: dark) {
+    .dark & {
       & {
         color: rgba(156, 163, 175, 1) !important;
       }
@@ -111,11 +111,7 @@ const Aside = styled.aside`
 export const BlogPostImage = ({ image, title }) => {
   return (
     <div className="-mt-2 mx-4 p-4 pb-1 rounded-md bg-gray-50 dark:bg-gray-700">
-      <GatsbyImage
-        image={image.gatsbyImageData}
-        alt={image.alt}
-        title={image.title}
-      />
+      <GatsbyImage image={image.gatsbyImageData} alt={image.alt} title={image.title} />
       <p className="mt-2 mb-2 text-center italic">{title}</p>
     </div>
   )
@@ -141,9 +137,7 @@ const PostBody = ({ content, copiedMessage }) => {
               return (
                 <BlogPostImage
                   image={record.image}
-                  title={
-                    record.imageTitle ? record.imageTitle : record.image.title
-                  }
+                  title={record.imageTitle ? record.imageTitle : record.image.title}
                 />
               )
             } else if (record.__typename === "DatoCmsBlogPostCodeBlock") {

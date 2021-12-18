@@ -19,7 +19,7 @@ const HeroSection = styled.section`
     border-bottom: rgba(249, 250, 251, 0.3) 3px solid;
   }
 
-  @media (prefers-color-scheme: dark) {
+  .dark & {
     .illustration-screen-right,
     .illustration-camera {
       fill: #1f2937;
@@ -68,7 +68,7 @@ const BGWrapper = styled.div`
     fill: rgb(249 250 251);
   }
 
-  @media (prefers-color-scheme: dark) {
+  .dark & {
     svg path {
       fill: rgb(17 24 39);
     }

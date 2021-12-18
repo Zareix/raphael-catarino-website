@@ -12,6 +12,7 @@ import { graphql } from "gatsby"
 import useScroll from "../../../hooks/use-scroll"
 import useWindowWidth from "../../../hooks/use-window-width"
 import { AnimatePresence, motion } from "framer-motion"
+import LightDarkSwitch from "../../light-dark-switch/LightDarkSwitch"
 
 const slideIn = {
   hidden: {
@@ -203,7 +204,8 @@ const Navigation = ({
                     {labelContactLink}
                   </button>
                 )}
-                <div className="flex ml-4 items-center md:ml-6">
+                <LightDarkSwitch className="mr-2" />
+                <div className="flex items-center">
                   <LangSelector
                     navVisible={visible || alwaysDisplayed}
                     location={location}
@@ -212,18 +214,28 @@ const Navigation = ({
                 </div>
               </>
             )}
+
             {isMobile && (
-              <button
-                onClick={toggleDrawer}
-                className="-mr-2 inline-flex text-gray-800 dark:text-white hover:text-gray-400  items-center justify-center p-2 rounded-md focus:outline-none select-none"
-              >
-                <ArrowDownIcon
-                  className={
-                    "h-6 w-6 transition-transform duration-500" +
-                    (isNavDrawerOpen ? " rotate-180" : "")
-                  }
+              <>
+                <LightDarkSwitch className="mr-2" />
+                <LangSelector
+                  className="mr-1"
+                  navVisible={visible || alwaysDisplayed}
+                  location={location}
+                  extSlug={langSlug}
                 />
-              </button>
+                <button
+                  onClick={toggleDrawer}
+                  className="-mr-2 inline-flex text-gray-800 dark:text-white hover:text-gray-400  items-center justify-center p-2 rounded-md focus:outline-none select-none"
+                >
+                  <ArrowDownIcon
+                    className={
+                      "h-6 w-6 transition-transform duration-500" +
+                      (isNavDrawerOpen ? " rotate-180" : "")
+                    }
+                  />
+                </button>
+              </>
             )}
           </div>
           <AnimatePresence>
@@ -295,13 +307,6 @@ const Navigation = ({
                       </GatsbyLink>
                     )}
                   </div>
-                  <LangSelector
-                    mobile
-                    closeNavDrawer={closeNavDrawer}
-                    navVisible={visible || alwaysDisplayed}
-                    location={location}
-                    extSlug={langSlug}
-                  />
                 </motion.div>
                 <Overlay
                   id="navbarOverlay"

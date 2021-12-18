@@ -25,7 +25,7 @@ const Section = styled(motion.section)`
     width: 92%;
   }
 
-  @media (prefers-color-scheme: dark) {
+  .dark & {
     background-color: #1e293b;
   }
 `

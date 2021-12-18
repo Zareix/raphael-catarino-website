@@ -57,7 +57,8 @@ nav > * #navIcon > * path {
 
 @layer utilities {
   .shadow-hover {
-    @apply shadow-md hover:shadow-xl transition-shadow duration-500 ease-in-out !important;
+    transition: var(--transition-color), box-shadow 500ms ease-in-out;
+    @apply shadow-md hover:shadow-xl !important;
   }
 }
 
@@ -65,8 +66,6 @@ nav > * #navIcon > * path {
   @apply dark:bg-gray-800 rounded-xl shadow-hover cursor-pointer !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  nav > * #navIcon > * path {
-    fill: #f9fafb;
-  }
+.dark nav > * #navIcon > * path {
+  fill: #f9fafb;
 }

@@ -56,7 +56,7 @@ const SelectedProjectContent = styled(motion.article)`
     display: none;
   }
 
-  @media (prefers-color-scheme: dark) {
+  .dark & {
     ::-webkit-scrollbar-thumb {
       border-color: rgb(31, 41, 55);
     }

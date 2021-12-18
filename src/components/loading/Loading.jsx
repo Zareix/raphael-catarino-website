@@ -65,7 +65,7 @@ const LoadingAnimation = styled.div`
     background-color: rgba(249, 250, 251);
     border-radius: 14px;
 
-    @media (prefers-color-scheme: dark) {
+    .dark & {
       background-color: rgba(17, 24, 39);
     }
   }
@@ -80,7 +80,7 @@ const LoadingAnimation = styled.div`
     background-color: rgba(17, 24, 39);
     animation: ${loading} infinite 2.5s;
 
-    @media (prefers-color-scheme: dark) {
+    .dark & {
       background-color: rgba(249, 250, 251);
     }
   }
