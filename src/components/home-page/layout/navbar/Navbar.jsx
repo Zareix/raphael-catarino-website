@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"
 import { Link, animateScroll } from "react-scroll"
 import styled from "styled-components"
 import { Link as GatsbyLink } from "gatsby"
+import { AnimatePresence, motion } from "framer-motion"
 
 import LangSelector from "./LangSelector"
 
@@ -11,7 +12,6 @@ import NavIcon from "../../../../images/svg/favicon.svg"
 import { graphql } from "gatsby"
 import useScroll from "../../../hooks/use-scroll"
 import useWindowWidth from "../../../hooks/use-window-width"
-import { AnimatePresence, motion } from "framer-motion"
 import LightDarkSwitch from "../../light-dark-switch/LightDarkSwitch"
 
 const slideIn = {

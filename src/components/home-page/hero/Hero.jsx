@@ -77,7 +77,7 @@ const BGWrapper = styled.div`
 
 const Hero = ({ data }) => {
   return (
-    <HeroSection className="bg-white dark:bg-gray-800">
+    <HeroSection className="bg-white dark:bg-slate-800">
       <HeroWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
           <div className="mx-auto w-fit text-section">

@@ -40,8 +40,7 @@ const LightDarkSwitch = ({ className }) => {
   return (
     <div
       className={
-        "relative inline-block w-10 align-middle select-none transition duration-200 ease-in" +
-        " " +
+        "relative inline-block w-10 align-middle select-none transition duration-200 ease-in " +
         className
       }
     >
@@ -49,19 +48,21 @@ const LightDarkSwitch = ({ className }) => {
         type="checkbox"
         onClick={switchTheme}
         name="toggle"
-        id="toggle"
+        id="light-dark-switch"
         className={
-          "toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 transition-[left] appearance-none cursor-pointer" +
+          "absolute block w-6 h-6 rounded-full bg-white border-4 transition-[left] appearance-none cursor-pointer" +
           (selectedTheme === "dark" ? " left-[40%] border-gray-500" : " left-0")
         }
       />
       <label
-        htmlFor="toggle"
+        htmlFor="light-dark-switch"
         className={
-          "toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-none" +
+          "shadow-hover block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-none" +
           (selectedTheme === "dark" ? " bg-gray-700" : "")
         }
-      />
+      >
+        {" "}
+      </label>
     </div>
   )
 }

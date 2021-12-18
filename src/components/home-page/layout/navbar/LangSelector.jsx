@@ -52,7 +52,7 @@ const LangSelector = ({ className, navVisible, extSlug, location }) => {
 
   return (
     <div
-      className={"relative inline-block text-left" + " " + className}
+      className={"relative inline-block text-left " + className}
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
       role="menu"
