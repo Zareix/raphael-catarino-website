@@ -8,7 +8,7 @@ const Competence = (props) => {
 
   return (
     <Tippy content={imgTitle} interactive arrow offset={[0, -10]} animation="shift-away">
-      <button className="w-1/3 md:w-1/5 cursor-default p-3">
+      <button className="w-24 h-24 cursor-default p-2 md:p-3">
         <GatsbyImage image={gatsbyImageData} alt={category + " " + imgTitle} objectFit="contain" />
       </button>
     </Tippy>

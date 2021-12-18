@@ -5,53 +5,28 @@ import styled from "styled-components"
 
 import CompetenceImage from "./CompetenceImage"
 
-const CompetenceWrapper = styled.article`
-  display: flex;
-
-  &:not(:last-child) {
-    margin-bottom: 4rem;
-  }
-`
-
-const Section = styled(motion.section)`
+const Article = styled(motion.article)`
   position: relative;
-  width: clamp(600px, 50%, 950px);
+  width: clamp(100px, 80vw, 600px);
+  height: 100%;
   overflow: hidden;
   background-color: white;
   border-radius: 16px;
   margin: auto;
-
-  @media (max-width: 758px) {
-    width: 92%;
-  }
-
+  flex-shrink: 0;
   .dark & {
     background-color: #1e293b;
   }
 `
 
-const SectionFromLeft = styled(Section)`
-  @media (max-width: 758px) {
-    margin-left: 0;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-  }
-`
-
-const SectionFromRight = styled(Section)`
-  @media (max-width: 758px) {
-    margin-right: 0;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-  }
-`
-
 const ImagesContainer = styled.div`
-  display: flex;
+  display: grid;
+  min-height: 125px;
   flex-wrap: wrap;
   justify-items: center;
   justify-content: center;
   padding: 0 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 `
 
 const TitleCat = ({ fromRight, children }) => {
@@ -67,85 +42,21 @@ const TitleCat = ({ fromRight, children }) => {
   )
 }
 
-const variantsFromLeft = {
-  notInView: {
-    opacity: 0,
-    x: "-50%",
-  },
-  inView: {
-    opacity: 1,
-    x: "0",
-  },
-}
-
-const variantsFromRight = {
-  notInView: {
-    opacity: 0,
-    x: "50%",
-  },
-  inView: {
-    opacity: 1,
-    x: "0",
-  },
-}
-
-const transitionProperty = {
-  x: {
-    type: "spring",
-    stiffness: 40,
-    damping: 10,
-  },
-  opacity: {
-    duration: 0.75,
-  },
-}
-
-const viewportOptions = {
-  once: true,
-  margin: "0px 0px -200px 0px",
-}
-
-const AnimatedContainer = (props) => {
-  return props.index % 2 === 0 ? (
-    <SectionFromLeft
-      {...props}
-      initial={variantsFromLeft.notInView}
-      whileInView={variantsFromLeft.inView}
-      transition={transitionProperty}
-      viewport={viewportOptions}
-    >
-      {props.children}
-    </SectionFromLeft>
-  ) : (
-    <SectionFromRight
-      {...props}
-      initial={variantsFromRight.notInView}
-      whileInView={variantsFromRight.inView}
-      transition={transitionProperty}
-      viewport={viewportOptions}
-    >
-      {props.children}
-    </SectionFromRight>
-  )
-}
-
 const Competence = ({ competence, index }) => {
   return (
-    <CompetenceWrapper id={competence.title}>
-      <AnimatedContainer index={index} className="shadow-hover">
-        <ImagesContainer>
-          {competence.icons.map((img, index) => (
-            <CompetenceImage
-              key={index}
-              gatsbyImageData={img.gatsbyImageData}
-              imgTitle={img.title}
-              category={competence.title}
-            />
-          ))}
-        </ImagesContainer>
-        <TitleCat fromRight={!(index % 2 === 0)}>{competence.title}</TitleCat>
-      </AnimatedContainer>
-    </CompetenceWrapper>
+    <Article index={index} className="shadow-hover snap-center">
+      <ImagesContainer>
+        {competence.icons.map((img, index) => (
+          <CompetenceImage
+            key={index}
+            gatsbyImageData={img.gatsbyImageData}
+            imgTitle={img.title}
+            category={competence.title}
+          />
+        ))}
+      </ImagesContainer>
+      <TitleCat fromRight={!(index % 2 === 0)}>{competence.title}</TitleCat>
+    </Article>
   )
 }
 
