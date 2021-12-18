@@ -5,10 +5,8 @@
     .favicon {
       fill: #1f2937;
     }
-    @media (prefers-color-scheme: dark) {
-      .favicon { 
-          fill: #f9fafb;
-      }
+    .dark .favicon { 
+        fill: #f9fafb;
     }
   </style>
     <g transform="translate(0.000000,223.000000) scale(0.100000,-0.100000)" class="favicon"

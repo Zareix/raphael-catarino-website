@@ -26,7 +26,7 @@ const Contact = ({ data }) => {
         onClick={() => {
           isOpen ? close() : open()
         }}
-        className="px-4 py-1 transition ease-in duration-200 rounded-full focus:outline-none border-2 border-gray-200 hover:bg-gray-200 hover:text-gray-800 dark:border-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+        className="px-4 py-1 rounded-full focus:outline-none border-2 border-gray-200 hover:bg-gray-200 hover:text-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 dark:hover:text-gray-200"
         aria-label="Open contact modal"
       >
         {data.contactBtnText}
@@ -35,12 +35,7 @@ const Contact = ({ data }) => {
       <ContactModal visible={isOpen} close={close} data={data} />
 
       {/* Hidden forms that match the real one for netlify to detect */}
-      <form
-        hidden
-        name="contact"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-      >
+      <form hidden name="contact" data-netlify="true" netlify-honeypot="bot-field">
         <input type="text" name="nom" />
         <input type="email" name="email" />
         <input type="text" name="sujet" />

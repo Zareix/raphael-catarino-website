@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+:root {
+  --transition-color: color 50ms linear, background-color 500ms linear, fill 500ms linear,
+    border-color 500ms linear, border 500ms linear;
+}
+
+* {
+  transition: var(--transition-color);
+}
+
 body {
   @apply text-gray-800;
   @apply bg-gray-50;
@@ -35,15 +43,13 @@ body {
   @apply bg-gray-700;
 }
 
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300;
-    @apply border-gray-900;
-  }
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gray-300;
+  @apply border-gray-900;
+}
 
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-100;
-  }
+.dark ::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-100;
 }
 
 @layer utilities {

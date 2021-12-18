@@ -19,7 +19,7 @@ const HeroSection = styled.section`
     border-bottom: rgba(249, 250, 251, 0.3) 3px solid;
   }
 
-  @media (prefers-color-scheme: dark) {
+  .dark & {
     .illustration-screen-right,
     .illustration-camera {
       fill: #1f2937;
@@ -68,7 +68,7 @@ const BGWrapper = styled.div`
     fill: rgb(249 250 251);
   }
 
-  @media (prefers-color-scheme: dark) {
+  .dark & {
     svg path {
       fill: rgb(17 24 39);
     }
@@ -77,7 +77,7 @@ const BGWrapper = styled.div`
 
 const Hero = ({ data }) => {
   return (
-    <HeroSection className="bg-white dark:bg-gray-800">
+    <HeroSection className="bg-white dark:bg-slate-800">
       <HeroWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
           <div className="mx-auto w-fit text-section">

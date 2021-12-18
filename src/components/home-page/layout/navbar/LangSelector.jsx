@@ -29,17 +29,9 @@ const LangSelectorDrawer = styled.div`
   border-radius: 0.375rem;
 `
 
-const LangSelector = ({
-  mobile,
-  closeNavDrawer,
-  navVisible,
-  extSlug,
-  location,
-}) => {
+const LangSelector = ({ className, navVisible, extSlug, location }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedLang, setSelectedLang] = useState(
-    location.pathname.includes("en") ? "US" : "FR"
-  )
+  const [selectedLang, setSelectedLang] = useState(location.pathname.includes("en") ? "US" : "FR")
   const linkExtension = extSlug ? extSlug : ""
 
   let timeOutId
@@ -58,44 +50,16 @@ const LangSelector = ({
     clearTimeout(timeOutId)
   }
 
-  if (mobile)
-    return (
-      <div className="flex justify-center border-t-2 dark:border-gray-400 w-3/5 mt-2 pt-2 mx-auto gap-2">
-        {lang.map((l, i) => (
-          <button
-            key={i}
-            className={
-              "flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600 border rounded-md outline-none shadow-sm" +
-              (selectedLang === l.countryCode
-                ? " border-gray-300 "
-                : " dark:border-gray-600")
-            }
-            onClick={() => {
-              setSelectedLang(l.countryCode)
-              closeNavDrawer()
-              navigate(l.redirect + linkExtension)
-            }}
-          >
-            <ReactCountryFlag
-              svg
-              countryCode={l.countryCode}
-              className="text-xl"
-            />
-          </button>
-        ))}
-      </div>
-    )
-
   return (
     <div
-      className="relative inline-block text-left"
+      className={"relative inline-block text-left " + className}
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
       role="menu"
     >
       <button
         type="button"
-        className="shadow-sm flex items-center justify-center w-full rounded-md px-4 py-2 border border-gray-300 bg-white dark:border-gray-400 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-100 dark:hover:bg-gray-400 transition ease-in duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-200 focus:ring-gray-400"
+        className="shadow-sm flex items-center justify-center w-full rounded-md px-4 py-2 border border-gray-300 bg-white dark:border-gray-400 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-100 dark:hover:bg-gray-400  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-200 focus:ring-gray-400"
         id="langSelector"
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="menu"
@@ -104,10 +68,7 @@ const LangSelector = ({
         <ReactCountryFlag countryCode={selectedLang} svg className="text-lg" />
       </button>
       {isOpen && navVisible && (
-        <LangSelectorDrawer
-          id="langSelectorDrawer"
-          className="bg-white dark:bg-gray-700"
-        >
+        <LangSelectorDrawer id="langSelectorDrawer" className="bg-white dark:bg-gray-700">
           <div className="py-1">
             {lang.map((l, i) => (
               <button
@@ -121,11 +82,7 @@ const LangSelector = ({
                   navigate(l.redirect + linkExtension)
                 }}
               >
-                <ReactCountryFlag
-                  svg
-                  countryCode={l.countryCode}
-                  className="text-lg"
-                />
+                <ReactCountryFlag svg countryCode={l.countryCode} className="text-lg" />
                 <span className="ml-2">{l.title}</span>
               </button>
             ))}
