@@ -19,9 +19,9 @@ const FooterStyled = styled.footer`
 const Footer = ({ dataContact, message }) => {
   return (
     <FooterStyled className="text-gray-200 dark:text-gray-300 bg-gray-600 dark:bg-gray-800">
-      <div className="flex gap-3">
+      <div className="flex">
         <p>Switch Theme :</p>
-        <LightDarkSwitch />
+        <LightDarkSwitch className="ml-1" />
       </div>
       <Contact data={dataContact} />
       <p>{message}</p>
