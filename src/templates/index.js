@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react"
 
 import "../styles/index.css"
 
-import styled, { ThemeContext } from "styled-components"
-import { CSSTransition, SwitchTransition } from "react-transition-group"
+import styled from "styled-components"
 import { graphql, navigate } from "gatsby"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import { Helmet } from "react-helmet"
@@ -55,24 +54,13 @@ const IndexPage = ({ data, location }) => {
       <Layout data={data} location={location}>
         <Main id="main">
           <Hero data={data.datoCmsHomePage} />
-          <SwitchTransition>
-            <CSSTransition
-              key={scrolled ? "Before content" : "Biographie"}
-              addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
-              classNames="fade"
-            >
-              <section id="bio">
-                {scrolled ? (
-                  <Biographie data={data.datoCmsBiography} />
-                ) : (
-                  <>
-                    <BeforeContent />
-                    <div className="empty-content" />
-                  </>
-                )}
-              </section>
-            </CSSTransition>
-          </SwitchTransition>
+          <section id="bio">
+            <AnimatePresence>{!scrolled && <BeforeContent />}</AnimatePresence>
+            <AnimatePresence>
+              {scrolled && <Biographie data={data.datoCmsBiography} />}
+            </AnimatePresence>
+            {!scrolled && <div className="empty-content" />}
+          </section>
           <Timeline
             data={data.allDatoCmsTimeline}
             title={data.datoCmsHomePage.timelineTitle}

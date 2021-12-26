@@ -12,6 +12,7 @@ import NavIcon from "../../../../images/svg/favicon.svg"
 import useScroll from "../../../hooks/use-scroll"
 import useWindowWidth from "../../../hooks/use-window-width"
 import LightDarkSwitch from "../../light-dark-switch/LightDarkSwitch"
+import { fadeIn } from "../../../utils/framer-motion-variants"
 
 const slideIn = {
   hidden: {
@@ -32,24 +33,6 @@ const slideIn = {
       stiffness: 100,
       damping: 20,
     },
-  },
-}
-
-const fadeIn = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-      type: "spring",
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-  exit: {
-    opacity: 0,
   },
 }
 

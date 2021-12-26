@@ -8,6 +8,7 @@ import Layout from "../components/blog/layout/Layout"
 import PostHeader from "../components/blog/blog-post/PostHeader"
 
 import NoPostSvg from "../images/svg/no_posts.svg"
+import { ThemeProvider } from "../components/utils/theme-context"
 
 const BlogList = styled.section`
   width: 80%;
@@ -55,7 +56,7 @@ const BlogIndex = ({
   const showMore = () => setShownItems(shownItems + indexData.stepShowMore)
 
   return (
-    <>
+    <ThemeProvider>
       <HelmetDatoCms favicon={site.favicon} seo={indexData.seo} />
       <Layout
         footerData={footer}
@@ -65,9 +66,7 @@ const BlogIndex = ({
         langSlug={"blog"}
         navData={indexData}
       >
-        <h1 className="text-center text-3xl mt-20 md:mt-12 mb-6 font-bold">
-          {indexData.title}
-        </h1>
+        <h1 className="text-center text-3xl mt-20 md:mt-12 mb-6 font-bold">{indexData.title}</h1>
         <h2 className="text-lg text-gray-600 dark:text-gray-400 w-4/5 mx-auto">
           {indexData.subtitle}
         </h2>
@@ -78,28 +77,22 @@ const BlogIndex = ({
               <p className="mt-2">{indexData.noPostMessage}</p>
             </Empty>
           )}
-          {allDatoCmsBlogPost.allPosts
-            .slice(0, shownItems)
-            .map(({ node: post }) => (
-              <Post
-                key={post.id}
-                className="bg-white dark:bg-gray-800 shadow-md"
-                to={post.slug}
-              >
-                <PostHeader
-                  title={post.title}
-                  subtitle={post.subtitle}
-                  featuredImage={post.featuredImage}
-                  authors={post.authors}
-                  publishDate={post.publishDate}
-                  updateDate={post.updateDate}
-                  small
-                  isIndex
-                  dateText={indexData.dateText}
-                  updatedDateText={indexData.updatedDateText}
-                />
-              </Post>
-            ))}
+          {allDatoCmsBlogPost.allPosts.slice(0, shownItems).map(({ node: post }) => (
+            <Post key={post.id} className="bg-white dark:bg-gray-800 shadow-md" to={post.slug}>
+              <PostHeader
+                title={post.title}
+                subtitle={post.subtitle}
+                featuredImage={post.featuredImage}
+                authors={post.authors}
+                publishDate={post.publishDate}
+                updateDate={post.updateDate}
+                small
+                isIndex
+                dateText={indexData.dateText}
+                updatedDateText={indexData.updatedDateText}
+              />
+            </Post>
+          ))}
           {shownItems < allDatoCmsBlogPost.allPosts.length && (
             <button
               onClick={showMore}
@@ -110,7 +103,7 @@ const BlogIndex = ({
           )}
         </BlogList>
       </Layout>
-    </>
+    </ThemeProvider>
   )
 }
 

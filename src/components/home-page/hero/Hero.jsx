@@ -1,8 +1,20 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 import Illustration from "../../../images/svg/hero_illustration.svg"
 import BgHero from "../../../images/svg/hero-bg-wave.svg"
+
+const textAppear = keyframes`
+  100%{
+    transform: translateY(0);
+  }
+`
+
+const underlineExpand = keyframes`
+  100%{
+    width: 150px;
+  }
+`
 
 const HeroSection = styled.section`
   width: 100%;
@@ -11,12 +23,31 @@ const HeroSection = styled.section`
   line-height: 2.25rem;
   display: grid;
 
+  h1 {
+    overflow: hidden;
+    span {
+      display: block;
+      transform: translateY(100%);
+      animation: ${textAppear} 1s 2.25s forwards;
+    }
+  }
+
+  h2 {
+    overflow: hidden;
+    span {
+      display: block;
+      transform: translateY(100%);
+      animation: ${textAppear} 1s 2.75s forwards;
+    }
+  }
+
   .text-section::after {
     content: "";
     display: block;
     height: 20px;
-    width: 150px;
-    border-bottom: rgba(249, 250, 251, 0.3) 3px solid;
+    width: 0px;
+    border-bottom: rgba(156, 163, 175, 0.3) 3px solid;
+    animation: ${underlineExpand} 1.5s 3.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   .dark & {
@@ -40,6 +71,12 @@ const HeroSection = styled.section`
 
   @media (max-width: 768px) {
     height: 80vh;
+  }
+
+  .dark & {
+    .text-section::after {
+      border-color: rgba(249, 250, 251, 0.2);
+    }
   }
 `
 
@@ -81,8 +118,12 @@ const Hero = ({ data }) => {
       <HeroWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
           <div className="mx-auto w-fit text-section">
-            <h1 className="font-bold text-4xl md:text-5xl">{data.presTitle}</h1>
-            <h2 className="mt-2 text-gray-400">{data.presSubtitle}</h2>
+            <h1 className="font-bold text-4xl md:text-5xl">
+              <span>{data.presTitle}</span>
+            </h1>
+            <h2 className="mt-2 text-gray-400">
+              <span>{data.presSubtitle}</span>
+            </h2>
           </div>
         </div>
         <div className="w-full md:w-1/2">

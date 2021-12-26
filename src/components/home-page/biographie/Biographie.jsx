@@ -2,8 +2,11 @@ import React from "react"
 
 import { graphql } from "gatsby"
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
-const BioStyled = styled.div`
+import { fadeInSlow } from "../../utils/framer-motion-variants"
+
+const BioStyled = styled(motion.div)`
   width: 40%;
   margin: auto;
   margin-bottom: calc(-15vh + 3rem);
@@ -28,7 +31,14 @@ const BioStyled = styled.div`
 
 const Biographie = ({ data }) => {
   return (
-    <BioStyled className="bg-white dark:bg-gray-800 shadow-hover rounded-3xl">
+    <BioStyled
+      variants={fadeInSlow}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      key="0"
+      className="bg-white dark:bg-gray-800 shadow-hover rounded-3xl"
+    >
       <h1 className="text-center text-2xl font-bold mb-4">{data.title}</h1>
       <div
         className="font-medium text-base text-justify first-letter:font-bold first-letter:text-6xl first-letter:float-left first-letter:mr-1 first-letter:font-serif"
