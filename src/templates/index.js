@@ -1,9 +1,8 @@
-import * as React from "react"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import "../styles/index.css"
 
-import styled from "styled-components"
+import styled, { ThemeContext } from "styled-components"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 import { graphql, navigate } from "gatsby"
 import { HelmetDatoCms } from "gatsby-source-datocms"
@@ -19,6 +18,7 @@ import BeforeContent from "../components/home-page/BeforeContent"
 import Timeline from "../components/home-page/timeline/Timeline"
 import useScrolled from "../components/hooks/use-scroll"
 import Loading from "../components/loading/Loading"
+import { ThemeProvider } from "../components/utils/theme-context"
 
 const Main = styled.main`
   margin-left: auto;
@@ -39,7 +39,7 @@ const IndexPage = ({ data, location }) => {
   }, [location])
 
   return (
-    <>
+    <ThemeProvider>
       <Helmet
         htmlAttributes={{
           lang: data.datoCmsSite.locale,
@@ -93,7 +93,7 @@ const IndexPage = ({ data, location }) => {
           />
         </Main>
       </Layout>
-    </>
+    </ThemeProvider>
   )
 }
 

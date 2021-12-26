@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react"
 
 import { Link, animateScroll } from "react-scroll"
 import styled from "styled-components"
-import { Link as GatsbyLink } from "gatsby"
+import { Link as GatsbyLink, graphql } from "gatsby"
 import { AnimatePresence, motion } from "framer-motion"
 
 import LangSelector from "./LangSelector"
 
 import ArrowDownIcon from "../../../../images/svg/icons/arrowDown.svg"
 import NavIcon from "../../../../images/svg/favicon.svg"
-import { graphql } from "gatsby"
 import useScroll from "../../../hooks/use-scroll"
 import useWindowWidth from "../../../hooks/use-window-width"
 import LightDarkSwitch from "../../light-dark-switch/LightDarkSwitch"
@@ -157,7 +156,7 @@ const Navigation = ({
                     <li key={i} className="h-full flex items-center text-center">
                       {link.target.includes("/") ? (
                         <GatsbyLink
-                          className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
                           activeClassName="link-active"
                           to={
                             (location.pathname.match(/(\/(..)\/)/)
@@ -169,7 +168,7 @@ const Navigation = ({
                         </GatsbyLink>
                       ) : (
                         <Link
-                          className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
                           activeClass="link-active"
                           spy
                           smooth
@@ -189,7 +188,7 @@ const Navigation = ({
               <>
                 {blogBtnVisible && (
                   <GatsbyLink
-                    className="outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-full text-sm font-medium"
+                    className="outline-none cursor-pointer nav-link px-3 py-2 rounded-full text-sm font-medium"
                     activeClassName="link-active"
                     to="blog"
                   >
@@ -198,13 +197,13 @@ const Navigation = ({
                 )}
                 {contactBtnVisible && (
                   <button
-                    className="outline-none cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-full text-sm font-medium"
+                    className="outline-none cursor-pointer nav-link px-3 py-2 rounded-full text-sm font-medium"
                     onClick={openContactForm}
                   >
                     {labelContactLink}
                   </button>
                 )}
-                <LightDarkSwitch className="mr-2" />
+                <LightDarkSwitch className="mr-2 nav-link" />
                 <div className="flex items-center">
                   <LangSelector
                     navVisible={visible || alwaysDisplayed}
@@ -217,7 +216,7 @@ const Navigation = ({
 
             {isMobile && (
               <>
-                <LightDarkSwitch className="mr-2" />
+                <LightDarkSwitch className="mr-2 nav-link" />
                 <LangSelector
                   className="mr-1"
                   navVisible={visible || alwaysDisplayed}
@@ -254,7 +253,7 @@ const Navigation = ({
                       <li key={i}>
                         {link.target.includes("/") ? (
                           <GatsbyLink
-                            className="cursor-pointer w-max whitespace-nowrap text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
+                            className="cursor-pointer w-max whitespace-nowrap nav-link block px-3 py-2 rounded-md text-base font-medium"
                             activeClassName="link-active"
                             to={
                               (location.pathname.match(/(\/(..)\/)/)
@@ -268,7 +267,7 @@ const Navigation = ({
                         ) : (
                           <Link
                             key={i}
-                            className="cursor-pointer w-max whitespace-nowrap text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block px-3 py-2 rounded-md text-base font-medium"
+                            className="cursor-pointer w-max whitespace-nowrap nav-link block px-3 py-2 rounded-md text-base font-medium"
                             to={link.target}
                             activeClass="link-active"
                             spy
@@ -287,7 +286,7 @@ const Navigation = ({
                     {contactBtnVisible && (
                       <button
                         className={
-                          "cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400  p-2 text-base font-medium" +
+                          "cursor-pointer nav-link p-2 text-base font-medium" +
                           (blogBtnVisible ? " w-1/2 text-right" : " mx-auto")
                         }
                         onClick={openContactForm}
@@ -298,7 +297,7 @@ const Navigation = ({
                     {blogBtnVisible && (
                       <GatsbyLink
                         className={
-                          "cursor-pointer text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 block p-2 text-base font-medium" +
+                          "cursor-pointer nav-link block p-2 text-base font-medium" +
                           (contactBtnVisible ? " w-1/2 text-left" : " mx-auto")
                         }
                         to="blog"
