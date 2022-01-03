@@ -8,7 +8,7 @@ const Competences = ({ data, title, subtitle }) => {
   const categories = data.edges
 
   return (
-    <section id="competences" className="overflow-hidden mt-20 pb-20">
+    <section id="competences" className="overflow-x-hidden mt-20 pb-20 scroll-m-20">
       <h2 className="text-3xl font-bold text-center">{title}</h2>
       <h3 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mb-8  mx-auto">
         {subtitle}

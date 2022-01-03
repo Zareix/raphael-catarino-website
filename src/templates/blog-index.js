@@ -48,7 +48,7 @@ const Empty = styled.div`
 `
 
 const BlogIndex = ({
-  data: { site, indexData, allDatoCmsBlogPost, footer, contact },
+  data: { site, indexData, allDatoCmsBlogPost, footer, contact, layout },
   location,
 }) => {
   const [shownItems, setShownItems] = useState(indexData.defaultShowMore)
@@ -59,6 +59,7 @@ const BlogIndex = ({
     <ThemeProvider>
       <HelmetDatoCms favicon={site.favicon} seo={indexData.seo} />
       <Layout
+        layoutData={layout}
         footerData={footer}
         contactData={contact}
         location={location}
@@ -164,6 +165,10 @@ export const queryBlogIndex = graphql`
           }
         }
       }
+    }
+
+    layout: datoCmsLayout(locale: { eq: $locale }) {
+      ...SkipToMain
     }
 
     footer: datoCmsFooter(locale: { eq: $locale }) {

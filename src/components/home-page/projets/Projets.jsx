@@ -24,7 +24,7 @@ const Projets = ({ data, title, subtitle, defaultShownItems, stepShowMore, showM
 
   return (
     <>
-      <section id="projets">
+      <section id="projets" className="scroll-m-20">
         <h1 className="text-3xl font-bold text-center">{title}</h1>
         <h2 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mx-auto mb-8">
           {subtitle}

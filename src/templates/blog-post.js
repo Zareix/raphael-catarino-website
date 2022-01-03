@@ -9,6 +9,7 @@ import Layout from "../components/blog/layout/Layout"
 import PostHeader from "../components/blog/blog-post/PostHeader"
 import useScroll from "../components/hooks/use-scroll"
 import { ThemeProvider } from "../components/utils/theme-context"
+import { data } from "autoprefixer"
 
 const Content = styled.section`
   width: 75%;
@@ -31,7 +32,7 @@ const Content = styled.section`
 `
 
 const BlogPost = ({
-  data: { site, post, footer, contact, allDatoCmsBlogPost, settings },
+  data: { site, post, footer, contact, allDatoCmsBlogPost, settings, layout },
   location,
 }) => {
   const { scrollAmount } = useScroll()
@@ -39,6 +40,7 @@ const BlogPost = ({
     <ThemeProvider>
       <HelmetDatoCms favicon={site.favicon} seo={post.seo} />
       <Layout
+        layoutData={layout}
         footerData={footer}
         contactData={contact}
         latestPosts={allDatoCmsBlogPost.latestPosts}
@@ -158,6 +160,10 @@ export const queryBlogPost = graphql`
 
     footer: datoCmsFooter(locale: { eq: $locale }) {
       footerMessage
+    }
+
+    layout: datoCmsLayout(locale: { eq: $locale }) {
+      ...SkipToMain
     }
 
     contact: datoCmsContactForm(locale: { eq: $locale }) {

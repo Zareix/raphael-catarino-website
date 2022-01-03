@@ -54,7 +54,7 @@ const IndexPage = ({ data, location }) => {
       <Layout data={data} location={location}>
         <Main id="main">
           <Hero data={data.datoCmsHomePage} />
-          <section id="bio">
+          <section id="bio" className="scroll-m-60">
             <AnimatePresence>{!scrolled && <BeforeContent />}</AnimatePresence>
             <AnimatePresence>
               {scrolled && <Biographie data={data.datoCmsBiography} />}
@@ -144,6 +144,10 @@ export const queryIndex = graphql`
           ...Project
         }
       }
+    }
+
+    datoCmsLayout(locale: { eq: $locale }) {
+      ...SkipToMain
     }
 
     datoCmsNavbar(locale: { eq: $locale }) {

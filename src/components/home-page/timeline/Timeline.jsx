@@ -8,9 +8,9 @@ import { ReactSVG } from "react-svg"
 import "react-vertical-timeline-component/style.min.css"
 
 const TimelineSection = styled.section`
-  overflow: hidden;
   max-width: 100vw;
   margin-top: 2.5rem;
+  scroll-margin: 5rem;
 
   .vertical-timeline.vertical-timeline-custom-line::before {
     background-color: #c5c5c5;
