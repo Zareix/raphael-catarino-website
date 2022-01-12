@@ -47,11 +47,7 @@ const Layout = ({
         location={location}
         data={navigationData}
         alwaysDisplayed
-        iconBtnTarget={
-          (location.pathname.match(/(\/(..)\/)/)
-            ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
-            : "") + "/blog/"
-        }
+        iconBtnTarget={"/blog/"}
         langSlug={langSlug}
       />
       <Main id="main" sidePanelEnabled={sidePanel}>

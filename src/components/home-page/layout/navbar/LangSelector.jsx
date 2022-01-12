@@ -29,7 +29,7 @@ const LangSelectorDrawer = styled.div`
   border-radius: 0.375rem;
 `
 
-const LangSelector = ({ className, navVisible, extSlug, location }) => {
+const LangSelector = ({ navVisible, extSlug, location }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedLang, setSelectedLang] = useState(location.pathname.includes("en") ? "US" : "FR")
   const linkExtension = extSlug ? extSlug : ""
@@ -52,7 +52,7 @@ const LangSelector = ({ className, navVisible, extSlug, location }) => {
 
   return (
     <div
-      className={"relative inline-block text-left " + className}
+      className="relative inline-block text-left mr-1 md:mr-0"
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
       role="menu"
