@@ -12,17 +12,18 @@ import { ThemeProvider } from "../components/utils/theme-context"
 
 const Content = styled.section`
   width: 75%;
-  margin: 3rem 1rem;
+  max-width: 800px;
+  margin: 0 1rem;
   border-radius: 16px;
   overflow: hidden;
 
   @media (max-width: 768px) {
+    margin: 3rem auto 0rem auto;
+    max-width: 100%;
     width: ${(props) =>
-      props.scrollAmount >= 200
+      props.scrollAmount >= 250
         ? "100%"
         : Math.round(((props.scrollAmount * 100) / 200 / 100) * 20) + 85 + "%"};
-    margin: 0 auto;
-    margin-top: 7rem;
     border-radius: ${(props) =>
       props.scrollAmount >= 100
         ? "0px"
@@ -122,12 +123,6 @@ export const queryBlogPost = graphql`
               title
             }
           }
-          ... on DatoCmsBlogPostCodeBlock {
-            id: originalId
-            code
-            language
-            showLineNumbers
-          }
           ... on DatoCmsBlogPostAside {
             id: originalId
             content
@@ -152,6 +147,11 @@ export const queryBlogPost = graphql`
           title
           publishDate(formatString: "DD/MM/YYYY", locale: $locale)
           slug
+          featuredImage {
+            gatsbyImageData(placeholder: TRACED_SVG, width: 300)
+            alt
+            title
+          }
         }
       }
     }

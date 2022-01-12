@@ -1,55 +1,17 @@
 import React, { useState } from "react"
 
 import { GatsbyImage } from "gatsby-plugin-image"
-import { StructuredText } from "react-datocms"
+import { renderRule, StructuredText } from "react-datocms"
 import styled, { keyframes } from "styled-components"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { atomOneDark as codeBlockTheme } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
 import CopyIcon from "../../../images/svg/icons/copy.svg"
+import { isCode } from "datocms-structured-text-utils"
 
 const ContentWrapper = styled.article`
   padding: 1.75rem 2.25rem;
-
-  h2 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-
-    // text-gray-600
-    color: rgba(75, 85, 99, 1) !important;
-
-    //dark:text-gray-400
-    .dark & {
-      & {
-        color: rgba(156, 163, 175, 1) !important;
-      }
-    }
-  }
-
-  h4 {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-    text-align: justify;
-
-    &::before {
-      display: inline-block;
-      content: "";
-      width: 0.5rem;
-    }
-  }
+  margin: 0 auto;
 
   code {
     tab-size: 2;
@@ -129,54 +91,53 @@ const PostBody = ({ content, copiedMessage }) => {
 
   return (
     <>
-      <ContentWrapper>
+      <ContentWrapper className="prose md:prose-md lg:prose-lg dark:prose-invert">
         <StructuredText
           data={content}
-          renderBlock={({ record }) => {
-            if (record.__typename === "DatoCmsBlogPostImage") {
+          customRules={[
+            renderRule(isCode, ({ node, key }) => {
               return (
-                <BlogPostImage
-                  image={record.image}
-                  title={record.imageTitle ? record.imageTitle : record.image.title}
-                />
-              )
-            } else if (record.__typename === "DatoCmsBlogPostCodeBlock") {
-              return (
-                <div className="relative max-w-3xl -mt-2">
+                <div className="relative max-W-3xl-mt-2" key={key}>
                   <CopyButton
-                    onClick={() => copyToClipBoard(record.code)}
+                    onClick={() => copyToClipBoard(node.code)}
                     className="text-gray-100 hover:text-white"
                     aria-label="Copy to clipboard"
                   >
                     <CopyIcon className="h-5 w-5" />
                   </CopyButton>
                   <SyntaxHighlighter
-                    language={record.language}
+                    language={node.language}
                     style={codeBlockTheme}
-                    showLineNumbers={record.showLineNumbers}
+                    showLineNumbers
                     customStyle={{
                       marginBottom: "1rem",
                       borderRadius: "6px",
                     }}
                   >
-                    {record.code}
+                    {node.code}
                   </SyntaxHighlighter>
                 </div>
               )
-            } else if (record.__typename === "DatoCmsBlogPostAside") {
-              return (
-                <Aside className="border-gray-400 bg-gray-200  dark:border-gray-400 dark:bg-gray-700">
-                  {record.content}
-                </Aside>
-              )
+            }),
+          ]}
+          renderBlock={({ record }) => {
+            switch (record.__typename) {
+              case "DatoCmsBlogPostImage":
+                return (
+                  <BlogPostImage
+                    image={record.image}
+                    title={record.imageTitle ? record.imageTitle : record.image.title}
+                  />
+                )
+              case "DatoCmsBlogPostAside":
+                return (
+                  <Aside className="border-gray-400 bg-gray-200  dark:border-gray-400 dark:bg-gray-700">
+                    {record.content}
+                  </Aside>
+                )
+              default:
+                return null
             }
-
-            return (
-              <>
-                <p>Don't know how to render a block!</p>
-                <pre>{JSON.stringify(record, null, 2)}</pre>
-              </>
-            )
           }}
         />
       </ContentWrapper>

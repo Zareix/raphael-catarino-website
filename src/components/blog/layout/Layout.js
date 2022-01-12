@@ -7,15 +7,18 @@ import SidePanel from "./SidePanel"
 
 const Main = styled.main`
   z-index: 10;
+  width: 95%;
   display: flex;
   margin: 0 auto;
-  margin-bottom: 0;
-  flex-direction: ${({ sidePanelEnabled }) =>
-    sidePanelEnabled ? "row" : "column"};
+  margin-bottom: 5rem;
+  flex-direction: ${({ sidePanelEnabled }) => (sidePanelEnabled ? "row" : "column")};
   min-height: 80vh;
+  justify-content: center;
 
-  @media (min-width: 768px) {
-    width: 95%;
+  @media (max-width: 768px) {
+    width: auto;
+    flex-direction: column;
+    margin-bottom: 0;
   }
 `
 
@@ -54,11 +57,7 @@ const Layout = ({
       <Main sidePanelEnabled={sidePanel}>
         {children}
         {sidePanel && (
-          <SidePanel
-            latestPosts={latestPosts}
-            currentPostId={currentPostId}
-            location={location}
-          />
+          <SidePanel latestPosts={latestPosts} currentPostId={currentPostId} location={location} />
         )}
       </Main>
       <Footer dataContact={contactData} message={footerData.footerMessage} />
