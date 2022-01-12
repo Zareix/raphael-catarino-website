@@ -12,7 +12,7 @@ import { ThemeProvider } from "../components/utils/theme-context"
 
 const BlogList = styled.section`
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
   margin-bottom: 4rem;
   display: flex;
   flex-wrap: wrap;
