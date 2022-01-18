@@ -31,7 +31,8 @@ const IndexPage = ({ data, location }) => {
   const { disableScroll, enableScroll } = useScrollEvent()
   const [isLoading, setIsLoading] = useState(true)
 
-  const datoCmsData = {
+  const cmsData = {
+    location,
     biographie: data.datoCmsBiography,
     hero: data.datoCmsHomePage,
     timeline: {
@@ -52,6 +53,16 @@ const IndexPage = ({ data, location }) => {
       stepShowMore: data.datoCmsHomePage.projectsShowMoreStep,
       showMoreLabel: data.datoCmsHomePage.projectsLabelShowMoreBtn,
     },
+    layout: {
+      navbar: data.datoCmsNavbar,
+      footer: {
+        message: data.datoCmsFooter.footerMessage,
+      },
+    },
+    contact: data.datoCmsContactForm,
+    loading: {
+      text: data.datoCmsHomePage.loadingText,
+    },
   }
 
   useEffect(() => {
@@ -67,7 +78,7 @@ const IndexPage = ({ data, location }) => {
   }, [location])
 
   return (
-    <CmsDataContext.Provider value={datoCmsData}>
+    <CmsDataContext.Provider value={cmsData}>
       <Helmet
         htmlAttributes={{
           lang: data.datoCmsSite.locale,
@@ -77,10 +88,8 @@ const IndexPage = ({ data, location }) => {
         favicon={data.datoCmsSite.faviconMetaTags}
         seo={data.datoCmsHomePage.seoMetaTags}
       />
-      <AnimatePresence initial={false}>
-        {isLoading && <Loading text={data.datoCmsHomePage.loadingText} />}
-      </AnimatePresence>
-      <Layout data={data} location={location}>
+      <AnimatePresence initial={false}>{isLoading && <Loading />}</AnimatePresence>
+      <Layout location={location}>
         <Main id="main">
           <Hero />
           <section id="bio">

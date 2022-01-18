@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
+import CmsDataContext from "../../utils/context/data-context"
 
 const BlogPost = styled(Link)`
   width: 90%;
@@ -33,7 +34,13 @@ const NoContent = styled.li`
   }
 `
 
-const SidePanel = ({ latestPosts, currentPostId, location }) => {
+const SidePanel = () => {
+  const {
+    location,
+    allBlogPosts,
+    blogPost: { id: currentPostId },
+  } = useContext(CmsDataContext)
+
   return (
     <section className="mx-5 mb-10 mt-12 md:m-0 md:w-1/4" id="sidePanel">
       <div className="md:sticky top-24">
@@ -42,7 +49,7 @@ const SidePanel = ({ latestPosts, currentPostId, location }) => {
             Les derniers posts
           </h2>
           <ul>
-            {latestPosts
+            {allBlogPosts
               .filter(({ node: p }) => p.id !== currentPostId)
               .map(({ node: p }) => (
                 <BlogPost

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 
 import { Link, animateScroll } from "react-scroll"
 import styled from "styled-components"
@@ -13,6 +13,7 @@ import useScroll from "../../../hooks/use-scroll"
 import useWindowWidth from "../../../hooks/use-window-width"
 import LightDarkSwitch from "../../light-dark-switch/LightDarkSwitch"
 import { fadeIn } from "../../../utils/framer-motion-variants"
+import CmsDataContext from "../../../utils/context/data-context"
 
 const slideIn = {
   hidden: {
@@ -45,17 +46,16 @@ const Overlay = styled(motion.div)`
   backdrop-filter: blur(2px);
 `
 
-const Navigation = ({
-  data: { links, contactBtnVisible, labelContactLink, blogBtnVisible, labelBlogLink },
-  alwaysDisplayed,
-  iconBtnTarget,
-  langSlug,
-  location,
-}) => {
+const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
   const { scrolled, scrollAmount } = useScroll()
   const { isMobile } = useWindowWidth()
   const [visible, setVisible] = useState(scrolled)
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
+
+  const {
+    location,
+    layout: { navbar },
+  } = useContext(CmsDataContext)
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -135,7 +135,7 @@ const Navigation = ({
               )}
               {!isMobile && (
                 <ul className="flex ml-10 justify-center items-center space-x-4">
-                  {links.map((link, i) => (
+                  {navbar.links.map((link, i) => (
                     <li key={i} className="h-full flex items-center text-center">
                       {link.target.includes("/") ? (
                         <GatsbyLink
@@ -169,27 +169,27 @@ const Navigation = ({
             </div>
             {!isMobile && (
               <>
-                {blogBtnVisible && (
+                {navbar.blogBtnVisible && (
                   <GatsbyLink
                     className="outline-none cursor-pointer nav-link px-3 py-2 rounded-full text-sm font-medium"
                     activeClassName="link-active"
                     to="blog"
                   >
-                    {labelBlogLink}
+                    {navbar.labelBlogLink}
                   </GatsbyLink>
                 )}
-                {contactBtnVisible && (
+                {navbar.contactBtnVisible && (
                   <button
                     className="outline-none cursor-pointer nav-link px-3 py-2 rounded-full text-sm font-medium"
                     onClick={openContactForm}
                   >
-                    {labelContactLink}
+                    {navbar.labelContactLink}
                   </button>
                 )}
                 <LightDarkSwitch className="px-2 nav-link border-l" />
                 <div className="flex items-center">
                   <LangSelector
-                    navVisible={visible || alwaysDisplayed}
+                    navVisible={visible || navbar.alwaysDisplayed}
                     location={location}
                     extSlug={langSlug}
                   />
@@ -202,7 +202,7 @@ const Navigation = ({
                 <LightDarkSwitch className="mr-4 nav-link" />
                 <LangSelector
                   className="mr-2"
-                  navVisible={visible || alwaysDisplayed}
+                  navVisible={visible || navbar.alwaysDisplayed}
                   location={location}
                   extSlug={langSlug}
                 />
@@ -232,7 +232,7 @@ const Navigation = ({
                   exit="exit"
                 >
                   <ul>
-                    {links.map((link, i) => (
+                    {navbar.links.map((link, i) => (
                       <li key={i}>
                         {link.target.includes("/") ? (
                           <GatsbyLink
@@ -266,26 +266,26 @@ const Navigation = ({
                     ))}
                   </ul>
                   <div className="flex divide-x">
-                    {contactBtnVisible && (
+                    {navbar.contactBtnVisible && (
                       <button
                         className={
                           "cursor-pointer nav-link p-2 text-base font-medium" +
-                          (blogBtnVisible ? " w-1/2 text-right" : " mx-auto")
+                          (navbar.blogBtnVisible ? " w-1/2 text-right" : " mx-auto")
                         }
                         onClick={openContactForm}
                       >
-                        {labelContactLink}
+                        {navbar.labelContactLink}
                       </button>
                     )}
-                    {blogBtnVisible && (
+                    {navbar.blogBtnVisible && (
                       <GatsbyLink
                         className={
                           "cursor-pointer nav-link block p-2 text-base font-medium" +
-                          (contactBtnVisible ? " w-1/2 text-left" : " mx-auto")
+                          (navbar.contactBtnVisible ? " w-1/2 text-left" : " mx-auto")
                         }
                         to="blog"
                       >
-                        {labelBlogLink}
+                        {navbar.labelBlogLink}
                       </GatsbyLink>
                     )}
                   </div>

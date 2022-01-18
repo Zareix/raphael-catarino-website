@@ -1,8 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 
 import Footer from "../../home-page/layout/Footer"
 import Navigation from "../../home-page/layout/navbar/Navbar"
+import CmsDataContext from "../../utils/context/data-context"
+import { ThemeProvider } from "../../utils/context/theme-context"
 import SidePanel from "./SidePanel"
 
 const Main = styled.main`
@@ -22,30 +24,12 @@ const Main = styled.main`
   }
 `
 
-const Layout = ({
-  children,
-  footerData,
-  contactData,
-  navData,
-  latestPosts,
-  currentPostId,
-  location,
-  sidePanel,
-  langSlug,
-}) => {
-  const navigationData = {
-    links: navData.navLinks,
-    labelContactLink: navData.navLabelContactLink,
-    contactBtnVisible: navData.navContactBtnVisible,
-    blogBtnVisible: false,
-    labelBlogLink: "",
-  }
+const Layout = ({ children, sidePanel, langSlug }) => {
+  const { location } = useContext(CmsDataContext)
 
   return (
-    <>
+    <ThemeProvider>
       <Navigation
-        location={location}
-        data={navigationData}
         alwaysDisplayed
         iconBtnTarget={
           (location.pathname.match(/(\/(..)\/)/)
@@ -56,12 +40,10 @@ const Layout = ({
       />
       <Main sidePanelEnabled={sidePanel}>
         {children}
-        {sidePanel && (
-          <SidePanel latestPosts={latestPosts} currentPostId={currentPostId} location={location} />
-        )}
+        {sidePanel && <SidePanel />}
       </Main>
-      <Footer dataContact={contactData} message={footerData.footerMessage} />
-    </>
+      <Footer />
+    </ThemeProvider>
   )
 }
 

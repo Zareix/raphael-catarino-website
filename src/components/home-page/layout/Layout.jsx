@@ -5,12 +5,12 @@ import Footer from "./Footer"
 
 import { ThemeProvider } from "../../utils/context/theme-context"
 
-const Layout = ({ data, children, location }) => {
+const Layout = ({ children }) => {
   return (
     <ThemeProvider>
-      <Navigation data={data.datoCmsNavbar} location={location} />
+      <Navigation />
       {children}
-      <Footer dataContact={data.datoCmsContactForm} message={data.datoCmsFooter.footerMessage} />
+      <Footer />
     </ThemeProvider>
   )
 }

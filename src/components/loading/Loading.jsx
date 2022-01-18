@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import { motion } from "framer-motion"
 import styled, { keyframes } from "styled-components"
+
+import CmsDataContext from "../utils/context/data-context"
 
 const LoadingSection = styled(motion.div)`
   z-index: 10000;
@@ -32,7 +34,7 @@ const slideUp = {
   },
 }
 
-const loading = keyframes`
+const loadingAnim = keyframes`
   0%{
     transform : rotate(0deg);
   }
@@ -78,7 +80,7 @@ const LoadingAnimation = styled.div`
     height: 500%;
     width: 50px;
     background-color: rgba(17, 24, 39);
-    animation: ${loading} infinite 2.5s;
+    animation: ${loadingAnim} infinite 2.5s;
 
     .dark & {
       background-color: rgba(249, 250, 251);
@@ -86,7 +88,9 @@ const LoadingAnimation = styled.div`
   }
 `
 
-const Loading = ({ text }) => {
+const Loading = () => {
+  const { loading } = useContext(CmsDataContext)
+
   return (
     <LoadingSection
       className="bg-gray-50 dark:bg-gray-900"
@@ -96,7 +100,7 @@ const Loading = ({ text }) => {
       exit="exit"
     >
       <LoadingAnimation>
-        <span>{text}</span>
+        <span>{loading.text}</span>
       </LoadingAnimation>
     </LoadingSection>
   )
