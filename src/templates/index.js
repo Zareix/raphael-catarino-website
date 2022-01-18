@@ -18,6 +18,7 @@ import Timeline from "../components/home-page/timeline/Timeline"
 import useScrolled from "../components/hooks/use-scroll"
 import Loading from "../components/loading/Loading"
 import useScrollEvent from "../components/hooks/use-scroll-event"
+import DataContext from "../components/utils/context/data-context"
 
 const Main = styled.main`
   margin-left: auto;
@@ -29,6 +30,10 @@ const IndexPage = ({ data, location }) => {
   const { scrolled } = useScrolled()
   const { disableScroll, enableScroll } = useScrollEvent()
   const [isLoading, setIsLoading] = useState(true)
+
+  const datoCmsData = {
+    biographie: data.datoCmsBiography,
+  }
 
   useEffect(() => {
     if (location.pathname === "/") navigator.language.startsWith("en") && navigate("en/")
@@ -43,7 +48,7 @@ const IndexPage = ({ data, location }) => {
   }, [location])
 
   return (
-    <>
+    <DataContext.Provider value={datoCmsData}>
       <Helmet
         htmlAttributes={{
           lang: data.datoCmsSite.locale,
@@ -61,9 +66,7 @@ const IndexPage = ({ data, location }) => {
           <Hero data={data.datoCmsHomePage} />
           <section id="bio">
             <AnimatePresence>{!scrolled && <BeforeContent />}</AnimatePresence>
-            <AnimatePresence>
-              {scrolled && <Biographie data={data.datoCmsBiography} />}
-            </AnimatePresence>
+            <AnimatePresence>{scrolled && <Biographie />}</AnimatePresence>
             {!scrolled && <div className="empty-content" />}
           </section>
           <Timeline
@@ -86,7 +89,7 @@ const IndexPage = ({ data, location }) => {
           />
         </Main>
       </Layout>
-    </>
+    </DataContext.Provider>
   )
 }
 
