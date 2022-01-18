@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import Footer from "../../home-page/layout/Footer"
 import Navigation from "../../home-page/layout/navbar/Navbar"
+import { ThemeProvider } from "../../utils/context/theme-context"
 import SidePanel from "./SidePanel"
 
 const Main = styled.main`
@@ -42,7 +43,7 @@ const Layout = ({
   }
 
   return (
-    <>
+    <ThemeProvider>
       <Navigation
         location={location}
         data={navigationData}
@@ -61,7 +62,7 @@ const Layout = ({
         )}
       </Main>
       <Footer dataContact={contactData} message={footerData.footerMessage} />
-    </>
+    </ThemeProvider>
   )
 }
 
