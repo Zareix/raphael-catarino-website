@@ -33,6 +33,25 @@ const IndexPage = ({ data, location }) => {
 
   const datoCmsData = {
     biographie: data.datoCmsBiography,
+    hero: data.datoCmsHomePage,
+    timeline: {
+      elements: data.allDatoCmsTimeline.edges,
+      title: data.datoCmsHomePage.timelineTitle,
+      subtitle: data.datoCmsHomePage.timelineSubtitle,
+    },
+    competences: {
+      categories: data.allDatoCmsCompetence.edges,
+      title: data.datoCmsHomePage.compTitle,
+      subtitle: data.datoCmsHomePage.compSubtitle,
+    },
+    projects: {
+      elements: data.allDatoCmsProject.edges,
+      title: data.datoCmsHomePage.projectsTitle,
+      subtitle: data.datoCmsHomePage.projectsSubtitle,
+      defaultShownItems: data.datoCmsHomePage.projectDefaultShown,
+      stepShowMore: data.datoCmsHomePage.projectsShowMoreStep,
+      showMoreLabel: data.datoCmsHomePage.projectsLabelShowMoreBtn,
+    },
   }
 
   useEffect(() => {
@@ -63,30 +82,15 @@ const IndexPage = ({ data, location }) => {
       </AnimatePresence>
       <Layout data={data} location={location}>
         <Main id="main">
-          <Hero data={data.datoCmsHomePage} />
+          <Hero />
           <section id="bio">
             <AnimatePresence>{!scrolled && <BeforeContent />}</AnimatePresence>
             <AnimatePresence>{scrolled && <Biographie />}</AnimatePresence>
             {!scrolled && <div className="empty-content" />}
           </section>
-          <Timeline
-            data={data.allDatoCmsTimeline}
-            title={data.datoCmsHomePage.timelineTitle}
-            subtitle={data.datoCmsHomePage.timelineSubtitle}
-          />
-          <Competences
-            data={data.allDatoCmsCompetence}
-            title={data.datoCmsHomePage.compTitle}
-            subtitle={data.datoCmsHomePage.compSubtitle}
-          />
-          <Projets
-            data={data.allDatoCmsProject}
-            title={data.datoCmsHomePage.projectsTitle}
-            subtitle={data.datoCmsHomePage.projectsSubtitle}
-            defaultShownItems={data.datoCmsHomePage.projectDefaultShown}
-            stepShowMore={data.datoCmsHomePage.projectsShowMoreStep}
-            showMoreLabel={data.datoCmsHomePage.projectsLabelShowMoreBtn}
-          />
+          <Timeline />
+          <Competences />
+          <Projets />
         </Main>
       </Layout>
     </CmsDataContext.Provider>

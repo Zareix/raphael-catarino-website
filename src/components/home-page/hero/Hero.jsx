@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled, { keyframes } from "styled-components"
 
 import Illustration from "../../../images/svg/hero_illustration.svg"
 import BgHero from "../../../images/svg/hero-bg-wave.svg"
+import CmsDataContext from "../../utils/context/data-context"
 
 const textAppear = keyframes`
   100%{
@@ -112,17 +113,19 @@ const BGWrapper = styled.div`
   }
 `
 
-const Hero = ({ data }) => {
+const Hero = () => {
+  const { hero } = useContext(CmsDataContext)
+
   return (
     <HeroSection className="bg-white dark:bg-slate-800">
       <HeroWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
           <div className="mx-auto w-fit text-section">
             <h1 className="font-bold text-4xl md:text-5xl">
-              <span>{data.presTitle}</span>
+              <span>{hero.presTitle}</span>
             </h1>
             <h2 className="mt-2 text-gray-400">
-              <span>{data.presSubtitle}</span>
+              <span>{hero.presSubtitle}</span>
             </h2>
           </div>
         </div>
