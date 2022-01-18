@@ -7,7 +7,9 @@
     border-color 500ms linear, border 500ms linear;
 }
 
-* {
+*,
+*::after,
+*::before {
   transition: var(--transition-color);
 }
 

@@ -18,6 +18,7 @@ import Timeline from "../components/home-page/timeline/Timeline"
 import useScrolled from "../components/hooks/use-scroll"
 import Loading from "../components/loading/Loading"
 import { ThemeProvider } from "../components/utils/theme-context"
+import useScrollEvent from "../components/hooks/use-scroll-event"
 
 const Main = styled.main`
   margin-left: auto;
@@ -27,14 +28,19 @@ const Main = styled.main`
 `
 const IndexPage = ({ data, location }) => {
   const { scrolled } = useScrolled()
+  const { disableScroll, enableScroll } = useScrollEvent()
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     if (location.pathname === "/") navigator.language.startsWith("en") && navigate("en/")
 
+    disableScroll()
+
     setTimeout(() => {
       setIsLoading(false)
+      enableScroll()
     }, 2000)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location])
 
   return (

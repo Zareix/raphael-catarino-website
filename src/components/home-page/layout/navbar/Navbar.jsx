@@ -186,7 +186,7 @@ const Navigation = ({
                     {labelContactLink}
                   </button>
                 )}
-                <LightDarkSwitch className="mr-2 nav-link" />
+                <LightDarkSwitch className="pl-2 pr-3 nav-link border-l" />
                 <div className="flex items-center">
                   <LangSelector
                     navVisible={visible || alwaysDisplayed}
@@ -199,9 +199,9 @@ const Navigation = ({
 
             {isMobile && (
               <>
-                <LightDarkSwitch className="mr-2 nav-link" />
+                <LightDarkSwitch className="mr-4 nav-link" />
                 <LangSelector
-                  className="mr-1"
+                  className="mr-2"
                   navVisible={visible || alwaysDisplayed}
                   location={location}
                   extSlug={langSlug}

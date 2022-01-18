@@ -6,8 +6,12 @@ const ThemeProvider = ({ children }) => {
   const [selectedTheme, setSelectedTheme] = useState("")
 
   const setTheme = (themeName) => {
-    document.documentElement.classList.add(themeName)
     setSelectedTheme(themeName)
+    if (themeName === "auto") {
+      document.documentElement.classList.add(getOsTheme())
+    } else {
+      document.documentElement.classList.add(themeName)
+    }
     localStorage.setItem("theme", themeName)
   }
 
@@ -15,24 +19,37 @@ const ThemeProvider = ({ children }) => {
     if (localStorage.getItem("theme")) {
       setTheme(localStorage.getItem("theme"))
     } else {
-      const preferredTheme =
-        window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light"
+      const preferredTheme = getOsTheme()
       setTheme(preferredTheme)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const switchTheme = () => {
-    if (selectedTheme === "dark") {
-      document.documentElement.classList.remove("dark")
-      setTheme("light")
-    } else {
-      document.documentElement.classList.remove("light")
-      setTheme("dark")
+    switch (selectedTheme) {
+      case "light":
+        document.documentElement.classList.remove("light")
+        setTheme("dark")
+        break
+      case "dark":
+        document.documentElement.classList.remove("dark")
+        setTheme("auto")
+        break
+      case "auto":
+        document.documentElement.classList.remove("light")
+        document.documentElement.classList.remove("dark")
+        document.documentElement.classList.remove("auto")
+        setTheme("light")
+        break
+      default:
+        break
     }
   }
 
+  const getOsTheme = () =>
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light"
   return (
     <ThemeContext.Provider
       value={{
