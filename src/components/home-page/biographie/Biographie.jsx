@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { motion } from "framer-motion"
 
 import { fadeInSlow } from "../../utils/framer-motion-variants"
-import DataContext from "../../utils/context/data-context"
+import CmsDataContext from "../../utils/context/data-context"
 
 const BioStyled = styled(motion.div)`
   width: 40%;
@@ -31,7 +31,7 @@ const BioStyled = styled(motion.div)`
 `
 
 const Biographie = () => {
-  const { biographie } = useContext(DataContext)
+  const { biographie } = useContext(CmsDataContext)
 
   return (
     <BioStyled

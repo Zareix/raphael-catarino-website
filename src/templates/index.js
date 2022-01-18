@@ -18,7 +18,7 @@ import Timeline from "../components/home-page/timeline/Timeline"
 import useScrolled from "../components/hooks/use-scroll"
 import Loading from "../components/loading/Loading"
 import useScrollEvent from "../components/hooks/use-scroll-event"
-import DataContext from "../components/utils/context/data-context"
+import CmsDataContext from "../components/utils/context/data-context"
 
 const Main = styled.main`
   margin-left: auto;
@@ -48,7 +48,7 @@ const IndexPage = ({ data, location }) => {
   }, [location])
 
   return (
-    <DataContext.Provider value={datoCmsData}>
+    <CmsDataContext.Provider value={datoCmsData}>
       <Helmet
         htmlAttributes={{
           lang: data.datoCmsSite.locale,
@@ -89,7 +89,7 @@ const IndexPage = ({ data, location }) => {
           />
         </Main>
       </Layout>
-    </DataContext.Provider>
+    </CmsDataContext.Provider>
   )
 }
 

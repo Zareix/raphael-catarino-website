@@ -1,5 +1,5 @@
 import { createContext } from "react"
 
-const DataContext = createContext()
+const CmsDataContext = createContext()
 
-export default DataContext
+export default CmsDataContext
