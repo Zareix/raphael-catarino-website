@@ -2,7 +2,7 @@ import React from "react"
 
 import styled, { keyframes } from "styled-components"
 
-import { useThemeContext } from "../../utils/theme-context"
+import { useThemeContext } from "../../utils/context/theme-context"
 
 import SunIcon from "../../../images/svg/icons/sun.svg"
 import MoonIcon from "../../../images/svg/icons/moon.svg"
@@ -12,6 +12,7 @@ const signature = keyframes`
     stroke-dashoffset: 0;
   }
 `
+
 const fill = keyframes`
   to{
     fill: currentColor;
@@ -30,9 +31,6 @@ const popIn = keyframes`
 `
 
 const Button = styled.button`
-  svg {
-  }
-
   .light-icon {
     fill: transparent;
     animation: ${fill} 500ms 500ms ease forwards;
@@ -63,7 +61,7 @@ const Button = styled.button`
     height: 1.2rem;
     border-radius: 100vw;
     background-color: #d1d5db;
-    animation: ${popIn} 500ms ease-out forwards;
+    animation: ${popIn} 500ms ease-in forwards;
 
     .dark & {
       background-color: #9ca3af;
@@ -79,8 +77,8 @@ const Button = styled.button`
       inset: auto;
       top: 0.6rem;
       transform: translateY(-50%);
-      width: 0.4rem;
-      height: 0.8rem;
+      width: 0.45rem;
+      height: 0.9rem;
       border-top-right-radius: 100vw;
       border-bottom-right-radius: 100vw;
       background-color: #f8fafc;
@@ -100,7 +98,7 @@ const LightDarkSwitch = ({ className }) => {
         <MoonIcon id="dark-icon" className="h-6 w-6 dark-icon" />
       ) : (
         <div className="flex items-center justify-center h-6 w-6">
-          <div className="auto-icon"></div>
+          <div className="auto-icon" />
         </div>
       )}
     </Button>

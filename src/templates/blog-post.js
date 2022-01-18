@@ -8,7 +8,6 @@ import PostBody from "../components/blog/blog-post/PostBody"
 import Layout from "../components/blog/layout/Layout"
 import PostHeader from "../components/blog/blog-post/PostHeader"
 import useScroll from "../components/hooks/use-scroll"
-import { ThemeProvider } from "../components/utils/theme-context"
 
 const Content = styled.section`
   width: 75%;
@@ -37,7 +36,7 @@ const BlogPost = ({
 }) => {
   const { scrollAmount } = useScroll()
   return (
-    <ThemeProvider>
+    <>
       <HelmetDatoCms favicon={site.favicon} seo={post.seo} />
       <Layout
         footerData={footer}
@@ -66,7 +65,7 @@ const BlogPost = ({
           <PostBody content={post.content} copiedMessage={settings.copiedMessage} />
         </Content>
       </Layout>
-    </ThemeProvider>
+    </>
   )
 }
 

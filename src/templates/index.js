@@ -17,7 +17,6 @@ import BeforeContent from "../components/home-page/BeforeContent"
 import Timeline from "../components/home-page/timeline/Timeline"
 import useScrolled from "../components/hooks/use-scroll"
 import Loading from "../components/loading/Loading"
-import { ThemeProvider } from "../components/utils/theme-context"
 import useScrollEvent from "../components/hooks/use-scroll-event"
 
 const Main = styled.main`
@@ -44,7 +43,7 @@ const IndexPage = ({ data, location }) => {
   }, [location])
 
   return (
-    <ThemeProvider>
+    <>
       <Helmet
         htmlAttributes={{
           lang: data.datoCmsSite.locale,
@@ -87,7 +86,7 @@ const IndexPage = ({ data, location }) => {
           />
         </Main>
       </Layout>
-    </ThemeProvider>
+    </>
   )
 }
 

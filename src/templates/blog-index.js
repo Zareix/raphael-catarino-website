@@ -8,7 +8,6 @@ import Layout from "../components/blog/layout/Layout"
 import PostHeader from "../components/blog/blog-post/PostHeader"
 
 import NoPostSvg from "../images/svg/no_posts.svg"
-import { ThemeProvider } from "../components/utils/theme-context"
 
 const BlogList = styled.section`
   width: 80%;
@@ -56,7 +55,7 @@ const BlogIndex = ({
   const showMore = () => setShownItems(shownItems + indexData.stepShowMore)
 
   return (
-    <ThemeProvider>
+    <>
       <HelmetDatoCms favicon={site.favicon} seo={indexData.seo} />
       <Layout
         footerData={footer}
@@ -103,7 +102,7 @@ const BlogIndex = ({
           )}
         </BlogList>
       </Layout>
-    </ThemeProvider>
+    </>
   )
 }
 

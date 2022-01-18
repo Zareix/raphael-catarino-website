@@ -1,19 +1,19 @@
 const useScrollEvent = () => {
+  const keys = { 37: 1, 38: 1, 39: 1, 40: 1 }
+
+  const preventDefault = (e) => {
+    e.preventDefault()
+  }
+
+  const preventDefaultForScrollKeys = (e) => {
+    if (keys[e.keyCode]) {
+      preventDefault(e)
+      return false
+    }
+  }
+
   // call this to Disable
-  function disableScroll() {
-    let keys = { 37: 1, 38: 1, 39: 1, 40: 1 }
-
-    function preventDefault(e) {
-      e.preventDefault()
-    }
-
-    function preventDefaultForScrollKeys(e) {
-      if (keys[e.keyCode]) {
-        preventDefault(e)
-        return false
-      }
-    }
-
+  const disableScroll = () => {
     // modern Chrome requires { passive: false } when adding event
     let supportsPassive = false
     try {
@@ -39,20 +39,7 @@ const useScrollEvent = () => {
   }
 
   // call this to Enable
-  function enableScroll() {
-    let keys = { 37: 1, 38: 1, 39: 1, 40: 1 }
-
-    function preventDefault(e) {
-      e.preventDefault()
-    }
-
-    function preventDefaultForScrollKeys(e) {
-      if (keys[e.keyCode]) {
-        preventDefault(e)
-        return false
-      }
-    }
-
+  const enableScroll = () => {
     // modern Chrome requires { passive: false } when adding event
     let supportsPassive = false
     try {

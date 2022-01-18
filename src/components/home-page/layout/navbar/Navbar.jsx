@@ -186,7 +186,7 @@ const Navigation = ({
                     {labelContactLink}
                   </button>
                 )}
-                <LightDarkSwitch className="pl-2 pr-3 nav-link border-l" />
+                <LightDarkSwitch className="px-2 nav-link border-l" />
                 <div className="flex items-center">
                   <LangSelector
                     navVisible={visible || alwaysDisplayed}
