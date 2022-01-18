@@ -19,8 +19,7 @@ const ThemeProvider = ({ children }) => {
     if (localStorage.getItem("theme")) {
       setTheme(localStorage.getItem("theme"))
     } else {
-      const preferredTheme = getOsTheme()
-      setTheme(preferredTheme)
+      setTheme("auto")
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
