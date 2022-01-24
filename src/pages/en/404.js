@@ -1,13 +1,14 @@
 import React from "react"
 
-import "../../styles/index.css"
-import Page404 from "../../images/svg/page404.svg"
-
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import { HelmetDatoCms } from "gatsby-source-datocms"
 import { Helmet } from "react-helmet"
-import { ThemeProvider } from "../../components/utils/theme-context"
+
+import "../../styles/index.css"
+import Page404 from "../../images/svg/page404.svg"
+
+import { ThemeProvider } from "../../components/utils/context/theme-context"
 
 const MainStyled = styled.main`
   height: 100vh;

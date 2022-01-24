@@ -6,15 +6,13 @@ module.exports = {
   siteMetadata: {
     title: "Portfolio",
     titleTemplate: "Raphaël Catarino | %s",
-    description:
-      "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
+    description: "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
     url: "https://www.raphael-catarino.fr",
     image: "/images/page-snap.png",
     author: "Raphaël Catarino",
   },
   flags: {
     FAST_DEV: true,
-    DEV_WEBPACK_CACHE: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
     PARALLEL_SOURCING: true,
   },
@@ -26,8 +24,7 @@ module.exports = {
       options: {
         name: "Raphaël Catarino's Website",
         short_name: "Raphaël C.",
-        description:
-          "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
+        description: "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
         start_url: "/",
         theme_color: "#6b37bf",
         background_color: "#F9FAFB",
@@ -40,8 +37,7 @@ module.exports = {
             lang: `fr`,
             name: `Raphaël Catarino - Portfolio`,
             short_name: `Raphaël C.`,
-            description:
-              "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
+            description: "Apprenez en plus sur mon parcours, mes projets et mes compétences !",
           },
           {
             start_url: `/en/`,

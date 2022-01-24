@@ -1,63 +1,47 @@
-import React from "react"
-
+import React, { useContext } from "react"
 import styled from "styled-components"
 
 import Footer from "../../home-page/layout/Footer"
 import Navigation from "../../home-page/layout/navbar/Navbar"
-import SkipToMainContent from "../../home-page/layout/skip-to-main/SkipToMainContent"
+import CmsDataContext from "../../utils/context/data-context"
+import { ThemeProvider } from "../../utils/context/theme-context"
 import SidePanel from "./SidePanel"
 
 const Main = styled.main`
   z-index: 10;
+  width: 95%;
   display: flex;
   margin: 0 auto;
-  margin-bottom: 0;
+  margin-bottom: 5rem;
   flex-direction: ${({ sidePanelEnabled }) => (sidePanelEnabled ? "row" : "column")};
   min-height: 80vh;
+  justify-content: center;
 
-  @media (min-width: 768px) {
-    width: 95%;
+  @media (max-width: 768px) {
+    width: auto;
+    flex-direction: column;
+    margin-bottom: 0;
   }
 `
 
-const Layout = ({
-  children,
-  footerData,
-  contactData,
-  navData,
-  latestPosts,
-  currentPostId,
-  location,
-  sidePanel,
-  langSlug,
-  layoutData,
-}) => {
-  const navigationData = {
-    links: navData.navLinks,
-    labelContactLink: navData.navLabelContactLink,
-    contactBtnVisible: navData.navContactBtnVisible,
-    blogBtnVisible: false,
-    labelBlogLink: "",
-  }
+const Layout = ({ children, sidePanel, langSlug }) => {
+  const { location } = useContext(CmsDataContext)
 
   return (
+    <ThemeProvider>
     <>
       <SkipToMainContent buttonText={layoutData.skipToMainButtonText} />
       <Navigation
-        location={location}
-        data={navigationData}
         alwaysDisplayed
         iconBtnTarget={"/blog/"}
         langSlug={langSlug}
       />
       <Main id="main" sidePanelEnabled={sidePanel}>
         {children}
-        {sidePanel && (
-          <SidePanel latestPosts={latestPosts} currentPostId={currentPostId} location={location} />
-        )}
+        {sidePanel && <SidePanel />}
       </Main>
-      <Footer dataContact={contactData} message={footerData.footerMessage} />
-    </>
+      <Footer />
+    </ThemeProvider>
   )
 }
 

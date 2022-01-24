@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 
 import ReactCountryFlag from "react-country-flag"
 import { navigate } from "gatsby-link"
 import styled from "styled-components"
+import CmsDataContext from "../../../utils/context/data-context"
 
 const lang = [
   {
@@ -29,7 +30,8 @@ const LangSelectorDrawer = styled.div`
   border-radius: 0.375rem;
 `
 
-const LangSelector = ({ navVisible, extSlug, location }) => {
+const LangSelector = ({ navVisible, extSlug }) => {
+  const { location } = useContext(CmsDataContext)
   const [isOpen, setIsOpen] = useState(false)
   const [selectedLang, setSelectedLang] = useState(location.pathname.includes("en") ? "US" : "FR")
   const linkExtension = extSlug ? extSlug : ""

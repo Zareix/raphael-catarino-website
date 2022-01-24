@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 
 import { Link as GatsbyLink, graphql } from "gatsby"
 import { AnimatePresence, motion } from "framer-motion"
@@ -10,6 +10,7 @@ import NavIcon from "../../../../images/svg/favicon.svg"
 import useScroll from "../../../hooks/use-scroll"
 import useWindowWidth from "../../../hooks/use-window-width"
 import LightDarkSwitch from "../../light-dark-switch/LightDarkSwitch"
+import CmsDataContext from "../../../utils/context/data-context"
 import NavbarMobileDrawer from "./NavbarMobileDrawer"
 import NavLinks from "./NavLinks"
 
@@ -35,13 +36,7 @@ export const slideInNav = {
   },
 }
 
-const Navigation = ({
-  data: { links, contactBtnVisible, labelContactLink, blogBtnVisible, labelBlogLink },
-  alwaysDisplayed,
-  iconBtnTarget,
-  langSlug,
-  location,
-}) => {
+const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
   const { scrolled, scrollAmount } = useScroll()
   const { isMobile } = useWindowWidth()
   const [visible, setVisible] = useState(scrolled)
@@ -49,6 +44,11 @@ const Navigation = ({
   const pathname = location.pathname.match(/(\/(..)\/)/)
     ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
     : ""
+
+  const {
+    location,
+    layout: { navbar },
+  } = useContext(CmsDataContext)
 
   useEffect(() => {
     const handleMouseMove = (e) => {

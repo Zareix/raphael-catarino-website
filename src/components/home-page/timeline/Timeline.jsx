@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component"
 import styled from "styled-components"
@@ -6,6 +6,7 @@ import { graphql } from "gatsby"
 import { ReactSVG } from "react-svg"
 
 import "react-vertical-timeline-component/style.min.css"
+import CmsDataContext from "../../utils/context/data-context"
 
 const TimelineSection = styled.section`
   max-width: 100vw;
@@ -44,19 +45,19 @@ const TimelineItemSubTitle = (props) => (
   <h4 className="text-base text-gray-600 dark:text-gray-300">{props.children}</h4>
 )
 
-const Timeline = ({ data, title, subtitle }) => {
-  const timelineItems = data.edges
+const Timeline = () => {
+  const { timeline } = useContext(CmsDataContext)
 
   const openInNewTab = (url) => window.open(url, "_blank").focus()
 
   return (
     <TimelineSection id="timeline">
-      <h1 className="text-3xl font-bold text-center">{title}</h1>
+      <h1 className="text-3xl font-bold text-center">{timeline.title}</h1>
       <h2 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mb-8">
-        {subtitle}
+        {timeline.subtitle}
       </h2>
       <VerticalTimeline className="vertical-timeline-custom-line VerticalTimeline">
-        {timelineItems.map(({ node: item }) => (
+        {timeline.elements.map(({ node: item }) => (
           <VerticalTimelineElement
             key={item.id}
             contentStyle={{

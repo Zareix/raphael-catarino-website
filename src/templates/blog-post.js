@@ -8,22 +8,22 @@ import PostBody from "../components/blog/blog-post/PostBody"
 import Layout from "../components/blog/layout/Layout"
 import PostHeader from "../components/blog/blog-post/PostHeader"
 import useScroll from "../components/hooks/use-scroll"
-import { ThemeProvider } from "../components/utils/theme-context"
-import { data } from "autoprefixer"
+import CmsDataContext from "../components/utils/context/data-context"
 
 const Content = styled.section`
   width: 75%;
-  margin: 3rem 1rem;
+  max-width: 800px;
+  margin: 0 1rem;
   border-radius: 16px;
   overflow: hidden;
 
   @media (max-width: 768px) {
+    margin: 3rem auto 0rem auto;
+    max-width: 100%;
     width: ${(props) =>
-      props.scrollAmount >= 200
+      props.scrollAmount >= 250
         ? "100%"
         : Math.round(((props.scrollAmount * 100) / 200 / 100) * 20) + 85 + "%"};
-    margin: 0 auto;
-    margin-top: 7rem;
     border-radius: ${(props) =>
       props.scrollAmount >= 100
         ? "0px"
@@ -31,43 +31,42 @@ const Content = styled.section`
   }
 `
 
-const BlogPost = ({
-  data: { site, post, footer, contact, allDatoCmsBlogPost, settings, layout },
-  location,
-}) => {
+const BlogPost = ({ data, location }) => {
   const { scrollAmount } = useScroll()
+
+  const cmsData = {
+    location,
+    allBlogPosts: data.allDatoCmsBlogPost.latestPosts,
+    blogPost: data.post,
+    settings: data.settings,
+    layout: {
+      navbar: {
+        links: data.settings.navLinks,
+        labelContactLink: data.settings.navLabelContactLink,
+        contactBtnVisible: data.settings.navContactBtnVisible,
+        blogBtnVisible: false,
+        labelBlogLink: "",
+      },
+      footer: {
+        message: data.footer.footerMessage,
+      },
+    },
+    contact: data.contact,
+  }
+
   return (
-    <ThemeProvider>
-      <HelmetDatoCms favicon={site.favicon} seo={post.seo} />
-      <Layout
-        layoutData={layout}
-        footerData={footer}
-        contactData={contact}
-        latestPosts={allDatoCmsBlogPost.latestPosts}
-        currentPostId={post.id}
-        location={location}
-        sidePanel
-        langSlug={"blog"}
-        navData={settings}
-      >
+    <CmsDataContext.Provider value={cmsData}>
+      <HelmetDatoCms favicon={data.site.favicon} seo={data.post.seo} />
+      <Layout sidePanel langSlug={"blog"}>
         <Content
           scrollAmount={scrollAmount}
           className="bg-white dark:bg-gray-800 shadow-md pb-10 md:pb-0"
         >
-          <PostHeader
-            title={post.title}
-            subtitle={post.subtitle}
-            featuredImage={post.featuredImage}
-            authors={post.authors}
-            publishDate={post.publishDate}
-            updateDate={post.updateDate}
-            dateText={settings.dateText}
-            updatedDateText={settings.updatedDateText}
-          />
-          <PostBody content={post.content} copiedMessage={settings.copiedMessage} />
+          <PostHeader />
+          <PostBody />
         </Content>
       </Layout>
-    </ThemeProvider>
+    </CmsDataContext.Provider>
   )
 }
 
@@ -124,12 +123,6 @@ export const queryBlogPost = graphql`
               title
             }
           }
-          ... on DatoCmsBlogPostCodeBlock {
-            id: originalId
-            code
-            language
-            showLineNumbers
-          }
           ... on DatoCmsBlogPostAside {
             id: originalId
             content
@@ -154,6 +147,11 @@ export const queryBlogPost = graphql`
           title
           publishDate(formatString: "DD/MM/YYYY", locale: $locale)
           slug
+          featuredImage {
+            gatsbyImageData(placeholder: TRACED_SVG, width: 300)
+            alt
+            title
+          }
         }
       }
     }

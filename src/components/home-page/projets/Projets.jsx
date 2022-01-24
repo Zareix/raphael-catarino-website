@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -7,31 +7,32 @@ import Tippy from "@tippyjs/react"
 import GithubIcon from "../../../images/svg/icons/github.svg"
 import ExternalLinkIcon from "../../../images/svg/icons/externalLink.svg"
 import SelectedProject from "./SelectedProject"
+import CmsDataContext from "../../utils/context/data-context"
 
-const Projets = ({ data, title, subtitle, defaultShownItems, stepShowMore, showMoreLabel }) => {
-  const [shownItems, setShownItems] = useState(defaultShownItems)
+const Projets = () => {
+  const { projects } = useContext(CmsDataContext)
+  const [shownItems, setShownItems] = useState(projects.defaultShownItems)
   const [selectedProject, setSelectedProject] = useState()
-  const projets = data.edges
 
   useEffect(() => {
-    projets.sort((x, y) => {
+    projects.elements.sort((x, y) => {
       let c = Date.parse(y.node.ogDate) - Date.parse(x.node.ogDate)
       return c > 0 ? 1 : c < 0 ? -1 : 0
     })
-  }, [projets])
+  }, [projects.elements])
 
-  const showMore = () => setShownItems(shownItems + stepShowMore)
+  const showMore = () => setShownItems(shownItems + projects.stepShowMore)
 
   return (
     <>
-      <section id="projets" className="scroll-m-20">
-        <h1 className="text-3xl font-bold text-center">{title}</h1>
+      <section id="projets">
+        <h1 className="text-3xl font-bold text-center">{projects.title}</h1>
         <h2 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mx-auto mb-8">
-          {subtitle}
+          {projects.subtitle}
         </h2>
         <div className="container mx-auto px-0 md:px-4 py-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-items-center gap-4 px-4 md:px-0">
-            {projets.slice(0, shownItems).map(({ node: project }) => (
+            {projects.elements.slice(0, shownItems).map(({ node: project }) => (
               <button
                 key={project.id}
                 className=" bg-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-white group shadow-xl hover:shadow-sm cursor-pointer w-full rounded-3xl flex flex-col items-center justify-center transition-colors duration-500 ease-in-out"
@@ -75,7 +76,7 @@ const Projets = ({ data, title, subtitle, defaultShownItems, stepShowMore, showM
                   </div>
                 </div>
                 <div className="pt-10 pb-6 w-full px-4">
-                  <h2 className="text-justify font-medium leading-none text-base tracking-wider text-gray-400 group-hover:text-gray-100 dark:text-gray-300 dark:group-hover:text-gray-800">
+                  <h2 className="text-left leading-5 text-base tracking-wide text-gray-400 group-hover:text-gray-100 dark:text-gray-300 dark:group-hover:text-gray-800">
                     {project.title}
                   </h2>
                 </div>
@@ -83,12 +84,12 @@ const Projets = ({ data, title, subtitle, defaultShownItems, stepShowMore, showM
             ))}
           </div>
         </div>
-        {shownItems < projets.length && (
+        {shownItems < projects.elements.length && (
           <button
             onClick={showMore}
             className="block mx-auto mt-4 py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-600 dark:focus:ring-offset-blue-400 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full"
           >
-            {showMoreLabel}
+            {projects.showMoreLabel}
           </button>
         )}
       </section>
