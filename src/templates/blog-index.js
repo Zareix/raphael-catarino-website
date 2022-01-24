@@ -68,7 +68,7 @@ const BlogIndex = ({ data, location }) => {
       footer: {
         message: data.footer.footerMessage,
       },
-      skipToMain: data.datoCmsLayout.skipToMainButtonText,
+      skipToMain: data.layout.skipToMainButtonText,
     },
     contact: data.contact,
   }

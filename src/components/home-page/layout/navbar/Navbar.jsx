@@ -182,7 +182,9 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
         )}
       </div>
       <AnimatePresence>
-        {isMobile && isNavDrawerOpen && <NavbarMobileDrawer closeNavDrawer={closeNavDrawer} />}
+        {isMobile && isNavDrawerOpen && (
+          <NavbarMobileDrawer closeNavDrawer={closeNavDrawer} openContactForm={openContactForm} />
+        )}
       </AnimatePresence>
     </motion.nav>
   )
