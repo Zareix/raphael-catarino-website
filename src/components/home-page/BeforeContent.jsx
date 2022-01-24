@@ -1,7 +1,6 @@
 import React from "react"
 
 import styled from "styled-components"
-import { animateScroll as scroll } from "react-scroll"
 import { motion } from "framer-motion"
 
 import { fadeInSlow } from "../utils/framer-motion-variants"
@@ -23,16 +22,11 @@ const Wrapper = styled(motion.div)`
 `
 
 const BeforeContent = () => {
-  const doScroll = () =>
-    scroll.scrollMore(window.innerWidth <= 768 ? 400 : 500, {
-      duration: 800,
-    })
-
   return (
     <Wrapper variants={fadeInSlow} initial="hidden" animate="visible" exit="exit" key="1">
-      <button className="cursor-pointer animate-bounce" onClick={doScroll}>
+      <a className="cursor-pointer animate-bounce" href="#bio">
         <ScrollDownArrowIcon className="text-gray-700 dark:text-gray-50 h-8 w-8" />
-      </button>
+      </a>
     </Wrapper>
   )
 }

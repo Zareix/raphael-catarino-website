@@ -50,6 +50,7 @@ const BlogPost = ({ data, location }) => {
       footer: {
         message: data.footer.footerMessage,
       },
+      skipToMain: data.datoCmsLayout.skipToMainButtonText,
     },
     contact: data.contact,
   }
@@ -158,6 +159,10 @@ export const queryBlogPost = graphql`
 
     footer: datoCmsFooter(locale: { eq: $locale }) {
       footerMessage
+    }
+
+    layout: datoCmsLayout(locale: { eq: $locale }) {
+      ...SkipToMain
     }
 
     contact: datoCmsContactForm(locale: { eq: $locale }) {

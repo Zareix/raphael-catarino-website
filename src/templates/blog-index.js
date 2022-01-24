@@ -5,7 +5,6 @@ import { HelmetDatoCms } from "gatsby-source-datocms"
 import styled from "styled-components"
 
 import Layout from "../components/blog/layout/Layout"
-import PostHeader from "../components/blog/blog-post/PostHeader"
 
 import NoPostSvg from "../images/svg/no_posts.svg"
 import CmsDataContext from "../components/utils/context/data-context"
@@ -69,6 +68,7 @@ const BlogIndex = ({ data, location }) => {
       footer: {
         message: data.footer.footerMessage,
       },
+      skipToMain: data.layout.skipToMainButtonText,
     },
     contact: data.contact,
   }
@@ -192,6 +192,10 @@ export const queryBlogIndex = graphql`
           }
         }
       }
+    }
+
+    layout: datoCmsLayout(locale: { eq: $locale }) {
+      ...SkipToMain
     }
 
     footer: datoCmsFooter(locale: { eq: $locale }) {

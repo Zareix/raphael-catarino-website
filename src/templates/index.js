@@ -58,6 +58,7 @@ const IndexPage = ({ data, location }) => {
       footer: {
         message: data.datoCmsFooter.footerMessage,
       },
+      skipToMain: data.datoCmsLayout.skipToMainButtonText,
     },
     contact: data.datoCmsContactForm,
     loading: {
@@ -165,6 +166,10 @@ export const queryIndex = graphql`
           ...Project
         }
       }
+    }
+
+    datoCmsLayout(locale: { eq: $locale }) {
+      ...SkipToMain
     }
 
     datoCmsNavbar(locale: { eq: $locale }) {

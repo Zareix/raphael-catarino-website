@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
 
-import { Link, animateScroll } from "react-scroll"
-import styled from "styled-components"
 import { Link as GatsbyLink, graphql } from "gatsby"
 import { AnimatePresence, motion } from "framer-motion"
 
@@ -12,10 +10,11 @@ import NavIcon from "../../../../images/svg/favicon.svg"
 import useScroll from "../../../hooks/use-scroll"
 import useWindowWidth from "../../../hooks/use-window-width"
 import LightDarkSwitch from "../../light-dark-switch/LightDarkSwitch"
-import { fadeIn } from "../../../utils/framer-motion-variants"
 import CmsDataContext from "../../../utils/context/data-context"
+import NavbarMobileDrawer from "./NavbarMobileDrawer"
+import NavLinks from "./NavLinks"
 
-const slideIn = {
+export const slideInNav = {
   hidden: {
     y: "-100%",
   },
@@ -37,25 +36,18 @@ const slideIn = {
   },
 }
 
-const Overlay = styled(motion.div)`
-  position: fixed;
-  margin-top: -10px;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(2px);
-`
-
 const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
-  const { scrolled, scrollAmount } = useScroll()
-  const { isMobile } = useWindowWidth()
-  const [visible, setVisible] = useState(scrolled)
-  const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
-
   const {
     location,
     layout: { navbar },
   } = useContext(CmsDataContext)
+  const { scrolled, scrollAmount } = useScroll()
+  const { isMobile } = useWindowWidth()
+  const [visible, setVisible] = useState(scrolled)
+  const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
+  const pathname = location.pathname.match(/(\/(..)\/)/)
+    ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
+    : ""
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -102,208 +94,99 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
   const closeNavDrawer = () => setIsNavDrawerOpen(false)
 
   return (
-    <AnimatePresence>
-      {(visible || alwaysDisplayed) && (
-        <motion.nav
-          variants={slideIn}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          id="navbar"
-          className={"z-50 w-full shadow-md" + (alwaysDisplayed ? " sticky top-0" : " fixed")}
-        >
-          <div className="px-5 md:px-12 pt-10 bg-white dark:bg-gray-800 flex items-center relative z-70">
-            <div className="grow flex items-center h-full py-3">
-              {location.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
-              location.pathname.replace(/(\/(..)\/)/, "").trim() === "" ? (
-                <button
-                  className="shrink-0 cursor-pointer outline-none h-10"
-                  onClick={() => {
-                    closeNavDrawer()
-                    animateScroll.scrollToTop()
-                  }}
-                >
-                  <NavIcon id="navIcon" />
-                </button>
-              ) : (
-                <GatsbyLink
-                  className="shrink-0 cursor-pointer outline-none h-10"
-                  to={iconBtnTarget}
-                >
-                  <NavIcon id="navIcon" />
-                </GatsbyLink>
-              )}
-              {!isMobile && (
-                <ul className="flex ml-10 justify-center items-center space-x-4">
-                  {navbar.links.map((link, i) => (
-                    <li key={i} className="h-full flex items-center text-center">
-                      {link.target.includes("/") ? (
-                        <GatsbyLink
-                          className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
-                          activeClassName="link-active"
-                          to={
-                            (location.pathname.match(/(\/(..)\/)/)
-                              ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
-                              : "") + link.target
-                          }
-                        >
-                          {link.label}
-                        </GatsbyLink>
-                      ) : (
-                        <Link
-                          className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
-                          activeClass="link-active"
-                          spy
-                          smooth
-                          offset={link.target === "bio" ? -200 : -70}
-                          duration={800}
-                          to={link.target}
-                        >
-                          {link.label}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
+    <motion.nav
+      variants={slideInNav}
+      initial="hidden"
+      animate={visible || alwaysDisplayed ? "visible" : "hidden"}
+      exit="exit"
+      id="navbar"
+      className={"z-50 w-full shadow-md" + (alwaysDisplayed ? " sticky top-0" : " fixed")}
+    >
+      <div className="px-5 md:px-12 pt-10 bg-white dark:bg-gray-800 flex items-center relative z-70">
+        <div className="grow flex items-center h-full py-3">
+          {location.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
+          location.pathname.replace(/(\/(..)\/)/, "").trim() === "" ? (
+            <button
+              className="shrink-0 cursor-pointer outline-none h-10"
+              onClick={() => {
+                closeNavDrawer()
+                window.scrollTo(0, 0)
+              }}
+            >
+              <NavIcon id="navIcon" />
+            </button>
+          ) : (
+            <GatsbyLink
+              className="shrink-0 cursor-pointer outline-none h-10"
+              to={pathname + iconBtnTarget}
+            >
+              <NavIcon id="navIcon" />
+            </GatsbyLink>
+          )}
+          {!isMobile && (
+            <NavLinks
+              links={navbar.links}
+              pathname={pathname}
+              className="flex ml-10 justify-center items-center space-x-4"
+            />
+          )}
+        </div>
+        {isMobile ? (
+          <>
+            <LightDarkSwitch className="mr-2 nav-link" />
+            <LangSelector
+              navVisible={visible || alwaysDisplayed}
+              location={location}
+              extSlug={langSlug}
+            />
+            <button
+              onClick={toggleDrawer}
+              className="-mr-2 inline-flex text-gray-800 dark:text-white hover:text-gray-400  items-center justify-center p-2 rounded-md focus:outline-none select-none"
+            >
+              <ArrowDownIcon
+                className={
+                  "h-6 w-6 transition-transform duration-500" +
+                  (isNavDrawerOpen ? " rotate-180" : "")
+                }
+              />
+            </button>
+          </>
+        ) : (
+          <>
+            {navbar.blogBtnVisible && (
+              <GatsbyLink
+                className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
+                activeClassName="link-active"
+                to="blog"
+              >
+                {navbar.labelBlogLink}
+              </GatsbyLink>
+            )}
+            {navbar.contactBtnVisible && (
+              <button
+                className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
+                onClick={openContactForm}
+              >
+                {navbar.labelContactLink}
+              </button>
+            )}
+            <LightDarkSwitch className="mr-2 nav-link" />
+            <div className="flex items-center">
+              <LangSelector
+                navVisible={visible || navbar.alwaysDisplayed}
+                location={location}
+                extSlug={langSlug}
+              />
             </div>
-            {!isMobile && (
-              <>
-                {navbar.blogBtnVisible && (
-                  <GatsbyLink
-                    className="outline-none cursor-pointer nav-link px-3 py-2 rounded-full text-sm font-medium"
-                    activeClassName="link-active"
-                    to="blog"
-                  >
-                    {navbar.labelBlogLink}
-                  </GatsbyLink>
-                )}
-                {navbar.contactBtnVisible && (
-                  <button
-                    className="outline-none cursor-pointer nav-link px-3 py-2 rounded-full text-sm font-medium"
-                    onClick={openContactForm}
-                  >
-                    {navbar.labelContactLink}
-                  </button>
-                )}
-                <LightDarkSwitch className="px-2 nav-link border-l" />
-                <div className="flex items-center">
-                  <LangSelector
-                    navVisible={visible || navbar.alwaysDisplayed}
-                    location={location}
-                    extSlug={langSlug}
-                  />
-                </div>
-              </>
-            )}
-
-            {isMobile && (
-              <>
-                <LightDarkSwitch className="mr-4 nav-link" />
-                <LangSelector
-                  className="mr-2"
-                  navVisible={visible || navbar.alwaysDisplayed}
-                  location={location}
-                  extSlug={langSlug}
-                />
-                <button
-                  onClick={toggleDrawer}
-                  className="-mr-2 inline-flex text-gray-800 dark:text-white hover:text-gray-400  items-center justify-center p-2 rounded-md focus:outline-none select-none"
-                >
-                  <ArrowDownIcon
-                    className={
-                      "h-6 w-6 transition-transform duration-500" +
-                      (isNavDrawerOpen ? " rotate-180" : "")
-                    }
-                  />
-                </button>
-              </>
-            )}
-          </div>
-          <AnimatePresence>
-            {isMobile && isNavDrawerOpen && (
-              <>
-                <motion.div
-                  id="navbarDrawer"
-                  className="px-2 pt-8 pb-3 sm:px-3 bg-white dark:bg-gray-800 w-full fixed z-60 shadow-md"
-                  variants={slideIn}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                >
-                  <ul>
-                    {navbar.links.map((link, i) => (
-                      <li key={i}>
-                        {link.target.includes("/") ? (
-                          <GatsbyLink
-                            className="cursor-pointer w-max whitespace-nowrap nav-link block px-3 py-2 rounded-md text-base font-medium"
-                            activeClassName="link-active"
-                            to={
-                              (location.pathname.match(/(\/(..)\/)/)
-                                ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
-                                : "") + link.target
-                            }
-                            onClick={() => setTimeout(closeNavDrawer)}
-                          >
-                            {link.label}
-                          </GatsbyLink>
-                        ) : (
-                          <Link
-                            key={i}
-                            className="cursor-pointer w-max whitespace-nowrap nav-link block px-3 py-2 rounded-md text-base font-medium"
-                            to={link.target}
-                            activeClass="link-active"
-                            spy
-                            smooth
-                            offset={link.target === "bio" ? -200 : -70}
-                            duration={800}
-                            onClick={() => setTimeout(closeNavDrawer)}
-                          >
-                            {link.label}
-                          </Link>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex divide-x">
-                    {navbar.contactBtnVisible && (
-                      <button
-                        className={
-                          "cursor-pointer nav-link p-2 text-base font-medium" +
-                          (navbar.blogBtnVisible ? " w-1/2 text-right" : " mx-auto")
-                        }
-                        onClick={openContactForm}
-                      >
-                        {navbar.labelContactLink}
-                      </button>
-                    )}
-                    {navbar.blogBtnVisible && (
-                      <GatsbyLink
-                        className={
-                          "cursor-pointer nav-link block p-2 text-base font-medium" +
-                          (navbar.contactBtnVisible ? " w-1/2 text-left" : " mx-auto")
-                        }
-                        to="blog"
-                      >
-                        {navbar.labelBlogLink}
-                      </GatsbyLink>
-                    )}
-                  </div>
-                </motion.div>
-                <Overlay
-                  id="navbarOverlay"
-                  onClick={closeNavDrawer}
-                  variants={fadeIn}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                />
-              </>
-            )}
-          </AnimatePresence>
-        </motion.nav>
-      )}
-    </AnimatePresence>
+          </>
+        )}
+      </div>
+      <AnimatePresence>
+        {isMobile && isNavDrawerOpen && (
+          <NavbarMobileDrawer closeNavDrawer={closeNavDrawer} openContactForm={openContactForm} />
+        )}
+      </AnimatePresence>
+    </motion.nav>
   )
 }
 

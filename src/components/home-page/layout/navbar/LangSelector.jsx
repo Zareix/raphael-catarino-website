@@ -30,7 +30,7 @@ const LangSelectorDrawer = styled.div`
   border-radius: 0.375rem;
 `
 
-const LangSelector = ({ className, navVisible, extSlug }) => {
+const LangSelector = ({ navVisible, extSlug }) => {
   const { location } = useContext(CmsDataContext)
   const [isOpen, setIsOpen] = useState(false)
   const [selectedLang, setSelectedLang] = useState(location.pathname.includes("en") ? "US" : "FR")
@@ -54,7 +54,7 @@ const LangSelector = ({ className, navVisible, extSlug }) => {
 
   return (
     <div
-      className={"relative inline-block text-left " + className}
+      className="relative inline-block text-left mr-1 md:mr-0"
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
       role="menu"
