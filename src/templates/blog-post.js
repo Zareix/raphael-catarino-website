@@ -8,6 +8,7 @@ import PostBody from "../components/blog/blog-post/PostBody"
 import Layout from "../components/blog/layout/Layout"
 import PostHeader from "../components/blog/blog-post/PostHeader"
 import useScroll from "../components/hooks/use-scroll"
+import CmsDataContext from "../components/utils/context/data-context"
 
 const Content = styled.section`
   width: 75%;
@@ -30,42 +31,42 @@ const Content = styled.section`
   }
 `
 
-const BlogPost = ({
-  data: { site, post, footer, contact, allDatoCmsBlogPost, settings },
-  location,
-}) => {
+const BlogPost = ({ data, location }) => {
   const { scrollAmount } = useScroll()
+
+  const cmsData = {
+    location,
+    allBlogPosts: data.allDatoCmsBlogPost.latestPosts,
+    blogPost: data.post,
+    settings: data.settings,
+    layout: {
+      navbar: {
+        links: data.settings.navLinks,
+        labelContactLink: data.settings.navLabelContactLink,
+        contactBtnVisible: data.settings.navContactBtnVisible,
+        blogBtnVisible: false,
+        labelBlogLink: "",
+      },
+      footer: {
+        message: data.footer.footerMessage,
+      },
+    },
+    contact: data.contact,
+  }
+
   return (
-    <>
-      <HelmetDatoCms favicon={site.favicon} seo={post.seo} />
-      <Layout
-        footerData={footer}
-        contactData={contact}
-        latestPosts={allDatoCmsBlogPost.latestPosts}
-        currentPostId={post.id}
-        location={location}
-        sidePanel
-        langSlug={"blog"}
-        navData={settings}
-      >
+    <CmsDataContext.Provider value={cmsData}>
+      <HelmetDatoCms favicon={data.site.favicon} seo={data.post.seo} />
+      <Layout sidePanel langSlug={"blog"}>
         <Content
           scrollAmount={scrollAmount}
           className="bg-white dark:bg-gray-800 shadow-md pb-10 md:pb-0"
         >
-          <PostHeader
-            title={post.title}
-            subtitle={post.subtitle}
-            featuredImage={post.featuredImage}
-            authors={post.authors}
-            publishDate={post.publishDate}
-            updateDate={post.updateDate}
-            dateText={settings.dateText}
-            updatedDateText={settings.updatedDateText}
-          />
-          <PostBody content={post.content} copiedMessage={settings.copiedMessage} />
+          <PostHeader />
+          <PostBody />
         </Content>
       </Layout>
-    </>
+    </CmsDataContext.Provider>
   )
 }
 

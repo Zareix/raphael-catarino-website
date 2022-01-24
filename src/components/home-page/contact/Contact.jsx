@@ -1,11 +1,14 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 
 import { graphql } from "gatsby"
 
 import ContactModal from "./ContactModal"
+import CmsDataContext from "../../utils/context/data-context"
 
-const Contact = ({ data }) => {
+const Contact = () => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const { contact } = useContext(CmsDataContext)
 
   const open = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -29,10 +32,10 @@ const Contact = ({ data }) => {
         className="px-4 py-1 rounded-full focus:outline-none border-2 border-gray-200 hover:bg-gray-200 hover:text-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 dark:hover:text-gray-200"
         aria-label="Open contact modal"
       >
-        {data.contactBtnText}
+        {contact.contactBtnText}
       </button>
 
-      <ContactModal visible={isOpen} close={close} data={data} />
+      <ContactModal visible={isOpen} close={close} />
 
       {/* Hidden forms that match the real one for netlify to detect */}
       <form hidden name="contact" data-netlify="true" netlify-honeypot="bot-field">

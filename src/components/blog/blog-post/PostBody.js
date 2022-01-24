@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 
 import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRule, StructuredText } from "react-datocms"
@@ -8,6 +8,7 @@ import { atomOneDark as codeBlockTheme } from "react-syntax-highlighter/dist/esm
 
 import CopyIcon from "../../../images/svg/icons/copy.svg"
 import { isCode } from "datocms-structured-text-utils"
+import CmsDataContext from "../../utils/context/data-context"
 
 const ContentWrapper = styled.article`
   padding: 1.75rem 2.25rem;
@@ -79,8 +80,10 @@ export const BlogPostImage = ({ image, title }) => {
   )
 }
 
-const PostBody = ({ content, copiedMessage }) => {
+const PostBody = () => {
   const [copied, setCopied] = useState(false)
+
+  const { blogPost } = useContext(CmsDataContext)
 
   const copyToClipBoard = (code) => {
     if (!navigator.clipboard) return
@@ -93,7 +96,7 @@ const PostBody = ({ content, copiedMessage }) => {
     <>
       <ContentWrapper className="prose md:prose-md lg:prose-lg dark:prose-invert">
         <StructuredText
-          data={content}
+          data={blogPost.content}
           customRules={[
             renderRule(isCode, ({ node, key }) => {
               return (
@@ -145,7 +148,7 @@ const PostBody = ({ content, copiedMessage }) => {
         open={copied}
         className="shadow-md bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-50"
       >
-        {copiedMessage}
+        {blogPost.copiedMessage}
       </CopiedToClipboard>
     </>
   )

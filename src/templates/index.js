@@ -18,6 +18,7 @@ import Timeline from "../components/home-page/timeline/Timeline"
 import useScrolled from "../components/hooks/use-scroll"
 import Loading from "../components/loading/Loading"
 import useScrollEvent from "../components/hooks/use-scroll-event"
+import CmsDataContext from "../components/utils/context/data-context"
 
 const Main = styled.main`
   margin-left: auto;
@@ -29,6 +30,40 @@ const IndexPage = ({ data, location }) => {
   const { scrolled } = useScrolled()
   const { disableScroll, enableScroll } = useScrollEvent()
   const [isLoading, setIsLoading] = useState(true)
+
+  const cmsData = {
+    location,
+    biographie: data.datoCmsBiography,
+    hero: data.datoCmsHomePage,
+    timeline: {
+      elements: data.allDatoCmsTimeline.edges,
+      title: data.datoCmsHomePage.timelineTitle,
+      subtitle: data.datoCmsHomePage.timelineSubtitle,
+    },
+    competences: {
+      categories: data.allDatoCmsCompetence.edges,
+      title: data.datoCmsHomePage.compTitle,
+      subtitle: data.datoCmsHomePage.compSubtitle,
+    },
+    projects: {
+      elements: data.allDatoCmsProject.edges,
+      title: data.datoCmsHomePage.projectsTitle,
+      subtitle: data.datoCmsHomePage.projectsSubtitle,
+      defaultShownItems: data.datoCmsHomePage.projectDefaultShown,
+      stepShowMore: data.datoCmsHomePage.projectsShowMoreStep,
+      showMoreLabel: data.datoCmsHomePage.projectsLabelShowMoreBtn,
+    },
+    layout: {
+      navbar: data.datoCmsNavbar,
+      footer: {
+        message: data.datoCmsFooter.footerMessage,
+      },
+    },
+    contact: data.datoCmsContactForm,
+    loading: {
+      text: data.datoCmsHomePage.loadingText,
+    },
+  }
 
   useEffect(() => {
     if (location.pathname === "/") navigator.language.startsWith("en") && navigate("en/")
@@ -43,7 +78,7 @@ const IndexPage = ({ data, location }) => {
   }, [location])
 
   return (
-    <>
+    <CmsDataContext.Provider value={cmsData}>
       <Helmet
         htmlAttributes={{
           lang: data.datoCmsSite.locale,
@@ -53,40 +88,21 @@ const IndexPage = ({ data, location }) => {
         favicon={data.datoCmsSite.faviconMetaTags}
         seo={data.datoCmsHomePage.seoMetaTags}
       />
-      <AnimatePresence initial={false}>
-        {isLoading && <Loading text={data.datoCmsHomePage.loadingText} />}
-      </AnimatePresence>
-      <Layout data={data} location={location}>
+      <AnimatePresence initial={false}>{isLoading && <Loading />}</AnimatePresence>
+      <Layout>
         <Main id="main">
-          <Hero data={data.datoCmsHomePage} />
+          <Hero />
           <section id="bio">
             <AnimatePresence>{!scrolled && <BeforeContent />}</AnimatePresence>
-            <AnimatePresence>
-              {scrolled && <Biographie data={data.datoCmsBiography} />}
-            </AnimatePresence>
+            <AnimatePresence>{scrolled && <Biographie />}</AnimatePresence>
             {!scrolled && <div className="empty-content" />}
           </section>
-          <Timeline
-            data={data.allDatoCmsTimeline}
-            title={data.datoCmsHomePage.timelineTitle}
-            subtitle={data.datoCmsHomePage.timelineSubtitle}
-          />
-          <Competences
-            data={data.allDatoCmsCompetence}
-            title={data.datoCmsHomePage.compTitle}
-            subtitle={data.datoCmsHomePage.compSubtitle}
-          />
-          <Projets
-            data={data.allDatoCmsProject}
-            title={data.datoCmsHomePage.projectsTitle}
-            subtitle={data.datoCmsHomePage.projectsSubtitle}
-            defaultShownItems={data.datoCmsHomePage.projectDefaultShown}
-            stepShowMore={data.datoCmsHomePage.projectsShowMoreStep}
-            showMoreLabel={data.datoCmsHomePage.projectsLabelShowMoreBtn}
-          />
+          <Timeline />
+          <Competences />
+          <Projets />
         </Main>
       </Layout>
-    </>
+    </CmsDataContext.Provider>
   )
 }
 

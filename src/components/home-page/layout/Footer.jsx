@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import styled from "styled-components"
 
 import LightDarkSwitch from "../light-dark-switch/LightDarkSwitch"
 import Contact from "../contact/Contact"
+import CmsDataContext from "../../utils/context/data-context"
 
 const FooterStyled = styled.footer`
   height: 30vh;
@@ -16,15 +17,19 @@ const FooterStyled = styled.footer`
   gap: 0.75rem;
 `
 
-const Footer = ({ dataContact, message }) => {
+const Footer = () => {
+  const {
+    layout: { footer },
+  } = useContext(CmsDataContext)
+
   return (
     <FooterStyled className="text-gray-200 dark:text-gray-300 bg-gray-600 dark:bg-gray-800">
       <div className="flex">
         <p>Switch Theme :</p>
         <LightDarkSwitch className="ml-1" />
       </div>
-      <Contact data={dataContact} />
-      <p>{message}</p>
+      <Contact />
+      <p>{footer.message}</p>
     </FooterStyled>
   )
 }
