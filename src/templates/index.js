@@ -58,6 +58,7 @@ const IndexPage = ({ data, location }) => {
       footer: {
         message: data.datoCmsFooter.footerMessage,
       },
+      skipToMain: data.datoCmsLayout.skipToMainButtonText,
     },
     contact: data.datoCmsContactForm,
     loading: {

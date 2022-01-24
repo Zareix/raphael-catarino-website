@@ -1,11 +1,17 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import { Link as GatsbyLink } from "gatsby"
 
-const NavLinks = ({ links, pathname, className, closeNavDrawer }) => {
+import CmsDataContext from "../../../utils/context/data-context"
+
+const NavLinks = ({ pathname, className, closeNavDrawer }) => {
+  const {
+    layout: { navbar },
+  } = useContext(CmsDataContext)
+
   return (
     <ul className={className}>
-      {links.map((link, i) => (
+      {navbar.links.map((link, i) => (
         <li key={i} className="h-full flex items-center text-center">
           {link.target.includes("/") ? (
             <GatsbyLink

@@ -37,6 +37,10 @@ export const slideInNav = {
 }
 
 const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
+  const {
+    location,
+    layout: { navbar },
+  } = useContext(CmsDataContext)
   const { scrolled, scrollAmount } = useScroll()
   const { isMobile } = useWindowWidth()
   const [visible, setVisible] = useState(scrolled)
@@ -44,11 +48,6 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
   const pathname = location.pathname.match(/(\/(..)\/)/)
     ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
     : ""
-
-  const {
-    location,
-    layout: { navbar },
-  } = useContext(CmsDataContext)
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -126,7 +125,7 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
           )}
           {!isMobile && (
             <NavLinks
-              links={links}
+              links={navbar.links}
               pathname={pathname}
               className="flex ml-10 justify-center items-center space-x-4"
             />
@@ -154,27 +153,27 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
           </>
         ) : (
           <>
-            {blogBtnVisible && (
+            {navbar.blogBtnVisible && (
               <GatsbyLink
                 className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
                 activeClassName="link-active"
                 to="blog"
               >
-                {labelBlogLink}
+                {navbar.labelBlogLink}
               </GatsbyLink>
             )}
-            {contactBtnVisible && (
+            {navbar.contactBtnVisible && (
               <button
                 className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
                 onClick={openContactForm}
               >
-                {labelContactLink}
+                {navbar.labelContactLink}
               </button>
             )}
             <LightDarkSwitch className="mr-2 nav-link" />
             <div className="flex items-center">
               <LangSelector
-                navVisible={visible || alwaysDisplayed}
+                navVisible={visible || navbar.alwaysDisplayed}
                 location={location}
                 extSlug={langSlug}
               />
@@ -183,18 +182,7 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
         )}
       </div>
       <AnimatePresence>
-        {isMobile && isNavDrawerOpen && (
-          <NavbarMobileDrawer
-            links={links}
-            closeNavDrawer={closeNavDrawer}
-            contactBtnVisible={contactBtnVisible}
-            blogBtnVisible={blogBtnVisible}
-            pathname={pathname}
-            openContactForm={openContactForm}
-            labelBlogLink={labelBlogLink}
-            labelContactLink={labelContactLink}
-          />
-        )}
+        {isMobile && isNavDrawerOpen && <NavbarMobileDrawer closeNavDrawer={closeNavDrawer} />}
       </AnimatePresence>
     </motion.nav>
   )

@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import { graphql } from "gatsby"
 
 import styled from "styled-components"
+import CmsDataContext from "../../../utils/context/data-context"
 
 const Button = styled.a`
   z-index: 999999;
@@ -19,10 +20,14 @@ const Button = styled.a`
   }
 `
 
-const SkipToMainContent = ({ buttonText }) => {
+const SkipToMainContent = () => {
+  const {
+    layout: { navbar },
+  } = useContext(CmsDataContext)
+
   return (
     <Button href="#main" className="bg-gray-50 dark:bg-gray-900">
-      {buttonText}
+      {navbar.skipToMainButtonText}
     </Button>
   )
 }

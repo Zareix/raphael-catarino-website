@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import { motion } from "framer-motion"
 import { Link as GatsbyLink } from "gatsby"
@@ -7,6 +7,7 @@ import styled from "styled-components"
 import { fadeIn } from "../../../utils/framer-motion-variants"
 import { slideInNav } from "./Navbar"
 import NavLinks from "./NavLinks"
+import CmsDataContext from "../../../utils/context/data-context"
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -17,16 +18,11 @@ const Overlay = styled(motion.div)`
   backdrop-filter: blur(2px);
 `
 
-const NavbarMobileDrawer = ({
-  links,
-  closeNavDrawer,
-  contactBtnVisible,
-  blogBtnVisible,
-  pathname,
-  openContactForm,
-  labelContactLink,
-  labelBlogLink,
-}) => {
+const NavbarMobileDrawer = ({ closeNavDrawer, pathname, openContactForm }) => {
+  const {
+    layout: { navbar },
+  } = useContext(CmsDataContext)
+
   return (
     <>
       <motion.div
@@ -37,29 +33,29 @@ const NavbarMobileDrawer = ({
         animate="visible"
         exit="exit"
       >
-        <NavLinks links={links} pathname={pathname} closeNavDrawer={closeNavDrawer} />
-        <div className="flex divide-x">
-          {contactBtnVisible && (
-            <button
-              className={
-                "cursor-pointer nav-link p-2 text-base font-medium" +
-                (blogBtnVisible ? " w-1/2 text-right" : " mx-auto")
-              }
-              onClick={openContactForm}
-            >
-              {labelContactLink}
-            </button>
-          )}
-          {blogBtnVisible && (
+        <NavLinks pathname={pathname} closeNavDrawer={closeNavDrawer} />
+        <div className="flex divide-x divide-gray-300">
+          {navbar.blogBtnVisible && (
             <GatsbyLink
               className={
                 "cursor-pointer nav-link block p-2 text-base font-medium" +
-                (contactBtnVisible ? " w-1/2 text-left" : " mx-auto")
+                (navbar.contactBtnVisible ? " w-1/2 text-right" : " mx-auto")
               }
               to="blog"
             >
-              {labelBlogLink}
+              {navbar.labelBlogLink}
             </GatsbyLink>
+          )}
+          {navbar.contactBtnVisible && (
+            <button
+              className={
+                "cursor-pointer nav-link p-2 text-base font-medium" +
+                (navbar.blogBtnVisible ? " w-1/2 text-left" : " mx-auto")
+              }
+              onClick={openContactForm}
+            >
+              {navbar.labelContactLink}
+            </button>
           )}
         </div>
       </motion.div>

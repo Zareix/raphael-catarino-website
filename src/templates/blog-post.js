@@ -50,6 +50,7 @@ const BlogPost = ({ data, location }) => {
       footer: {
         message: data.footer.footerMessage,
       },
+      skipToMain: data.datoCmsLayout.skipToMainButtonText,
     },
     contact: data.contact,
   }
