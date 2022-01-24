@@ -89,7 +89,7 @@ const IndexPage = ({ data, location }) => {
         seo={data.datoCmsHomePage.seoMetaTags}
       />
       <AnimatePresence initial={false}>{isLoading && <Loading />}</AnimatePresence>
-      <Layout location={location}>
+      <Layout>
         <Main id="main">
           <Hero />
           <section id="bio">
