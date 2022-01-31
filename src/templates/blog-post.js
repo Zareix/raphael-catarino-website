@@ -36,7 +36,7 @@ const BlogPost = ({ data, location }) => {
 
   const cmsData = {
     location,
-    allBlogPosts: data.allDatoCmsBlogPost.latestPosts,
+    allBlogPosts: data.allPosts.latestPosts,
     blogPost: data.post,
     settings: data.settings,
     layout: {
@@ -50,7 +50,7 @@ const BlogPost = ({ data, location }) => {
       footer: {
         message: data.footer.footerMessage,
       },
-      skipToMain: data.datoCmsLayout.skipToMainButtonText,
+      skipToMain: data.layout.skipToMainButtonText,
     },
     contact: data.contact,
   }
@@ -137,7 +137,7 @@ export const queryBlogPost = graphql`
       }
     }
 
-    allDatoCmsBlogPost(
+    allPosts: allDatoCmsBlogPost(
       filter: { locale: { eq: $locale } }
       limit: 4
       sort: { fields: publishDate, order: DESC }

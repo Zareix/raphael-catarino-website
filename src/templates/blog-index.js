@@ -55,7 +55,7 @@ const BlogIndex = ({ data, location }) => {
 
   const cmsData = {
     location,
-    allBlogPosts: data.allDatoCmsBlogPost.latestPosts,
+    allBlogPosts: data.allPosts.latestPosts,
     settings: data.indexData,
     layout: {
       navbar: {
@@ -84,13 +84,13 @@ const BlogIndex = ({ data, location }) => {
           {data.indexData.subtitle}
         </h2>
         <BlogList>
-          {data.allDatoCmsBlogPost.allPosts.length === 0 && (
+          {data.allPosts.latestPosts.length === 0 && (
             <Empty id="noPosts">
               <NoPostSvg className="h-48 max-w-full" />
               <p className="mt-2">{data.indexData.noPostMessage}</p>
             </Empty>
           )}
-          {data.allDatoCmsBlogPost.allPosts.slice(0, shownItems).map(({ node: post }) => (
+          {data.allPosts.latestPosts.slice(0, shownItems).map(({ node: post }) => (
             <Post key={post.id} className="bg-white dark:bg-gray-800 shadow-md" to={post.slug}>
               <>
                 <GatsbyImage
@@ -121,7 +121,7 @@ const BlogIndex = ({ data, location }) => {
               </>
             </Post>
           ))}
-          {shownItems < data.allDatoCmsBlogPost.allPosts.length && (
+          {shownItems < data.allPosts.latestPosts.length && (
             <button
               onClick={showMore}
               className="mt-4 py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-600 dark:focus:ring-offset-blue-400 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full"
@@ -165,11 +165,11 @@ export const queryBlogIndex = graphql`
       noPostMessage
     }
 
-    allDatoCmsBlogPost(
+    allPosts: allDatoCmsBlogPost(
       filter: { locale: { eq: $locale } }
       sort: { fields: publishDate, order: DESC }
     ) {
-      allPosts: edges {
+      latestPosts: edges {
         node {
           id
           title

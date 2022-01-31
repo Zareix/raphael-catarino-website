@@ -33,36 +33,36 @@ const IndexPage = ({ data, location }) => {
 
   const cmsData = {
     location,
-    biographie: data.datoCmsBiography,
-    hero: data.datoCmsHomePage,
+    biographie: data.biography,
+    hero: data.home,
     timeline: {
-      elements: data.allDatoCmsTimeline.edges,
-      title: data.datoCmsHomePage.timelineTitle,
-      subtitle: data.datoCmsHomePage.timelineSubtitle,
+      elements: data.timeline.edges,
+      title: data.home.timelineTitle,
+      subtitle: data.home.timelineSubtitle,
     },
     competences: {
-      categories: data.allDatoCmsCompetence.edges,
-      title: data.datoCmsHomePage.compTitle,
-      subtitle: data.datoCmsHomePage.compSubtitle,
+      categories: data.competences.edges,
+      title: data.home.compTitle,
+      subtitle: data.home.compSubtitle,
     },
     projects: {
-      elements: data.allDatoCmsProject.edges,
-      title: data.datoCmsHomePage.projectsTitle,
-      subtitle: data.datoCmsHomePage.projectsSubtitle,
-      defaultShownItems: data.datoCmsHomePage.projectDefaultShown,
-      stepShowMore: data.datoCmsHomePage.projectsShowMoreStep,
-      showMoreLabel: data.datoCmsHomePage.projectsLabelShowMoreBtn,
+      elements: data.projects.edges,
+      title: data.home.projectsTitle,
+      subtitle: data.home.projectsSubtitle,
+      defaultShownItems: data.home.projectDefaultShown,
+      stepShowMore: data.home.projectsShowMoreStep,
+      showMoreLabel: data.home.projectsLabelShowMoreBtn,
     },
     layout: {
-      navbar: data.datoCmsNavbar,
+      navbar: data.navbar,
       footer: {
-        message: data.datoCmsFooter.footerMessage,
+        message: data.footer.footerMessage,
       },
-      skipToMain: data.datoCmsLayout.skipToMainButtonText,
+      skipToMain: data.layout.skipToMainButtonText,
     },
-    contact: data.datoCmsContactForm,
+    contact: data.contact,
     loading: {
-      text: data.datoCmsHomePage.loadingText,
+      text: data.home.loadingText,
     },
   }
 
@@ -82,13 +82,10 @@ const IndexPage = ({ data, location }) => {
     <CmsDataContext.Provider value={cmsData}>
       <Helmet
         htmlAttributes={{
-          lang: data.datoCmsSite.locale,
+          lang: data.settings.locale,
         }}
       />
-      <HelmetDatoCms
-        favicon={data.datoCmsSite.faviconMetaTags}
-        seo={data.datoCmsHomePage.seoMetaTags}
-      />
+      <HelmetDatoCms favicon={data.settings.faviconMetaTags} seo={data.home.seoMetaTags} />
       <AnimatePresence initial={false}>{isLoading && <Loading />}</AnimatePresence>
       <Layout>
         <Main id="main">
@@ -111,7 +108,7 @@ export default IndexPage
 
 export const queryIndex = graphql`
   query Index($locale: String!) {
-    datoCmsHomePage(locale: { eq: $locale }) {
+    home: datoCmsHomePage(locale: { eq: $locale }) {
       loadingText
       presTitle
       presSubtitle
@@ -129,22 +126,21 @@ export const queryIndex = graphql`
       projectsLabelShowMoreBtn
     }
 
-    datoCmsFooter(locale: { eq: $locale }) {
-      footerMessage
-    }
-
-    datoCmsSite(locale: { eq: $locale }) {
+    settings: datoCmsSite(locale: { eq: $locale }) {
       locale
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
       }
     }
 
-    datoCmsBiography(locale: { eq: $locale }) {
+    biography: datoCmsBiography(locale: { eq: $locale }) {
       ...Bio
     }
 
-    allDatoCmsCompetence(filter: { locale: { eq: $locale } }, sort: { fields: position }) {
+    competences: allDatoCmsCompetence(
+      filter: { locale: { eq: $locale } }
+      sort: { fields: position }
+    ) {
       edges {
         node {
           ...Comp
@@ -152,7 +148,7 @@ export const queryIndex = graphql`
       }
     }
 
-    allDatoCmsTimeline(filter: { locale: { eq: $locale } }, sort: { fields: position }) {
+    timeline: allDatoCmsTimeline(filter: { locale: { eq: $locale } }, sort: { fields: position }) {
       edges {
         node {
           ...Timeline
@@ -160,7 +156,7 @@ export const queryIndex = graphql`
       }
     }
 
-    allDatoCmsProject(filter: { locale: { eq: $locale } }) {
+    projects: allDatoCmsProject(filter: { locale: { eq: $locale } }) {
       edges {
         node {
           ...Project
@@ -168,15 +164,19 @@ export const queryIndex = graphql`
       }
     }
 
-    datoCmsLayout(locale: { eq: $locale }) {
+    layout: datoCmsLayout(locale: { eq: $locale }) {
       ...SkipToMain
     }
 
-    datoCmsNavbar(locale: { eq: $locale }) {
+    navbar: datoCmsNavbar(locale: { eq: $locale }) {
       ...Navbar
     }
 
-    datoCmsContactForm(locale: { eq: $locale }) {
+    footer: datoCmsFooter(locale: { eq: $locale }) {
+      ...Footer
+    }
+
+    contact: datoCmsContactForm(locale: { eq: $locale }) {
       ...Contact
     }
   }

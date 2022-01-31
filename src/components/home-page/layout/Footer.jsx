@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 
+import { graphql } from "gatsby"
 import styled from "styled-components"
 
 import LightDarkSwitch from "../light-dark-switch/LightDarkSwitch"
@@ -35,3 +36,9 @@ const Footer = () => {
 }
 
 export default Footer
+
+export const fragmentFooter = graphql`
+  fragment Footer on DatoCmsFooter {
+    footerMessage
+  }
+`
