@@ -18,8 +18,6 @@
   "license": "0BSD",
   "dependencies": {
     "@fontsource/open-sans": "^4.5.2",
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
     "@tippyjs/react": "^4.2.6",
     "autoprefixer": "^10.4.2",
     "babel-plugin-styled-components": "^2.0.2",
