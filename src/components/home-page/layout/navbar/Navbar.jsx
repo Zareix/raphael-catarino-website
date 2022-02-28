@@ -132,7 +132,7 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
           )}
         </div>
         {isMobile ? (
-          <>
+          <React.Fragment key="mobile">
             <LightDarkSwitch className="mr-2 nav-link" />
             <LangSelector
               navVisible={visible || alwaysDisplayed}
@@ -150,9 +150,9 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
                 }
               />
             </button>
-          </>
+          </React.Fragment>
         ) : (
-          <>
+          <React.Fragment key="large-screen">
             <div>
               {navbar.blogBtnVisible && (
                 <GatsbyLink
@@ -176,11 +176,10 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
             <div className="flex items-center">
               <LangSelector
                 navVisible={visible || navbar.alwaysDisplayed}
-                location={location}
                 extSlug={langSlug}
               />
             </div>
-          </>
+          </React.Fragment>
         )}
       </div>
       <AnimatePresence>

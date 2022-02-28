@@ -13,7 +13,6 @@ const useWindowWidth = () => {
     if (!isOnBrowser) return;
 
     const callback = () => {
-      console.log(window.innerWidth);
       setWidth(window.innerWidth);
       setIsMobile(window.innerWidth < mobileBreakpoint);
     };
