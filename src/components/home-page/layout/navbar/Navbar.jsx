@@ -33,15 +33,15 @@ export const slideInNav = {
 
 const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
   const {
-    location,
+    pageLocation,
     layout: { navbar },
   } = useContext(CmsDataContext);
   const { scrolled, scrollAmount } = useScroll();
   const { isMobile } = useWindowWidth();
   const [visible, setVisible] = useState(scrolled);
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false);
-  const pathname = location.pathname.match(/(\/(..)\/)/)
-    ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
+  const pathname = pageLocation.pathname.match(/(\/(..)\/)/)
+    ? pageLocation.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
     : "";
 
   useEffect(() => {
@@ -85,8 +85,8 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
   };
 
   const isHome = () =>
-    location.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
-    location.pathname.replace(/(\/(..)\/)/, "").trim() === "";
+    pageLocation.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
+    pageLocation.pathname.replace(/(\/(..)\/)/, "").trim() === "";
 
   const toggleDrawer = () => setIsNavDrawerOpen(!isNavDrawerOpen);
 
@@ -132,11 +132,10 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
           )}
         </div>
         {isMobile ? (
-          <React.Fragment key="mobile">
+          <>
             <LightDarkSwitch className="mr-2 nav-link" />
             <LangSelector
               navVisible={visible || alwaysDisplayed}
-              location={location}
               extSlug={langSlug}
             />
             <button
@@ -150,9 +149,9 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
                 }
               />
             </button>
-          </React.Fragment>
+          </>
         ) : (
-          <React.Fragment key="large-screen">
+          <>
             <div>
               {navbar.blogBtnVisible && (
                 <GatsbyLink
@@ -179,7 +178,7 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
                 extSlug={langSlug}
               />
             </div>
-          </React.Fragment>
+          </>
         )}
       </div>
       <AnimatePresence>

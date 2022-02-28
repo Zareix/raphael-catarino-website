@@ -1,14 +1,14 @@
-import React from "react"
+import React from "react";
 
-import { graphql } from "gatsby"
-import { HelmetDatoCms } from "gatsby-source-datocms"
-import styled from "styled-components"
+import { graphql } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
+import styled from "styled-components";
 
-import PostBody from "../components/blog/blog-post/PostBody"
-import Layout from "../components/blog/layout/Layout"
-import PostHeader from "../components/blog/blog-post/PostHeader"
-import useScroll from "../components/hooks/use-scroll"
-import CmsDataContext from "../components/utils/context/data-context"
+import PostBody from "../components/blog/blog-post/PostBody";
+import Layout from "../components/blog/layout/Layout";
+import PostHeader from "../components/blog/blog-post/PostHeader";
+import useScroll from "../components/hooks/use-scroll";
+import CmsDataContext from "../components/utils/context/data-context";
 
 const Content = styled.section`
   width: 75%;
@@ -27,15 +27,17 @@ const Content = styled.section`
     border-radius: ${(props) =>
       props.scrollAmount >= 100
         ? "0px"
-        : 16 - Math.round(((props.scrollAmount * 100) / 100 / 100) * 16) + "px"};
+        : 16 -
+          Math.round(((props.scrollAmount * 100) / 100 / 100) * 16) +
+          "px"};
   }
-`
+`;
 
 const BlogPost = ({ data, location }) => {
-  const { scrollAmount } = useScroll()
+  const { scrollAmount } = useScroll();
 
   const cmsData = {
-    location,
+    pageLocation: location,
     allBlogPosts: data.allPosts.latestPosts,
     blogPost: data.post,
     settings: data.settings,
@@ -53,7 +55,7 @@ const BlogPost = ({ data, location }) => {
       skipToMain: data.layout.skipToMainButtonText,
     },
     contact: data.contact,
-  }
+  };
 
   return (
     <CmsDataContext.Provider value={cmsData}>
@@ -68,10 +70,10 @@ const BlogPost = ({ data, location }) => {
         </Content>
       </Layout>
     </CmsDataContext.Provider>
-  )
-}
+  );
+};
 
-export default BlogPost
+export default BlogPost;
 
 export const queryBlogPost = graphql`
   query BlogPost($id: String, $locale: String) {
@@ -169,4 +171,4 @@ export const queryBlogPost = graphql`
       ...Contact
     }
   }
-`
+`;

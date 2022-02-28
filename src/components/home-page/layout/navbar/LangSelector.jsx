@@ -43,10 +43,10 @@ const LangSelectorDrawer = styled.div`
 `;
 
 const LangSelector = ({ navVisible, extSlug }) => {
-  const { location } = useContext(CmsDataContext);
+  const { pageLocation } = useContext(CmsDataContext);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState(
-    location.pathname.includes("en") ? "US" : "FR"
+    pageLocation.pathname.includes("en") ? "US" : "FR"
   );
   const linkExtension = extSlug ? extSlug : "";
 

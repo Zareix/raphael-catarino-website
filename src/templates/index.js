@@ -32,7 +32,7 @@ const IndexPage = ({ data, location }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const cmsData = {
-    location,
+    pageLocation: location,
     biographie: data.biography,
     hero: data.home,
     timeline: {

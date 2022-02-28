@@ -1,15 +1,15 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
-import { graphql, Link } from "gatsby"
-import { HelmetDatoCms } from "gatsby-source-datocms"
-import styled from "styled-components"
+import { graphql, Link } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
+import styled from "styled-components";
 
-import Layout from "../components/blog/layout/Layout"
+import Layout from "../components/blog/layout/Layout";
 
-import NoPostSvg from "../images/svg/no_posts.svg"
-import CmsDataContext from "../components/utils/context/data-context"
-import PostAuthorsList from "../components/blog/blog-post/PostAuthorsList"
-import { GatsbyImage } from "gatsby-plugin-image"
+import NoPostSvg from "../images/svg/no_posts.svg";
+import CmsDataContext from "../components/utils/context/data-context";
+import PostAuthorsList from "../components/blog/blog-post/PostAuthorsList";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const BlogList = styled.section`
   width: 80%;
@@ -25,7 +25,7 @@ const BlogList = styled.section`
     flex-direction: column;
     align-items: center;
   }
-`
+`;
 
 const Post = styled(Link)`
   width: 40%;
@@ -38,7 +38,7 @@ const Post = styled(Link)`
     margin-right: 1rem;
     margin-left: 1rem;
   }
-`
+`;
 
 const Empty = styled.div`
   margin: 0 auto;
@@ -46,15 +46,16 @@ const Empty = styled.div`
   min-height: 30rem;
   text-align: center;
   font-size: 1.2rem;
-`
+`;
 
 const BlogIndex = ({ data, location }) => {
-  const [shownItems, setShownItems] = useState(data.indexData.defaultShowMore)
+  const [shownItems, setShownItems] = useState(data.indexData.defaultShowMore);
 
-  const showMore = () => setShownItems(shownItems + data.indexData.stepShowMore)
+  const showMore = () =>
+    setShownItems(shownItems + data.indexData.stepShowMore);
 
   const cmsData = {
-    location,
+    pageLocation: location,
     allBlogPosts: data.allPosts.latestPosts,
     settings: data.indexData,
     layout: {
@@ -71,7 +72,7 @@ const BlogIndex = ({ data, location }) => {
       skipToMain: data.layout.skipToMainButtonText,
     },
     contact: data.contact,
-  }
+  };
 
   return (
     <CmsDataContext.Provider value={cmsData}>
@@ -90,37 +91,43 @@ const BlogIndex = ({ data, location }) => {
               <p className="mt-2">{data.indexData.noPostMessage}</p>
             </Empty>
           )}
-          {data.allPosts.latestPosts.slice(0, shownItems).map(({ node: post }) => (
-            <Post key={post.id} className="bg-white dark:bg-gray-800 shadow-md" to={post.slug}>
-              <>
-                <GatsbyImage
-                  image={post.featuredImage.gatsbyImageData}
-                  alt={post.featuredImage.alt}
-                  title={post.featuredImage.title}
-                  className="w-full h-52"
-                  objectFit="cover"
-                />
-                <div className="mx-10 mt-6">
-                  <h1 className="font-bold text-2xl">{post.title}</h1>
-                  <h2 className="my-2 font-semibold text-gray-500 dark:text-gray-300 text-xl">
-                    {post.subtitle}
-                  </h2>
-                  <div className="flex gap-1 md:items-center flex-wrap flex-col md:flex-row">
-                    <PostAuthorsList authors={post.authors} />{" "}
-                    <div className="text-sm flex gap-1 text-gray-500 dark:text-gray-400 w-full">
-                      {post.publishDate}
-                      {post.updateDate && (
-                        <>
-                          <b>·</b>
-                          <span>MaJ : {post.updateDate}</span>
-                        </>
-                      )}
+          {data.allPosts.latestPosts
+            .slice(0, shownItems)
+            .map(({ node: post }) => (
+              <Post
+                key={post.id}
+                className="bg-white dark:bg-gray-800 shadow-md"
+                to={post.slug}
+              >
+                <>
+                  <GatsbyImage
+                    image={post.featuredImage.gatsbyImageData}
+                    alt={post.featuredImage.alt}
+                    title={post.featuredImage.title}
+                    className="w-full h-52"
+                    objectFit="cover"
+                  />
+                  <div className="mx-10 mt-6">
+                    <h1 className="font-bold text-2xl">{post.title}</h1>
+                    <h2 className="my-2 font-semibold text-gray-500 dark:text-gray-300 text-xl">
+                      {post.subtitle}
+                    </h2>
+                    <div className="flex gap-1 md:items-center flex-wrap flex-col md:flex-row">
+                      <PostAuthorsList authors={post.authors} />{" "}
+                      <div className="text-sm flex gap-1 text-gray-500 dark:text-gray-400 w-full">
+                        {post.publishDate}
+                        {post.updateDate && (
+                          <>
+                            <b>·</b>
+                            <span>MaJ : {post.updateDate}</span>
+                          </>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </>
-            </Post>
-          ))}
+                </>
+              </Post>
+            ))}
           {shownItems < data.allPosts.latestPosts.length && (
             <button
               onClick={showMore}
@@ -132,10 +139,10 @@ const BlogIndex = ({ data, location }) => {
         </BlogList>
       </Layout>
     </CmsDataContext.Provider>
-  )
-}
+  );
+};
 
-export default BlogIndex
+export default BlogIndex;
 
 export const queryBlogIndex = graphql`
   query BlogIndex($locale: String) {
@@ -206,4 +213,4 @@ export const queryBlogIndex = graphql`
       ...Contact
     }
   }
-`
+`;

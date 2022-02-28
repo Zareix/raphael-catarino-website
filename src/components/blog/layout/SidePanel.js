@@ -1,9 +1,9 @@
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 
-import { Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import styled from "styled-components"
-import CmsDataContext from "../../utils/context/data-context"
+import { Link } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import styled from "styled-components";
+import CmsDataContext from "../../utils/context/data-context";
 
 const BlogPost = styled(Link)`
   width: 90%;
@@ -21,7 +21,7 @@ const BlogPost = styled(Link)`
     -webkit-line-clamp: 2;
     overflow: hidden;
   }
-`
+`;
 
 const NoContent = styled.li`
   display: none;
@@ -32,14 +32,14 @@ const NoContent = styled.li`
     font-style: italic;
     text-align: center;
   }
-`
+`;
 
 const SidePanel = () => {
   const {
-    location,
+    pageLocation,
     allBlogPosts,
     blogPost: { id: currentPostId },
-  } = useContext(CmsDataContext)
+  } = useContext(CmsDataContext);
 
   return (
     <section className="mx-5 mb-10 mt-12 md:m-0 md:w-1/4" id="sidePanel">
@@ -54,8 +54,8 @@ const SidePanel = () => {
               .map(({ node: p }) => (
                 <BlogPost
                   to={
-                    (location.pathname.match(/(\/(..)\/)/)
-                      ? location.pathname.match(/(\/(..)\/)/)[1]
+                    (pageLocation.pathname.match(/(\/(..)\/)/)
+                      ? pageLocation.pathname.match(/(\/(..)\/)/)[1]
                       : "/") +
                     "blog/" +
                     p.slug
@@ -71,7 +71,9 @@ const SidePanel = () => {
                   />
                   <div className="ml-2">
                     <h3 className="text-sm">{p.title}</h3>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">{p.publishDate}</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                      {p.publishDate}
+                    </p>
                   </div>
                 </BlogPost>
               ))}
@@ -80,7 +82,7 @@ const SidePanel = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SidePanel
+export default SidePanel;
