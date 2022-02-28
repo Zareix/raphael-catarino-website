@@ -93,7 +93,6 @@ const LightDarkSwitch = ({ className }) => {
 
   return (
     <Button onClick={switchTheme} className={className}>
-      {}
       {selectedTheme === "light" ? (
         <SunIcon className="h-6 w-6 light-icon" />
       ) : selectedTheme === "dark" ? (

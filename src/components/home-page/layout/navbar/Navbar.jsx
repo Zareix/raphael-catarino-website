@@ -84,6 +84,10 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
     setIsNavDrawerOpen(false);
   };
 
+  const isHome = () =>
+    location.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
+    location.pathname.replace(/(\/(..)\/)/, "").trim() === "";
+
   const toggleDrawer = () => setIsNavDrawerOpen(!isNavDrawerOpen);
 
   const closeNavDrawer = () => setIsNavDrawerOpen(false);
@@ -101,8 +105,7 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
     >
       <div className="px-5 md:px-12 pt-10 bg-white dark:bg-gray-800 flex items-center relative z-70">
         <div className="grow flex items-center h-full py-3">
-          {location.pathname.replace(/(\/(..)\/)/, "").trim() === "/" ||
-          location.pathname.replace(/(\/(..)\/)/, "").trim() === "" ? (
+          {isHome() ? (
             <button
               className="shrink-0 cursor-pointer outline-none h-10"
               onClick={() => {
@@ -150,23 +153,25 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
           </>
         ) : (
           <>
-            {navbar.blogBtnVisible && (
-              <GatsbyLink
-                className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
-                activeClassName="link-active"
-                to="blog"
-              >
-                {navbar.labelBlogLink}
-              </GatsbyLink>
-            )}
-            {navbar.contactBtnVisible && (
-              <button
-                className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
-                onClick={openContactForm}
-              >
-                {navbar.labelContactLink}
-              </button>
-            )}
+            <div>
+              {navbar.blogBtnVisible && (
+                <GatsbyLink
+                  className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
+                  activeClassName="link-active"
+                  to="blog"
+                >
+                  {navbar.labelBlogLink}
+                </GatsbyLink>
+              )}
+              {navbar.contactBtnVisible && (
+                <button
+                  className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
+                  onClick={openContactForm}
+                >
+                  {navbar.labelContactLink}
+                </button>
+              )}
+            </div>
             <LightDarkSwitch className="mr-2 nav-link" />
             <div className="flex items-center">
               <LangSelector

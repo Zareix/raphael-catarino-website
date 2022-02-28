@@ -67,8 +67,9 @@ const IndexPage = ({ data, location }) => {
   };
 
   useEffect(() => {
-    if (location.pathname === "/")
-      navigator.language.startsWith("en") && navigate("en/");
+    if (location.pathname === "/") {
+      if (navigator.language.startsWith("en")) navigate("en/");
+    }
 
     disableScroll();
 
