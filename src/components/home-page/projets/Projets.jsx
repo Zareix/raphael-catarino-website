@@ -1,31 +1,31 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react";
 
-import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import Tippy from "@tippyjs/react"
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import Tippy from "@tippyjs/react";
 
-import GithubIcon from "../../../images/svg/icons/github.svg"
-import ExternalLinkIcon from "../../../images/svg/icons/externalLink.svg"
-import SelectedProject from "./SelectedProject"
-import CmsDataContext from "../../utils/context/data-context"
+import GithubIcon from "../../../images/svg/icons/github.svg";
+import ExternalLinkIcon from "../../../images/svg/icons/externalLink.svg";
+import SelectedProject from "./SelectedProject";
+import CmsDataContext from "../../utils/context/data-context";
 
 const Projets = () => {
-  const { projects } = useContext(CmsDataContext)
-  const [shownItems, setShownItems] = useState(projects.defaultShownItems)
-  const [selectedProject, setSelectedProject] = useState()
+  const { projects } = useContext(CmsDataContext);
+  const [shownItems, setShownItems] = useState(projects.defaultShownItems);
+  const [selectedProject, setSelectedProject] = useState();
 
   useEffect(() => {
     projects.elements.sort((x, y) => {
-      let c = Date.parse(y.node.ogDate) - Date.parse(x.node.ogDate)
-      return c > 0 ? 1 : c < 0 ? -1 : 0
-    })
-  }, [projects.elements])
+      let c = Date.parse(y.node.ogDate) - Date.parse(x.node.ogDate);
+      return c > 0 ? 1 : c < 0 ? -1 : 0;
+    });
+  }, [projects.elements]);
 
-  const showMore = () => setShownItems(shownItems + projects.stepShowMore)
+  const showMore = () => setShownItems(shownItems + projects.stepShowMore);
 
   return (
     <>
-      <section id="projets">
+      <section id="projets" className="scroll-mt-20">
         <h1 className="text-3xl font-bold text-center">{projects.title}</h1>
         <h2 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mx-auto mb-8">
           {projects.subtitle}
@@ -50,7 +50,12 @@ const Projets = () => {
                   </div>
                   <div className="absolute bottom-0 left-0 -mb-4 ml-3 flex flex-row">
                     {project.isOnGithub && (
-                      <Tippy content="Github" offset={[0, 12]} arrow animation="shift-away">
+                      <Tippy
+                        content="Github"
+                        offset={[0, 12]}
+                        arrow
+                        animation="shift-away"
+                      >
                         <a
                           href={project.githubLink}
                           target="_blank"
@@ -62,7 +67,12 @@ const Projets = () => {
                       </Tippy>
                     )}
                     {project.isProjectLink && (
-                      <Tippy content="Lien" arrow animation="shift-away" offset={[0, 12]}>
+                      <Tippy
+                        content="Lien"
+                        arrow
+                        animation="shift-away"
+                        offset={[0, 12]}
+                      >
                         <a
                           href={project.link}
                           target="_blank"
@@ -93,12 +103,15 @@ const Projets = () => {
           </button>
         )}
       </section>
-      <SelectedProject project={selectedProject} deselect={() => setSelectedProject(undefined)} />
+      <SelectedProject
+        project={selectedProject}
+        deselect={() => setSelectedProject(undefined)}
+      />
     </>
-  )
-}
+  );
+};
 
-export default Projets
+export default Projets;
 
 export const fragmentProjects = graphql`
   fragment Project on DatoCmsProject {
@@ -120,4 +133,4 @@ export const fragmentProjects = graphql`
     isProjectLink
     link
   }
-`
+`;

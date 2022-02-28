@@ -1,23 +1,23 @@
-import React from "react"
+import React from "react";
 
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes } from "styled-components";
 
-import { useThemeContext } from "../../utils/context/theme-context"
+import { useThemeContext } from "../../utils/context/theme-context";
 
-import SunIcon from "../../../images/svg/icons/sun.svg"
-import MoonIcon from "../../../images/svg/icons/moon.svg"
+import SunIcon from "../../../images/svg/icons/sun.svg";
+import MoonIcon from "../../../images/svg/icons/moon.svg";
 
 const signature = keyframes`
   to {
     stroke-dashoffset: 0;
   }
-`
+`;
 
 const fill = keyframes`
   to{
     fill: currentColor;
   }
-`
+`;
 
 const popIn = keyframes`
   from {
@@ -28,10 +28,11 @@ const popIn = keyframes`
     transform: scale(1);
     opacity : 1;
   }
-`
+`;
 
 const Button = styled.button`
   .light-icon {
+    color: rgb(156, 163, 175);
     fill: transparent;
     animation: ${fill} 500ms 500ms ease forwards;
 
@@ -44,6 +45,7 @@ const Button = styled.button`
   }
 
   .dark-icon {
+    color: rgb(156, 163, 175);
     fill: transparent;
     animation: ${fill} 500ms 500ms ease forwards;
 
@@ -84,10 +86,10 @@ const Button = styled.button`
       background-color: #f8fafc;
     }
   }
-`
+`;
 
 const LightDarkSwitch = ({ className }) => {
-  const { selectedTheme, switchTheme } = useThemeContext()
+  const { selectedTheme, switchTheme } = useThemeContext();
 
   return (
     <Button onClick={switchTheme} className={className}>
@@ -102,7 +104,7 @@ const LightDarkSwitch = ({ className }) => {
         </div>
       )}
     </Button>
-  )
-}
+  );
+};
 
-export default LightDarkSwitch
+export default LightDarkSwitch;

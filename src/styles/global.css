@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --transition-color: color 50ms linear, background-color 500ms linear, fill 500ms linear,
-    border-color 500ms linear, border 500ms linear;
+  --transition-color: color 50ms linear, background-color 500ms linear,
+    fill 500ms linear, border-color 500ms linear, border 500ms linear;
 }
 
 *,

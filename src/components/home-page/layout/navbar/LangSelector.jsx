@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext } from "react";
 
-import ReactCountryFlag from "react-country-flag"
-import { navigate } from "gatsby-link"
-import styled from "styled-components"
-import CmsDataContext from "../../../utils/context/data-context"
+import ReactCountryFlag from "react-country-flag";
+import { navigate } from "gatsby-link";
+import styled, { keyframes } from "styled-components";
+import CmsDataContext from "../../../utils/context/data-context";
 
 const lang = [
   {
@@ -18,39 +18,53 @@ const lang = [
     redirect: "/en/",
     locale: "en",
   },
-]
+];
+
+const appear = keyframes`
+  0% {
+    max-height: 0;
+    width : 0;
+  }
+  100%{
+    max-height: 8rem;
+    width: 10rem;
+  }
+`;
 
 const LangSelectorDrawer = styled.div`
   position: absolute;
-  right: 0px;
+  overflow: hidden;
   width: 14rem;
+  right: 0px;
   margin-top: 0.5rem;
   transform-origin: top right;
-  box-shadow: 0px 2px 12px 2px hsl(0deg 0% 0% / 5%);
   border-radius: 0.375rem;
-`
+  animation: ${appear} 500ms ease forwards;
+`;
 
 const LangSelector = ({ navVisible, extSlug }) => {
-  const { location } = useContext(CmsDataContext)
-  const [isOpen, setIsOpen] = useState(false)
-  const [selectedLang, setSelectedLang] = useState(location.pathname.includes("en") ? "US" : "FR")
-  const linkExtension = extSlug ? extSlug : ""
+  const { location } = useContext(CmsDataContext);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState(
+    location.pathname.includes("en") ? "US" : "FR"
+  );
+  const linkExtension = extSlug ? extSlug : "";
 
-  let timeOutId
+  let timeOutId;
 
   useEffect(() => {
-    if (!navVisible) setIsOpen(false)
-  }, [navVisible])
+    if (!navVisible) setIsOpen(false);
+  }, [navVisible]);
 
   const onBlurHandler = () => {
     timeOutId = setTimeout(() => {
-      setIsOpen(false)
-    })
-  }
+      setIsOpen(false);
+    });
+  };
 
   const onFocusHandler = () => {
-    clearTimeout(timeOutId)
-  }
+    clearTimeout(timeOutId);
+  };
 
   return (
     <div
@@ -70,7 +84,10 @@ const LangSelector = ({ navVisible, extSlug }) => {
         <ReactCountryFlag countryCode={selectedLang} svg className="text-lg" />
       </button>
       {isOpen && navVisible && (
-        <LangSelectorDrawer id="langSelectorDrawer" className="bg-white dark:bg-gray-700">
+        <LangSelectorDrawer
+          id="langSelectorDrawer"
+          className="shadow-xl bg-white dark:bg-gray-700"
+        >
           <div className="py-1">
             {lang.map((l, i) => (
               <button
@@ -80,11 +97,15 @@ const LangSelector = ({ navVisible, extSlug }) => {
                   (selectedLang === l.countryCode ? " font-semibold" : "")
                 }
                 onClick={() => {
-                  setSelectedLang(l.countryCode)
-                  navigate(l.redirect + linkExtension)
+                  setSelectedLang(l.countryCode);
+                  navigate(l.redirect + linkExtension);
                 }}
               >
-                <ReactCountryFlag svg countryCode={l.countryCode} className="text-lg" />
+                <ReactCountryFlag
+                  svg
+                  countryCode={l.countryCode}
+                  className="text-lg"
+                />
                 <span className="ml-2">{l.title}</span>
               </button>
             ))}
@@ -92,7 +113,7 @@ const LangSelector = ({ navVisible, extSlug }) => {
         </LangSelectorDrawer>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default LangSelector
+export default LangSelector;

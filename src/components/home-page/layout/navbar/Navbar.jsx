@@ -1,22 +1,22 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext } from "react";
 
-import { Link as GatsbyLink, graphql } from "gatsby"
-import { AnimatePresence, motion } from "framer-motion"
+import { Link as GatsbyLink, graphql } from "gatsby";
+import { AnimatePresence, motion } from "framer-motion";
 
-import LangSelector from "./LangSelector"
+import LangSelector from "./LangSelector";
 
-import ArrowDownIcon from "../../../../images/svg/icons/arrowDown.svg"
-import NavIcon from "../../../../images/svg/favicon.svg"
-import useScroll from "../../../hooks/use-scroll"
-import useWindowWidth from "../../../hooks/use-window-width"
-import LightDarkSwitch from "../../light-dark-switch/LightDarkSwitch"
-import CmsDataContext from "../../../utils/context/data-context"
-import NavbarMobileDrawer from "./NavbarMobileDrawer"
-import NavLinks from "./NavLinks"
+import ArrowDownIcon from "../../../../images/svg/icons/arrowDown.svg";
+import NavIcon from "../../../../images/svg/favicon.svg";
+import useScroll from "../../../hooks/use-scroll";
+import useWindowWidth from "../../../hooks/use-window-width";
+import LightDarkSwitch from "../../light-dark-switch/LightDarkSwitch";
+import CmsDataContext from "../../../utils/context/data-context";
+import NavbarMobileDrawer from "./NavbarMobileDrawer";
+import NavLinks from "./NavLinks";
 
 export const slideInNav = {
   hidden: {
-    y: "-100%",
+    y: "-105%",
   },
   visible: {
     y: "-2.5rem",
@@ -27,71 +27,66 @@ export const slideInNav = {
     },
   },
   exit: {
-    y: "-110%",
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 20,
-    },
+    y: "-105%",
   },
-}
+};
 
 const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
   const {
     location,
     layout: { navbar },
-  } = useContext(CmsDataContext)
-  const { scrolled, scrollAmount } = useScroll()
-  const { isMobile } = useWindowWidth()
-  const [visible, setVisible] = useState(scrolled)
-  const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false)
+  } = useContext(CmsDataContext);
+  const { scrolled, scrollAmount } = useScroll();
+  const { isMobile } = useWindowWidth();
+  const [visible, setVisible] = useState(scrolled);
+  const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false);
   const pathname = location.pathname.match(/(\/(..)\/)/)
     ? location.pathname.match(/(\/(..)\/)/)[1].slice(0, -1)
-    : ""
+    : "";
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      if (scrolled || alwaysDisplayed) return
+      if (scrolled || alwaysDisplayed) return;
       if (e.clientY < 200) {
         setTimeout(() => {
-          setVisible(true)
-        })
+          setVisible(true);
+        });
       } else {
         setTimeout(() => {
-          setIsNavDrawerOpen(false)
-          setVisible(false)
-        })
+          setIsNavDrawerOpen(false);
+          setVisible(false);
+        });
       }
-    }
+    };
 
-    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scrolled])
+  }, [scrolled]);
 
   useEffect(() => {
-    if (alwaysDisplayed) return
+    if (alwaysDisplayed) return;
     if (scrolled) {
-      setVisible(true)
+      setVisible(true);
     } else {
-      setIsNavDrawerOpen(false)
-      setVisible(false)
+      setIsNavDrawerOpen(false);
+      setVisible(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scrollAmount])
+  }, [scrollAmount]);
 
   const openContactForm = () => {
-    let e = document.getElementById("openContactBtn")
-    if (e) e.click()
-    setIsNavDrawerOpen(false)
-  }
+    let e = document.getElementById("openContactBtn");
+    if (e) e.click();
+    setIsNavDrawerOpen(false);
+  };
 
-  const toggleDrawer = () => setIsNavDrawerOpen(!isNavDrawerOpen)
+  const toggleDrawer = () => setIsNavDrawerOpen(!isNavDrawerOpen);
 
-  const closeNavDrawer = () => setIsNavDrawerOpen(false)
+  const closeNavDrawer = () => setIsNavDrawerOpen(false);
 
   return (
     <motion.nav
@@ -100,7 +95,9 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
       animate={visible || alwaysDisplayed ? "visible" : "hidden"}
       exit="exit"
       id="navbar"
-      className={"z-50 w-full shadow-md" + (alwaysDisplayed ? " sticky top-0" : " fixed")}
+      className={
+        "z-50 w-full shadow-md" + (alwaysDisplayed ? " sticky top-0" : " fixed")
+      }
     >
       <div className="px-5 md:px-12 pt-10 bg-white dark:bg-gray-800 flex items-center relative z-70">
         <div className="grow flex items-center h-full py-3">
@@ -109,8 +106,8 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
             <button
               className="shrink-0 cursor-pointer outline-none h-10"
               onClick={() => {
-                closeNavDrawer()
-                window.scrollTo(0, 0)
+                closeNavDrawer();
+                window.scrollTo(0, 0);
               }}
             >
               <NavIcon id="navIcon" />
@@ -183,14 +180,17 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
       </div>
       <AnimatePresence>
         {isMobile && isNavDrawerOpen && (
-          <NavbarMobileDrawer closeNavDrawer={closeNavDrawer} openContactForm={openContactForm} />
+          <NavbarMobileDrawer
+            closeNavDrawer={closeNavDrawer}
+            openContactForm={openContactForm}
+          />
         )}
       </AnimatePresence>
     </motion.nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;
 
 export const fragmentNavbar = graphql`
   fragment Navbar on DatoCmsNavbar {
@@ -204,4 +204,4 @@ export const fragmentNavbar = graphql`
     blogBtnVisible
     labelBlogLink
   }
-`
+`;

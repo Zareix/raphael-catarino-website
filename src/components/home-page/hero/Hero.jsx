@@ -1,21 +1,21 @@
-import React, { useContext } from "react"
-import styled, { keyframes } from "styled-components"
+import React, { useContext } from "react";
+import styled, { keyframes } from "styled-components";
 
-import Illustration from "../../../images/svg/hero_illustration.svg"
-import BgHero from "../../../images/svg/hero-bg-wave.svg"
-import CmsDataContext from "../../utils/context/data-context"
+import Illustration from "../../../images/svg/hero_illustration.svg";
+import BgHero from "../../../images/svg/hero-bg-wave.svg";
+import CmsDataContext from "../../utils/context/data-context";
 
 const textAppear = keyframes`
   100%{
     transform: translateY(0);
   }
-`
+`;
 
 const underlineExpand = keyframes`
   100%{
     width: 150px;
   }
-`
+`;
 
 const HeroSection = styled.section`
   width: 100%;
@@ -29,7 +29,7 @@ const HeroSection = styled.section`
     span {
       display: block;
       transform: translateY(100%);
-      animation: ${textAppear} 1s 2.25s forwards;
+      animation: ${textAppear} 1s 2.5s forwards;
     }
   }
 
@@ -38,7 +38,7 @@ const HeroSection = styled.section`
     span {
       display: block;
       transform: translateY(100%);
-      animation: ${textAppear} 1s 2.75s forwards;
+      animation: ${textAppear} 1s 3s forwards;
     }
   }
 
@@ -48,7 +48,8 @@ const HeroSection = styled.section`
     height: 20px;
     width: 0px;
     border-bottom: rgba(156, 163, 175, 0.3) 3px solid;
-    animation: ${underlineExpand} 1.5s 3.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: ${underlineExpand} 1.5s 3.75s cubic-bezier(0.22, 1, 0.36, 1)
+      forwards;
   }
 
   .dark & {
@@ -79,7 +80,7 @@ const HeroSection = styled.section`
       border-color: rgba(249, 250, 251, 0.2);
     }
   }
-`
+`;
 
 const HeroWrapper = styled.div`
   z-index: 10;
@@ -90,7 +91,7 @@ const HeroWrapper = styled.div`
   align-items: center;
   align-content: center;
   grid-area: 1/1;
-`
+`;
 
 const BGWrapper = styled.div`
   grid-area: 1/1;
@@ -111,10 +112,10 @@ const BGWrapper = styled.div`
       fill: rgb(17 24 39);
     }
   }
-`
+`;
 
 const Hero = () => {
-  const { hero } = useContext(CmsDataContext)
+  const { hero } = useContext(CmsDataContext);
 
   return (
     <HeroSection className="bg-white dark:bg-slate-800">
@@ -137,7 +138,7 @@ const Hero = () => {
         <BgHero />
       </BGWrapper>
     </HeroSection>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
