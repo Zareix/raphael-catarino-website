@@ -1,17 +1,19 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
-import { graphql, Link } from "gatsby"
-import { HelmetDatoCms } from "gatsby-source-datocms"
-import styled from "styled-components"
+import { graphql, Link } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
+import styled from "styled-components";
 
-import Layout from "../components/blog/layout/Layout"
-import PostHeader from "../components/blog/blog-post/PostHeader"
+import Layout from "../components/blog/layout/Layout";
 
-import NoPostSvg from "../images/svg/no_posts.svg"
+import NoPostSvg from "../images/svg/no_posts.svg";
+import CmsDataContext from "../components/utils/context/data-context";
+import PostAuthorsList from "../components/blog/blog-post/PostAuthorsList";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const BlogList = styled.section`
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
   margin-bottom: 4rem;
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +25,7 @@ const BlogList = styled.section`
     flex-direction: column;
     align-items: center;
   }
-`
+`;
 
 const Post = styled(Link)`
   width: 40%;
@@ -36,7 +38,7 @@ const Post = styled(Link)`
     margin-right: 1rem;
     margin-left: 1rem;
   }
-`
+`;
 
 const Empty = styled.div`
   margin: 0 auto;
@@ -44,41 +46,52 @@ const Empty = styled.div`
   min-height: 30rem;
   text-align: center;
   font-size: 1.2rem;
-`
+`;
 
-const BlogIndex = ({
-  data: { site, indexData, allDatoCmsBlogPost, footer, contact },
-  location,
-}) => {
-  const [shownItems, setShownItems] = useState(indexData.defaultShowMore)
+const BlogIndex = ({ data, location }) => {
+  const [shownItems, setShownItems] = useState(data.indexData.defaultShowMore);
 
-  const showMore = () => setShownItems(shownItems + indexData.stepShowMore)
+  const showMore = () =>
+    setShownItems(shownItems + data.indexData.stepShowMore);
+
+  const cmsData = {
+    pageLocation: location,
+    allBlogPosts: data.allPosts.latestPosts,
+    settings: data.indexData,
+    layout: {
+      navbar: {
+        links: data.indexData.navLinks,
+        labelContactLink: data.indexData.navLabelContactLink,
+        contactBtnVisible: data.indexData.navContactBtnVisible,
+        blogBtnVisible: false,
+        labelBlogLink: "",
+      },
+      footer: {
+        message: data.footer.footerMessage,
+      },
+      skipToMain: data.layout.skipToMainButtonText,
+    },
+    contact: data.contact,
+  };
 
   return (
-    <>
-      <HelmetDatoCms favicon={site.favicon} seo={indexData.seo} />
-      <Layout
-        footerData={footer}
-        contactData={contact}
-        location={location}
-        isIndex
-        langSlug={"blog"}
-        navData={indexData}
-      >
+    <CmsDataContext.Provider value={cmsData}>
+      <HelmetDatoCms favicon={data.site.favicon} seo={data.indexData.seo} />
+      <Layout isIndex langSlug={"blog"}>
         <h1 className="text-center text-3xl mt-20 md:mt-12 mb-6 font-bold">
-          {indexData.title}
+          {data.indexData.title}
         </h1>
         <h2 className="text-lg text-gray-600 dark:text-gray-400 w-4/5 mx-auto">
-          {indexData.subtitle}
+          {data.indexData.subtitle}
         </h2>
         <BlogList>
-          {allDatoCmsBlogPost.allPosts.length === 0 && (
+          {data.allPosts.latestPosts.length === 0 && (
             <Empty id="noPosts">
               <NoPostSvg className="h-48 max-w-full" />
-              <p className="mt-2">{indexData.noPostMessage}</p>
+              <p className="mt-2">{data.indexData.noPostMessage}</p>
             </Empty>
           )}
-          {allDatoCmsBlogPost.allPosts
+          {data.allPosts.latestPosts
             .slice(0, shownItems)
             .map(({ node: post }) => (
               <Post
@@ -86,35 +99,50 @@ const BlogIndex = ({
                 className="bg-white dark:bg-gray-800 shadow-md"
                 to={post.slug}
               >
-                <PostHeader
-                  title={post.title}
-                  subtitle={post.subtitle}
-                  featuredImage={post.featuredImage}
-                  authors={post.authors}
-                  publishDate={post.publishDate}
-                  updateDate={post.updateDate}
-                  small
-                  isIndex
-                  dateText={indexData.dateText}
-                  updatedDateText={indexData.updatedDateText}
-                />
+                <>
+                  <GatsbyImage
+                    image={post.featuredImage.gatsbyImageData}
+                    alt={post.featuredImage.alt}
+                    title={post.featuredImage.title}
+                    className="w-full h-52"
+                    objectFit="cover"
+                  />
+                  <div className="mx-10 mt-6">
+                    <h1 className="font-bold text-2xl">{post.title}</h1>
+                    <h2 className="my-2 font-semibold text-gray-500 dark:text-gray-300 text-xl">
+                      {post.subtitle}
+                    </h2>
+                    <div className="flex gap-1 md:items-center flex-wrap flex-col md:flex-row">
+                      <PostAuthorsList authors={post.authors} />{" "}
+                      <div className="text-sm flex gap-1 text-gray-500 dark:text-gray-400 w-full">
+                        {post.publishDate}
+                        {post.updateDate && (
+                          <>
+                            <b>·</b>
+                            <span>MaJ : {post.updateDate}</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </>
               </Post>
             ))}
-          {shownItems < allDatoCmsBlogPost.allPosts.length && (
+          {shownItems < data.allPosts.latestPosts.length && (
             <button
               onClick={showMore}
               className="mt-4 py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-600 dark:focus:ring-offset-blue-400 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full"
             >
-              {indexData.showMoreLabel}
+              {data.indexData.showMoreLabel}
             </button>
           )}
         </BlogList>
       </Layout>
-    </>
-  )
-}
+    </CmsDataContext.Provider>
+  );
+};
 
-export default BlogIndex
+export default BlogIndex;
 
 export const queryBlogIndex = graphql`
   query BlogIndex($locale: String) {
@@ -144,11 +172,11 @@ export const queryBlogIndex = graphql`
       noPostMessage
     }
 
-    allDatoCmsBlogPost(
+    allPosts: allDatoCmsBlogPost(
       filter: { locale: { eq: $locale } }
       sort: { fields: publishDate, order: DESC }
     ) {
-      allPosts: edges {
+      latestPosts: edges {
         node {
           id
           title
@@ -173,6 +201,10 @@ export const queryBlogIndex = graphql`
       }
     }
 
+    layout: datoCmsLayout(locale: { eq: $locale }) {
+      ...SkipToMain
+    }
+
     footer: datoCmsFooter(locale: { eq: $locale }) {
       footerMessage
     }
@@ -181,4 +213,4 @@ export const queryBlogIndex = graphql`
       ...Contact
     }
   }
-`
+`;

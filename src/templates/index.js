@@ -1,107 +1,122 @@
-import * as React from "react"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 
-import "../styles/index.css"
+import "../styles/index.css";
 
-import styled from "styled-components"
-import { CSSTransition, SwitchTransition } from "react-transition-group"
-import { graphql, navigate } from "gatsby"
-import { HelmetDatoCms } from "gatsby-source-datocms"
-import { Helmet } from "react-helmet"
-import { AnimatePresence } from "framer-motion"
+import styled from "styled-components";
+import { graphql, navigate } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
+import { Helmet } from "react-helmet";
+import { AnimatePresence } from "framer-motion";
 
-import Hero from "../components/home-page/hero/Hero"
-import Layout from "../components/home-page/layout/Layout"
-import Biographie from "../components/home-page/biographie/Biographie"
-import Competences from "../components/home-page/competences/Competences"
-import Projets from "../components/home-page/projets/Projets"
-import BeforeContent from "../components/home-page/BeforeContent"
-import Timeline from "../components/home-page/timeline/Timeline"
-import useScrolled from "../components/hooks/use-scroll"
-import Loading from "../components/loading/Loading"
+import Hero from "../components/home-page/hero/Hero";
+import Layout from "../components/home-page/layout/Layout";
+import Biographie from "../components/home-page/biographie/Biographie";
+import Competences from "../components/home-page/competences/Competences";
+import Projets from "../components/home-page/projets/Projets";
+import BeforeContent from "../components/home-page/BeforeContent";
+import Timeline from "../components/home-page/timeline/Timeline";
+import useScrolled from "../components/hooks/use-scroll";
+import Loading from "../components/loading/Loading";
+import useScrollEvent from "../components/hooks/use-scroll-event";
+import CmsDataContext from "../components/utils/context/data-context";
 
 const Main = styled.main`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5rem;
   z-index: 1;
-`
+`;
 const IndexPage = ({ data, location }) => {
-  const { scrolled } = useScrolled()
-  const [isLoading, setIsLoading] = useState(true)
+  const { scrolled } = useScrolled();
+  const { disableScroll, enableScroll } = useScrollEvent();
+  const [isLoading, setIsLoading] = useState(true);
+
+  const cmsData = {
+    pageLocation: location,
+    biographie: data.biography,
+    hero: data.home,
+    timeline: {
+      elements: data.timeline.edges,
+      title: data.home.timelineTitle,
+      subtitle: data.home.timelineSubtitle,
+    },
+    competences: {
+      categories: data.competences.edges,
+      title: data.home.compTitle,
+      subtitle: data.home.compSubtitle,
+    },
+    projects: {
+      elements: data.projects.edges,
+      title: data.home.projectsTitle,
+      subtitle: data.home.projectsSubtitle,
+      defaultShownItems: data.home.projectDefaultShown,
+      stepShowMore: data.home.projectsShowMoreStep,
+      showMoreLabel: data.home.projectsLabelShowMoreBtn,
+    },
+    layout: {
+      navbar: data.navbar,
+      footer: {
+        message: data.footer.footerMessage,
+      },
+      skipToMain: data.layout.skipToMainButtonText,
+    },
+    contact: data.contact,
+    loading: {
+      text: data.home.loadingText,
+    },
+  };
 
   useEffect(() => {
-    if (location.pathname === "/") navigator.language.startsWith("en") && navigate("en/")
+    if (location.pathname === "/") {
+      if (navigator.language.startsWith("en")) navigate("en/");
+      else navigate("fr/");
+    }
+
+    disableScroll();
 
     setTimeout(() => {
-      setIsLoading(false)
-    }, 2000)
-  }, [location])
+      setIsLoading(false);
+      enableScroll();
+    }, 2000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   return (
-    <>
+    <CmsDataContext.Provider value={cmsData}>
       <Helmet
         htmlAttributes={{
-          lang: data.datoCmsSite.locale,
+          lang: data.settings.locale,
         }}
       />
       <HelmetDatoCms
-        favicon={data.datoCmsSite.faviconMetaTags}
-        seo={data.datoCmsHomePage.seoMetaTags}
+        favicon={data.settings.faviconMetaTags}
+        seo={data.home.seoMetaTags}
       />
       <AnimatePresence initial={false}>
-        {isLoading && <Loading text={data.datoCmsHomePage.loadingText} />}
+        {isLoading && <Loading />}
       </AnimatePresence>
-      <Layout data={data} location={location}>
+      <Layout>
         <Main id="main">
-          <Hero data={data.datoCmsHomePage} />
-          <SwitchTransition>
-            <CSSTransition
-              key={scrolled ? "Before content" : "Biographie"}
-              addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
-              classNames="fade"
-            >
-              <section id="bio">
-                {scrolled ? (
-                  <Biographie data={data.datoCmsBiography} />
-                ) : (
-                  <>
-                    <BeforeContent />
-                    <div className="empty-content" />
-                  </>
-                )}
-              </section>
-            </CSSTransition>
-          </SwitchTransition>
-          <Timeline
-            data={data.allDatoCmsTimeline}
-            title={data.datoCmsHomePage.timelineTitle}
-            subtitle={data.datoCmsHomePage.timelineSubtitle}
-          />
-          <Competences
-            data={data.allDatoCmsCompetence}
-            title={data.datoCmsHomePage.compTitle}
-            subtitle={data.datoCmsHomePage.compSubtitle}
-          />
-          <Projets
-            data={data.allDatoCmsProject}
-            title={data.datoCmsHomePage.projectsTitle}
-            subtitle={data.datoCmsHomePage.projectsSubtitle}
-            defaultShownItems={data.datoCmsHomePage.projectDefaultShown}
-            stepShowMore={data.datoCmsHomePage.projectsShowMoreStep}
-            showMoreLabel={data.datoCmsHomePage.projectsLabelShowMoreBtn}
-          />
+          <Hero />
+          <section id="bio" className="scroll-mt-60">
+            <AnimatePresence>{!scrolled && <BeforeContent />}</AnimatePresence>
+            <AnimatePresence>{scrolled && <Biographie />}</AnimatePresence>
+            {!scrolled && <div className="empty-content" />}
+          </section>
+          <Timeline />
+          <Competences />
+          <Projets />
         </Main>
       </Layout>
-    </>
-  )
-}
+    </CmsDataContext.Provider>
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const queryIndex = graphql`
   query Index($locale: String!) {
-    datoCmsHomePage(locale: { eq: $locale }) {
+    home: datoCmsHomePage(locale: { eq: $locale }) {
       loadingText
       presTitle
       presSubtitle
@@ -119,22 +134,21 @@ export const queryIndex = graphql`
       projectsLabelShowMoreBtn
     }
 
-    datoCmsFooter(locale: { eq: $locale }) {
-      footerMessage
-    }
-
-    datoCmsSite(locale: { eq: $locale }) {
+    settings: datoCmsSite(locale: { eq: $locale }) {
       locale
       faviconMetaTags {
         ...GatsbyDatoCmsFaviconMetaTags
       }
     }
 
-    datoCmsBiography(locale: { eq: $locale }) {
+    biography: datoCmsBiography(locale: { eq: $locale }) {
       ...Bio
     }
 
-    allDatoCmsCompetence(filter: { locale: { eq: $locale } }, sort: { fields: position }) {
+    competences: allDatoCmsCompetence(
+      filter: { locale: { eq: $locale } }
+      sort: { fields: position }
+    ) {
       edges {
         node {
           ...Comp
@@ -142,7 +156,10 @@ export const queryIndex = graphql`
       }
     }
 
-    allDatoCmsTimeline(filter: { locale: { eq: $locale } }, sort: { fields: position }) {
+    timeline: allDatoCmsTimeline(
+      filter: { locale: { eq: $locale } }
+      sort: { fields: position }
+    ) {
       edges {
         node {
           ...Timeline
@@ -150,7 +167,7 @@ export const queryIndex = graphql`
       }
     }
 
-    allDatoCmsProject(filter: { locale: { eq: $locale } }) {
+    projects: allDatoCmsProject(filter: { locale: { eq: $locale } }) {
       edges {
         node {
           ...Project
@@ -158,12 +175,20 @@ export const queryIndex = graphql`
       }
     }
 
-    datoCmsNavbar(locale: { eq: $locale }) {
+    layout: datoCmsLayout(locale: { eq: $locale }) {
+      ...SkipToMain
+    }
+
+    navbar: datoCmsNavbar(locale: { eq: $locale }) {
       ...Navbar
     }
 
-    datoCmsContactForm(locale: { eq: $locale }) {
+    footer: datoCmsFooter(locale: { eq: $locale }) {
+      ...Footer
+    }
+
+    contact: datoCmsContactForm(locale: { eq: $locale }) {
       ...Contact
     }
   }
-`
+`;

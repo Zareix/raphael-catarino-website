@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 
 import { useForm } from "react-hook-form"
 import styled from "styled-components"
@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion"
 
 import CloseIcon from "../../../images/svg/icons/close.svg"
 import { fadeIn, slideInFromTop } from "../../utils/framer-motion-variants"
+import CmsDataContext from "../../utils/context/data-context"
 
 const MyModal = styled(motion.div)`
   position: fixed;
@@ -33,7 +34,7 @@ const encode = (data) =>
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&")
 
-const ContactModal = ({ data, visible, close }) => {
+const ContactModal = ({ visible, close }) => {
   const {
     register,
     handleSubmit,
@@ -41,6 +42,7 @@ const ContactModal = ({ data, visible, close }) => {
     reset,
   } = useForm()
   const [sent, setSent] = useState(false)
+  const { contact } = useContext(CmsDataContext)
 
   const onSubmit = (data) => {
     console.log(data)
@@ -83,9 +85,9 @@ const ContactModal = ({ data, visible, close }) => {
               <div className="mb-6 text-2xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">
                 <CloseIcon className="cursor-pointer col-start-5 h-7 w-7" onClick={closeModal} />
                 <p className="col-start-2 col-span-3 border-b border-gray-400 pb-2">
-                  {data.contactSentTitle}
+                  {contact.contactSentTitle}
                 </p>
-                <p className="col-start-2 col-span-3 pt-2">{data.contactSentSubtitle}</p>
+                <p className="col-start-2 col-span-3 pt-2">{contact.contactSentSubtitle}</p>
               </div>
             </div>
           ) : (
@@ -110,7 +112,7 @@ const ContactModal = ({ data, visible, close }) => {
             >
               <div className="w-full max-w-2xl px-5 py-10 mx-3 md:m-auto bg-white rounded-lg shadow dark:bg-gray-800">
                 <div className="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">
-                  <p className="col-start-2 col-span-3">{data.contactTitle}</p>
+                  <p className="col-start-2 col-span-3">{contact.contactTitle}</p>
                   <CloseIcon
                     className="cursor-pointer h-7 w-7 hover:text-gray-600"
                     onClick={closeModal}
@@ -124,10 +126,10 @@ const ContactModal = ({ data, visible, close }) => {
                       name="nom"
                       id="contactName"
                       className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                      placeholder={data.contactPlaceholderName}
+                      placeholder={contact.contactPlaceholderName}
                       {...register("nom", { required: true })}
                     />
-                    {errors.nom && <ErrorMessage>{data.contactErreurNom}</ErrorMessage>}
+                    {errors.nom && <ErrorMessage>{contact.contactErreurNom}</ErrorMessage>}
                   </div>
                   <div className="col-span-2 lg:col-span-1">
                     <input
@@ -135,10 +137,10 @@ const ContactModal = ({ data, visible, close }) => {
                       id="contactEmail"
                       name="email"
                       className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                      placeholder={data.contactPlaceholderEmail}
+                      placeholder={contact.contactPlaceholderEmail}
                       {...register("email", { required: true })}
                     />
-                    {errors.email && <ErrorMessage>{data.contactErreurEmail}</ErrorMessage>}
+                    {errors.email && <ErrorMessage>{contact.contactErreurEmail}</ErrorMessage>}
                   </div>
                   <div className="col-span-2">
                     <input
@@ -146,31 +148,31 @@ const ContactModal = ({ data, visible, close }) => {
                       id="contactSubject"
                       name="sujet"
                       className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                      placeholder={data.contactPlaceholderSujet}
+                      placeholder={contact.contactPlaceholderSujet}
                       {...register("sujet", { required: true })}
                     />
-                    {errors.sujet && <ErrorMessage>{data.contactErreurSujet}</ErrorMessage>}
+                    {errors.sujet && <ErrorMessage>{contact.contactErreurSujet}</ErrorMessage>}
                   </div>
                   <div className="col-span-2">
                     <label className="text-gray-700" htmlFor="contenu">
                       <textarea
                         className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                         id="contactContent"
-                        placeholder={data.contactPlaceholderContenu}
+                        placeholder={contact.contactPlaceholderContenu}
                         name="contenu"
                         rows="5"
                         cols="40"
                         {...register("contenu", { required: true })}
                       ></textarea>
                     </label>
-                    {errors.contenu && <ErrorMessage>{data.contactErreurContenu}</ErrorMessage>}
+                    {errors.contenu && <ErrorMessage>{contact.contactErreurContenu}</ErrorMessage>}
                   </div>
                   <div className="col-span-2 text-right">
                     <button
                       type="submit"
                       className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                     >
-                      {data.contactSendBtn}
+                      {contact.contactSendBtn}
                     </button>
                   </div>
                 </div>

@@ -3,19 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --transition-color: color 50ms linear, background-color 500ms linear, fill 500ms linear,
-    border-color 500ms linear, border 500ms linear;
+  --transition-color: color 50ms linear, background-color 500ms linear,
+    fill 500ms linear, border-color 500ms linear, border 500ms linear;
 }
 
-* {
+*,
+*::after,
+*::before {
   transition: var(--transition-color);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  @apply text-gray-800;
-  @apply bg-gray-50;
-  @apply dark:text-gray-100;
-  @apply dark:bg-gray-900;
+  @apply text-gray-800 bg-gray-50 dark:text-gray-100 dark:bg-gray-900;
 }
 
 body {
@@ -55,5 +58,9 @@ body {
 @layer utilities {
   .w-fit {
     width: fit-content;
+  }
+
+  .nav-link {
+    @apply text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white;
   }
 }

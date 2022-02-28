@@ -1,16 +1,20 @@
-import React from "react"
+import React, { useContext } from "react";
 
-import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component"
-import styled from "styled-components"
-import { graphql } from "gatsby"
-import { ReactSVG } from "react-svg"
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import styled from "styled-components";
+import { graphql } from "gatsby";
+import { ReactSVG } from "react-svg";
+import CmsDataContext from "../../utils/context/data-context";
 
-import "react-vertical-timeline-component/style.min.css"
+import "react-vertical-timeline-component/style.min.css";
 
 const TimelineSection = styled.section`
-  overflow: hidden;
   max-width: 100vw;
   margin-top: 2.5rem;
+  scroll-margin-top: 5rem;
 
   .vertical-timeline.vertical-timeline-custom-line::before {
     background-color: #c5c5c5;
@@ -37,26 +41,30 @@ const TimelineSection = styled.section`
       padding: 0.5rem;
     }
   }
-`
+`;
 
-const TimelineItemTitle = (props) => <h3 className="text-lg font-semibold">{props.children}</h3>
+const TimelineItemTitle = (props) => (
+  <h3 className="text-lg font-semibold">{props.children}</h3>
+);
 const TimelineItemSubTitle = (props) => (
-  <h4 className="text-base text-gray-600 dark:text-gray-300">{props.children}</h4>
-)
+  <h4 className="text-base text-gray-600 dark:text-gray-300">
+    {props.children}
+  </h4>
+);
 
-const Timeline = ({ data, title, subtitle }) => {
-  const timelineItems = data.edges
+const Timeline = () => {
+  const { timeline } = useContext(CmsDataContext);
 
-  const openInNewTab = (url) => window.open(url, "_blank").focus()
+  const openInNewTab = (url) => window.open(url, "_blank").focus();
 
   return (
     <TimelineSection id="timeline">
-      <h1 className="text-3xl font-bold text-center">{title}</h1>
+      <h1 className="text-3xl font-bold text-center">{timeline.title}</h1>
       <h2 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mb-8">
-        {subtitle}
+        {timeline.subtitle}
       </h2>
-      <VerticalTimeline className="vertical-timeline-custom-line VerticalTimeline">
-        {timelineItems.map(({ node: item }) => (
+      <VerticalTimeline className="vertical-timeline-custom-line VerticalTimeline overflow-hidden">
+        {timeline.elements.map(({ node: item }) => (
           <VerticalTimelineElement
             key={item.id}
             contentStyle={{
@@ -77,10 +85,10 @@ const Timeline = ({ data, title, subtitle }) => {
         ))}
       </VerticalTimeline>
     </TimelineSection>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;
 
 export const fragmentTimeline = graphql`
   fragment Timeline on DatoCmsTimeline {
@@ -96,4 +104,4 @@ export const fragmentTimeline = graphql`
       url
     }
   }
-`
+`;

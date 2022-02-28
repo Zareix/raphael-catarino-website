@@ -1,17 +1,18 @@
-import React from "react"
+import React, { useContext } from "react";
 
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
-import Competence from "./Competence"
+import Competence from "./Competence";
+import CmsDataContext from "../../utils/context/data-context";
 
-const Competences = ({ data, title, subtitle }) => {
-  const categories = data.edges
+const Competences = () => {
+  const { competences } = useContext(CmsDataContext);
 
   return (
-    <section id="competences" className="overflow-hidden mt-20 pb-20">
-      <h2 className="text-3xl font-bold text-center">{title}</h2>
+    <section id="competences" className=" mt-20 pb-20 scroll-mt-20">
+      <h2 className="text-3xl font-bold text-center">{competences.title}</h2>
       <h3 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mb-8  mx-auto">
-        {subtitle}
+        {competences.subtitle}
       </h3>
       <div className="flex snap-x snap-mandatory w-full overflow-x-auto px-[50%] pb-6 gap-6">
         {categories.map(({ node: cat }, index) => (
@@ -19,10 +20,10 @@ const Competences = ({ data, title, subtitle }) => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Competences
+export default Competences;
 
 export const fragmentComp = graphql`
   fragment Comp on DatoCmsCompetence {
@@ -33,4 +34,4 @@ export const fragmentComp = graphql`
       gatsbyImageData(placeholder: TRACED_SVG, width: 200)
     }
   }
-`
+`;
