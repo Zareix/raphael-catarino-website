@@ -21,7 +21,7 @@
     "@fontsource/open-sans": "^4.5.5",
     "autoprefixer": "^10.4.2",
     "babel-plugin-styled-components": "^2.0.2",
-    "framer-motion": "^6.2.6",
+    "framer-motion": "^6.2.8",
     "gatsby": "^4.7.1",
     "gatsby-plugin-image": "^2.7.0",
     "gatsby-plugin-manifest": "^4.7.0",
