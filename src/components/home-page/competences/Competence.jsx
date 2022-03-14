@@ -17,7 +17,11 @@ const Article = styled(motion.article)`
   .dark & {
     background-color: #1e293b;
   }
+<<<<<<< HEAD
 `;
+=======
+`
+>>>>>>> competences-rework
 
 const ImagesContainer = styled.div`
   display: grid;
@@ -39,8 +43,13 @@ const TitleCat = ({ fromRight, children }) => {
     >
       {children}
     </h3>
+<<<<<<< HEAD
   );
 };
+=======
+  )
+}
+>>>>>>> competences-rework
 
 const Competence = ({ competence, index }) => {
   return (
