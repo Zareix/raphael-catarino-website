@@ -32,9 +32,18 @@ const TimelineSection = styled.section`
     }
   }
 
+  .vertical-timeline-element-date {
+    padding-bottom: 0 !important;
+  }
+
   @media (max-width: 1170px) {
     .vertical-timeline {
       max-width: 700px;
+      padding: 0.5rem;
+
+      &::before {
+        left: 26px;
+      }
     }
 
     .vertical-timeline-element-icon svg {
@@ -59,8 +68,8 @@ const Timeline = () => {
 
   return (
     <TimelineSection id="timeline">
-      <h1 className="text-3xl font-bold text-center">{timeline.title}</h1>
-      <h2 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mb-8">
+      <h1 className="text-center text-3xl font-bold">{timeline.title}</h1>
+      <h2 className="mb-8 w-4/5 text-center text-lg text-gray-600 dark:text-gray-400">
         {timeline.subtitle}
       </h2>
       <VerticalTimeline className="vertical-timeline-custom-line VerticalTimeline overflow-hidden">

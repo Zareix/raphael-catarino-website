@@ -11,7 +11,7 @@ export const fadeIn = {
   exit: {
     opacity: 0,
   },
-}
+};
 
 export const fadeInSlow = {
   hidden: {
@@ -27,7 +27,7 @@ export const fadeInSlow = {
   exit: {
     opacity: 0,
   },
-}
+};
 
 export const slideInFromTop = {
   hidden: {
@@ -51,4 +51,4 @@ export const slideInFromTop = {
       duration: 0.4,
     },
   },
-}
+};

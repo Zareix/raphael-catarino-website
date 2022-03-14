@@ -43,9 +43,9 @@ const SidePanel = () => {
 
   return (
     <section className="mx-5 mb-10 mt-12 md:m-0 md:w-1/4" id="sidePanel">
-      <div className="md:sticky top-24">
-        <div className="py-4 bg-white dark:bg-gray-800  shadow-md rounded-2xl overflow-hidden">
-          <h2 className="mx-3 mb-3 pb-2 font-bold text-xl text-center border-b border-gray-800 dark:border-gray-600 border-opacity-10">
+      <div className="top-24 md:sticky">
+        <div className="overflow-hidden rounded-2xl bg-white  py-4 shadow-md dark:bg-gray-800">
+          <h2 className="mx-3 mb-3 border-b border-gray-800 border-opacity-10 pb-2 text-center text-xl font-bold dark:border-gray-600">
             Les derniers posts
           </h2>
           <ul>
@@ -60,7 +60,7 @@ const SidePanel = () => {
                     "blog/" +
                     p.slug
                   }
-                  className="hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-800 dark:border-gray-600 border-opacity-10"
+                  className="border border-gray-800 border-opacity-10 hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700"
                   key={p.id}
                 >
                   <GatsbyImage

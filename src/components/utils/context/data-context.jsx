@@ -1,5 +1,5 @@
-import { createContext } from "react"
+import { createContext } from "react";
 
-const CmsDataContext = createContext()
+const CmsDataContext = createContext();
 
-export default CmsDataContext
+export default CmsDataContext;

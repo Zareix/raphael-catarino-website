@@ -1,14 +1,14 @@
-import React from "react"
+import React from "react";
 
-import { graphql, Link } from "gatsby"
-import styled from "styled-components"
-import { HelmetDatoCms } from "gatsby-source-datocms"
-import { Helmet } from "react-helmet"
+import { graphql, Link } from "gatsby";
+import styled from "styled-components";
+import { HelmetDatoCms } from "gatsby-source-datocms";
+import { Helmet } from "react-helmet";
 
-import "../../styles/index.css"
-import Page404 from "../../images/svg/page404.svg"
+import "../styles/index.css";
+import Page404 from "../images/svg/page404.svg";
 
-import { ThemeProvider } from "../../components/utils/context/theme-context"
+import { ThemeProvider } from "../components/utils/context/theme-context";
 
 const MainStyled = styled.main`
   height: 100vh;
@@ -17,7 +17,7 @@ const MainStyled = styled.main`
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-`
+`;
 
 const NotFoundPage = ({ data }) => {
   return (
@@ -32,19 +32,19 @@ const NotFoundPage = ({ data }) => {
         <Page404 className="h-64 md:h-96" />
         <h1 className="text-2xl">{data.datoCmsPageNotFound.notFoundMessage}</h1>
         <Link to="/">
-          <button className="px-3 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50">
+          <button className="rounded-md bg-blue-600 px-3 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50">
             {data.datoCmsPageNotFound.notFoundButtonText}
           </button>
         </Link>
       </MainStyled>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;
 
 export const query = graphql`
-  query pageNotFoundFr {
+  query pageNotFoundMain {
     datoCmsPageNotFound(locale: { eq: "fr" }) {
       notFoundMessage
       notFoundButtonText
@@ -53,4 +53,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

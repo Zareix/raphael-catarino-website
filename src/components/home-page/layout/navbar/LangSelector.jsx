@@ -68,14 +68,14 @@ const LangSelector = ({ navVisible, extSlug }) => {
 
   return (
     <div
-      className="relative inline-block text-left mr-1 md:mr-0"
+      className="relative mr-1 inline-block text-left md:mr-0"
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
       role="menu"
     >
       <button
         type="button"
-        className="shadow-sm flex items-center justify-center w-full rounded-md px-4 py-2 border border-gray-300 bg-white dark:border-gray-400 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-100 dark:hover:bg-gray-400  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-200 focus:ring-gray-400"
+        className="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2  focus:ring-offset-gray-200 dark:border-gray-400 dark:bg-gray-800 dark:text-gray-50 dark:hover:bg-gray-400"
         id="langSelector"
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="menu"
@@ -86,14 +86,14 @@ const LangSelector = ({ navVisible, extSlug }) => {
       {isOpen && navVisible && (
         <LangSelectorDrawer
           id="langSelectorDrawer"
-          className="shadow-xl bg-white dark:bg-gray-700"
+          className="bg-white shadow-xl dark:bg-gray-700"
         >
           <div className="py-1">
             {lang.map((l, i) => (
               <button
                 key={i}
                 className={
-                  "w-full flex items-center px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
+                  "text-md flex w-full items-center px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" +
                   (selectedLang === l.countryCode ? " font-semibold" : "")
                 }
                 onClick={() => {

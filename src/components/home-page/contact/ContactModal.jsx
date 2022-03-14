@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState } from "react";
 
-import { useForm } from "react-hook-form"
-import styled from "styled-components"
-import { AnimatePresence, motion } from "framer-motion"
+import { useForm } from "react-hook-form";
+import styled from "styled-components";
+import { AnimatePresence, motion } from "framer-motion";
 
-import CloseIcon from "../../../images/svg/icons/close.svg"
-import { fadeIn, slideInFromTop } from "../../utils/framer-motion-variants"
-import CmsDataContext from "../../utils/context/data-context"
+import CloseIcon from "../../../images/svg/icons/close.svg";
+import { fadeIn, slideInFromTop } from "../../utils/framer-motion-variants";
+import CmsDataContext from "../../utils/context/data-context";
 
 const MyModal = styled(motion.div)`
   position: fixed;
@@ -23,16 +23,16 @@ const MyModal = styled(motion.div)`
   textarea {
     max-height: 40vh;
   }
-`
+`;
 
 const ErrorMessage = styled.span`
   color: #ef4444;
-`
+`;
 
 const encode = (data) =>
   Object.keys(data)
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
+    .join("&");
 
 const ContactModal = ({ visible, close }) => {
   const {
@@ -40,12 +40,12 @@ const ContactModal = ({ visible, close }) => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm()
-  const [sent, setSent] = useState(false)
-  const { contact } = useContext(CmsDataContext)
+  } = useForm();
+  const [sent, setSent] = useState(false);
+  const { contact } = useContext(CmsDataContext);
 
   const onSubmit = (data) => {
-    console.log(data)
+    console.log(data);
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -55,20 +55,20 @@ const ContactModal = ({ visible, close }) => {
       }),
     })
       .then(() => {
-        setSent(true)
-        reset()
+        setSent(true);
+        reset();
       })
-      .catch((error) => alert(error))
-  }
+      .catch((error) => alert(error));
+  };
 
   const closeModal = () => {
     if (sent) {
       setTimeout(() => {
-        setSent(false)
-      }, 1000)
+        setSent(false);
+      }, 1000);
     }
-    close()
-  }
+    close();
+  };
 
   return (
     <AnimatePresence>
@@ -81,13 +81,18 @@ const ContactModal = ({ visible, close }) => {
           exit="exit"
         >
           {sent ? (
-            <div className="w-full max-w-2xl px-2 md:px-5 py-10 mx-3 md:m-auto bg-white rounded-lg shadow dark:bg-gray-800">
-              <div className="mb-6 text-2xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">
-                <CloseIcon className="cursor-pointer col-start-5 h-7 w-7" onClick={closeModal} />
-                <p className="col-start-2 col-span-3 border-b border-gray-400 pb-2">
+            <div className="mx-3 w-full max-w-2xl rounded-lg bg-white px-2 py-10 shadow dark:bg-gray-800 md:m-auto md:px-5">
+              <div className="mb-6 grid grid-cols-5 justify-items-center text-center text-2xl font-light text-gray-800 dark:text-white">
+                <CloseIcon
+                  className="col-start-5 h-7 w-7 cursor-pointer"
+                  onClick={closeModal}
+                />
+                <p className="col-span-3 col-start-2 border-b border-gray-400 pb-2">
                   {contact.contactSentTitle}
                 </p>
-                <p className="col-start-2 col-span-3 pt-2">{contact.contactSentSubtitle}</p>
+                <p className="col-span-3 col-start-2 pt-2">
+                  {contact.contactSentSubtitle}
+                </p>
               </div>
             </div>
           ) : (
@@ -106,57 +111,65 @@ const ContactModal = ({ visible, close }) => {
               onSubmit={handleSubmit(onSubmit)}
               drag="y"
               onDragEnd={(_event, info) => {
-                if (Math.abs(info.offset.y) > 100) closeModal()
+                if (Math.abs(info.offset.y) > 100) closeModal();
               }}
               dragSnapToOrigin
             >
-              <div className="w-full max-w-2xl px-5 py-10 mx-3 md:m-auto bg-white rounded-lg shadow dark:bg-gray-800">
-                <div className="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white grid grid-cols-5 justify-items-center">
-                  <p className="col-start-2 col-span-3">{contact.contactTitle}</p>
+              <div className="mx-3 w-full max-w-2xl rounded-lg bg-white px-5 py-10 shadow dark:bg-gray-800 md:m-auto">
+                <div className="mb-6 grid grid-cols-5 justify-items-center text-center text-3xl font-light text-gray-800 dark:text-white">
+                  <p className="col-span-3 col-start-2">
+                    {contact.contactTitle}
+                  </p>
                   <CloseIcon
-                    className="cursor-pointer h-7 w-7 hover:text-gray-600"
+                    className="h-7 w-7 cursor-pointer hover:text-gray-600"
                     onClick={closeModal}
                   />
                 </div>
                 <input type="hidden" name="form-name" value="contact" />
-                <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
+                <div className="m-auto grid max-w-xl grid-cols-2 gap-4">
                   <div className="col-span-2 lg:col-span-1">
                     <input
                       type="text"
                       name="nom"
                       id="contactName"
-                      className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                      className=" w-full flex-1 appearance-none rounded-lg border border-transparent border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600"
                       placeholder={contact.contactPlaceholderName}
                       {...register("nom", { required: true })}
                     />
-                    {errors.nom && <ErrorMessage>{contact.contactErreurNom}</ErrorMessage>}
+                    {errors.nom && (
+                      <ErrorMessage>{contact.contactErreurNom}</ErrorMessage>
+                    )}
                   </div>
                   <div className="col-span-2 lg:col-span-1">
                     <input
                       type="email"
                       id="contactEmail"
                       name="email"
-                      className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                      className=" w-full flex-1 appearance-none rounded-lg border border-transparent border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600"
                       placeholder={contact.contactPlaceholderEmail}
                       {...register("email", { required: true })}
                     />
-                    {errors.email && <ErrorMessage>{contact.contactErreurEmail}</ErrorMessage>}
+                    {errors.email && (
+                      <ErrorMessage>{contact.contactErreurEmail}</ErrorMessage>
+                    )}
                   </div>
                   <div className="col-span-2">
                     <input
                       type="text"
                       id="contactSubject"
                       name="sujet"
-                      className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                      className=" w-full flex-1 appearance-none rounded-lg border border-transparent border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600"
                       placeholder={contact.contactPlaceholderSujet}
                       {...register("sujet", { required: true })}
                     />
-                    {errors.sujet && <ErrorMessage>{contact.contactErreurSujet}</ErrorMessage>}
+                    {errors.sujet && (
+                      <ErrorMessage>{contact.contactErreurSujet}</ErrorMessage>
+                    )}
                   </div>
                   <div className="col-span-2">
                     <label className="text-gray-700" htmlFor="contenu">
                       <textarea
-                        className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                        className="w-full flex-1 appearance-none rounded-lg border border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600"
                         id="contactContent"
                         placeholder={contact.contactPlaceholderContenu}
                         name="contenu"
@@ -165,12 +178,16 @@ const ContactModal = ({ visible, close }) => {
                         {...register("contenu", { required: true })}
                       ></textarea>
                     </label>
-                    {errors.contenu && <ErrorMessage>{contact.contactErreurContenu}</ErrorMessage>}
+                    {errors.contenu && (
+                      <ErrorMessage>
+                        {contact.contactErreurContenu}
+                      </ErrorMessage>
+                    )}
                   </div>
                   <div className="col-span-2 text-right">
                     <button
                       type="submit"
-                      className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                      className="w-full rounded-lg  bg-indigo-600 py-2 px-4 text-center text-base font-semibold text-white shadow-md duration-200 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2  focus:ring-offset-indigo-200 "
                     >
                       {contact.contactSendBtn}
                     </button>
@@ -182,7 +199,7 @@ const ContactModal = ({ visible, close }) => {
         </MyModal>
       )}
     </AnimatePresence>
-  )
-}
+  );
+};
 
-export default ContactModal
+export default ContactModal;

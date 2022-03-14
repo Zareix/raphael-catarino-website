@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
-import Navigation from "./navbar/Navbar"
-import Footer from "./Footer"
-import SkipToMainContent from "./skip-to-main/SkipToMainContent"
+import Navigation from "./navbar/Navbar";
+import Footer from "./Footer";
+import SkipToMainContent from "./skip-to-main/SkipToMainContent";
 
-import { ThemeProvider } from "../../utils/context/theme-context"
+import { ThemeProvider } from "../../utils/context/theme-context";
 
 const Layout = ({ children }) => {
   return (
@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
       {children}
       <Footer />
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

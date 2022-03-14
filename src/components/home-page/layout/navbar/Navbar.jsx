@@ -103,11 +103,11 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
         "z-50 w-full shadow-md" + (alwaysDisplayed ? " sticky top-0" : " fixed")
       }
     >
-      <div className="px-5 md:px-12 pt-10 bg-white dark:bg-gray-800 flex items-center relative z-70">
-        <div className="grow flex items-center h-full py-3">
+      <div className="relative z-70 flex items-center bg-white px-5 pt-10 dark:bg-gray-800 md:px-12">
+        <div className="flex h-full grow items-center py-3">
           {isHome() ? (
             <button
-              className="shrink-0 cursor-pointer outline-none h-10"
+              className="h-10 shrink-0 cursor-pointer outline-none"
               onClick={() => {
                 closeNavDrawer();
                 window.scrollTo(0, 0);
@@ -117,7 +117,7 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
             </button>
           ) : (
             <GatsbyLink
-              className="shrink-0 cursor-pointer outline-none h-10"
+              className="h-10 shrink-0 cursor-pointer outline-none"
               to={pathname + iconBtnTarget}
             >
               <NavIcon id="navIcon" />
@@ -127,20 +127,20 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
             <NavLinks
               links={navbar.links}
               pathname={pathname}
-              className="flex ml-10 justify-center items-center space-x-4"
+              className="ml-10 flex items-center justify-center space-x-4"
             />
           )}
         </div>
         {isMobile ? (
           <>
-            <LightDarkSwitch className="mr-2 nav-link" />
+            <LightDarkSwitch className="nav-link mr-2" />
             <LangSelector
               navVisible={visible || alwaysDisplayed}
               extSlug={langSlug}
             />
             <button
               onClick={toggleDrawer}
-              className="-mr-2 inline-flex text-gray-800 dark:text-white hover:text-gray-400  items-center justify-center p-2 rounded-md focus:outline-none select-none"
+              className="-mr-2 inline-flex select-none items-center justify-center  rounded-md p-2 text-gray-800 hover:text-gray-400 focus:outline-none dark:text-white"
             >
               <ArrowDownIcon
                 className={
@@ -155,7 +155,7 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
             <div>
               {navbar.blogBtnVisible && (
                 <GatsbyLink
-                  className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
+                  className="nav-link cursor-pointer rounded-md px-3 py-2 text-sm font-medium"
                   activeClassName="link-active"
                   to="blog"
                 >
@@ -164,14 +164,14 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
               )}
               {navbar.contactBtnVisible && (
                 <button
-                  className="cursor-pointer nav-link px-3 py-2 rounded-md text-sm font-medium"
+                  className="nav-link cursor-pointer rounded-md px-3 py-2 text-sm font-medium"
                   onClick={openContactForm}
                 >
                   {navbar.labelContactLink}
                 </button>
               )}
             </div>
-            <LightDarkSwitch className="mr-2 nav-link" />
+            <LightDarkSwitch className="nav-link mr-2" />
             <div className="flex items-center">
               <LangSelector
                 navVisible={visible || navbar.alwaysDisplayed}

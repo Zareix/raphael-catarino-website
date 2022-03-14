@@ -1,9 +1,9 @@
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
-import styled from "styled-components"
-import CmsDataContext from "../../../utils/context/data-context"
+import styled from "styled-components";
+import CmsDataContext from "../../../utils/context/data-context";
 
 const Button = styled.a`
   z-index: 999999;
@@ -18,24 +18,24 @@ const Button = styled.a`
   &:focus {
     transform: translateX(-50%) translateY(0);
   }
-`
+`;
 
 const SkipToMainContent = () => {
   const {
     layout: { navbar },
-  } = useContext(CmsDataContext)
+  } = useContext(CmsDataContext);
 
   return (
     <Button href="#main" className="bg-gray-50 dark:bg-gray-900">
       {navbar.skipToMainButtonText}
     </Button>
-  )
-}
+  );
+};
 
-export default SkipToMainContent
+export default SkipToMainContent;
 
 export const fragmentSkipToMain = graphql`
   fragment SkipToMain on DatoCmsLayout {
     skipToMainButtonText
   }
-`
+`;

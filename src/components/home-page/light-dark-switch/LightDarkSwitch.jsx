@@ -94,11 +94,11 @@ const LightDarkSwitch = ({ className }) => {
   return (
     <Button onClick={switchTheme} className={className}>
       {selectedTheme === "light" ? (
-        <SunIcon className="h-6 w-6 light-icon" />
+        <SunIcon className="light-icon h-6 w-6" />
       ) : selectedTheme === "dark" ? (
-        <MoonIcon id="dark-icon" className="h-6 w-6 dark-icon" />
+        <MoonIcon id="dark-icon" className="dark-icon h-6 w-6" />
       ) : (
-        <div className="flex items-center justify-center h-6 w-6">
+        <div className="flex h-6 w-6 items-center justify-center">
           <div className="auto-icon" />
         </div>
       )}

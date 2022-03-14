@@ -1,58 +1,11 @@
 @tailwind utilities;
 
-.fade-enter {
-  opacity: 0;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 1s;
-}
-
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
-}
-
 .empty-content {
   height: 400px;
 }
 
-.link-active {
-  @apply text-gray-800 dark:text-white relative;
-}
-
-@keyframes linkUnderline {
-  0% {
-    right: 100%;
-  }
-  100% {
-    right: 0.75rem;
-  }
-}
-
-.link-active::after {
-  content: "";
-  position: absolute;
-  left: 0.75rem;
-  right: 0.75rem;
-  bottom: 0.25rem;
-  height: 0.1rem;
-  animation: linkUnderline 500ms ease-out forwards;
-  @apply bg-gray-300 dark:bg-gray-500;
-}
-
-nav > * #navIcon {
-  height: 100%;
-  width: auto;
-}
-
-nav > * #navIcon > * path {
-  fill: #1f2937;
+.vertical-timeline-element-content {
+  @apply shadow-hover cursor-pointer rounded-xl dark:bg-gray-800 !important;
 }
 
 @layer utilities {
@@ -60,12 +13,4 @@ nav > * #navIcon > * path {
     transition: var(--transition-color), box-shadow 500ms ease-in-out;
     @apply shadow-md hover:shadow-xl !important;
   }
-}
-
-.vertical-timeline-element-content {
-  @apply dark:bg-gray-800 rounded-xl shadow-hover cursor-pointer !important;
-}
-
-.dark nav > * #navIcon > * path {
-  fill: #f9fafb;
 }

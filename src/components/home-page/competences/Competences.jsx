@@ -9,12 +9,12 @@ const Competences = () => {
   const { competences } = useContext(CmsDataContext);
 
   return (
-    <section id="competences" className=" mt-20 pb-20 scroll-mt-20">
-      <h2 className="text-3xl font-bold text-center">{competences.title}</h2>
-      <h3 className="text-lg text-center text-gray-600 dark:text-gray-400 w-4/5 mb-8  mx-auto">
+    <section id="competences" className=" mt-20 scroll-mt-20 pb-20">
+      <h2 className="text-center text-3xl font-bold">{competences.title}</h2>
+      <h3 className="mx-auto mb-8 w-4/5 text-center text-lg text-gray-600  dark:text-gray-400">
         {competences.subtitle}
       </h3>
-      <div className="overflow-hidden">
+      <div>
         {competences.categories.map(({ node: cat }, index) => (
           <Competence competence={cat} key={cat.id} index={index} />
         ))}

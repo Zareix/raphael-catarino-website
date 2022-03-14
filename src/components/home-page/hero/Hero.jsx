@@ -121,8 +121,8 @@ const Hero = () => {
     <HeroSection className="bg-white dark:bg-slate-800">
       <HeroWrapper className="gap-8 md:gap-0">
         <div className="md:w-1/2">
-          <div className="mx-auto w-fit text-section">
-            <h1 className="font-bold text-4xl md:text-5xl">
+          <div className="text-section mx-auto w-fit">
+            <h1 className="text-4xl font-bold md:text-5xl">
               <span>{hero.presTitle}</span>
             </h1>
             <h2 className="mt-2 text-gray-400">
@@ -131,7 +131,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="w-full md:w-1/2">
-          <Illustration className="w-3/4 md:w-2/3 h-full mx-auto" />
+          <Illustration className="mx-auto h-full w-3/4 md:w-2/3" />
         </div>
       </HeroWrapper>
       <BGWrapper>

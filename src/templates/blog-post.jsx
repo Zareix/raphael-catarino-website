@@ -63,7 +63,7 @@ const BlogPost = ({ data, location }) => {
       <Layout sidePanel langSlug={"blog"}>
         <Content
           scrollAmount={scrollAmount}
-          className="bg-white dark:bg-gray-800 shadow-md pb-10 md:pb-0"
+          className="bg-white pb-10 shadow-md dark:bg-gray-800 md:pb-0"
         >
           <PostHeader />
           <PostBody />

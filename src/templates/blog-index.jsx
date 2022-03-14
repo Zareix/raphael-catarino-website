@@ -78,10 +78,10 @@ const BlogIndex = ({ data, location }) => {
     <CmsDataContext.Provider value={cmsData}>
       <HelmetDatoCms favicon={data.site.favicon} seo={data.indexData.seo} />
       <Layout isIndex langSlug={"blog"}>
-        <h1 className="text-center text-3xl mt-20 md:mt-12 mb-6 font-bold">
+        <h1 className="mt-20 mb-6 text-center text-3xl font-bold md:mt-12">
           {data.indexData.title}
         </h1>
-        <h2 className="text-lg text-gray-600 dark:text-gray-400 w-4/5 mx-auto">
+        <h2 className="mx-auto w-4/5 text-lg text-gray-600 dark:text-gray-400">
           {data.indexData.subtitle}
         </h2>
         <BlogList>
@@ -96,7 +96,7 @@ const BlogIndex = ({ data, location }) => {
             .map(({ node: post }) => (
               <Post
                 key={post.id}
-                className="bg-white dark:bg-gray-800 shadow-md"
+                className="bg-white shadow-md dark:bg-gray-800"
                 to={post.slug}
               >
                 <>
@@ -104,17 +104,17 @@ const BlogIndex = ({ data, location }) => {
                     image={post.featuredImage.gatsbyImageData}
                     alt={post.featuredImage.alt}
                     title={post.featuredImage.title}
-                    className="w-full h-52"
+                    className="h-52 w-full"
                     objectFit="cover"
                   />
                   <div className="mx-10 mt-6">
-                    <h1 className="font-bold text-2xl">{post.title}</h1>
-                    <h2 className="my-2 font-semibold text-gray-500 dark:text-gray-300 text-xl">
+                    <h1 className="text-2xl font-bold">{post.title}</h1>
+                    <h2 className="my-2 text-xl font-semibold text-gray-500 dark:text-gray-300">
                       {post.subtitle}
                     </h2>
-                    <div className="flex gap-1 md:items-center flex-wrap flex-col md:flex-row">
+                    <div className="flex flex-col flex-wrap gap-1 md:flex-row md:items-center">
                       <PostAuthorsList authors={post.authors} />{" "}
-                      <div className="text-sm flex gap-1 text-gray-500 dark:text-gray-400 w-full">
+                      <div className="flex w-full gap-1 text-sm text-gray-500 dark:text-gray-400">
                         {post.publishDate}
                         {post.updateDate && (
                           <>
@@ -131,7 +131,7 @@ const BlogIndex = ({ data, location }) => {
           {shownItems < data.allPosts.latestPosts.length && (
             <button
               onClick={showMore}
-              className="mt-4 py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-600 dark:focus:ring-offset-blue-400 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full"
+              className="mt-4 rounded-full bg-blue-600 py-2 px-4 text-center text-base font-semibold text-white shadow-md transition duration-200 ease-in hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-600 dark:focus:ring-offset-blue-400"
             >
               {data.indexData.showMoreLabel}
             </button>

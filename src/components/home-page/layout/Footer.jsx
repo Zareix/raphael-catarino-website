@@ -1,11 +1,11 @@
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 
-import { graphql } from "gatsby"
-import styled from "styled-components"
+import { graphql } from "gatsby";
+import styled from "styled-components";
 
-import LightDarkSwitch from "../light-dark-switch/LightDarkSwitch"
-import Contact from "../contact/Contact"
-import CmsDataContext from "../../utils/context/data-context"
+import LightDarkSwitch from "../light-dark-switch/LightDarkSwitch";
+import Contact from "../contact/Contact";
+import CmsDataContext from "../../utils/context/data-context";
 
 const FooterStyled = styled.footer`
   height: 30vh;
@@ -16,15 +16,15 @@ const FooterStyled = styled.footer`
   align-content: end;
   justify-items: center;
   gap: 0.75rem;
-`
+`;
 
 const Footer = () => {
   const {
     layout: { footer },
-  } = useContext(CmsDataContext)
+  } = useContext(CmsDataContext);
 
   return (
-    <FooterStyled className="text-gray-200 dark:text-gray-300 bg-gray-600 dark:bg-gray-800">
+    <FooterStyled className="bg-gray-600 text-gray-200 dark:bg-gray-800 dark:text-gray-300">
       <div className="flex">
         <p>Switch Theme :</p>
         <LightDarkSwitch className="ml-1" />
@@ -32,13 +32,13 @@ const Footer = () => {
       <Contact />
       <p>{footer.message}</p>
     </FooterStyled>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
 
 export const fragmentFooter = graphql`
   fragment Footer on DatoCmsFooter {
     footerMessage
   }
-`
+`;

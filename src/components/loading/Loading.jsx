@@ -1,9 +1,9 @@
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 
-import { motion } from "framer-motion"
-import styled, { keyframes } from "styled-components"
+import { motion } from "framer-motion";
+import styled, { keyframes } from "styled-components";
 
-import CmsDataContext from "../utils/context/data-context"
+import CmsDataContext from "../utils/context/data-context";
 
 const LoadingSection = styled(motion.div)`
   z-index: 10000;
@@ -14,7 +14,7 @@ const LoadingSection = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const slideUp = {
   hidden: {
@@ -32,7 +32,7 @@ const slideUp = {
       damping: 20,
     },
   },
-}
+};
 
 const loadingAnim = keyframes`
   0%{
@@ -41,7 +41,7 @@ const loadingAnim = keyframes`
   100%{
     transform : rotate(360deg);
   }
-`
+`;
 
 const LoadingAnimation = styled.div`
   position: relative;
@@ -86,10 +86,10 @@ const LoadingAnimation = styled.div`
       background-color: rgba(249, 250, 251);
     }
   }
-`
+`;
 
 const Loading = () => {
-  const { loading } = useContext(CmsDataContext)
+  const { loading } = useContext(CmsDataContext);
 
   return (
     <LoadingSection
@@ -103,7 +103,7 @@ const Loading = () => {
         <span>{loading.text}</span>
       </LoadingAnimation>
     </LoadingSection>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

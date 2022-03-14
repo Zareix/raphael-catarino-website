@@ -1,13 +1,13 @@
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 
-import { motion } from "framer-motion"
-import { Link as GatsbyLink } from "gatsby"
-import styled from "styled-components"
+import { motion } from "framer-motion";
+import { Link as GatsbyLink } from "gatsby";
+import styled from "styled-components";
 
-import { fadeIn } from "../../../utils/framer-motion-variants"
-import { slideInNav } from "./Navbar"
-import NavLinks from "./NavLinks"
-import CmsDataContext from "../../../utils/context/data-context"
+import { fadeIn } from "../../../utils/framer-motion-variants";
+import { slideInNav } from "./Navbar";
+import NavLinks from "./NavLinks";
+import CmsDataContext from "../../../utils/context/data-context";
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -16,18 +16,18 @@ const Overlay = styled(motion.div)`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(2px);
-`
+`;
 
 const NavbarMobileDrawer = ({ closeNavDrawer, pathname, openContactForm }) => {
   const {
     layout: { navbar },
-  } = useContext(CmsDataContext)
+  } = useContext(CmsDataContext);
 
   return (
     <>
       <motion.div
         id="navbarDrawer"
-        className="px-2 pt-8 pb-3 sm:px-3 bg-white dark:bg-gray-800 w-full fixed z-60 shadow-md"
+        className="fixed z-60 w-full bg-white px-2 pt-8 pb-3 shadow-md dark:bg-gray-800 sm:px-3"
         variants={slideInNav}
         initial="hidden"
         animate="visible"
@@ -38,7 +38,7 @@ const NavbarMobileDrawer = ({ closeNavDrawer, pathname, openContactForm }) => {
           {navbar.blogBtnVisible && (
             <GatsbyLink
               className={
-                "cursor-pointer nav-link block p-2 text-base font-medium" +
+                "nav-link block cursor-pointer p-2 text-base font-medium" +
                 (navbar.contactBtnVisible ? " w-1/2 text-right" : " mx-auto")
               }
               to="blog"
@@ -49,7 +49,7 @@ const NavbarMobileDrawer = ({ closeNavDrawer, pathname, openContactForm }) => {
           {navbar.contactBtnVisible && (
             <button
               className={
-                "cursor-pointer nav-link p-2 text-base font-medium" +
+                "nav-link cursor-pointer p-2 text-base font-medium" +
                 (navbar.blogBtnVisible ? " w-1/2 text-left" : " mx-auto")
               }
               onClick={openContactForm}
@@ -68,7 +68,7 @@ const NavbarMobileDrawer = ({ closeNavDrawer, pathname, openContactForm }) => {
         exit="exit"
       />
     </>
-  )
-}
+  );
+};
 
-export default NavbarMobileDrawer
+export default NavbarMobileDrawer;
