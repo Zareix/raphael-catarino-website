@@ -14,12 +14,6 @@ const CompetencesList = styled.ul`
   gap: 1rem;
 `;
 
-const ImageWrapper = styled.div`
-  height: auto;
-  max-height: ${(props) => (props.selected ? `25rem` : "0")};
-  transition: all 800ms ease-out;
-`;
-
 const Competences = () => {
   const { competences } = useContext(CmsDataContext);
 
