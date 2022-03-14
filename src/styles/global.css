@@ -95,20 +95,21 @@ body {
 
 .tooltip::before {
   --scale: 0;
+
   content: attr(data-tooltip);
-  z-index: 1;
   position: absolute;
-  width: max-content;
   top: 0;
   left: 50%;
+  z-index: 1;
   transform: translateX(-50%) translateY(-70%) scale(var(--scale));
   transition: transform ease 250ms;
   transform-origin: bottom;
+  width: max-content;
   padding: 0.25rem 0.5rem;
   border-radius: 8px;
   font-size: 1rem;
   color: white;
-  @apply bg-gray-800 shadow-xl;
+  @apply bg-gray-700 shadow-xl;
 }
 
 .tooltip-bottom::before {

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const useScroll = (offset) => {
   const [scrolled, setScrolled] = useState(false);
   const [scrollAmount, setScrollAmount] = useState(0);
-  const scrollOffset = offset ? offset : 140;
+  const scrollOffset = offset ? offset : 80;
 
   useEffect(() => {
     const handleScroll = () => {
