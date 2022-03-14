@@ -102,19 +102,19 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%) translateY(-70%) scale(var(--scale));
-  transition: transform ease 250ms;
+  transition: transform ease 250ms 100ms;
   transform-origin: bottom;
   padding: 0.25rem 0.5rem;
   border-radius: 8px;
   font-size: 1rem;
   color: white;
-  @apply bg-gray-800 shadow-xl;
+  @apply bg-gray-700 shadow-xl;
 }
 
 .tooltip-bottom::before {
   top: auto;
   bottom: 0rem;
-  transform: translateX(-50%) translateY(70%) scale(var(--scale));
+  transform: translateX(-50%) translateY(20%) scale(var(--scale));
 }
 
 .tooltip:hover::before {
