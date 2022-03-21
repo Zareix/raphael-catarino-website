@@ -6,10 +6,11 @@ import Navigation from "../../home-page/layout/navbar/Navbar";
 import { ThemeProvider } from "../../utils/context/theme-context";
 import SkipToMainContent from "../../home-page/layout/skip-to-main/SkipToMainContent";
 import SidePanel from "./SidePanel";
+import ProgressBar from "./progress-bar/ProgressBar";
 
 const Main = styled.main`
   z-index: 10;
-  width: 95%;
+  width: 100%;
   display: flex;
   margin: 0 auto;
   margin-bottom: 5rem;
@@ -19,16 +20,16 @@ const Main = styled.main`
   justify-content: center;
 
   @media (max-width: 768px) {
-    width: auto;
     flex-direction: column;
     margin-bottom: 0;
   }
 `;
 
-const Layout = ({ children, sidePanel, langSlug }) => {
+const Layout = ({ children, sidePanel, langSlug, isBlogPost }) => {
   return (
     <ThemeProvider>
       <SkipToMainContent />
+      {isBlogPost && <ProgressBar />}
       <Navigation
         alwaysDisplayed
         iconBtnTarget={"/blog/"}

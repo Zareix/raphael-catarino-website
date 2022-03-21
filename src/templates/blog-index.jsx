@@ -14,7 +14,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 const BlogList = styled.section`
   width: 80%;
   margin: 0 auto;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -28,7 +28,7 @@ const BlogList = styled.section`
 `;
 
 const Post = styled(Link)`
-  width: 40%;
+  width: 30%;
   padding-bottom: 2rem;
   overflow: hidden;
   border-radius: 1rem;
@@ -78,7 +78,7 @@ const BlogIndex = ({ data, location }) => {
     <CmsDataContext.Provider value={cmsData}>
       <HelmetDatoCms favicon={data.site.favicon} seo={data.indexData.seo} />
       <Layout isIndex langSlug={"blog"}>
-        <h1 className="mt-20 mb-6 text-center text-3xl font-bold md:mt-12">
+        <h1 className="mb-6 text-center text-3xl font-bold md:mt-12">
           {data.indexData.title}
         </h1>
         <h2 className="mx-auto w-4/5 text-lg text-gray-600 dark:text-gray-400">
@@ -128,15 +128,17 @@ const BlogIndex = ({ data, location }) => {
                 </>
               </Post>
             ))}
-          {shownItems < data.allPosts.latestPosts.length && (
+        </BlogList>
+        {shownItems < data.allPosts.latestPosts.length && (
+          <div className="mx-auto">
             <button
               onClick={showMore}
-              className="mt-4 rounded-full bg-blue-600 py-2 px-4 text-center text-base font-semibold text-white shadow-md transition duration-200 ease-in hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-600 dark:focus:ring-offset-blue-400"
+              className="rounded-full bg-blue-600 py-2 px-4 text-center text-base font-semibold text-white shadow-md transition duration-200 ease-in hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-600 dark:focus:ring-offset-blue-400"
             >
               {data.indexData.showMoreLabel}
             </button>
-          )}
-        </BlogList>
+          </div>
+        )}
       </Layout>
     </CmsDataContext.Provider>
   );

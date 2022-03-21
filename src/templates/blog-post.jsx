@@ -60,7 +60,7 @@ const BlogPost = ({ data, location }) => {
   return (
     <CmsDataContext.Provider value={cmsData}>
       <HelmetDatoCms favicon={data.site.favicon} seo={data.post.seo} />
-      <Layout sidePanel langSlug={"blog"}>
+      <Layout sidePanel langSlug={"blog"} isBlogPost>
         <Content
           scrollAmount={scrollAmount}
           className="bg-white pb-10 shadow-md dark:bg-gray-800 md:pb-0"

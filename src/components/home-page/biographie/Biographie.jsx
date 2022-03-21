@@ -8,7 +8,7 @@ import { fadeInSlow } from "../../utils/framer-motion-variants";
 import CmsDataContext from "../../utils/context/data-context";
 
 const BioStyled = styled(motion.div)`
-  width: 40%;
+  width: clamp(300px, 40%, 600px);
   margin: auto;
   margin-bottom: calc(-15vh + 3rem);
   padding: 3rem;
@@ -18,10 +18,6 @@ const BioStyled = styled(motion.div)`
 
   p {
     margin-block: 0.25rem;
-  }
-
-  @media (max-width: 1280px) {
-    width: 60%;
   }
 
   @media (max-width: 768px) {

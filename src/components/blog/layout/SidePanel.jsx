@@ -42,9 +42,9 @@ const SidePanel = () => {
   } = useContext(CmsDataContext);
 
   return (
-    <section className="mx-5 mb-10 mt-12 md:m-0 md:w-1/4" id="sidePanel">
+    <section className="my-10 md:mx-5 md:my-0 md:w-1/6" id="sidePanel">
       <div className="top-24 md:sticky">
-        <div className="overflow-hidden rounded-2xl bg-white  py-4 shadow-md dark:bg-gray-800">
+        <div className="overflow-hidden bg-white py-4  shadow-md dark:bg-gray-800 md:rounded-2xl">
           <h2 className="mx-3 mb-3 border-b border-gray-800 border-opacity-10 pb-2 text-center text-xl font-bold dark:border-gray-600">
             Les derniers posts
           </h2>

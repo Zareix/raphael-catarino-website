@@ -30,7 +30,7 @@ const Projets = () => {
           {projects.subtitle}
         </h2>
         <div className="container mx-auto px-0 py-4 md:px-4">
-          <div className="grid grid-cols-1 justify-items-center gap-4 px-4 md:grid-cols-2 md:px-0 lg:grid-cols-3 2xl:grid-cols-4">
+          <div className="mx-auto grid grid-cols-1 justify-items-center gap-4 px-4 md:w-4/5 md:grid-cols-2 md:px-0 lg:grid-cols-3">
             {projects.elements.slice(0, shownItems).map(({ node: project }) => (
               <button
                 key={project.id}

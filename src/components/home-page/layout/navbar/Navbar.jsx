@@ -174,7 +174,7 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
             <LightDarkSwitch className="nav-link mr-2" />
             <div className="flex items-center">
               <LangSelector
-                navVisible={visible || navbar.alwaysDisplayed}
+                navVisible={visible || alwaysDisplayed}
                 extSlug={langSlug}
               />
             </div>
