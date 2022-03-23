@@ -23,7 +23,7 @@ const CV = ({ data }) => {
     <Wrapper>
       <a
         className="mx-auto mt-4 mb-2 rounded-lg bg-blue-700 px-3 py-2 text-white shadow-md transition-all hover:bg-blue-600 hover:shadow-lg print:hidden"
-        href={`${process.env.API_ADRESS}/cv?lang=fr`}
+        href={`${process.env.API_ADRESS}/cv-api?lang=fr`}
       >
         {cvData.downloadButtonText}
       </a>
