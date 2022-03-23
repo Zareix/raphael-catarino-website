@@ -9,13 +9,17 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 
 const Wrapper = styled.div`
   -webkit-print-color-adjust: exact;
-  padding: 0;
+  padding: 2rem 0;
   margin: 0;
   background: #fff;
   width: 100%;
   height: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
+
+  @media print {
+    padding: 0;
+  }
 `;
 
 const CV = ({ data }) => {
@@ -32,7 +36,7 @@ const CV = ({ data }) => {
       <HelmetDatoCms seo={cvData.seoMetaTags} />
       <Wrapper>
         <a
-          className="mx-auto mt-4 mb-2 rounded-lg bg-blue-700 px-3 py-2 text-white shadow-md transition-all hover:bg-blue-600 hover:shadow-lg print:hidden"
+          className="m-4 mx-auto rounded-lg bg-blue-700 px-3 py-2 text-white shadow-md transition-all hover:bg-blue-600 hover:shadow-lg print:hidden"
           href={`${process.env.API_ADRESS}/cv-api?lang=fr`}
           onClick={() => setLoading(true)}
         >
