@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
 import { Link as GatsbyLink, graphql } from "gatsby";
-import { AnimatePresence, motion } from "framer-motion";
 
 import LangSelector from "./LangSelector";
 
@@ -13,23 +12,6 @@ import LightDarkSwitch from "../../light-dark-switch/LightDarkSwitch";
 import CmsDataContext from "../../../utils/context/data-context";
 import NavbarMobileDrawer from "./NavbarMobileDrawer";
 import NavLinks from "./NavLinks";
-
-export const slideInNav = {
-  hidden: {
-    y: "-105%",
-  },
-  visible: {
-    y: "-2.5rem",
-    transition: {
-      type: "spring",
-      stiffness: 120,
-      damping: 15,
-    },
-  },
-  exit: {
-    y: "-105%",
-  },
-};
 
 const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
   const {
@@ -93,17 +75,13 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
   const closeNavDrawer = () => setIsNavDrawerOpen(false);
 
   return (
-    <motion.nav
-      variants={slideInNav}
-      initial="hidden"
-      animate={visible || alwaysDisplayed ? "visible" : "hidden"}
-      exit="exit"
+    <nav
       id="navbar"
-      className={
-        "z-50 w-full shadow-md" + (alwaysDisplayed ? " sticky top-0" : " fixed")
-      }
+      className={`z-50 w-full shadow-md transition-all duration-700 ${
+        alwaysDisplayed ? "sticky top-0" : "fixed"
+      } ${visible ? "top-0" : "-top-full"}`}
     >
-      <div className="relative z-70 flex items-center bg-white px-5 pt-10 dark:bg-gray-800 md:px-12">
+      <div className="relative z-70 flex items-center bg-white px-5 dark:bg-gray-800 md:px-12">
         <div className="flex h-full grow items-center py-3">
           {isHome() ? (
             <button
@@ -181,15 +159,12 @@ const Navigation = ({ alwaysDisplayed, iconBtnTarget, langSlug }) => {
           </>
         )}
       </div>
-      <AnimatePresence>
-        {isMobile && isNavDrawerOpen && (
-          <NavbarMobileDrawer
-            closeNavDrawer={closeNavDrawer}
-            openContactForm={openContactForm}
-          />
-        )}
-      </AnimatePresence>
-    </motion.nav>
+      <NavbarMobileDrawer
+        closeNavDrawer={closeNavDrawer}
+        openContactForm={openContactForm}
+        visible={isMobile && isNavDrawerOpen}
+      />
+    </nav>
   );
 };
 

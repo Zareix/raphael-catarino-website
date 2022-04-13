@@ -1381,6 +1381,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7":
+  version: 7.17.9
+  resolution: "@babel/runtime@npm:7.17.9"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 4d56bdb82890f386d5a57c40ef985a0ed7f0a78f789377a2d0c3e8826819e0f7f16ba0fe906d9b2241c5f7ca56630ef0653f5bb99f03771f7b87ff8af4bf5fe3
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/template@npm:7.16.7"
@@ -3314,7 +3323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=10.0.0, @types/node@npm:^14.18.12":
+"@types/node@npm:*, @types/node@npm:>=10.0.0":
   version: 14.18.12
   resolution: "@types/node@npm:14.18.12"
   checksum: 8a0273caa0584020adb8802784fc7d4f18f05e6c205335b7f3818a91d6b0c22736b9f51da3428d5bc54076ad47f1a4d6d57990a3ce8489a520ac66b2b3ff24bc
@@ -6931,6 +6940,16 @@ __metadata:
   dependencies:
     utila: ~0.4
   checksum: ea52fe303f5392e48dea563abef0e6fb3a478b8dbe3c599e99bb5d53981c6c38fc4944e56bb92a8ead6bb989d10b7914722ae11febbd2fd0910e33b9fc4aaa77
+  languageName: node
+  linkType: hard
+
+"dom-helpers@npm:^5.0.1":
+  version: 5.2.1
+  resolution: "dom-helpers@npm:5.2.1"
+  dependencies:
+    "@babel/runtime": ^7.8.7
+    csstype: ^3.0.2
+  checksum: 863ba9e086f7093df3376b43e74ce4422571d404fc9828bf2c56140963d5edf0e56160f9b2f3bb61b282c07f8fc8134f023c98fd684bddcb12daf7b0f14d951c
   languageName: node
   linkType: hard
 
@@ -15053,7 +15072,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.1, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -15307,7 +15326,6 @@ __metadata:
     "@fontsource/open-sans": ^4.5.6
     "@netlify/functions": ^1.0.0
     "@tailwindcss/typography": ^0.5.2
-    "@types/node": ^14.18.12
     autoprefixer: ^10.4.2
     babel-plugin-styled-components: ^2.0.6
     chrome-aws-lambda: ^10.1.0
@@ -15343,6 +15361,7 @@ __metadata:
     react-scroll: ^1.8.6
     react-svg: ^14.1.15
     react-syntax-highlighter: ^15.5.0
+    react-transition-group: ^4.4.2
     react-vertical-timeline-component: ^3.5.2
     styled-components: ^5.3.3
     tailwindcss: ^3.0.23
@@ -15586,6 +15605,21 @@ __metadata:
   peerDependencies:
     react: ">= 0.14.0"
   checksum: c082b48f30f8ba8d0c55ed1d761910630860077c7ff5793c4c912adcb5760df06436ed0ad62be0de28113aac9ad2af55eccd995f8eee98df53382e4ced2072fb
+  languageName: node
+  linkType: hard
+
+"react-transition-group@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "react-transition-group@npm:4.4.2"
+  dependencies:
+    "@babel/runtime": ^7.5.5
+    dom-helpers: ^5.0.1
+    loose-envify: ^1.4.0
+    prop-types: ^15.6.2
+  peerDependencies:
+    react: ">=16.6.0"
+    react-dom: ">=16.6.0"
+  checksum: b67bf5b3e86dbab72d658b9a52a3589e5960583ab28c7c66272427d8fe30d4c7de422d5046ae96bd2683cdf80cc3264b2516f5ce80cae1dbe6cf3ca6dda392c5
   languageName: node
   linkType: hard
 

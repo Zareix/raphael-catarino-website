@@ -141,3 +141,33 @@ body {
     @apply text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white;
   }
 }
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 750ms;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 750ms;
+}
+
+.slideFromTop-enter {
+  top: -100vh;
+}
+.slideFromTop-enter-active {
+  top: 0;
+  transition: top 1000ms;
+}
+.slideFromTop-exit {
+  top: 0;
+}
+.slideFromTop-exit-active {
+  top: -100vh;
+  transition: top 1000ms;
+}

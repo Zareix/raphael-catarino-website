@@ -1,37 +1,38 @@
 import React, { useContext } from "react";
 
-import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
+import { CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 
-import { fadeIn } from "../../../utils/framer-motion-variants";
-import { slideInNav } from "./Navbar";
 import NavLinks from "./NavLinks";
 import CmsDataContext from "../../../utils/context/data-context";
 
-const Overlay = styled(motion.div)`
+const Overlay = styled.div`
   position: fixed;
   margin-top: -10px;
   width: 100%;
-  height: 100vh;
+  height: 120vh;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(2px);
 `;
 
-const NavbarMobileDrawer = ({ closeNavDrawer, pathname, openContactForm }) => {
+const NavbarMobileDrawer = ({
+  closeNavDrawer,
+  pathname,
+  openContactForm,
+  visible,
+}) => {
   const {
     layout: { navbar },
   } = useContext(CmsDataContext);
 
   return (
     <>
-      <motion.div
+      <div
         id="navbarDrawer"
-        className="fixed z-60 w-full bg-white px-2 pt-8 pb-3 shadow-md dark:bg-gray-800 sm:px-3"
-        variants={slideInNav}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
+        className={`fixed z-60 w-full bg-white px-2 pt-8 pb-3 shadow-md transition-all duration-1000 dark:bg-gray-800 sm:px-3 ${
+          visible ? "top-8" : "-top-[30%]"
+        }`}
       >
         <NavLinks pathname={pathname} closeNavDrawer={closeNavDrawer} />
         <div className="flex divide-x divide-gray-300">
@@ -58,15 +59,10 @@ const NavbarMobileDrawer = ({ closeNavDrawer, pathname, openContactForm }) => {
             </button>
           )}
         </div>
-      </motion.div>
-      <Overlay
-        id="navbarOverlay"
-        onClick={closeNavDrawer}
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      />
+      </div>
+      <CSSTransition in={visible} timeout={750} unmountOnExit classNames="fade">
+        <Overlay id="navbarOverlay" onClick={closeNavDrawer} />
+      </CSSTransition>
     </>
   );
 };

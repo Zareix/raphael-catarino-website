@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 
-import { motion } from "framer-motion";
 import styled, { keyframes } from "styled-components";
 
 import CmsDataContext from "../utils/context/data-context";
 
-const LoadingSection = styled(motion.div)`
+const LoadingSection = styled.div`
   z-index: 10000;
   position: fixed;
   height: 100vh;
@@ -15,24 +14,6 @@ const LoadingSection = styled(motion.div)`
   align-items: center;
   justify-content: center;
 `;
-
-const slideUp = {
-  hidden: {
-    y: "-100vh",
-  },
-  visible: {
-    y: 0,
-  },
-  exit: {
-    y: "-100vh",
-    transition: {
-      duration: 1,
-      type: "spring",
-      stiffness: 100,
-      damping: 20,
-    },
-  },
-};
 
 const loadingAnim = keyframes`
   0%{
@@ -92,13 +73,7 @@ const Loading = () => {
   const { loading } = useContext(CmsDataContext);
 
   return (
-    <LoadingSection
-      className="bg-gray-50 dark:bg-gray-900"
-      variants={slideUp}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-    >
+    <LoadingSection className="bg-gray-50 dark:bg-gray-900">
       <LoadingAnimation>
         <span>{loading.text}</span>
       </LoadingAnimation>

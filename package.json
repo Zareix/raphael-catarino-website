@@ -19,7 +19,6 @@
   "dependencies": {
     "@fontsource/open-sans": "^4.5.6",
     "@netlify/functions": "^1.0.0",
-    "@types/node": "^14.18.12",
     "autoprefixer": "^10.4.2",
     "babel-plugin-styled-components": "^2.0.6",
     "chrome-aws-lambda": "^10.1.0",
@@ -51,6 +50,7 @@
     "react-scroll": "^1.8.6",
     "react-svg": "^14.1.15",
     "react-syntax-highlighter": "^15.5.0",
+    "react-transition-group": "^4.4.2",
     "react-vertical-timeline-component": "^3.5.2",
     "styled-components": "^5.3.3",
     "tailwindcss": "^3.0.23",

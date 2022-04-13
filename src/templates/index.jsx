@@ -6,7 +6,6 @@ import styled from "styled-components";
 import { graphql, navigate } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import { Helmet } from "react-helmet";
-import { AnimatePresence } from "framer-motion";
 
 import Hero from "../components/home-page/hero/Hero";
 import Layout from "../components/home-page/layout/Layout";
@@ -19,6 +18,7 @@ import useScrolled from "../components/hooks/use-scroll";
 import Loading from "../components/loading/Loading";
 import useScrollEvent from "../components/hooks/use-scroll-event";
 import CmsDataContext from "../components/utils/context/data-context";
+import { CSSTransition } from "react-transition-group";
 
 const Main = styled.main`
   margin-left: auto;
@@ -92,15 +92,34 @@ const IndexPage = ({ data, location }) => {
         favicon={data.settings.faviconMetaTags}
         seo={data.home.seoMetaTags}
       />
-      <AnimatePresence initial={false}>
-        {isLoading && <Loading />}
-      </AnimatePresence>
+      <CSSTransition
+        in={isLoading}
+        timeout={1000}
+        unmountOnExit
+        classNames="slideFromTop"
+      >
+        <Loading />
+      </CSSTransition>
       <Layout>
         <Main id="main">
           <Hero />
           <section id="bio" className="scroll-mt-60">
-            <AnimatePresence>{!scrolled && <BeforeContent />}</AnimatePresence>
-            <AnimatePresence>{scrolled && <Biographie />}</AnimatePresence>
+            <CSSTransition
+              in={scrolled}
+              timeout={750}
+              unmountOnExit
+              classNames="fade"
+            >
+              <Biographie />
+            </CSSTransition>
+            <CSSTransition
+              in={!scrolled}
+              timeout={750}
+              unmountOnExit
+              classNames="fade"
+            >
+              <BeforeContent />
+            </CSSTransition>
             {!scrolled && <div className="empty-content" />}
           </section>
           <Timeline />
