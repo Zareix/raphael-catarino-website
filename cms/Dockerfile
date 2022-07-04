@@ -1,7 +1,8 @@
 FROM node:16-alpine
 RUN apk add --no-cache libc6-compat
 
-ENV NODE_ENV=production
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}}
 
 WORKDIR /opt/
 COPY ./package.json ./yarn.lock ./
