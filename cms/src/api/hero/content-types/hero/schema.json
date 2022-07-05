@@ -4,8 +4,7 @@
   "info": {
     "singularName": "hero",
     "pluralName": "heroes",
-    "displayName": "Hero",
-    "description": ""
+    "displayName": "Hero"
   },
   "options": {
     "draftAndPublish": true
