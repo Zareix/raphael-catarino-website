@@ -1,11 +1,20 @@
 import axios from 'axios';
 
+import { StrapiImage } from '../models/StrapiImage';
 import {
   StrapiSingularResponse,
   StrapiPluralResponse,
 } from '../models/StrapiResponse';
 
-export async function queryStrapiAPISingular<T>(query: string) {
+function getStrapiMedia(media: StrapiImage): string {
+  const { url } = media.data.attributes;
+  const imageUrl = url.startsWith('/')
+    ? process.env.STRAPI_PUBLIC_URL + url
+    : url;
+  return imageUrl;
+}
+
+const queryStrapiAPISingular = async <T>(query: string) => {
   try {
     const res = (
       await axios.get<StrapiSingularResponse<T>>(
@@ -19,11 +28,11 @@ export async function queryStrapiAPISingular<T>(query: string) {
     ).data.data.attributes;
     return res;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
-}
+};
 
-export async function queryStrapiAPIPlural<T>(query: string) {
+const queryStrapiAPIPlural = async <T>(query: string) => {
   try {
     const res = (
       await axios.get<StrapiPluralResponse<T>>(
@@ -37,6 +46,8 @@ export async function queryStrapiAPIPlural<T>(query: string) {
     ).data.data;
     return res;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
-}
+};
+
+export { queryStrapiAPIPlural, queryStrapiAPISingular, getStrapiMedia };

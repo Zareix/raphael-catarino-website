@@ -2,15 +2,12 @@ import type { NextPage } from 'next';
 
 import { createContext } from 'react';
 
-import Layout from '../components/Layout';
-import Hero from '../components/Home/Hero';
-import { Hero as HeroModel } from '../models/Hero';
-import { Project } from '../models/Project';
-import {
-  queryStrapiAPIPlural,
-  queryStrapiAPISingular,
-} from '../utils/queryStrapi';
-import { StrapiObject } from '../models/StrapiResponse';
+import Layout from '@components/Layout';
+import Hero from '@components/Home/Hero';
+import { Hero as HeroModel } from '@models/Hero';
+import { Project } from '@models/Project';
+import { queryStrapiAPIPlural, queryStrapiAPISingular } from '@helpers/strapi';
+import { StrapiObject } from '@models/StrapiResponse';
 
 type HomeProps = {
   hero: HeroModel;
