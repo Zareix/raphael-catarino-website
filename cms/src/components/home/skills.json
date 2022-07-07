@@ -12,7 +12,7 @@
     },
     "subtitle": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "skillsDomains": {
       "type": "relation",
