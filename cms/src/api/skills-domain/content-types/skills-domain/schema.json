@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "skills_domains",
+  "info": {
+    "singularName": "skills-domain",
+    "pluralName": "skills-domains",
+    "displayName": "SkillsDomains",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "skills.skill",
+      "required": true,
+      "min": 1
+    }
+  }
+}

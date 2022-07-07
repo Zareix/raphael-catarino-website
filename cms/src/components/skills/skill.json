@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_skills_skills",
+  "info": {
+    "displayName": "Skill"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

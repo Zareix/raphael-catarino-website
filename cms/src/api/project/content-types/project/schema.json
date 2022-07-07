@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true,
       "pluginOptions": {
@@ -25,7 +25,7 @@
         }
       }
     },
-    "FeaturedImage": {
+    "featuredImage": {
       "type": "media",
       "multiple": false,
       "required": true,

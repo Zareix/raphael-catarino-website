@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_home_skills",
+  "info": {
+    "displayName": "Skills",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "skillsDomains": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::skills-domain.skills-domain"
+    }
+  }
+}
