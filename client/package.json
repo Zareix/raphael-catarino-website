@@ -2,9 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "scripts": {
-    "dev": "next dev",
+    "develop": "next dev",
     "build": "next build",
-    "start": "next start",
+    "preview": "next start",
     "lint": "next lint"
   },
   "dependencies": {

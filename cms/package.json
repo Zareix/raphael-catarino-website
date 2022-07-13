@@ -4,7 +4,7 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
-    "start": "strapi start",
+    "preview": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
@@ -12,7 +12,6 @@
     "@strapi/plugin-i18n": "4.2.3",
     "@strapi/plugin-users-permissions": "4.2.3",
     "@strapi/strapi": "4.2.3",
-    "better-sqlite3": "7.6.0",
     "pg": "^8.7.3",
     "strapi-plugin-populate-deep": "^0.1.2"
   },
