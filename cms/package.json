@@ -6,7 +6,7 @@
     "develop": "strapi develop",
     "serve": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "preview": "strapi start"
   },
   "dependencies": {
     "@strapi/design-system": "^1.2.2",
