@@ -1,15 +1,12 @@
 {
   "name": "dashboard",
-  "packageManager": "yarn@3.1.1",
-  "private": true,
   "workspaces": [
     "client",
     "cms"
   ],
   "scripts": {
-    "client:dev": "yarn workspace client develop",
-    "cms:dev": "yarn workspace cms develop",
-    "develop": "concurrently 'yarn:client:dev' 'yarn:cms:dev'"
+    "build": "pnpm -r run build",
+    "dev": "pnpm -r run develop"
   },
   "devDependencies": {
     "concurrently": "^7.3.0"
