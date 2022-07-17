@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  @apply text-3xl font-bold;
+}
+
+h2 {
+  @apply text-xl font-semibold;
+}
+
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 750ms ease-in forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.slideInBottom {
+  opacity: 0;
+  transform: translateY(50%);
+  animation: fadeIn 750ms ease-in forwards, slideInBottom 750ms ease forwards;
+}
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(2rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

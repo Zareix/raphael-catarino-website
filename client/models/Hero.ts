@@ -1,4 +1,9 @@
+import { StrapiImage } from './StrapiImage';
+
 export type Hero = {
-  Title: string;
-  Subtitle: string;
+  id: number;
+  title: string;
+  subtitle: string;
+  profilePicture: StrapiImage;
+  biography: string;
 };
