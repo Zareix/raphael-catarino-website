@@ -1,4 +1,5 @@
 const path = require('path');
+const { withPlaiceholder } = require('@plaiceholder/next');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -19,4 +20,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withPlaiceholder(nextConfig);

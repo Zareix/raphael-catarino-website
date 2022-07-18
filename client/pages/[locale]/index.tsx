@@ -3,8 +3,9 @@ import type { NextPage } from 'next';
 import { HomeData, HomeProps } from '@models/Home';
 import { Experience } from '@models/Experience';
 import { SkillDomain } from '@models/SkillDomain';
-import { queryStrapiAPISingular } from '@helpers/strapi';
+import { getStrapiMedia, queryStrapiAPISingular } from '@helpers/strapi';
 import HomeComponent from '@components/Home';
+import { getPlaiceholder } from 'plaiceholder';
 
 const Home: NextPage<HomeProps> = ({ home }) => {
   if (!home) return <></>;
@@ -27,13 +28,24 @@ export async function getStaticProps({
 }): Promise<{ props: { home: HomeData } }> {
   const res = await queryStrapiAPISingular(params.locale, 'home');
 
+  const pp = await getPlaiceholder(
+    getStrapiMedia(res.hero.profilePicture.data.attributes.url)
+  );
+
   return {
     props: {
       home: {
         hero: {
           ...res.hero,
-          profilePicture: res.hero.profilePicture.data.attributes,
-          CV: res.hero.CV.data.attributes,
+          profilePicture: {
+            ...res.hero.profilePicture.data.attributes,
+            url: getStrapiMedia(res.hero.profilePicture.data.attributes.url),
+            placeHolder: pp.base64,
+          },
+          CV: {
+            ...res.hero.CV.data.attributes,
+            url: getStrapiMedia(res.hero.CV.data.attributes.url),
+          },
         },
         experiences: res.experiences.experiences.data.map(
           (x: { attributes: Experience; id: number }) => ({

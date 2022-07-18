@@ -2041,6 +2041,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@plaiceholder/next@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "@plaiceholder/next@npm:2.4.0"
+  peerDependencies:
+    next: ">= 10.0.0"
+    sharp: ">= 0.30.6"
+  checksum: 4b54695b20181a42a7fb41a9a2b7f7d7a2aba7aa4bf04a6da81c3bd866fdb90cc15791c464f9921caf313cd8b858ff0e206e177291e9efc011ce52bb2e6b03d4
+  languageName: node
+  linkType: hard
+
 "@pmmmwh/react-refresh-webpack-plugin@npm:0.5.7":
   version: 0.5.7
   resolution: "@pmmmwh/react-refresh-webpack-plugin@npm:0.5.7"
@@ -3122,6 +3132,15 @@ __metadata:
     "@types/mime": ^1
     "@types/node": "*"
   checksum: eaca858739483e3ded254cad7d7a679dc2c8b3f52c8bb0cd845b3b7eb1984bde0371fdcb0a5c83aa12e6daf61b6beb762545021f520f08a1fe882a3fa4ea5554
+  languageName: node
+  linkType: hard
+
+"@types/sharp@npm:^0":
+  version: 0.30.4
+  resolution: "@types/sharp@npm:0.30.4"
+  dependencies:
+    "@types/node": "*"
+  checksum: 3ebeaf55aa5ed2826a5bb4f13982a64b35691b6f38c4fd9d536ee7aed4d7e6b39529ae290f19343c5d8334419d69e147a28c214ca61adaed35ebf3ceea7cdf17
   languageName: node
   linkType: hard
 
@@ -4247,6 +4266,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"blurhash@npm:1.1.4":
+  version: 1.1.4
+  resolution: "blurhash@npm:1.1.4"
+  checksum: 99a521ff35076f9182cd1c4d458a7aeac43cc101f13cc79f9cfdb8e6c97da6e33963496a1f5c950168b79001d0f17c97d0d57e75703363c3c4c31f97b28008f8
+  languageName: node
+  linkType: hard
+
 "bn.js@npm:^4.0.0, bn.js@npm:^4.1.0, bn.js@npm:^4.11.9":
   version: 4.12.0
   resolution: "bn.js@npm:4.12.0"
@@ -4943,19 +4969,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "client@workspace:client"
   dependencies:
+    "@plaiceholder/next": ^2.4.0
     "@types/node": 18.0.6
     "@types/react": 18.0.15
     "@types/react-dom": 18.0.6
+    "@types/sharp": ^0
     "@types/styled-components": ^5.1.25
     autoprefixer: ^10.4.7
     axios: ^0.27.2
     eslint: 8.20.0
     eslint-config-next: 12.2.2
     next: 12.2.2
+    plaiceholder: ^2.4.0
     postcss: ^8.4.14
     react: 18.2.0
     react-dom: 18.2.0
     react-icons: ^4.4.0
+    sharp: ^0.30.7
     styled-components: ^5.3.5
     tailwindcss: ^3.1.6
     typescript: 4.7.4
@@ -4990,6 +5020,13 @@ __metadata:
   dependencies:
     mimic-response: ^1.0.0
   checksum: 2d0e61547fc66276e0903be9654ada422515f5a15741691352000d47e8c00c226061221074ce2c0064d12e975e84a8687cfd35d8b405750cb4e772f87b256eda
+  languageName: node
+  linkType: hard
+
+"clone@npm:2.x":
+  version: 2.1.2
+  resolution: "clone@npm:2.1.2"
+  checksum: aaf106e9bc025b21333e2f4c12da539b568db4925c0501a1bf4070836c9e848c892fa22c35548ce0d1132b08bbbfa17a00144fe58fccdab6fa900fec4250f67d
   languageName: node
   linkType: hard
 
@@ -8542,6 +8579,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"image-size@npm:1.0.0":
+  version: 1.0.0
+  resolution: "image-size@npm:1.0.0"
+  dependencies:
+    queue: 6.0.2
+  bin:
+    image-size: bin/image-size.js
+  checksum: 2d9d1edc43c0fa8effd27c44cd2d1b02ecc963219e78a76ac80b9d363f69c5aa19990cc23a323959ea510742ff07667e231f0852fd57eba5dc5b55432b58106d
+  languageName: node
+  linkType: hard
+
 "immer@npm:9.0.6":
   version: 9.0.6
   resolution: "immer@npm:9.0.6"
@@ -11030,6 +11078,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-cache@npm:5.1.2":
+  version: 5.1.2
+  resolution: "node-cache@npm:5.1.2"
+  dependencies:
+    clone: 2.x
+  checksum: b0bdd81a6fee4754fb984a05246b510bb35dc54721116d465899bf4229ee3287fdafb47da526900ee9924fb402ed5c7d8050049d37d8bf2d26dbafc23a2c3205
+  languageName: node
+  linkType: hard
+
 "node-fetch@npm:2.6.7, node-fetch@npm:^2.6.1":
   version: 2.6.7
   resolution: "node-fetch@npm:2.6.7"
@@ -12060,6 +12117,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"plaiceholder@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "plaiceholder@npm:2.4.0"
+  dependencies:
+    blurhash: 1.1.4
+    image-size: 1.0.0
+    node-cache: 5.1.2
+    node-fetch: 2.6.7
+  peerDependencies:
+    sharp: ">= 0.30.6"
+  checksum: 47198039b904ba9d1393b36cf44060027a63a662a5acf7ef733a8d974a7c64af11aafdb692949cad63e2d28973611a686532a39eee1884fed8cf4c44d52b19d0
+  languageName: node
+  linkType: hard
+
 "plop@npm:2.7.6":
   version: 2.7.6
   resolution: "plop@npm:2.7.6"
@@ -12480,6 +12551,15 @@ __metadata:
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
   checksum: b676f8c040cdc5b12723ad2f91414d267605b26419d5c821ff03befa817ddd10e238d22b25d604920340fd73efd8ba795465a0377c4adf45a4a41e4234e42dc4
+  languageName: node
+  linkType: hard
+
+"queue@npm:6.0.2":
+  version: 6.0.2
+  resolution: "queue@npm:6.0.2"
+  dependencies:
+    inherits: ~2.0.3
+  checksum: ebc23639248e4fe40a789f713c20548e513e053b3dc4924b6cb0ad741e3f264dcff948225c8737834dd4f9ec286dbc06a1a7c13858ea382d9379f4303bcc0916
   languageName: node
   linkType: hard
 
@@ -13873,7 +13953,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:0.30.7":
+"sharp@npm:0.30.7, sharp@npm:^0.30.7":
   version: 0.30.7
   resolution: "sharp@npm:0.30.7"
   dependencies:

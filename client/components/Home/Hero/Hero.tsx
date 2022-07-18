@@ -124,18 +124,20 @@ const SocialButtons = () => (
 
 const ProfilePicture = ({ hero }: { hero: HeroModel }) => (
   <ImageWrapper
-    className="md:w-1/3 w-44 h-44 md:h-auto ml-auto fadeIn"
-    href={getStrapiMedia(hero.CV.url)}
+    className="md:w-1/3 w-44 h-44 md:h-auto ml-auto fadeIn mr-6"
+    href={hero.CV.url}
     target="_blank"
     rel="noopener noreferrer"
   >
     <div className="relative w-full h-full rounded-lg shadow overflow-hidden">
       <Image
-        src={getStrapiMedia(hero.profilePicture.url)}
+        src={hero.profilePicture.url}
         alt=""
         layout="fill"
         objectFit="cover"
         sizes="50vw"
+        blurDataURL={hero.profilePicture.placeHolder}
+        placeholder="blur"
       />
     </div>
   </ImageWrapper>

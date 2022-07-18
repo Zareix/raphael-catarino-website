@@ -15,4 +15,5 @@ export type StrapiImage = {
   provider: string;
   createdAt: string;
   updatedAt: string;
+  placeHolder: string;
 };
