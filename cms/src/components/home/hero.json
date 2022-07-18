@@ -27,6 +27,15 @@
     },
     "biography": {
       "type": "richtext"
+    },
+    "CV": {
+      "allowedTypes": [
+        "files",
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

@@ -7,3 +7,7 @@ export type HomeData = {
   experiences: Experience[];
   skillsDomains: SkillDomain[];
 };
+
+export type HomeProps = {
+  home: HomeData;
+};

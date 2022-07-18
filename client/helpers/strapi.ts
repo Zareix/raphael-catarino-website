@@ -11,11 +11,11 @@ const getStrapiMedia = (url: string): string => {
     : url;
 };
 
-const queryStrapiAPISingular = async (query: string) => {
+const queryStrapiAPISingular = async (locale: string, query: string) => {
   try {
     const res = (
       await axios.get(
-        `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}?populate=deep`,
+        `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}?locale=${locale}&populate=deep`,
         {
           headers: {
             Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
@@ -29,11 +29,11 @@ const queryStrapiAPISingular = async (query: string) => {
   }
 };
 
-const queryStrapiAPIPlural = async (query: string) => {
+const queryStrapiAPIPlural = async (locale: string, query: string) => {
   try {
     const res = (
       await axios.get(
-        `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}?populate=deep`,
+        `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}?locale=${locale}&populate=deep`,
         {
           headers: {
             Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,

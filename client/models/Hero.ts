@@ -5,5 +5,6 @@ export type Hero = {
   title: string;
   subtitle: string;
   profilePicture: StrapiImage;
+  CV: StrapiImage;
   biography: string;
 };

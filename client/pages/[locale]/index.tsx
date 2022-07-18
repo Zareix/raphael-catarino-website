@@ -11,8 +11,21 @@ const Home: NextPage<HomeProps> = ({ home }) => {
   return <HomeComponent home={home} />;
 };
 
-export async function getStaticProps(): Promise<{ props: { home: HomeData } }> {
-  const res = await queryStrapiAPISingular('fr', 'home');
+export async function getStaticPaths() {
+  const locales = ['fr', 'en'];
+
+  return {
+    paths: locales.map((x) => ({ params: { locale: x } })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<{ props: { home: HomeData } }> {
+  const res = await queryStrapiAPISingular(params.locale, 'home');
 
   return {
     props: {

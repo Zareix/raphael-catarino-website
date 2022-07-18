@@ -14,7 +14,7 @@ const nextConfig = {
     config.resolve.alias['@helpers'] = path.resolve(__dirname, 'helpers');
     config.resolve.alias['@components'] = path.resolve(__dirname, 'components');
     config.resolve.alias['@models'] = path.resolve(__dirname, 'models');
-    config.resolve.alias['@'] = path.resolve(__dirname, '.');
+    config.resolve.alias['@hooks'] = path.resolve(__dirname, 'hooks');
     return config;
   },
 };

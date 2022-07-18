@@ -1,11 +1,11 @@
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="223" height="223" viewBox="0 0 223 223"
+  viewBox="0 0 223 223"
  preserveAspectRatio="xMidYMid meet">
  <style>
-    .favicon {
+    .favicon path {
       fill: #1f2937;
     }
-    .dark .favicon { 
+    .dark .favicon path{ 
         fill: #f9fafb;
     }
   </style>

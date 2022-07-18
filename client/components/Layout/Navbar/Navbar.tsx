@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Image from 'next/image';
 import styled from 'styled-components';
 
-import favicon from '../../../public/favicon.svg';
+import SvgFavicon from '@components/ui/SvgFavicon';
 
 const NavLink = styled.a.attrs({
   className: 'text-gray-800 hover:text-gray-600',
 })`
   position: relative;
+  cursor: pointer;
 
   &::after {
     content: '';
@@ -41,15 +41,9 @@ const NavLink = styled.a.attrs({
 
 const Navbar = () => {
   return (
-    <nav className="flex w-max mx-auto items-center justify-center mt-5 bg-white px-3 py-2 bg-opacity-20 backdrop-blur-sm rounded-md overflow-hidden">
+    <nav className="flex w-max mx-auto items-center justify-center mt-5 bg-gray-50 px-3 py-2 bg-opacity-70 backdrop-blur-md rounded-md overflow-hidden">
       <a className="h-10 w-10 relative" href="#hero">
-        <Image
-          src={favicon}
-          alt="favicon"
-          layout="fill"
-          objectFit="contain"
-          sizes="10vw"
-        />
+        <SvgFavicon />
       </a>
       <ul className="flex gap-6 ml-10">
         <li>
