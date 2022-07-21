@@ -9,4 +9,12 @@ module.exports = ({ env }) => ({
       roles: ["strapi-super-admin", "strapi-editor", "strapi-author"],
     },
   },
+  "nextjs-revalidate": {
+    enabled: true,
+    resolve: "./src/plugins/nextjs-revalidate",
+    config: {
+      apiUrl: process.env.NEXTJS_REVALIDATE_API_URL,
+      roles: ["strapi-super-admin", "strapi-editor", "strapi-author"],
+    },
+  },
 });

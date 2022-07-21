@@ -1,0 +1,25 @@
+{
+    "kind": "collectionType",
+    "collectionName": "revalidate-path",
+    "info": {
+        "singularName": "revalidate-path",
+        "pluralName": "revalidate-paths",
+        "displayName": "NextJS Revalidate Paths"
+    },
+    "options": {
+        "draftAndPublish": false,
+        "comment": ""
+    },
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true,
+            "maxLength": 40
+        },
+        "path": {
+            "type": "string",
+            "required": true,
+            "maxLength": 40
+        }
+    }
+}

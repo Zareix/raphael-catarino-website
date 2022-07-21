@@ -2414,7 +2414,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@strapi/design-system@npm:1.2.0":
+"@strapi/design-system@npm:1.2.0, @strapi/design-system@npm:^1.2.0":
   version: 1.2.0
   resolution: "@strapi/design-system@npm:1.2.0"
   dependencies:
@@ -2497,7 +2497,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@strapi/icons@npm:1.2.0":
+"@strapi/icons@npm:1.2.0, @strapi/icons@npm:^1.2.0":
   version: 1.2.0
   resolution: "@strapi/icons@npm:1.2.0"
   dependencies:
@@ -5065,6 +5065,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "cms@workspace:cms"
   dependencies:
+    "@strapi/design-system": ^1.2.0
+    "@strapi/icons": ^1.2.0
     "@strapi/plugin-i18n": 4.2.3
     "@strapi/plugin-users-permissions": 4.2.3
     "@strapi/strapi": 4.2.3
