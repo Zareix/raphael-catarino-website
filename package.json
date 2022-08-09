@@ -12,6 +12,6 @@
     "develop": "concurrently 'yarn:client:dev' 'yarn:cms:dev'"
   },
   "devDependencies": {
-    "concurrently": "^7.2.2"
+    "concurrently": "^7.3.0"
   }
 }
