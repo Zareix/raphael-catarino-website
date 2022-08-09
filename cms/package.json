@@ -13,6 +13,7 @@
     "@strapi/icons": "^1.2.1",
     "@strapi/plugin-i18n": "4.3.2",
     "@strapi/plugin-users-permissions": "4.3.2",
+    "@strapi/provider-email-sendgrid": "^4.3.2",
     "@strapi/strapi": "4.3.2",
     "pg": "^8.7.3",
     "strapi-plugin-populate-deep": "^0.1.2",
