@@ -1,4 +1,17 @@
 module.exports = ({ env }) => ({
+  email: {
+    config: {
+      provider: "sendgrid",
+      providerOptions: {
+        apiKey: env("SENDGRID_API_KEY"),
+      },
+      settings: {
+        defaultFrom: "strapi@zrx.sh",
+        defaultReplyTo: "strapi@zrx.sh",
+        testAddress: "strapi@zrx.sh",
+      },
+    },
+  },
   "vercel-deploy": {
     enabled: true,
     config: {
