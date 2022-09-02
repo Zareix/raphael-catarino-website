@@ -1,0 +1,18 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/.yarn": true,
+    "**/.next": true,
+    "**/.swc": true,
+    "**/.env.example": true,
+    "**/.cache": true,
+    "**/build": true,
+    "**/.strapi-updater.json": true
+  }
+}
