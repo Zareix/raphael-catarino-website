@@ -4,9 +4,8 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
-    "serve": "strapi start",
     "build": "strapi build",
-    "preview": "strapi start"
+    "serve": "strapi start"
   },
   "dependencies": {
     "@strapi/design-system": "^1.2.2",

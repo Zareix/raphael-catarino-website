@@ -1,14 +1,13 @@
 {
-  "name": "dashboard",
+  "name": "raphael-catarino-website",
   "workspaces": [
     "client",
     "cms"
   ],
   "scripts": {
     "build": "pnpm -r run build",
+    "client:build": "pnpm --filter client run build",
+    "cms:build": "pnpm --filter cms run build",
     "dev": "pnpm -r run develop"
-  },
-  "devDependencies": {
-    "concurrently": "^7.3.0"
   }
 }
