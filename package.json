@@ -8,6 +8,6 @@
     "build": "pnpm -r run build",
     "client:build": "pnpm --filter client run build",
     "cms:build": "pnpm --filter cms run build",
-    "dev": "pnpm -r run develop"
+    "develop": "pnpm -r run develop"
   }
 }
