@@ -18,6 +18,9 @@ const nextConfig = {
     config.resolve.alias['@hooks'] = path.resolve(__dirname, 'hooks');
     return config;
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 module.exports = withPlaiceholder(nextConfig);
