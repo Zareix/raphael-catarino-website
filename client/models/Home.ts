@@ -5,7 +5,11 @@ import { SkillDomain } from './SkillDomain';
 export type HomeData = {
   hero: Hero;
   experiences: Experience[];
-  skillsDomains: SkillDomain[];
+  skills: {
+    title: string;
+    subtitle: string;
+    skillsDomains: SkillDomain[];
+  };
 };
 
 export type HomeProps = {

@@ -40,15 +40,37 @@ const NavbarMobile = () => {
   const [isDrawerOpened, setIsDrawerOpened] = useState(false);
 
   return (
-    <nav className="flex border-b mx-auto items-center justify-between bg-gray-50 py-2 px-5 w-full bg-opacity-70 backdrop-blur-md overflow-hidden">
-      <a className="h-10 w-10 relative" href="#hero">
-        <SvgFavicon />
-      </a>
-      <DrawerButton
-        isDrawerOpened={isDrawerOpened}
-        onClick={() => setIsDrawerOpened(!isDrawerOpened)}
-      />
-    </nav>
+    <>
+      <nav className="flex border-b mx-auto items-center justify-between bg-gray-50 py-2 px-5 w-full bg-opacity-70 backdrop-blur-md overflow-hidden">
+        <a className="h-10 w-10 relative" href="#hero">
+          <SvgFavicon />
+        </a>
+        <DrawerButton
+          isDrawerOpened={isDrawerOpened}
+          onClick={() => setIsDrawerOpened(!isDrawerOpened)}
+        />
+      </nav>
+      <div
+        className={`fixed -z-10 bg-gray-50 bg-opacity-70 backdrop-blur-md w-full transition-all grid gap-4 ${
+          isDrawerOpened ? 'translate-y-0' : 'translate-y-[-125%]'
+        }`}
+      >
+        <ul>
+          <li onClick={() => setIsDrawerOpened(false)}>
+            <a href="#experiences">Expériences</a>
+          </li>
+          <li onClick={() => setIsDrawerOpened(false)}>
+            <a href="#skills">Compétences</a>
+          </li>
+          <li onClick={() => setIsDrawerOpened(false)}>
+            <a href="#projects">Projets</a>
+          </li>
+          <li onClick={() => setIsDrawerOpened(false)}>
+            <button>Contact</button>
+          </li>
+        </ul>
+      </div>
+    </>
   );
 };
 

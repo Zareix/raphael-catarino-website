@@ -3,11 +3,11 @@ import React from 'react';
 import Image from 'next/image';
 import styled, { keyframes } from 'styled-components';
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
+import ReactMarkdown from 'react-markdown';
 
-import { useHomeContext } from '../';
-import { getStrapiMedia } from '@helpers/strapi';
-import useWindowWidth from '@hooks/use-window-width';
 import { Hero as HeroModel } from '@models/Hero';
+import useWindowWidth from '@hooks/use-window-width';
+import { useHomeContext } from '../';
 
 const rotateImageBg = keyframes`
   from {
@@ -60,6 +60,25 @@ const Bio = styled.div`
   & > div {
     animation-delay: 700ms;
   }
+
+  p:first-child::first-letter {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      'Liberation Mono', 'Courier New', monospace;
+    font-size: 3.5rem;
+    float: left;
+    margin-right: 0.25rem;
+    line-height: 1;
+  }
+
+  strong {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      'Liberation Mono', 'Courier New', monospace;
+    font-size: 0.8rem;
+    background-color: #18181b;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    color: #f8fafc;
+  }
 `;
 
 const Hero = () => {
@@ -77,11 +96,9 @@ const Hero = () => {
         <Bio className="md:w-2/3">
           <h1 className="text-4xl slideInBottom">{hero.title}</h1>
           <h2 className="mb-2 text-2xl slideInBottom">{hero.subtitle}</h2>
-          <p className="grid gap-1 text-justify slideInBottom">
-            {hero.biography.split('\n').map((x, i) => (
-              <span key={i}>{x}</span>
-            ))}
-          </p>
+          <div className="grid gap-1 text-justify slideInBottom">
+            <ReactMarkdown>{hero.biography}</ReactMarkdown>
+          </div>
           {!isMobile && (
             <div className="mt-4 flex gap-3 slideInBottom">
               <SocialButtons />

@@ -41,12 +41,22 @@ export async function getStaticProps(): Promise<{ props: { home: HomeData } }> {
             id: x.id,
           })
         ),
-        skillsDomains: res.skills.skillsDomains.data.map(
-          (x: { attributes: SkillDomain; id: number }) => ({
-            ...x.attributes,
-            id: x.id,
-          })
-        ),
+        skills: {
+          ...res.skills,
+          skillsDomains: res.skills.skillsDomains.data.map((domain) => ({
+            ...domain.attributes,
+            skills: domain.attributes.skills.map((s) => {
+              return {
+                ...s,
+                icon: {
+                  ...s.icon,
+                  url: getStrapiMedia(s.icon.data.attributes.url),
+                },
+              };
+            }),
+            id: domain.id,
+          })),
+        },
       },
     },
   };
