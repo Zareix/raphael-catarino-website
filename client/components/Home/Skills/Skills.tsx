@@ -17,7 +17,7 @@ const Skills = () => {
         {skills.skillsDomains.map((domain) => (
           <article
             key={domain.id}
-            className="bg-slate-900 mx-4 min-w-[300px] text-gray-50 font-mono p-8 rounded-lg relative pt-10 shadow-md md:w-max w-full"
+            className="bg-slate-900 mx-4 min-w-[400px] text-gray-50 font-mono p-8 rounded-lg relative pt-10 shadow-md md:w-max w-full"
           >
             <div className="absolute top-4 left-4 flex gap-2">
               <div className="bg-red-400 rounded-full w-3 h-3"></div>
