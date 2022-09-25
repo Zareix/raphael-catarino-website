@@ -13,7 +13,7 @@ const Skills = () => {
     <section className="min-h-screen w-full" id="skills">
       <SectionTitle>{skills.title}</SectionTitle>
       <SectionSubtitle>{skills.subtitle}</SectionSubtitle>
-      <div className="flex gap-6 md:gap-12 justify-center items-center flex-wrap">
+      <div className="flex gap-6 md:gap-12 justify-center items-center flex-wrap ">
         {skills.skillsDomains.map((domain) => (
           <article
             key={domain.id}
@@ -24,7 +24,7 @@ const Skills = () => {
               <div className="bg-yellow-400 rounded-full w-3 aspect-square"></div>
               <div className="bg-green-400 rounded-full w-3 aspect-square"></div>
             </div>
-            <h2 className="absolute top-2 left-1/2 -translate-x-1/2">
+            <h2 className="absolute top-2 left-1/2 -translate-x-1/2 whitespace-nowrap">
               {domain.title}
             </h2>
             <div className="grid grid-cols-3 justify-center gap-x-12 gap-y-4">
@@ -35,7 +35,7 @@ const Skills = () => {
                       src={skill.icon.url}
                       alt=""
                       layout="fill"
-                      objectFit="cover"
+                      objectFit="contain"
                     />
                   </div>
                   {skill.name}
