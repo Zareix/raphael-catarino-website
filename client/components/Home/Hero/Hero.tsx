@@ -43,6 +43,10 @@ const ImageWrapper = styled.a`
     animation: ${rotateImageBg} 500ms 1.75s forwards;
   }
 
+  .dark &::before {
+    background-color: #507ca9;
+  }
+
   &:hover::before {
     left: 1rem;
     padding-right: 0.6rem;
@@ -74,10 +78,16 @@ const Bio = styled.div`
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
       'Liberation Mono', 'Courier New', monospace;
     font-size: 0.8rem;
-    background-color: #18181b;
+    background-color: rgb(15, 23, 42);
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
     color: #f8fafc;
+    white-space: nowrap;
+  }
+
+  .dark strong {
+    color: rgb(249, 250, 251);
+    background-color: rgb(15, 23, 42);
   }
 `;
 
@@ -89,7 +99,7 @@ const Hero = () => {
 
   return (
     <section
-      className="min-h-screen w-full flex items-center bg-gray-50"
+      className="min-h-screen w-full flex items-center bg-gray-50 dark:bg-gray-800 dark:text-gray-50"
       id="hero"
     >
       <div className="container flex flex-col md:flex-row px-6 xl:px-40 md:gap-12">
