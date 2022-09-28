@@ -1,3 +1,8 @@
 # raphael-catarino-website
 
-My portfolio / blog v2 in NextJS with Strapi
+My portfolio / blog v2
+
+## Stack
+
+- Front : NextJS
+- CMS (Headless) : Strapi
