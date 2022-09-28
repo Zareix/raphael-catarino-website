@@ -13,6 +13,8 @@
     "**/.env.example": true,
     "**/.cache": true,
     "**/build": true,
-    "**/.strapi-updater.json": true
+    "**/.strapi-updater.json": true,
+    "**/.vercel": true,
+    "**/.turbo": true
   }
 }
