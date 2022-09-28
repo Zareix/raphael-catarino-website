@@ -1,13 +1,15 @@
 {
   "name": "raphael-catarino-website",
   "workspaces": [
-    "client",
-    "cms"
+    "apps/*"
   ],
   "scripts": {
-    "build": "pnpm -r run build",
-    "client:build": "pnpm --filter client run build",
-    "cms:build": "pnpm --filter cms run build",
+    "client:build": "turbo run build --filter=client",
+    "cms:build": "turbo run build --filter=cms",
+    "lint": "turbo run lint",
     "develop": "pnpm -r run develop"
+  },
+  "devDependencies": {
+    "turbo": "^1.5.4"
   }
 }

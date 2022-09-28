@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
+    "develop": "strapi develop --watch-admin",
     "build": "strapi build",
     "serve": "strapi start"
   },
