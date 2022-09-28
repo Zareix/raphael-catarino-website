@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Strapi for RGC Portfolio",
   "scripts": {
-    "develop": "strapi develop --watch-admin",
+    "develop": "strapi develop",
     "build": "strapi build",
     "serve": "strapi start"
   },
