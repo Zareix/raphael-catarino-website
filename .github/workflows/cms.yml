@@ -2,11 +2,11 @@ name: CMS CI/CD
 
 on:
   push:
-    branches: [v2]
+    branches: [main]
     paths:
       - apps/cms/**
   pull_request:
-    branches: [v2]
+    branches: [main]
     paths:
       - apps/cms/**
 
@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: v2
+          ref: main
 
       - uses: pnpm/action-setup@v2.2.2
         with:
