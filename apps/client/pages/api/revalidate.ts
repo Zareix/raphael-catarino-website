@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 type Data = {
   message: string;
   revalidated?: boolean;
+  error?: any;
 };
 
 export default async function handler(
@@ -30,6 +31,6 @@ export default async function handler(
       revalidated: true,
     });
   } catch (err) {
-    return res.status(500).json({ message: 'Error revalidating' });
+    return res.status(500).json({ message: 'Error revalidating', error: err });
   }
 }
