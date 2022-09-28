@@ -1,4 +1,4 @@
-name: Docker images CI
+name: CMS CI/CD
 
 on:
   push:
