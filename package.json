@@ -1,13 +1,18 @@
 {
   "name": "raphael-catarino-website",
+  "private": true,
   "workspaces": [
     "apps/*"
   ],
   "scripts": {
-    "client:build": "turbo run build --filter=client",
-    "cms:build": "turbo run build --filter=cms",
+    "build": "turbo run build",
     "lint": "turbo run lint",
-    "develop": "pnpm -r run develop"
+    "develop": "turbo run develop --parallel",
+    "client:build": "turbo run build --filter=client",
+    "client:develop": "turbo run develop --filter=client",
+    "cms:build": "turbo run build --filter=cms",
+    "cms:develop": "turbo run develop --filter=cms",
+    "cms:serve": "NODE_ENV=production turbo run serve --filter=cms"
   },
   "devDependencies": {
     "turbo": "^1.5.4"

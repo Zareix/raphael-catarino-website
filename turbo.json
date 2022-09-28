@@ -7,11 +7,18 @@
             ],
             "outputs": [
                 ".next/**",
-                "build/**"
+                "build/**",
+                "$NODE_ENV"
             ]
         },
         "lint": {
             "outputs": []
+        },
+        "develop": {
+            "cache": false
+        },
+        "serve": {
+            "cache": false
         }
     }
 }
