@@ -33,17 +33,18 @@ const SkillDomainArticle = ({ domain }: Props) => {
       </h2>
       <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
         {domain.skills.map((skill) => (
-          <div key={skill.id} className="text-center">
-            <Image
-              src={skill.icon.url}
-              alt={skill.icon.alternativeText}
-              layout="fixed"
-              width={70}
-              height={70}
-              placeholder="blur"
-              blurDataURL={skill.icon.placeHolder}
-            />
-            <p className="-mt-2">{skill.name}</p>
+          <div key={skill.id} className="text-center grid justify-items-center">
+            <div className="w-16 h-16 relative">
+              <Image
+                src={skill.icon.url}
+                alt={skill.icon.alternativeText}
+                layout="fill"
+                objectFit="contain"
+                placeholder="blur"
+                blurDataURL={skill.icon.placeHolder}
+              />
+            </div>
+            <p>{skill.name}</p>
           </div>
         ))}
       </div>

@@ -8,8 +8,10 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "develop": "turbo run develop --parallel",
+    "serve": "turbo run develop --parallel",
     "client:build": "turbo run build --filter=client",
     "client:develop": "turbo run develop --filter=client",
+    "client:serve": "NODE_ENV=production turbo run serve --filter=client",
     "cms:build": "turbo run build --filter=cms",
     "cms:develop": "turbo run develop --filter=cms",
     "cms:serve": "NODE_ENV=production turbo run serve --filter=cms"
