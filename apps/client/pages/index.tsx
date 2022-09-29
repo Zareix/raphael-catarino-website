@@ -1,12 +1,10 @@
 import type { NextPage } from 'next';
 
-import { getPlaiceholder } from 'plaiceholder';
-
 import { HomeData, HomeProps } from '@models/Home';
 import { Experience } from '@models/Experience';
-import { SkillDomain } from '@models/SkillDomain';
 import { getStrapiMedia, queryStrapiAPISingular } from '@helpers/strapi';
 import HomeComponent from '@components/Home';
+import { createPlaceholder } from '@helpers/plaiceholder';
 
 const Home: NextPage<HomeProps> = ({ home }) => {
   if (!home) return <></>;
@@ -16,10 +14,6 @@ const Home: NextPage<HomeProps> = ({ home }) => {
 export async function getStaticProps(): Promise<{ props: { home: HomeData } }> {
   const res = await queryStrapiAPISingular('fr', 'home');
 
-  const pp = await getPlaiceholder(
-    getStrapiMedia(res.hero.profilePicture.data.attributes.url)
-  );
-
   return {
     props: {
       home: {
@@ -28,7 +22,9 @@ export async function getStaticProps(): Promise<{ props: { home: HomeData } }> {
           profilePicture: {
             ...res.hero.profilePicture.data.attributes,
             url: getStrapiMedia(res.hero.profilePicture.data.attributes.url),
-            placeHolder: pp.base64,
+            placeHolder: await createPlaceholder(
+              res.hero.profilePicture.data.attributes.url
+            ),
           },
           CV: {
             ...res.hero.CV.data.attributes,
@@ -43,19 +39,24 @@ export async function getStaticProps(): Promise<{ props: { home: HomeData } }> {
         ),
         skills: {
           ...res.skills,
-          skillsDomains: res.skills.skillsDomains.data.map((domain) => ({
-            ...domain.attributes,
-            skills: domain.attributes.skills.map((s) => {
-              return {
-                ...s,
-                icon: {
-                  ...s.icon,
-                  url: getStrapiMedia(s.icon.data.attributes.url),
-                },
-              };
-            }),
-            id: domain.id,
-          })),
+          skillsDomains: await Promise.all(
+            res.skills.skillsDomains.data.map(async (domain) => ({
+              ...domain.attributes,
+              skills: await Promise.all(
+                domain.attributes.skills.map(async (s) => ({
+                  ...s,
+                  icon: {
+                    ...s.icon.data.attributes,
+                    url: getStrapiMedia(s.icon.data.attributes.url),
+                    placeHolder: await createPlaceholder(
+                      s.icon.data.attributes.url
+                    ),
+                  },
+                }))
+              ),
+              id: domain.id,
+            }))
+          ),
         },
       },
     },

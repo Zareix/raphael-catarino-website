@@ -2,10 +2,9 @@ import type { NextPage } from 'next';
 
 import { HomeData, HomeProps } from '@models/Home';
 import { Experience } from '@models/Experience';
-import { SkillDomain } from '@models/SkillDomain';
 import { getStrapiMedia, queryStrapiAPISingular } from '@helpers/strapi';
 import HomeComponent from '@components/Home';
-import { getPlaiceholder } from 'plaiceholder';
+import { createPlaceholder } from '@helpers/plaiceholder';
 
 const Home: NextPage<HomeProps> = ({ home }) => {
   if (!home) return <></>;
@@ -28,10 +27,6 @@ export async function getStaticProps({
 }): Promise<{ props: { home: HomeData } }> {
   const res = await queryStrapiAPISingular(params.locale, 'home');
 
-  const pp = await getPlaiceholder(
-    getStrapiMedia(res.hero.profilePicture.data.attributes.url)
-  );
-
   return {
     props: {
       home: {
@@ -40,7 +35,9 @@ export async function getStaticProps({
           profilePicture: {
             ...res.hero.profilePicture.data.attributes,
             url: getStrapiMedia(res.hero.profilePicture.data.attributes.url),
-            placeHolder: pp.base64,
+            placeHolder: await createPlaceholder(
+              res.hero.profilePicture.data.attributes.url
+            ),
           },
           CV: {
             ...res.hero.CV.data.attributes,
@@ -55,20 +52,23 @@ export async function getStaticProps({
         ),
         skills: {
           ...res.skills,
-          skillsDomains: res.skills.skillsDomains.data.map(
-            (x: { attributes: SkillDomain; id: number }) => ({
-              ...x.attributes,
-              skills: x.attributes.skills.map((s) => {
-                return {
+          skillsDomains: await Promise.all(
+            res.skills.skillsDomains.data.map(async (domain) => ({
+              ...domain.attributes,
+              skills: await Promise.all(
+                domain.attributes.skills.map(async (s) => ({
                   ...s,
                   icon: {
-                    ...s.icon,
+                    ...s.icon.data.attributes,
                     url: getStrapiMedia(s.icon.data.attributes.url),
+                    placeHolder: await createPlaceholder(
+                      s.icon.data.attributes.url
+                    ),
                   },
-                };
-              }),
-              id: x.id,
-            })
+                }))
+              ),
+              id: domain.id,
+            }))
           ),
         },
       },
