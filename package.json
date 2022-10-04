@@ -17,6 +17,6 @@
     "cms:serve": "NODE_ENV=production turbo run serve --filter=cms"
   },
   "devDependencies": {
-    "turbo": "^1.5.4"
+    "turbo": "^1.5.5"
   }
 }
