@@ -1,11 +1,7 @@
-name: CMS CI/CD
+name: Main CMS CI/CD
 
 on:
   push:
-    branches: [main]
-    paths:
-      - apps/cms/**
-  pull_request:
     branches: [main]
     paths:
       - apps/cms/**
