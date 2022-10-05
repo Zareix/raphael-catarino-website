@@ -10,7 +10,7 @@
   "dependencies": {
     "@strapi/design-system": "^1.2.5",
     "@strapi/icons": "^1.2.5",
-    "@strapi/plugin-i18n": "4.4.1",
+    "@strapi/plugin-i18n": "4.4.3",
     "@strapi/plugin-users-permissions": "4.4.3",
     "@strapi/provider-email-sendgrid": "^4.4.1",
     "@strapi/strapi": "4.4.3",
