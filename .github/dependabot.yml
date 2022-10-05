@@ -1,16 +1,6 @@
 version: 2
 updates:
   - package-ecosystem: 'npm'
-    directory: '/client'
-    schedule:
-      interval: 'daily'
-
-  - package-ecosystem: 'npm'
-    directory: '/cms'
-    schedule:
-      interval: 'daily'
-
-  - package-ecosystem: 'npm'
     directory: '/'
     schedule:
       interval: 'daily'
