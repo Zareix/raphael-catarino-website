@@ -10,8 +10,12 @@ const queryStrapiAPISingular = async (locale: string, query: string) => {
   try {
     const res = (
       await axios.get(
-        `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}?locale=${locale}&populate=deep`,
+        `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}`,
         {
+          params: {
+            locale,
+            populate: 'deep',
+          },
           headers: {
             Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
           },
@@ -28,8 +32,12 @@ const queryStrapiAPIPlural = async (locale: string, query: string) => {
   try {
     const res = (
       await axios.get(
-        `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}?locale=${locale}&populate=deep`,
+        `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}`,
         {
+          params: {
+            locale,
+            populate: 'deep',
+          },
           headers: {
             Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
           },
