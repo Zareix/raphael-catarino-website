@@ -1,4 +1,4 @@
-name: Main CMS CI/CD
+name: '[CMS] - Main'
 
 on:
   push:

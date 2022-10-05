@@ -1,4 +1,4 @@
-name: CMS CI/CD on pull request
+name: '[CMS] - On Pull Request'
 
 on:
   pull_request:
