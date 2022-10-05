@@ -1,3 +1,3 @@
 # Front
 
-Front in [NextJS](https://nextjs.org/)
+Front in [NextJS](https://nextjs.org)

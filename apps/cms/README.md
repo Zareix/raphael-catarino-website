@@ -1,1 +1,3 @@
-# Strapi CMS
+# CMS
+
+CMS with Strapi
