@@ -30,7 +30,7 @@ jobs:
         run: pnpm install --frozen-lockfile=false
 
       - name: Check changed files
-        uses: tj-actions/verify-changed-files@v8.8
+        uses: tj-actions/verify-changed-files@v11.1
         id: verify-changed-files
         with:
           files: |
