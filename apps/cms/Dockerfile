@@ -10,12 +10,7 @@ COPY ./package.json .
 RUN yarn config set network-timeout 600000 -g
 RUN yarn install
 
-COPY ./build ./build
-COPY ./config ./config
-COPY ./database ./database
-COPY ./public ./public
-COPY ./src ./src
-COPY ./favicon.ico ./
+COPY . .
 
 EXPOSE 1337
 
