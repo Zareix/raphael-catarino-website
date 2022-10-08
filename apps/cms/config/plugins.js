@@ -3,7 +3,7 @@ module.exports = ({ env }) => ({
     config: {
       provider: "sendgrid",
       providerOptions: {
-        apiKey: env("SENDGRID_API_KEY"),
+        apiKey: process.env.SENDGRID_API_KEY,
       },
       settings: {
         defaultFrom: "strapi@zrx.sh",
@@ -28,6 +28,21 @@ module.exports = ({ env }) => ({
     config: {
       apiUrl: process.env.NEXTJS_REVALIDATE_API_URL,
       roles: ["strapi-super-admin", "strapi-editor", "strapi-author"],
+    },
+  },
+  upload: {
+    config: {
+      provider: "aws-s3",
+      providerOptions: {
+        accessKeyId: process.env.S3_ACCESS_KEY_ID,
+        secretAccessKey: process.env.S3_ACCESS_SECRET,
+        endpoint: process.env.S3_ENDPOINT,
+        sslEnabled: true,
+        s3ForcePathStyle: true,
+        params: {
+          Bucket: process.env.S3_BUCKET,
+        },
+      },
     },
   },
 });
