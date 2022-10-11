@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@plaiceholder/next": "^2.5.0",
-    "axios": "^1.0.0",
+    "axios": "^1.1.2",
     "next": "12.3.1",
     "plaiceholder": "^2.5.0",
     "react": "18.2.0",
@@ -21,7 +21,7 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@types/node": "18.8.3",
+    "@types/node": "18.8.4",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@types/sharp": "^0.31.0",
