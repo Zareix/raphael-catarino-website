@@ -1,0 +1,26 @@
+{
+  "navbar_contact": [
+    {
+      "type": 0,
+      "value": "Contact"
+    }
+  ],
+  "navbar_experiences": [
+    {
+      "type": 0,
+      "value": "Experiences"
+    }
+  ],
+  "navbar_projects": [
+    {
+      "type": 0,
+      "value": "Projects"
+    }
+  ],
+  "navbar_skills": [
+    {
+      "type": 0,
+      "value": "Skills"
+    }
+  ]
+}

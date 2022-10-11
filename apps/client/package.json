@@ -2,10 +2,13 @@
   "name": "client",
   "version": "0.1.0",
   "scripts": {
-    "develop": "next dev",
-    "build": "NODE_ENV=production next build",
+    "develop": "pnpm run i18n && next dev",
+    "build": "pnpm run i18n && NODE_ENV=production next build",
     "serve": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "extract:i18n": "formatjs extract '{pages,components}/**/*.{js,ts,tsx}' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file lang/locales/fr.json",
+    "compile:i18n": "formatjs compile-folder --ast --format simple lang/locales lang/compiled",
+    "i18n": "pnpm run extract:i18n && pnpm run compile:i18n"
   },
   "dependencies": {
     "@plaiceholder/next": "^2.5.0",
@@ -13,23 +16,29 @@
     "next": "12.3.1",
     "plaiceholder": "^2.5.0",
     "react": "18.2.0",
+    "react-country-flag": "^3.0.2",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-intersection-observer": "^9.4.0",
+    "react-intl": "^6.1.2",
     "react-markdown": "^8.0.3",
     "sharp": "^0.31.1",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "@formatjs/cli": "^5.1.1",
     "@types/node": "18.8.4",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@types/sharp": "^0.31.0",
     "@types/styled-components": "^5.1.26",
     "autoprefixer": "^10.4.12",
+    "babel-plugin-formatjs": "^10.3.29",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1",
     "postcss": "^8.4.17",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.1.8",
     "typescript": "4.8.4"
   }

@@ -24,6 +24,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  i18n: {
+    locales: ['en', 'fr'],
+    defaultLocale: 'fr',
+  },
 };
 
 module.exports = withPlaiceholder(nextConfig);

@@ -1,21 +1,51 @@
-import type { NextPage } from 'next';
+import type { GetStaticPropsContext, NextPage } from "next";
+import { useMemo } from "react";
+import { IntlProvider } from "react-intl";
 
-import { HomeData, HomeProps } from '@models/Home';
-import { Experience } from '@models/Experience';
-import { getStrapiMedia, queryStrapiAPISingular } from '@helpers/strapi';
-import HomeComponent from '@components/Home';
-import { createPlaceholder } from '@helpers/plaiceholder';
+import { HomeData, HomeProps } from "@models/Home";
+import { Experience } from "@models/Experience";
+import { getStrapiMedia, queryStrapiAPISingular } from "@helpers/strapi";
+import HomeComponent from "@components/Home";
+import { createPlaceholder } from "@helpers/plaiceholder";
 
-const Home: NextPage<HomeProps> = ({ home }) => {
+import English from "../lang/compiled/en.json";
+import French from "../lang/compiled/fr.json";
+import { useRouter } from "next/router";
+
+const Home: NextPage<HomeProps> = ({ home }: HomeProps) => {
+  const router = useRouter();
+  const locale = router.locale ?? "fr";
+
+  const messages = useMemo(() => {
+    switch (locale) {
+      case "en":
+        return English;
+      case "fr":
+        return French;
+      default:
+        return French;
+    }
+  }, [locale]);
+
   if (!home) return <></>;
-  return <HomeComponent home={home} />;
+
+  return (
+    <IntlProvider messages={messages} locale={locale} defaultLocale="fr">
+      <HomeComponent home={home} />
+    </IntlProvider>
+  );
 };
 
-export async function getStaticProps(): Promise<{ props: { home: HomeData } }> {
-  const res = await queryStrapiAPISingular('fr', 'home');
+export async function getStaticProps({
+  locale,
+}: GetStaticPropsContext): Promise<{
+  props: { home: HomeData; locale: string };
+}> {
+  const res = await queryStrapiAPISingular(locale ?? "fr", "home");
 
   return {
     props: {
+      locale: locale ?? "fr",
       home: {
         hero: {
           ...res.hero,

@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Navbar from './Navbar';
 import useWindowWidth from '@hooks/use-window-width';
 import NavbarMobile from './Navbar/NavbarMobile';
+import Footer from './Footer';
 
 type Props = {
   children: ReactNode;
@@ -20,6 +21,7 @@ const Layout = ({ children }: Props) => {
         {isMobile ? <NavbarMobile /> : <Navbar />}
       </header>
       <main className="isolate">{children}</main>
+      <Footer />
     </>
   );
 };

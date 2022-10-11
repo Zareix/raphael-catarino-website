@@ -1,11 +1,11 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext } from "react";
 
-import { HomeData, HomeProps } from '@models/Home';
-import Layout from '@components/Layout';
-import Hero from '@components/Home/Hero';
-import Projects from '@components/Home/Projects';
-import Experiences from '@components/Home/Experiences';
-import Skills from '@components/Home/Skills';
+import { HomeData, HomeProps } from "@models/Home";
+import Layout from "@components/Layout";
+import Hero from "@components/Home/Hero";
+import Projects from "@components/Home/Projects";
+import Experiences from "@components/Home/Experiences";
+import Skills from "@components/Home/Skills";
 
 export const HomeContext = createContext<HomeProps | undefined>(undefined);
 

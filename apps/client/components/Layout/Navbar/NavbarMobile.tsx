@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import styled from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
-import SvgFavicon from '@components/ui/SvgFavicon';
+import SvgFavicon from "@components/ui/SvgFavicon";
+import { LangSelector } from "../LangSelector";
+import { useRouter } from "next/router";
 
 const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
   width: 32px;
@@ -11,12 +13,12 @@ const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
 
   ::after,
   ::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 2px;
     background-color: ${({ isDrawerOpened }) =>
-      isDrawerOpened ? 'hsl(0 0% 0% / 0.8);' : 'hsl(0 0% 0% / 0.6)'};
+      isDrawerOpened ? "hsl(0 0% 0% / 0.8);" : "hsl(0 0% 0% / 0.6)"};
     left: 0;
     right: 0;
     border-radius: 100vw;
@@ -26,23 +28,48 @@ const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
   ::after {
     top: 11px;
     ${({ isDrawerOpened }) =>
-      isDrawerOpened ? 'top: auto; transform: rotate(45deg);' : ''}
+      isDrawerOpened ? "top: auto; transform: rotate(45deg);" : ""}
   }
 
   ::before {
     bottom: 11px;
     ${({ isDrawerOpened }) =>
-      isDrawerOpened ? 'bottom: auto; transform: rotate(-45deg);' : ''}
+      isDrawerOpened ? "bottom: auto; transform: rotate(-45deg);" : ""}
   }
+`;
+
+const backdrop = keyframes`
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+`;
+
+const Backdrop = styled.div`
+  animation: ${backdrop} 200ms;
 `;
 
 const NavbarMobile = () => {
   const [isDrawerOpened, setIsDrawerOpened] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    setIsDrawerOpened(false);
+  }, [router.locale]);
+
   return (
     <>
-      <nav className="flex mx-auto items-center border-b justify-between bg-gray-50 py-2 px-5 w-full bg-opacity-70 backdrop-blur-md overflow-hidden">
+      <nav
+        className={`mx-auto flex w-full items-center justify-between overflow-hidden border-b bg-gray-50 py-2 px-5 transition-all dark:border-gray-700 dark:bg-gray-800 ${
+          isDrawerOpened
+            ? ""
+            : "bg-opacity-70 backdrop-blur-md  dark:bg-opacity-70"
+        }`}
+      >
         <a
-          className="h-10 w-10 relative"
+          className="relative h-10 w-10"
           href="#hero"
           onClick={() => setIsDrawerOpened(false)}
         >
@@ -53,12 +80,18 @@ const NavbarMobile = () => {
           onClick={() => setIsDrawerOpened(!isDrawerOpened)}
         />
       </nav>
+      {isDrawerOpened && (
+        <Backdrop
+          onClick={() => setIsDrawerOpened(!isDrawerOpened)}
+          className="fixed -z-20 h-screen w-full bg-gray-800 bg-opacity-20 backdrop-blur-sm"
+        />
+      )}
       <div
-        className={`fixed -z-10 border-b bg-gray-50 bg-opacity-70 backdrop-blur-md w-full transition-all grid gap-4 ${
-          isDrawerOpened ? 'translate-y-0' : 'translate-y-[-170%]'
+        className={`fixed -z-10 grid w-full gap-4 border-b bg-gray-50 transition-all duration-200 dark:border-gray-700 dark:bg-gray-800 ${
+          isDrawerOpened ? "translate-y-0" : "translate-y-[-170%]"
         }`}
       >
-        <ul className="px-6 py-4 text-right space-y-1 text-gray-700 text-lg">
+        <ul className="space-y-1 px-6 py-4 text-right text-lg text-gray-700 dark:text-gray-200">
           <li onClick={() => setIsDrawerOpened(false)}>
             <a href="#experiences">Expériences</a>
           </li>
@@ -70,6 +103,9 @@ const NavbarMobile = () => {
           </li>
           <li onClick={() => setIsDrawerOpened(false)}>
             <button>Contact</button>
+          </li>
+          <li>
+            <LangSelector alignRight />
           </li>
         </ul>
       </div>

@@ -1,17 +1,20 @@
-import React from 'react';
+import React from "react";
 
-import styled from 'styled-components';
+import styled from "styled-components";
+import { FormattedMessage } from "react-intl";
 
-import SvgFavicon from '@components/ui/SvgFavicon';
+import SvgFavicon from "@components/ui/SvgFavicon";
+import { useHomeContext } from "@components/Home";
+import { LangSelector } from "../LangSelector";
 
 const NavLink = styled.a.attrs({
-  className: 'text-gray-800 dark:text-gray-100 hover:text-gray-600',
+  className: "text-gray-800 dark:text-gray-100 hover:text-gray-600",
 })`
   position: relative;
   cursor: pointer;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     top: auto;
@@ -23,7 +26,7 @@ const NavLink = styled.a.attrs({
   }
 
   &:hover::after {
-    content: '';
+    content: "";
     width: 100%;
   }
 
@@ -32,7 +35,7 @@ const NavLink = styled.a.attrs({
   }
 
   li:not(:last-child) > &::before {
-    content: '';
+    content: "";
     position: absolute;
     right: calc(-1px / 2 - 1.5rem / 2);
     top: 50%;
@@ -48,23 +51,51 @@ const NavLink = styled.a.attrs({
 `;
 
 const Navbar = () => {
+  const { locale } = useHomeContext();
   return (
-    <nav className="flex w-max mx-auto items-center justify-center mt-5 bg-gray-50 dark:bg-gray-800 px-3 py-2 bg-opacity-70 dark:bg-opacity-70 backdrop-blur-md rounded-md overflow-hidden">
-      <a className="h-10 w-10 relative" href="#hero">
+    <nav className="mx-auto mt-5 flex w-max items-center justify-center rounded-md bg-gray-50 bg-opacity-70 px-3 py-2 shadow-sm backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-70">
+      <a className="relative h-10 w-10" href="#hero">
         <SvgFavicon />
       </a>
-      <ul className="flex gap-6 ml-10">
+      <ul className="ml-10 flex items-center gap-6">
         <li>
-          <NavLink href="#experiences">Expériences</NavLink>
+          <NavLink href="#experiences">
+            <FormattedMessage
+              id="navbar_experiences"
+              defaultMessage="Expériences"
+              description="Navbar link experiences"
+            />
+          </NavLink>
         </li>
         <li>
-          <NavLink href="#skills">Compétences</NavLink>
+          <NavLink href="#skills">
+            <FormattedMessage
+              id="navbar_skills"
+              defaultMessage="Compétences"
+              description="Navbar link skills"
+            />
+          </NavLink>
         </li>
         <li>
-          <NavLink href="#projects">Projets</NavLink>
+          <NavLink href="#projects">
+            <FormattedMessage
+              id="navbar_projects"
+              defaultMessage="Projets"
+              description="Navbar link projects"
+            />
+          </NavLink>
         </li>
         <li>
-          <NavLink as="button">Contact</NavLink>
+          <NavLink as="button">
+            <FormattedMessage
+              id="navbar_contact"
+              defaultMessage="Contact"
+              description="Navbar link contact"
+            />
+          </NavLink>
+        </li>
+        <li>
+          <LangSelector />
         </li>
       </ul>
     </nav>
