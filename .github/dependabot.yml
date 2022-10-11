@@ -6,7 +6,7 @@ updates:
       interval: 'daily'
 
   - package-ecosystem: 'docker'
-    directory: '/cms'
+    directory: '/apps/cms'
     schedule:
       interval: 'daily'
 
