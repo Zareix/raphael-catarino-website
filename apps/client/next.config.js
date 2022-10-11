@@ -9,7 +9,10 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: 'default',
-    domains: [new URL(process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL).hostname],
+    domains: [
+      new URL(process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL).hostname,
+      process.env.NEXT_PUBLIC_S3_BUCKET_HOST,
+    ],
   },
   webpack(config) {
     config.resolve.alias['@helpers'] = path.resolve(__dirname, 'helpers');
