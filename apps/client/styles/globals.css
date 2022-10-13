@@ -22,7 +22,14 @@ section {
 
 .fadeIn {
   opacity: 0;
-  animation: fadeIn 750ms ease-in forwards;
+  animation: fadeIn 750ms 200ms ease-in forwards;
+}
+
+.slideInBottom {
+  opacity: 0;
+  transform: translateY(50%);
+  animation: fadeIn 750ms 200ms ease-in forwards,
+    slideInBottom 750ms 200ms ease forwards;
 }
 
 @keyframes fadeIn {
@@ -32,12 +39,6 @@ section {
   100% {
     opacity: 1;
   }
-}
-
-.slideInBottom {
-  opacity: 0;
-  transform: translateY(50%);
-  animation: fadeIn 750ms ease-in forwards, slideInBottom 750ms ease forwards;
 }
 
 @keyframes slideInBottom {

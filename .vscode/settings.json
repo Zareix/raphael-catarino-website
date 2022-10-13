@@ -15,5 +15,8 @@
     "**/.strapi-updater.json": true,
     "**/.vercel": true,
     "**/.turbo": true
+  },
+  "files.associations": {
+    "*.css": "postcss"
   }
 }

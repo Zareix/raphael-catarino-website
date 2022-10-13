@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import Image from 'next/image';
-import styled, { keyframes } from 'styled-components';
-import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
-import ReactMarkdown from 'react-markdown';
+import Image from "next/image";
+import styled, { keyframes } from "styled-components";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
+import ReactMarkdown from "react-markdown";
 
-import { Hero as HeroModel } from '@models/Hero';
-import useWindowWidth from '@hooks/use-window-width';
-import { useHomeContext } from '../';
+import { Hero as HeroModel } from "@models/Hero";
+import useWindowWidth from "@hooks/use-window-width";
+import { useHomeContext } from "../";
 
 const rotateImageBg = keyframes`
   from {
@@ -23,10 +23,10 @@ const rotateImageBg = keyframes`
 const ImageWrapper = styled.a`
   position: relative;
   isolation: isolate;
-  animation-delay: 1s;
+  animation-delay: 1.5s;
 
   &::before {
-    content: 'CV';
+    content: "CV";
     position: absolute;
     left: 0;
     z-index: -1;
@@ -40,7 +40,7 @@ const ImageWrapper = styled.a`
     padding-right: 0.4rem;
     padding-top: 0.5rem;
     transition: all 500ms ease;
-    animation: ${rotateImageBg} 500ms 1.75s forwards;
+    animation: ${rotateImageBg} 500ms 2.25s forwards;
   }
 
   .dark &::before {
@@ -56,18 +56,18 @@ const ImageWrapper = styled.a`
 
 const Bio = styled.div`
   h1 {
-    animation-delay: 500ms;
+    animation-delay: 1s;
   }
 
   h2,
   p,
   & > div {
-    animation-delay: 700ms;
+    animation-delay: 1.25s;
   }
 
   p:first-child::first-letter {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      'Liberation Mono', 'Courier New', monospace;
+      "Liberation Mono", "Courier New", monospace;
     font-size: 3.5rem;
     float: left;
     margin-right: 0.25rem;
@@ -76,7 +76,7 @@ const Bio = styled.div`
 
   strong {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      'Liberation Mono', 'Courier New', monospace;
+      "Liberation Mono", "Courier New", monospace;
     font-size: 0.8rem;
     background-color: rgb(15, 23, 42);
     padding: 0.2rem 0.4rem;
@@ -116,25 +116,25 @@ const Hero = () => {
 
   return (
     <section
-      className="min-h-screen w-full flex relative items-center bg-stone-100 dark:bg-gray-800 dark:text-gray-50"
+      className="relative flex min-h-screen w-full items-center bg-stone-100 dark:bg-gray-800 dark:text-gray-50"
       id="hero"
     >
-      <div className="container flex flex-col md:flex-row px-6 xl:px-40 md:gap-12">
+      <div className="container flex flex-col px-6 md:flex-row md:gap-12 xl:px-40">
         <Bio className="md:w-2/3">
-          <h1 className="text-4xl slideInBottom">{hero.title}</h1>
-          <h2 className="mb-2 text-2xl slideInBottom">{hero.subtitle}</h2>
-          <div className="grid gap-1 text-justify slideInBottom">
+          <h1 className="slideInBottom text-4xl">{hero.title}</h1>
+          <h2 className="slideInBottom mb-2 text-2xl">{hero.subtitle}</h2>
+          <div className="slideInBottom grid gap-1 text-justify">
             <ReactMarkdown>{hero.biography}</ReactMarkdown>
           </div>
           {!isMobile && (
-            <div className="mt-4 flex gap-3 slideInBottom">
+            <div className="slideInBottom mt-4 flex gap-3">
               <SocialButtons />
             </div>
           )}
         </Bio>
         {isMobile ? (
           <div className="flex">
-            <div className="mt-4 flex flex-col gap-3 items-center justify-center slideInBottom">
+            <div className="slideInBottom mt-4 flex flex-col items-center justify-center gap-3">
               <SocialButtons />
             </div>
             <ProfilePicture hero={hero} />
@@ -164,14 +164,14 @@ const Hero = () => {
 const SocialButtons = () => (
   <>
     <a
-      className="bg-slate-900 text-gray-50 flex items-center gap-1 w-28 justify-center py-2 rounded-lg hover:scale-105 transition-all duration-300 shadow hover:shadow-md"
+      className="flex w-28 items-center justify-center gap-1 rounded-lg bg-slate-900 py-2 text-gray-50 shadow transition-all duration-300 hover:scale-105 hover:shadow-md"
       href="https://github.com/Zareix"
     >
       <IoLogoGithub size={24} />
       Github
     </a>
     <a
-      className="bg-sky-600 text-gray-50 flex items-center gap-1 w-28 justify-center py-2 rounded-lg hover:scale-105 transition-all duration-300 shadow hover:shadow-md"
+      className="flex w-28 items-center justify-center gap-1 rounded-lg bg-sky-600 py-2 text-gray-50 shadow transition-all duration-300 hover:scale-105 hover:shadow-md"
       href="https://www.linkedin.com/in/raphaël-gonçalves-catarino"
     >
       <IoLogoLinkedin size={24} />
@@ -182,12 +182,12 @@ const SocialButtons = () => (
 
 const ProfilePicture = ({ hero }: { hero: HeroModel }) => (
   <ImageWrapper
-    className="md:w-1/3 w-44 h-44 md:h-auto ml-auto fadeIn mr-6"
+    className="fadeIn ml-auto mr-6 h-44 w-44 md:h-auto md:w-1/3"
     href={hero.CV.url}
     target="_blank"
     rel="noopener noreferrer"
   >
-    <div className="relative w-full h-full rounded-lg shadow overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden rounded-lg shadow">
       <Image
         src={hero.profilePicture.url}
         alt=""
