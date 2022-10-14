@@ -33,7 +33,10 @@ const SkillDomainArticle = ({ domain }: Props) => {
       </h2>
       <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
         {domain.skills.map((skill) => (
-          <div key={skill.id} className="grid justify-items-center text-center">
+          <div
+            key={skill.id}
+            className="grid max-w-[33%] justify-items-center text-center"
+          >
             <div className="relative h-16 w-16">
               <Image
                 src={skill.icon.url}
