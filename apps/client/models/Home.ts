@@ -1,15 +1,11 @@
 import { Experience } from "./Experience";
 import { Hero } from "./Hero";
-import { SkillDomain } from "./SkillDomain";
+import { Skills } from "./Skills";
 
 export type HomeData = {
   hero: Hero;
   experiences: Experience[];
-  skills: {
-    title: string;
-    subtitle?: string;
-    skillsDomains: SkillDomain[];
-  };
+  skills: Skills;
 };
 
 export type HomeProps = {

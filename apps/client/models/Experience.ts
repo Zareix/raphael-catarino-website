@@ -1,9 +1,9 @@
-import { StrapiImage } from './StrapiImage';
+import { Image } from "./Components";
 
 export type Experience = {
   id: number;
   title: string;
   entreprise: string;
   url: string;
-  icon: StrapiImage;
+  icon: Image;
 };

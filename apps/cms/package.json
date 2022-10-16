@@ -5,7 +5,8 @@
   "scripts": {
     "develop": "strapi develop",
     "build": "strapi build",
-    "serve": "strapi start"
+    "serve": "strapi start",
+    "strapi": "strapi"
   },
   "dependencies": {
     "@strapi/design-system": "^1.2.5",

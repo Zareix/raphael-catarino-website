@@ -1,53 +1,62 @@
-import axios from 'axios';
+import { StrapiPluralObject } from "./../models/strapi/components/StrapiObject";
+import axios from "axios";
 
-const getStrapiMedia = (url: string): string => {
-  return url.startsWith('/')
+import { StrapiSingularObject } from "@models/strapi/components/StrapiObject";
+
+const getStrapiMediaUrl = (url: string): string => {
+  return url.startsWith("/")
     ? process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL + url
     : url;
 };
 
-const queryStrapiAPISingular = async (locale: string, query: string) => {
+const queryStrapiAPISingular = async <T>(
+  locale: string,
+  query: string
+): Promise<StrapiSingularObject<T>> => {
   try {
     const res = (
-      await axios.get(
+      await axios.get<StrapiSingularObject<T>>(
         `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}`,
         {
           params: {
             locale,
-            populate: 'deep',
+            populate: "deep",
           },
           headers: {
             Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
           },
         }
       )
-    ).data.data.attributes;
+    ).data;
     return res;
   } catch (error) {
-    console.error(error);
+    throw error;
   }
 };
 
-const queryStrapiAPIPlural = async (locale: string, query: string) => {
+const queryStrapiAPIPlural = async <T>(
+  locale: string,
+  query: string
+): Promise<StrapiPluralObject<T>> => {
   try {
     const res = (
-      await axios.get(
+      await axios.get<StrapiPluralObject<T>>(
         `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}`,
         {
           params: {
             locale,
-            populate: 'deep',
+            populate: "deep",
           },
           headers: {
             Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
           },
         }
       )
-    ).data.data;
+    ).data;
     return res;
   } catch (error) {
-    console.error(error);
+    throw error;
   }
 };
 
-export { queryStrapiAPIPlural, queryStrapiAPISingular, getStrapiMedia };
+export { queryStrapiAPIPlural, queryStrapiAPISingular, getStrapiMediaUrl };

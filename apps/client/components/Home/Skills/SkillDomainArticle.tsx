@@ -1,4 +1,4 @@
-import { SkillDomain } from "@models/SkillDomain";
+import { SkillDomain } from "@models/Skills";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 

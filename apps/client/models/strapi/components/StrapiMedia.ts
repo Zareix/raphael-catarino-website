@@ -1,11 +1,10 @@
-export type StrapiImage = {
-  id: number;
+export type StrapiMedia = {
   name: string;
   alternativeText: string;
   caption: string;
   width: number;
   height: number;
-  formats: null;
+  formats: any;
   hash: string;
   ext: string;
   mime: string;
@@ -15,5 +14,8 @@ export type StrapiImage = {
   provider: string;
   createdAt: string;
   updatedAt: string;
+};
+
+export type StrapiImage = StrapiMedia & {
   placeHolder: string;
 };

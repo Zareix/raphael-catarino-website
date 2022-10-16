@@ -1,7 +1,7 @@
-import { getPlaiceholder } from 'plaiceholder';
+import { getPlaiceholder } from "plaiceholder";
 
-import { getStrapiMedia } from './strapi';
+import { getStrapiMediaUrl } from "./strapi";
 
 export const createPlaceholder = async (url: string) => {
-  return (await getPlaiceholder(getStrapiMedia(url))).base64;
+  return (await getPlaiceholder(getStrapiMediaUrl(url))).base64;
 };
