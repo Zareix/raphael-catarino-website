@@ -3,11 +3,11 @@ import { useMemo } from "react";
 import { IntlProvider } from "react-intl";
 import { useRouter } from "next/router";
 
-import { HomeData, HomeProps } from "@models/Home";
+import { HomeData } from "@models/Home";
 import { Experience } from "@models/Experience";
 import { StrapiHome } from "@models/strapi/StrapiHome";
 import { getStrapiMediaUrl, queryStrapiAPISingular } from "@helpers/strapi";
-import HomeComponent from "@components/Home";
+import HomeComponent, { HomeProps } from "@components/Home";
 import { createPlaceholder } from "@helpers/plaiceholder";
 
 import English from "../lang/compiled/en.json";
@@ -32,7 +32,7 @@ const Home: NextPage<HomeProps> = ({ home }: HomeProps) => {
 
   return (
     <IntlProvider messages={messages} locale={locale} defaultLocale="fr">
-      <HomeComponent home={home} />
+      <HomeComponent home={home} locale={locale} />
     </IntlProvider>
   );
 };

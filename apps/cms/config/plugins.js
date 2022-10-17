@@ -45,4 +45,26 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  ezforms: {
+    config: {
+      enableFormName: true,
+      captchaProvider: {
+        name: "recaptcha",
+        config: {
+          secretKey: process.env.RECAPTCHA_KEY,
+          minimumScore: 0.5,
+        },
+      },
+      notificationProviders: [
+        {
+          name: "email",
+          enabled: true,
+          config: {
+            subject: "New form submission received (raphael-catarino.fr)",
+            from: "strapi@zrx.sh",
+          },
+        },
+      ],
+    },
+  },
 });

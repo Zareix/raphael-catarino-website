@@ -1,4 +1,82 @@
 {
+  "contact_by": [
+    {
+      "type": 0,
+      "value": "By email"
+    }
+  ],
+  "contact_email_error": [
+    {
+      "type": 0,
+      "value": "Please fill in your email"
+    }
+  ],
+  "contact_email_label": [
+    {
+      "type": 0,
+      "value": "Email"
+    }
+  ],
+  "contact_email_placeholder": [
+    {
+      "type": 0,
+      "value": "contact@example.com"
+    }
+  ],
+  "contact_message_error": [
+    {
+      "type": 0,
+      "value": "Please fill in your message"
+    }
+  ],
+  "contact_message_label": [
+    {
+      "type": 0,
+      "value": "Message"
+    }
+  ],
+  "contact_message_placeholder": [
+    {
+      "type": 0,
+      "value": "Your message"
+    }
+  ],
+  "contact_name_error": [
+    {
+      "type": 0,
+      "value": "Please fill in your name"
+    }
+  ],
+  "contact_name_label": [
+    {
+      "type": 0,
+      "value": "Name"
+    }
+  ],
+  "contact_name_placeholder": [
+    {
+      "type": 0,
+      "value": "your name"
+    }
+  ],
+  "contact_or": [
+    {
+      "type": 0,
+      "value": "Or"
+    }
+  ],
+  "contact_send_button": [
+    {
+      "type": 0,
+      "value": "Send"
+    }
+  ],
+  "contact_sent": [
+    {
+      "type": 0,
+      "value": "Your message was sent successfully !"
+    }
+  ],
   "navbar_contact": [
     {
       "type": 0,

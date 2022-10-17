@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import styled, { keyframes } from "styled-components";
+import { useRouter } from "next/router";
 
 import SvgFavicon from "@components/ui/SvgFavicon";
+import { useHomeContext } from "@components/Home";
 import { LangSelector } from "../LangSelector";
-import { useRouter } from "next/router";
 
 const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
   width: 32px;
@@ -52,6 +53,7 @@ const Backdrop = styled.div`
 `;
 
 const NavbarMobile = () => {
+  const { toggleContactOpen } = useHomeContext();
   const [isDrawerOpened, setIsDrawerOpened] = useState(false);
   const router = useRouter();
 
@@ -101,7 +103,12 @@ const NavbarMobile = () => {
           <li onClick={() => setIsDrawerOpened(false)}>
             <a href="#projects">Projets</a>
           </li>
-          <li onClick={() => setIsDrawerOpened(false)}>
+          <li
+            onClick={() => {
+              setIsDrawerOpened(false);
+              toggleContactOpen();
+            }}
+          >
             <button>Contact</button>
           </li>
           <li>

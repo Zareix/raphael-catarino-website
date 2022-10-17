@@ -30,6 +30,8 @@ importers:
       react: 18.2.0
       react-country-flag: ^3.0.2
       react-dom: 18.2.0
+      react-google-recaptcha-v3: ^1.10.0
+      react-hook-form: ^7.37.0
       react-icons: ^4.4.0
       react-intersection-observer: ^9.4.0
       react-intl: ^6.1.2
@@ -46,6 +48,8 @@ importers:
       react: 18.2.0
       react-country-flag: 3.0.2_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-google-recaptcha-v3: 1.10.0_biqbaboplfbrettd7655fr4n2y
+      react-hook-form: 7.37.0_react@18.2.0
       react-icons: 4.4.0_react@18.2.0
       react-intersection-observer: 9.4.0_react@18.2.0
       react-intl: 6.1.2_uz2ogxeagc4rbieizlfzyaazee
@@ -79,6 +83,7 @@ importers:
       '@strapi/provider-upload-aws-s3': ^4.4.3
       '@strapi/strapi': 4.4.3
       pg: ^8.8.0
+      strapi-plugin-ezforms: ^0.1.2
       strapi-plugin-populate-deep: ^1.0.1
       strapi-plugin-vercel-deploy: ^1.3.1
     dependencies:
@@ -90,6 +95,7 @@ importers:
       '@strapi/provider-upload-aws-s3': 4.4.3
       '@strapi/strapi': 4.4.3_klkjib63aruvfce5ejvab3hptm
       pg: 8.8.0
+      strapi-plugin-ezforms: 0.1.2
       strapi-plugin-populate-deep: 1.0.1
       strapi-plugin-vercel-deploy: 1.3.1_yozyiluxlykvsvu4ltuxmj2ngm
 
@@ -3795,6 +3801,14 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /axios/0.24.0:
+    resolution: {integrity: sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==}
+    dependencies:
+      follow-redirects: 1.15.1_debug@4.3.2
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /axios/0.26.1:
     resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
     dependencies:
@@ -3824,7 +3838,7 @@ packages:
   /axios/1.1.2:
     resolution: {integrity: sha512-bznQyETwElsXl2RK7HLLwb5GPpOLlycxHCtrpDR/4RqqBzjARaOTo3jz4IgtntWUYee7Ne4S8UHd92VCuzPaWA==}
     dependencies:
-      follow-redirects: 1.15.1_debug@4.3.2
+      follow-redirects: 1.15.1
       form-data: 4.0.0
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -10317,6 +10331,17 @@ packages:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
     dev: false
 
+  /react-google-recaptcha-v3/1.10.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-JBoqU107X8klQmS8tQSbQh1IMsT1fH3kVoArIqnia0rtn0rPNG9Ld+9rD/dHJMculIczSZpGvIJTXXwtsolMcg==}
+    peerDependencies:
+      react: ^17.0 || ^18.0
+      react-dom: ^17.0 || ^18.0
+    dependencies:
+      hoist-non-react-statics: 3.3.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /react-helmet/6.1.0_react@17.0.2:
     resolution: {integrity: sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==}
     peerDependencies:
@@ -10327,6 +10352,15 @@ packages:
       react: 17.0.2
       react-fast-compare: 3.2.0
       react-side-effect: 2.1.2_react@17.0.2
+    dev: false
+
+  /react-hook-form/7.37.0_react@18.2.0:
+    resolution: {integrity: sha512-6NFTxsnw+EXSpNNvLr5nFMjPdYKRryQcelTHg7zwBB6vAzfPIcZq4AExP4heVlwdzntepQgwiOQW4z7Mr99Lsg==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-icons/4.4.0_react@18.2.0:
@@ -11524,6 +11558,15 @@ packages:
 
   /std-env/3.1.1:
     resolution: {integrity: sha512-/c645XdExBypL01TpFKiG/3RAa/Qmu+zRi0MwAmrdEkwHNuN0ebo8ccAXBBDa5Z0QOJgBskUIbuCK91x0sCVEw==}
+    dev: false
+
+  /strapi-plugin-ezforms/0.1.2:
+    resolution: {integrity: sha512-0/0QgmdKdkhDvyeBhl3gIHcn2EBWpW0q8j5vZ69OkqumgdEPZrcDNNz71Wsy1Wi8y8DHzjTFXjm2k2qfsopZVw==}
+    engines: {node: '>=12.x. <=16.x.x', npm: '>=6.0.0'}
+    dependencies:
+      axios: 0.24.0
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /strapi-plugin-populate-deep/1.0.1:
