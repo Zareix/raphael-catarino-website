@@ -68,7 +68,7 @@ const ContactForm = () => {
       console.error("Execute recaptcha not yet available");
       return;
     }
-    const token = axios
+    axios
       .post(`${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/ezforms/submit`, {
         token: await executeRecaptcha("contactFormSubmit"),
         formName: "Contact",
@@ -116,7 +116,7 @@ const ContactForm = () => {
               />
               <a
                 href="mailto:contact@raphael-catarino.fr"
-                className="text-blue-900 underline dark:text-blue-600"
+                className="ml-1 text-blue-900 underline dark:text-blue-600"
               >
                 contact@raphael-catarino.fr
               </a>
