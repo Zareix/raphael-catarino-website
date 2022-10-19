@@ -10,30 +10,11 @@ jobs:
   docker:
     name: Build CMS docker image
     runs-on: ubuntu-latest
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3.1.0
         with:
           ref: main
-
-      - uses: pnpm/action-setup@v2.2.4
-        with:
-          version: 7.11.0
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --shamefully-hoist --frozen-lockfile=false
-
-      - name: Build cms app
-        run: pnpm cms:build
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -41,7 +22,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Build docker image
+      - name: Build and push docker image
         uses: docker/build-push-action@v3
         with:
           context: apps/cms
