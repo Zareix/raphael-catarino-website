@@ -15,7 +15,7 @@
     "@strapi/plugin-users-permissions": "4.4.3",
     "@strapi/provider-email-sendgrid": "^4.4.3",
     "@strapi/provider-upload-aws-s3": "^4.4.3",
-    "@strapi/strapi": "4.4.3",
+    "@strapi/strapi": "4.4.4",
     "pg": "^8.8.0",
     "strapi-plugin-ezforms": "^0.1.2",
     "strapi-plugin-populate-deep": "^1.0.1",
