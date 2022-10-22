@@ -8,6 +8,7 @@
             "outputs": [
                 ".next/**",
                 "build/**",
+                "lang/compiled",
                 "$NODE_ENV"
             ]
         },
