@@ -4,12 +4,12 @@
   "packageManager": "pnpm@7.14.0",
   "scripts": {
     "develop": "pnpm run i18n && next dev",
-    "build": "pnpm run i18n && NODE_ENV=production next build",
+    "build": "NODE_ENV=production pnpm run i18n && next build",
     "serve": "next start",
     "lint": "next lint",
-    "extract:i18n": "formatjs extract '{pages,components}/**/*.{js,ts,tsx}' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file lang/locales/fr.json",
-    "compile:i18n": "formatjs compile-folder --ast --format simple lang/locales lang/compiled",
-    "i18n": "pnpm run extract:i18n && pnpm run compile:i18n"
+    "i18n:extract": "formatjs extract '{pages,components}/**/*.{js,ts,tsx}' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file lang/locales/fr.json",
+    "i18n:compile": "formatjs compile-folder --ast --format simple lang/locales lang/compiled",
+    "i18n": "pnpm run i18n:extract && pnpm run i18n:compile"
   },
   "dependencies": {
     "@plaiceholder/next": "2.5.0",
