@@ -32,8 +32,9 @@ jobs:
       - name: Build and push docker image
         uses: docker/build-push-action@v3
         with:
-          context: apps/cms
-          platforms: linux/amd64,linux/arm64
+          context: .
+          file: docker/cms/Dockerfile
+          platforms: linux/amd64 #,linux/arm64
           push: true
           tags: |
             ghcr.io/zareix/strapi:latest

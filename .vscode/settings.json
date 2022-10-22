@@ -17,6 +17,7 @@
     "**/.turbo": true
   },
   "files.associations": {
-    "*.css": "postcss"
+    "*.css": "postcss",
+    "Dockerfile.dockerignore": "ignore"
   }
 }

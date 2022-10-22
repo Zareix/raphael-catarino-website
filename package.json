@@ -14,7 +14,9 @@
     "client:serve": "NODE_ENV=production turbo run serve --filter=client",
     "cms:build": "turbo run build --filter=cms",
     "cms:develop": "turbo run develop --filter=cms",
-    "cms:serve": "NODE_ENV=production turbo run serve --filter=cms"
+    "cms:serve": "NODE_ENV=production turbo run serve --filter=cms",
+    "docker:cms:build": "pnpm run --filter=cms build",
+    "docker:cms:serve": "pnpm run --filter=cms serve"
   },
   "devDependencies": {
     "turbo": "1.6.1"
