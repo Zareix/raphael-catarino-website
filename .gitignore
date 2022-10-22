@@ -22,4 +22,4 @@ node_modules
 # End of https://www.toptal.com/developers/gitignore/api/yarn
 .turbo
 .vercel
-lang/compiled
+apps/client/lang/compiled
