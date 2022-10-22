@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.2.0",
-  "packageManager": "pnpm@7.13.4",
+  "packageManager": "pnpm@7.14.0",
   "scripts": {
     "develop": "pnpm run i18n && next dev",
     "build": "pnpm run i18n && NODE_ENV=production next build",
