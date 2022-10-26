@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
   message: string;
@@ -14,13 +14,15 @@ export default async function handler(
   //   return res.status(401).json({ message: 'Invalid token' });
   // }
 
-  let path = req.query.path ?? '/';
+  let path = req.query.path ?? "/";
 
   try {
     if (Array.isArray(path)) {
-      path.forEach(async (x) => await res.revalidate(x));
+      for (const p of path) {
+        await res.revalidate(p);
+      }
       return res.json({
-        message: `Revalidated successfully paths [${path.join(', ')}]`,
+        message: `Revalidated successfully paths [${path.join()}]`,
         revalidated: true,
       });
     }
@@ -31,6 +33,6 @@ export default async function handler(
       revalidated: true,
     });
   } catch (err) {
-    return res.status(500).json({ message: 'Error revalidating', error: err });
+    return res.status(500).json({ message: "Error revalidating", error: err });
   }
 }
