@@ -20,6 +20,6 @@
     "docker:cms:serve": "pnpm run --filter=cms serve"
   },
   "devDependencies": {
-    "turbo": "1.6.2"
+    "turbo": "1.6.3"
   }
 }
