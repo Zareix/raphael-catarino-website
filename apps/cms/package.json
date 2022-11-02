@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@strapi/design-system": "1.2.5",
-    "@strapi/icons": "1.2.5",
+    "@strapi/icons": "1.2.6",
     "@strapi/plugin-i18n": "4.4.5",
     "@strapi/plugin-users-permissions": "4.4.5",
     "@strapi/provider-email-sendgrid": "4.4.5",
