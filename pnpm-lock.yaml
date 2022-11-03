@@ -75,8 +75,13 @@ importers:
 
   apps/cms:
     specifiers:
+<<<<<<< HEAD
       '@strapi/design-system': 1.2.5
       '@strapi/icons': 1.2.6
+=======
+      '@strapi/design-system': 1.2.6
+      '@strapi/icons': 1.2.5
+>>>>>>> strapi-design-system-1.x
       '@strapi/plugin-i18n': 4.4.5
       '@strapi/plugin-users-permissions': 4.4.5
       '@strapi/provider-email-sendgrid': 4.4.5
@@ -87,8 +92,13 @@ importers:
       strapi-plugin-populate-deep: 1.1.2
       strapi-plugin-vercel-deploy: 1.3.1
     dependencies:
+<<<<<<< HEAD
       '@strapi/design-system': 1.2.5_umg7dcryzzoouy4mneb5vqbb5i
       '@strapi/icons': 1.2.6_sfoxds7t5ydpegc3knd667wn6m
+=======
+      '@strapi/design-system': 1.2.6_2u3g2rzrgdxcmn4xwq7oc3gytu
+      '@strapi/icons': 1.2.5_sfoxds7t5ydpegc3knd667wn6m
+>>>>>>> strapi-design-system-1.x
       '@strapi/plugin-i18n': 4.4.5
       '@strapi/plugin-users-permissions': 4.4.5_mrczgg7omlfbil22i7eah6k3r4
       '@strapi/provider-email-sendgrid': 4.4.5
@@ -2324,7 +2334,11 @@ packages:
       - tedious
     dev: false
 
+<<<<<<< HEAD
   /@strapi/design-system/1.2.5_umg7dcryzzoouy4mneb5vqbb5i:
+=======
+  /@strapi/design-system/1.2.5_yq2izlq7irpnbg4bsjnixxqulq:
+>>>>>>> strapi-design-system-1.x
     resolution: {integrity: sha512-7vF1UXzDPS0HxPS10OxaUpTapGIyaea+wj3L1bVxjRf4ZGsblGSIayX0kIeBlv9OoP056LW75ViRJzGjRsaTxw==}
     peerDependencies:
       '@strapi/icons': ^1.2.4
@@ -2341,9 +2355,10 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-router-dom: 5.2.0_react@17.0.2
-      styled-components: 5.3.6_v5ja746gkdtknuc6tj46sve3be
+      styled-components: 5.3.3_v5ja746gkdtknuc6tj46sve3be
     dev: false
 
+<<<<<<< HEAD
   /@strapi/design-system/1.2.5_wotza3gwpx7umtdpg3gkr4ub54:
     resolution: {integrity: sha512-7vF1UXzDPS0HxPS10OxaUpTapGIyaea+wj3L1bVxjRf4ZGsblGSIayX0kIeBlv9OoP056LW75ViRJzGjRsaTxw==}
     peerDependencies:
@@ -2366,6 +2381,10 @@ packages:
 
   /@strapi/design-system/1.2.5_yq2izlq7irpnbg4bsjnixxqulq:
     resolution: {integrity: sha512-7vF1UXzDPS0HxPS10OxaUpTapGIyaea+wj3L1bVxjRf4ZGsblGSIayX0kIeBlv9OoP056LW75ViRJzGjRsaTxw==}
+=======
+  /@strapi/design-system/1.2.6_2u3g2rzrgdxcmn4xwq7oc3gytu:
+    resolution: {integrity: sha512-g3VgQqGW33omka7NEtyen1CYg3a0Y8Nf0DDMETaO8n+qFHvr1DneX8xcQzSkCetVGJOlbYR/BuWfTb/5Hg8NQg==}
+>>>>>>> strapi-design-system-1.x
     peerDependencies:
       '@strapi/icons': ^1.2.4
       react: ^17.0.1
@@ -2381,7 +2400,11 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-router-dom: 5.2.0_react@17.0.2
+<<<<<<< HEAD
       styled-components: 5.3.3_fane7jikarojcev26y27hpbhu4
+=======
+      styled-components: 5.3.6_v5ja746gkdtknuc6tj46sve3be
+>>>>>>> strapi-design-system-1.x
     dev: false
 
   /@strapi/generate-new/4.4.5:
