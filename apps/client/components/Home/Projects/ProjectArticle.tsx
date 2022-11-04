@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { TbClick } from "react-icons/tb";
 import ReactMarkdown from "react-markdown";
+import { motion } from "framer-motion";
 
 import { Project } from "@models/Projects";
+import useWindowWidth from "@helpers/useWindowWidth";
 
 type Props = {
   active: boolean;
@@ -12,17 +14,32 @@ type Props = {
 };
 
 const ProjectArticle = ({ active, project, setActive }: Props) => {
+  const { isMobile, width } = useWindowWidth();
+
   return (
     <article
       className={`relative isolate mx-4 min-h-[200px] w-full cursor-pointer md:w-max md:min-w-[350px] md:max-w-[28%] `}
       onClick={() => setActive(project.id)}
     >
-      <div
-        className={`group absolute inset-0 z-0 overflow-hidden rounded-lg bg-slate-100 transition-all duration-700 hover:scale-105 md:duration-300 ${
-          active
-            ? "h-full w-full -translate-x-[120%] shadow-xl md:w-20 md:-translate-x-8"
-            : "h-full w-full translate-x-0 shadow"
+      <motion.div
+        className={`group absolute inset-0 z-0 overflow-hidden rounded-lg bg-slate-100 transition-shadow ${
+          active ? "shadow-xl" : "shadow"
         }`}
+        animate={{
+          translateX: active ? (isMobile ? "-120%" : "-2rem") : 0,
+          width: active ? "5rem" : "100%",
+        }}
+        transition={{
+          type: "spring",
+          duration: 0.7,
+          bounce: isMobile ? 0.15 : 0.2,
+        }}
+        whileHover={{
+          scale: 1.02,
+        }}
+        whileTap={{
+          scale: 0.98,
+        }}
       >
         <Image
           src={project.featuredImage.url}
@@ -50,14 +67,27 @@ const ProjectArticle = ({ active, project, setActive }: Props) => {
           }`}
           size={24}
         />
-      </div>
+      </motion.div>
       <div className="relative -z-10 h-full py-4">
-        <div
-          className={`relative w-full rounded-lg bg-slate-900 px-4 py-6 text-gray-50 transition-all duration-700 md:duration-300 ${
-            active
-              ? "scale-100 shadow-xl md:translate-x-14"
-              : "translate-x-0 scale-90 md:scale-100"
+        <motion.div
+          className={`relative w-full rounded-lg bg-slate-900 px-4 py-6 text-gray-50 transition-shadow ${
+            active ? "shadow-xl" : ""
           }`}
+          animate={{
+            scale: active ? 1 : 0.9,
+            translateX: active ? (isMobile ? 0 : "3.5rem") : 0,
+          }}
+          transition={{
+            type: "spring",
+            duration: 0.7,
+            bounce: isMobile ? 0.1 : 0.2,
+          }}
+          whileHover={{
+            scale: 1.02,
+          }}
+          whileTap={{
+            scale: 0.98,
+          }}
         >
           <ReactMarkdown className="overflow-y-auto text-justify text-sm md:max-h-40">
             {project.description}
@@ -65,7 +95,7 @@ const ProjectArticle = ({ active, project, setActive }: Props) => {
           <p className="mt-2 text-right text-sm italic">
             {project.technologies.map((t) => t.name).join(", ")}
           </p>
-        </div>
+        </motion.div>
       </div>
     </article>
   );

@@ -1,6 +1,7 @@
-import { SkillDomain } from "@models/Skills";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+
+import { SkillDomain } from "@models/Skills";
 
 type Props = {
   domain: SkillDomain;

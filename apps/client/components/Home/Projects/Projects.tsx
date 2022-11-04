@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Image from "next/image";
+import { motion } from "framer-motion";
 
 import { useHomeContext } from "..";
 import { SectionSubtitle, SectionTitle } from "@components/ui/Home";
@@ -36,12 +36,18 @@ const Projects = () => {
       </div>
       {projects.projects.length > max && (
         <div className="mt-12 grid w-full place-content-center">
-          <button
-            className="flex w-28 items-center justify-center gap-1 rounded-lg bg-slate-900 py-2 text-gray-50 shadow transition-all duration-300 hover:scale-105 hover:shadow-md"
+          <motion.button
+            className="flex w-28 items-center justify-center gap-1 rounded-lg bg-slate-900 py-2 text-gray-50 shadow transition-shadow duration-300 hover:shadow-md"
             onClick={() => setMax(max + 5)}
+            whileHover={{
+              scale: 1.03,
+            }}
+            whileTap={{
+              scale: 0.97,
+            }}
           >
             Voir plus
-          </button>
+          </motion.button>
         </div>
       )}
     </section>
