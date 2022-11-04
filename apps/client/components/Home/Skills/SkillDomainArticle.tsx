@@ -47,7 +47,7 @@ const SkillDomainArticle = ({ domain }: Props) => {
                 blurDataURL={skill.icon.placeHolder}
               />
             </div>
-            <p>{skill.name}</p>
+            <p className="mt-1">{skill.name}</p>
           </div>
         ))}
       </div>

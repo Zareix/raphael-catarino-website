@@ -62,6 +62,37 @@ export type StrapiHome = {
       ];
     };
   };
+  projects: {
+    id: number;
+    title: string;
+    subtitle: string;
+    projects: {
+      data: [
+        {
+          id: 1;
+          attributes: {
+            title: string;
+            date: Date;
+            description: string;
+            websiteURL: string;
+            sourceCodeURL: string;
+            createdAt: Date;
+            updatedAt: Date;
+            publishedAt: Date;
+            locale: string;
+            featuredImage: StrapiSingularObject<StrapiImage>;
+            technologies: [
+              {
+                id: number;
+                name: string;
+                icon: StrapiSingularObject<StrapiImage>;
+              }
+            ];
+          };
+        }
+      ];
+    };
+  };
   localizations: {
     data: [
       {

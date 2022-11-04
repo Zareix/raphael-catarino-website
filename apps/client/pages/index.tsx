@@ -91,6 +91,42 @@ export async function getStaticProps({
             }))
           ),
         },
+        projects: {
+          title: res.projects.title,
+          subtitle: res.projects.subtitle,
+          projects: await Promise.all(
+            res.projects.projects.data.map(async (p) => ({
+              id: p.id,
+              title: p.attributes.title,
+              featuredImage: {
+                ...p.attributes.featuredImage.data.attributes,
+                url: getStrapiMediaUrl(
+                  p.attributes.featuredImage.data.attributes.url
+                ),
+                placeHolder: await createPlaceholder(
+                  p.attributes.featuredImage.data.attributes.url
+                ),
+              },
+              date: p.attributes.date,
+              description: p.attributes.description,
+              websiteURL: p.attributes.websiteURL,
+              sourceCodeURL: p.attributes.sourceCodeURL,
+              technologies: await Promise.all(
+                p.attributes.technologies.map(async (t) => ({
+                  id: t.id,
+                  name: t.name,
+                  icon: {
+                    ...t.icon.data.attributes,
+                    url: getStrapiMediaUrl(t.icon.data.attributes.url),
+                    placeHolder: await createPlaceholder(
+                      t.icon.data.attributes.url
+                    ),
+                  },
+                }))
+              ),
+            }))
+          ),
+        },
       },
     },
   };

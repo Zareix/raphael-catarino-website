@@ -11,7 +11,7 @@ const Skills = () => {
 
   return (
     <section
-      className="grid min-h-[80vh] w-full place-content-center py-10 dark:bg-gray-800 dark:text-gray-50"
+      className="grid min-h-[80vh] w-full place-content-center py-10 dark:bg-gray-900"
       id="skills"
     >
       <SectionTitle>{skills.title}</SectionTitle>
