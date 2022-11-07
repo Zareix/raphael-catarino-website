@@ -4,6 +4,7 @@ import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import ReactMarkdown from "react-markdown";
+import { motion } from "framer-motion";
 
 import { Hero as HeroModel } from "@models/Hero";
 import useWindowWidth from "@hooks/use-window-width";
@@ -163,20 +164,32 @@ const Hero = () => {
 
 const SocialButtons = () => (
   <>
-    <a
-      className="flex w-28 items-center justify-center gap-1 rounded-lg bg-slate-900 py-2 text-gray-50 shadow transition-all duration-300 hover:scale-105 hover:shadow-md"
+    <motion.a
+      className="flex w-28 items-center justify-center gap-1 rounded-lg bg-slate-900 py-2 text-gray-50 shadow transition-shadow duration-200 hover:shadow-md"
       href="https://github.com/Zareix"
+      whileHover={{
+        scale: 1.02,
+      }}
+      whileTap={{
+        scale: 0.97,
+      }}
     >
       <IoLogoGithub size={24} />
       Github
-    </a>
-    <a
-      className="flex w-28 items-center justify-center gap-1 rounded-lg bg-sky-600 py-2 text-gray-50 shadow transition-all duration-300 hover:scale-105 hover:shadow-md"
+    </motion.a>
+    <motion.a
+      className="flex w-28 items-center justify-center gap-1 rounded-lg bg-sky-600 py-2 text-gray-50 shadow transition-shadow duration-200 hover:shadow-md"
       href="https://www.linkedin.com/in/raphaël-gonçalves-catarino"
+      whileHover={{
+        scale: 1.02,
+      }}
+      whileTap={{
+        scale: 0.97,
+      }}
     >
       <IoLogoLinkedin size={24} />
       LinkedIn
-    </a>
+    </motion.a>
   </>
 );
 

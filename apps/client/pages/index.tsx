@@ -4,7 +4,7 @@ import { IntlProvider } from "react-intl";
 import { useRouter } from "next/router";
 
 import { HomeData } from "@models/Home";
-import { Experience } from "@models/Experience";
+import { Experience } from "@models/Experiences";
 import { StrapiHome } from "@models/strapi/StrapiHome";
 import { getStrapiMediaUrl, queryStrapiAPISingular } from "@helpers/strapi";
 import HomeComponent, { HomeProps } from "@components/Home";
@@ -64,12 +64,22 @@ export async function getStaticProps({
             url: getStrapiMediaUrl(res.hero.CV.data.attributes.url),
           },
         },
-        experiences: res.experiences.experiences.data.map(
-          (x: { attributes: Experience; id: number }) => ({
-            ...x.attributes,
-            id: x.id,
-          })
-        ),
+        experiences: {
+          ...res.experiences,
+          experiences: await Promise.all(
+            res.experiences.experiences.data.map(async (e) => ({
+              ...e.attributes,
+              id: e.id,
+              icon: {
+                ...e.attributes.icon.data.attributes,
+                url: getStrapiMediaUrl(e.attributes.icon.data.attributes.url),
+                placeHolder: await createPlaceholder(
+                  e.attributes.icon.data.attributes.url
+                ),
+              },
+            }))
+          ),
+        },
         skills: {
           ...res.skills,
           skillsDomains: await Promise.all(

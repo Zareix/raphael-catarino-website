@@ -19,7 +19,25 @@ export type StrapiHome = {
     title: string;
     subtitle?: string;
     experiences: {
-      data: [];
+      data: [
+        {
+          id: number;
+          attributes: {
+            title: string;
+            entreprise: string;
+            url: string;
+            createdAt: Date;
+            updatedAt: Date;
+            publishedAt: Date;
+            date: string;
+            locale: string;
+            icon: StrapiSingularObject<StrapiImage>;
+            localizations: {
+              data: [];
+            };
+          };
+        }
+      ];
     };
   };
   skills: {

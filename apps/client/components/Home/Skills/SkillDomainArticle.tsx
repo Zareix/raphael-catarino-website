@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 import { SkillDomain } from "@models/Skills";
 
@@ -16,7 +17,7 @@ const SkillDomainArticle = ({ domain }: Props) => {
   return (
     <article
       key={domain.id}
-      className={`relative mx-4 w-full rounded-lg bg-slate-900 px-4 pt-12 pb-6 font-mono text-gray-50 shadow-md transition-all duration-700 md:w-max md:min-w-[400px] md:max-w-[30%] md:px-8 
+      className={`relative mx-4 w-full rounded-lg bg-slate-900 px-4 pt-12 pb-6 font-mono text-gray-50 shadow-md transition-transform duration-700 md:w-max md:min-w-[400px] md:max-w-[30%] md:px-8 
                     ${
                       inView
                         ? "translate-x-0  opacity-100 md:translate-y-0"
@@ -36,7 +37,7 @@ const SkillDomainArticle = ({ domain }: Props) => {
         {domain.skills.map((skill) => (
           <div
             key={skill.id}
-            className="grid max-w-[33%] justify-items-center text-center"
+            className="grid max-w-[33%] justify-items-center text-center transition-transform duration-300 hover:scale-105"
           >
             <div className="relative h-16 w-16">
               <Image

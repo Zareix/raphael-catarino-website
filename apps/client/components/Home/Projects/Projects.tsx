@@ -11,7 +11,7 @@ const Projects = () => {
     home: { projects },
   } = useHomeContext();
   const [active, setActive] = useState(-1);
-  const [max, setMax] = useState(2);
+  const [max, setMax] = useState(4);
 
   const selectProject = (id: number) => {
     setActive(id === active ? -1 : id);
@@ -25,12 +25,13 @@ const Projects = () => {
       <SectionTitle>{projects.title}</SectionTitle>
       <SectionSubtitle>{projects.subtitle}</SectionSubtitle>
       <div className="container flex flex-wrap items-center justify-center gap-6 md:gap-10">
-        {projects.projects.slice(0, max).map((p) => (
+        {projects.projects.map((p, i) => (
           <ProjectArticle
             key={p.id}
             project={p}
             active={p.id === active}
             setActive={selectProject}
+            visible={i < max}
           />
         ))}
       </div>
