@@ -50,7 +50,7 @@ const Experiences = () => {
 
   return (
     <section
-      className="w-full bg-white pt-20 pb-24 dark:bg-gray-900 dark:text-gray-50"
+      className="w-full bg-white pt-28 pb-32 dark:bg-gray-900 dark:text-gray-50"
       id="experiences"
     >
       <SectionTitle>{experiences.title}</SectionTitle>
@@ -58,7 +58,7 @@ const Experiences = () => {
       <div className="container flex snap-x items-end overflow-x-scroll py-4 px-2">
         {experiences.experiences.map((exp) => (
           <Article key={exp.id}>
-            <div className="mx-4 flex snap-center items-center gap-2 rounded-md bg-stone-100 px-6 py-4 shadow transition-all hover:scale-105 hover:shadow-md dark:bg-gray-800 dark:text-gray-50">
+            <div className="mx-4 flex snap-center items-center gap-3 rounded-md bg-stone-100 px-6 py-4 shadow transition-all hover:scale-105 hover:shadow-md dark:bg-gray-800 dark:text-gray-50">
               <div className="relative h-12 w-12">
                 <Image
                   src={exp.icon.url}
