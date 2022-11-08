@@ -55,11 +55,11 @@ const Experiences = () => {
     >
       <SectionTitle>{experiences.title}</SectionTitle>
       <SectionSubtitle>{experiences.subtitle}</SectionSubtitle>
-      <div className="container flex snap-x items-end overflow-x-scroll py-4 px-2">
+      <div className="container flex snap-x items-end overflow-x-scroll py-4 px-2 md:snap-none">
         {experiences.experiences.map((exp) => (
           <Article key={exp.id}>
-            <div className="mx-4 flex snap-center items-center gap-3 rounded-md bg-stone-100 px-6 py-4 shadow transition-all hover:scale-105 hover:shadow-md dark:bg-gray-800 dark:text-gray-50">
-              <div className="relative h-12 w-12">
+            <div className="mx-4 flex snap-center items-center gap-3 rounded-md bg-stone-100 px-6 py-4 shadow transition-all hover:scale-105 hover:shadow-md dark:bg-gray-800 dark:text-gray-50 ">
+              <div className="relative h-full w-full overflow-hidden rounded-md">
                 <Image
                   src={exp.icon.url}
                   alt={exp.icon.alternativeText}

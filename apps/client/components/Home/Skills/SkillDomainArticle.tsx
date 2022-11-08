@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
 
 import { SkillDomain } from "@models/Skills";
 
@@ -39,7 +38,7 @@ const SkillDomainArticle = ({ domain }: Props) => {
             key={skill.id}
             className="grid max-w-[33%] justify-items-center text-center transition-transform duration-300 hover:scale-105"
           >
-            <div className="relative h-16 w-16">
+            <div className="relative aspect-square w-16 overflow-hidden rounded-md">
               <Image
                 src={skill.icon.url}
                 alt={skill.icon.alternativeText}

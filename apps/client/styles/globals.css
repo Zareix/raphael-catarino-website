@@ -32,6 +32,11 @@ section {
     slideInBottom 750ms 200ms ease forwards;
 }
 
+.slideInTop {
+  transform: translateY(-140%);
+  animation: slideInTop 750ms 1s ease forwards;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -44,6 +49,15 @@ section {
 @keyframes slideInBottom {
   0% {
     transform: translateY(2rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-140%);
   }
   100% {
     transform: translateY(0);

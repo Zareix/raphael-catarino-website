@@ -53,7 +53,7 @@ const NavLink = styled.a.attrs({
 const Navbar = () => {
   const { toggleContactOpen } = useHomeContext();
   return (
-    <nav className="mx-auto mt-5 flex w-max items-center justify-center rounded-md bg-gray-50 bg-opacity-70 px-3 py-2 shadow-sm backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-70">
+    <nav className="slideInTop mx-auto mt-5 flex w-max items-center justify-center rounded-md bg-gray-50 bg-opacity-70 px-3 py-2 shadow-sm backdrop-blur-md  dark:bg-gray-800 dark:bg-opacity-70">
       <a className="relative h-10 w-10" href="#hero">
         <SvgFavicon />
       </a>
@@ -86,7 +86,7 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink as="button" onClick={toggleContactOpen}>
+          <NavLink as="button" onClick={() => toggleContactOpen()}>
             <FormattedMessage
               id="navbar_contact"
               defaultMessage="Contact"

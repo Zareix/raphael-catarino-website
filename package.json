@@ -12,6 +12,7 @@
     "serve": "turbo run develop --parallel",
     "client:build": "turbo run build --filter=client",
     "client:develop": "turbo run develop --filter=client",
+    "client:lint": "turbo run lint --filter=client",
     "client:serve": "NODE_ENV=production turbo run serve --filter=client",
     "cms:build": "turbo run build --filter=cms",
     "cms:develop": "turbo run develop --filter=cms",
