@@ -103,7 +103,6 @@ export type StrapiHome = {
               {
                 id: number;
                 name: string;
-                icon: StrapiSingularObject<StrapiImage>;
               }
             ];
           };

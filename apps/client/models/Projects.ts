@@ -20,5 +20,4 @@ export type Project = {
 export type Technology = {
   id: number;
   name: string;
-  icon: Image;
 };

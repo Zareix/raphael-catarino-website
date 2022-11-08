@@ -125,13 +125,6 @@ export async function getStaticProps({
                 p.attributes.technologies.map(async (t) => ({
                   id: t.id,
                   name: t.name,
-                  icon: {
-                    ...t.icon.data.attributes,
-                    url: getStrapiMediaUrl(t.icon.data.attributes.url),
-                    placeHolder: await createPlaceholder(
-                      t.icon.data.attributes.url
-                    ),
-                  },
                 }))
               ),
             }))
