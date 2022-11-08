@@ -9,6 +9,7 @@ export type Skills = {
 export type SkillDomain = {
   id: number;
   title: string;
+  rank: number;
   skills: Skill[];
 };
 

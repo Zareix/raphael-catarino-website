@@ -11,6 +11,7 @@ export type Project = {
   title: string;
   featuredImage: Image;
   date: Date;
+  rank: number;
   description: string;
   websiteURL: string;
   sourceCodeURL: string;

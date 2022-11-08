@@ -10,6 +10,7 @@ export type Experience = {
   date: string;
   id: number;
   title: string;
+  rank: number;
   entreprise: string;
   url: string;
   icon: Image;

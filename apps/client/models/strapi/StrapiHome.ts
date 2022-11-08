@@ -28,6 +28,7 @@ export type StrapiHome = {
             url: string;
             createdAt: Date;
             updatedAt: Date;
+            rank: number;
             publishedAt: Date;
             date: string;
             locale: string;
@@ -52,6 +53,7 @@ export type StrapiHome = {
             title: string;
             createdAt: Date;
             updatedAt: Date;
+            rank: number;
             publishedAt: Date;
             locale: string;
             skills: [
@@ -94,6 +96,7 @@ export type StrapiHome = {
             description: string;
             websiteURL: string;
             sourceCodeURL: string;
+            rank: number;
             createdAt: Date;
             updatedAt: Date;
             publishedAt: Date;

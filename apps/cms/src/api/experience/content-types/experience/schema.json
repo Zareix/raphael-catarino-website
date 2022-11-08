@@ -64,6 +64,14 @@
       },
       "type": "string",
       "required": true
+    },
+    "rank": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
     }
   }
 }

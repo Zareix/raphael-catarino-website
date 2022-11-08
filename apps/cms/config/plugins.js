@@ -30,6 +30,9 @@ module.exports = ({ env }) => ({
       roles: ["strapi-super-admin", "strapi-editor", "strapi-author"],
     },
   },
+  "drag-drop-content-types": {
+    enabled: true,
+  },
   upload: {
     config: {
       provider: "aws-s3",

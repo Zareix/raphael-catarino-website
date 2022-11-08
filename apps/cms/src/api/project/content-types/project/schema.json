@@ -83,6 +83,14 @@
       },
       "component": "technologies.technologies",
       "min": 1
+    },
+    "rank": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
     }
   }
 }
