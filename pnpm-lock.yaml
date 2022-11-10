@@ -39,7 +39,7 @@ importers:
       react-markdown: 8.0.3
       sharp: 0.31.2
       styled-components: 5.3.6
-      tailwindcss: 3.2.2
+      tailwindcss: 3.2.3
       typescript: 4.8.4
     dependencies:
       '@plaiceholder/next': 2.5.0_next@12.3.3+sharp@0.31.2
@@ -72,7 +72,7 @@ importers:
       postcss: 8.4.18
       prettier: 2.7.1
       prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
-      tailwindcss: 3.2.2_postcss@8.4.18
+      tailwindcss: 3.2.3_postcss@8.4.18
       typescript: 4.8.4
 
   apps/cms:
@@ -12245,8 +12245,8 @@ packages:
       upper-case: 1.1.3
     dev: false
 
-  /tailwindcss/3.2.2_postcss@8.4.18:
-    resolution: {integrity: sha512-c2GtSdqg+harR4QeoTmex0Ngfg8IIHNeLQH5yr2B9uZbZR1Xt1rYbjWOWTcj3YLTZhrmZnPowoQDbSRFyZHQ5Q==}
+  /tailwindcss/3.2.3_postcss@8.4.18:
+    resolution: {integrity: sha512-Xt9D4PK4zuuQCEB8bwK9JUCKmTgUwyac/6b0/42Vqhgl6YJkep+Wf5wq+5uXYfmrupdAD0YY2NY1hyZp1HjRrg==}
     engines: {node: '>=12.13.0'}
     hasBin: true
     peerDependencies:
