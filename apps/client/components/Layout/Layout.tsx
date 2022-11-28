@@ -1,23 +1,26 @@
-import React, { ReactNode } from 'react';
-import Head from 'next/head';
+import React, { ReactNode } from "react";
+import Head from "next/head";
 
-import Navbar from './Navbar';
-import useWindowWidth from '@hooks/use-window-width';
-import NavbarMobile from './Navbar/NavbarMobile';
-import Footer from './Footer';
+import useWindowWidth from "@hooks/use-window-width";
+import useThemeHandler from "@hooks/use-theme-handler";
+import Navbar from "./Navbar";
+import NavbarMobile from "./Navbar/NavbarMobile";
+import Footer from "./Footer";
 
 type Props = {
   children: ReactNode;
 };
 
 const Layout = ({ children }: Props) => {
+  useThemeHandler();
   const { isMobile } = useWindowWidth();
+
   return (
     <>
       <Head>
         <title>Raphael Catarino | Portfolio</title>
       </Head>
-      <header className="fixed top-0 w-full isolate z-50">
+      <header className="fixed top-0 isolate z-50 w-full">
         {isMobile ? <NavbarMobile /> : <Navbar />}
       </header>
       <main className="isolate">{children}</main>

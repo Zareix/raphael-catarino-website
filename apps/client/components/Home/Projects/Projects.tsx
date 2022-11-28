@@ -38,7 +38,7 @@ const Projects = () => {
       {projects.projects.length > max && (
         <div className="mt-12 grid w-full place-content-center">
           <motion.button
-            className="flex w-28 items-center justify-center gap-1 rounded-lg bg-slate-900 py-2 text-gray-50 shadow transition-shadow duration-300 hover:shadow-md"
+            className="flex w-28 items-center justify-center gap-1 rounded-lg bg-slate-900 py-2 text-gray-50 shadow transition-shadow duration-300 hover:shadow-md dark:bg-slate-800"
             onClick={() => setMax(max + 5)}
             whileHover={{
               scale: 1.03,
