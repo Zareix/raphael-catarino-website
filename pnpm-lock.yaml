@@ -32,7 +32,7 @@ importers:
       react-country-flag: 3.0.2
       react-dom: 18.2.0
       react-google-recaptcha-v3: 1.10.0
-      react-hook-form: 7.39.6
+      react-hook-form: 7.39.7
       react-icons: 4.6.0
       react-intersection-observer: 9.4.1
       react-intl: 6.2.1
@@ -51,7 +51,7 @@ importers:
       react-country-flag: 3.0.2_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-google-recaptcha-v3: 1.10.0_biqbaboplfbrettd7655fr4n2y
-      react-hook-form: 7.39.6_react@18.2.0
+      react-hook-form: 7.39.7_react@18.2.0
       react-icons: 4.6.0_react@18.2.0
       react-intersection-observer: 9.4.1_react@18.2.0
       react-intl: 6.2.1_eetduzquwu67aqoq5644t6dxzu
@@ -10624,8 +10624,8 @@ packages:
       react-side-effect: 2.1.2_react@17.0.2
     dev: false
 
-  /react-hook-form/7.39.6_react@18.2.0:
-    resolution: {integrity: sha512-f6bghLpUm1nfUtuJ09Zsaz2AkuHAGghngYAsKFGarFpi/NQl6JcGQ/ETc34tvLtjVo6hSLYw+/4dgBt0X54Jvw==}
+  /react-hook-form/7.39.7_react@18.2.0:
+    resolution: {integrity: sha512-RT0NE1uW1bY3nAuMdzfqHrpv2+sICVFaxBOvNJsCva4if2sxPxcyJy/CSqU56UXqAdRg724CNDhjMYPSHSF3rg==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
