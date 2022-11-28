@@ -77,27 +77,27 @@ importers:
 
   apps/cms:
     specifiers:
-      '@retikolo/drag-drop-content-types': ^1.2.0
+      '@retikolo/drag-drop-content-types': ^1.2.1
       '@strapi/design-system': 1.3.1
-      '@strapi/icons': 1.2.8
-      '@strapi/plugin-i18n': 4.5.1
-      '@strapi/plugin-users-permissions': 4.5.1
-      '@strapi/provider-email-sendgrid': 4.5.1
-      '@strapi/provider-upload-aws-s3': 4.5.1
-      '@strapi/strapi': 4.5.1
+      '@strapi/icons': 1.3.1
+      '@strapi/plugin-i18n': 4.5.2
+      '@strapi/plugin-users-permissions': 4.5.2
+      '@strapi/provider-email-sendgrid': 4.5.2
+      '@strapi/provider-upload-aws-s3': 4.5.2
+      '@strapi/strapi': 4.5.2
       pg: 8.8.0
       strapi-plugin-ezforms: 0.1.2
       strapi-plugin-populate-deep: 1.1.2
       strapi-plugin-vercel-deploy: 1.3.1
     dependencies:
-      '@retikolo/drag-drop-content-types': 1.2.0_mn5dsrptsqu45trjqtoc7pkmua
-      '@strapi/design-system': 1.3.1_anm56ljg7kbf3c7tmt2ex4ckjm
-      '@strapi/icons': 1.2.8_sfoxds7t5ydpegc3knd667wn6m
-      '@strapi/plugin-i18n': 4.5.1
-      '@strapi/plugin-users-permissions': 4.5.1_d2m7qcaawobv5nbpmirkzlkoq4
-      '@strapi/provider-email-sendgrid': 4.5.1
-      '@strapi/provider-upload-aws-s3': 4.5.1
-      '@strapi/strapi': 4.5.1_3noqm3j4jb6nlgpfcq2weq2nuy
+      '@retikolo/drag-drop-content-types': 1.2.1_4kgxs2s2iggj6ppulx5pc22i6u
+      '@strapi/design-system': 1.3.1_f2fdnw7so2zcptt3byb7zshvd4
+      '@strapi/icons': 1.3.1_sfoxds7t5ydpegc3knd667wn6m
+      '@strapi/plugin-i18n': 4.5.2
+      '@strapi/plugin-users-permissions': 4.5.2_d2m7qcaawobv5nbpmirkzlkoq4
+      '@strapi/provider-email-sendgrid': 4.5.2
+      '@strapi/provider-upload-aws-s3': 4.5.2
+      '@strapi/strapi': 4.5.2_3noqm3j4jb6nlgpfcq2weq2nuy
       pg: 8.8.0
       strapi-plugin-ezforms: 0.1.2
       strapi-plugin-populate-deep: 1.1.2
@@ -2222,13 +2222,13 @@ packages:
     resolution: {integrity: sha512-Pc/AFTdwZwEKJxFJvlxrSmGe/di+aAOBn60sremrpLo6VI/6cmiUYNNwlI5KNYttg7uypzA3ILPMPgxB2GYZEg==}
     dev: false
 
-  /@retikolo/drag-drop-content-types/1.2.0_mn5dsrptsqu45trjqtoc7pkmua:
-    resolution: {integrity: sha512-Lt/hdaTzC+TRQBMPKJ2iWaMww5o/9VHPYjb1ai/Y/qvjQo8rR9rL/YgI1tNakEdI63X7xrduCwSV0obKWEOAOA==}
+  /@retikolo/drag-drop-content-types/1.2.1_4kgxs2s2iggj6ppulx5pc22i6u:
+    resolution: {integrity: sha512-IzP1bihGOCi7KyS0L1Ig+HBqW/8qTPkoQoKqn60cPO1ta1LAMZ4lIUZgjDSdof5i5ehmgLQV3IKd8dAkrBvz7A==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     peerDependencies:
       '@strapi/strapi': ^4.0.0
     dependencies:
-      '@strapi/strapi': 4.5.1_3noqm3j4jb6nlgpfcq2weq2nuy
+      '@strapi/strapi': 4.5.2_3noqm3j4jb6nlgpfcq2weq2nuy
       array-move: 4.0.0
       react-sortable-hoc: 2.0.0_oxfzelaz5ynxsop2v2nu2h2m64
     transitivePeerDependencies:
@@ -2361,8 +2361,8 @@ packages:
       lodash.deburr: 4.1.0
     dev: false
 
-  /@strapi/admin/4.5.1_ygh763ygnhnletubncpyc2elge:
-    resolution: {integrity: sha512-NEXN4By5FbL01xTcZ5ZyfuieMc+d8wJ1jiXMhLKcw8oFu4GBB0lWTUEx3YA6uRwVt1Da1cFKJPSe7umWUmSkng==}
+  /@strapi/admin/4.5.2_tlw4jtnirpfjnrdrntcb43tcie:
+    resolution: {integrity: sha512-kzVTGyw7rdUUa6AVVHIsNIapfy80Lv9KjXzjErEz6XM+kgPYTgITu8LgOXPw1j0Eg0Eyg1IXNP92GaJfeG5nTw==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     peerDependencies:
       '@strapi/strapi': ^4.3.4
@@ -2380,14 +2380,14 @@ packages:
       '@fortawesome/free-solid-svg-icons': 5.15.4
       '@fortawesome/react-fontawesome': 0.2.0_lcths5djpvyf6l6w4nwny2yf44
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.7_pvgfg2i233iclh4uhrrgev3t5a
-      '@strapi/babel-plugin-switch-ee-ce': 4.5.1
-      '@strapi/design-system': 1.2.8_pflptwg43z7ybddfsq5si2w5rq
-      '@strapi/helper-plugin': 4.5.1_sfu4o4rzz7lwdwmlm3crsvs3um
-      '@strapi/icons': 1.2.8_sfoxds7t5ydpegc3knd667wn6m
-      '@strapi/permissions': 4.5.1
-      '@strapi/strapi': 4.5.1_3noqm3j4jb6nlgpfcq2weq2nuy
-      '@strapi/typescript-utils': 4.5.1
-      '@strapi/utils': 4.5.1
+      '@strapi/babel-plugin-switch-ee-ce': 4.5.2
+      '@strapi/design-system': 1.3.1_3l27gan6m6lrmfjosnh4q7s4f4
+      '@strapi/helper-plugin': 4.5.2_sfu4o4rzz7lwdwmlm3crsvs3um
+      '@strapi/icons': 1.3.1_sfoxds7t5ydpegc3knd667wn6m
+      '@strapi/permissions': 4.5.2
+      '@strapi/strapi': 4.5.2_3noqm3j4jb6nlgpfcq2weq2nuy
+      '@strapi/typescript-utils': 4.5.2
+      '@strapi/utils': 4.5.2
       axios: 0.27.2_debug@4.3.2
       babel-loader: 8.2.5_xc6oct4hcywdrbo4ned6ytbybm
       babel-plugin-styled-components: 2.0.2_styled-components@5.3.3
@@ -2402,6 +2402,7 @@ packages:
       esbuild-loader: 2.20.0_webpack@5.74.0
       execa: 1.0.0
       fast-deep-equal: 3.1.3
+      find-root: 1.1.0
       font-awesome: 4.7.0
       fork-ts-checker-webpack-plugin: 7.2.1_qxndzzrt2rolqo43hhutx3e3sy
       formik: 2.2.9_react@17.0.2
@@ -2457,7 +2458,7 @@ packages:
       reselect: 4.1.6
       rimraf: 3.0.2
       sanitize-html: 2.7.1
-      semver: 7.3.7
+      semver: 7.3.8
       sift: 16.0.0
       style-loader: 3.3.1_webpack@5.74.0
       styled-components: 5.3.3_fane7jikarojcev26y27hpbhu4
@@ -2491,16 +2492,16 @@ packages:
       - webpack-plugin-serve
     dev: false
 
-  /@strapi/babel-plugin-switch-ee-ce/4.5.1:
-    resolution: {integrity: sha512-C/e0DSWKDKbc+k3lodDyLhIaglNJYIMaLPXlEpcCiwAvZHfKlTZJtZYXlD1mKyo857DdxWmt1vNCwP8K5crdOQ==}
+  /@strapi/babel-plugin-switch-ee-ce/4.5.2:
+    resolution: {integrity: sha512-CSDeUQeBvNM2OsaSGfU9DWAG/aNi75UkmLwbdNgIuQt70Sq5/rK2T0O7bqlA/KnOQPi4koi9Kr44mc1Ec60Sbg==}
     dependencies:
       '@babel/template': 7.18.10
       reselect: 4.0.0
       resolve: 1.20.0
     dev: false
 
-  /@strapi/database/4.5.1_pg@8.8.0:
-    resolution: {integrity: sha512-G4C4FHLJ7OakhTlZiXopBDi9SqJDQIj22VRjjjBOyoG4ua06JQU+g++WXQuSTCg6tLNHfbjoish3jj9gaY+gQw==}
+  /@strapi/database/4.5.2_pg@8.8.0:
+    resolution: {integrity: sha512-OOY3ZT+JGw3jtW3FP+gb9F2preMBTKvbIYTQzol9/2ug/Z+YDw5zMP3wYbqQw/g822bCuskHejb8TF/Iso3oKg==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       date-fns: 2.29.2
@@ -2508,6 +2509,7 @@ packages:
       fs-extra: 10.0.0
       knex: 1.0.7_pg@8.8.0
       lodash: 4.17.21
+      semver: 7.3.8
       umzug: 3.1.1
     transitivePeerDependencies:
       - '@vscode/sqlite3'
@@ -2520,27 +2522,7 @@ packages:
       - tedious
     dev: false
 
-  /@strapi/design-system/1.2.8_pflptwg43z7ybddfsq5si2w5rq:
-    resolution: {integrity: sha512-twfSfWeHEj0t+nEje61P9OPS9M1X+NSDudqjdsiYvNZO9H7tLio3nANjlxuuQDAfcJW3oSBJWdj99Z0OW/7kFQ==}
-    peerDependencies:
-      '@strapi/icons': ^1.2.7
-      react: ^17.0.1
-      react-dom: ^17.0.1
-      react-router-dom: ^5.2.0
-      styled-components: ^5.2.1
-    dependencies:
-      '@floating-ui/react-dom': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
-      '@internationalized/number': 3.1.1
-      '@strapi/icons': 1.2.8_sfoxds7t5ydpegc3knd667wn6m
-      compute-scroll-into-view: 1.0.17
-      prop-types: 15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      react-router-dom: 5.2.0_react@17.0.2
-      styled-components: 5.3.3_fane7jikarojcev26y27hpbhu4
-    dev: false
-
-  /@strapi/design-system/1.3.1_anm56ljg7kbf3c7tmt2ex4ckjm:
+  /@strapi/design-system/1.3.1_3l27gan6m6lrmfjosnh4q7s4f4:
     resolution: {integrity: sha512-cs8h1pofsi/fDk7c8oQN9X17g2mTMY5F8AHsklGDwU8bLgpEoC45e/rhQ3r8vE18ZFtOfLXXj9Qy+aQw+Gnfdw==}
     peerDependencies:
       '@strapi/icons': ^1.3.1
@@ -2551,7 +2533,27 @@ packages:
     dependencies:
       '@floating-ui/react-dom': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
       '@internationalized/number': 3.1.1
-      '@strapi/icons': 1.2.8_sfoxds7t5ydpegc3knd667wn6m
+      '@strapi/icons': 1.3.1_sfoxds7t5ydpegc3knd667wn6m
+      compute-scroll-into-view: 1.0.17
+      prop-types: 15.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-router-dom: 5.2.0_react@17.0.2
+      styled-components: 5.3.3_fane7jikarojcev26y27hpbhu4
+    dev: false
+
+  /@strapi/design-system/1.3.1_f2fdnw7so2zcptt3byb7zshvd4:
+    resolution: {integrity: sha512-cs8h1pofsi/fDk7c8oQN9X17g2mTMY5F8AHsklGDwU8bLgpEoC45e/rhQ3r8vE18ZFtOfLXXj9Qy+aQw+Gnfdw==}
+    peerDependencies:
+      '@strapi/icons': ^1.3.1
+      react: ^17.0.1
+      react-dom: ^17.0.1
+      react-router-dom: ^5.2.0
+      styled-components: ^5.2.1
+    dependencies:
+      '@floating-ui/react-dom': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
+      '@internationalized/number': 3.1.1
+      '@strapi/icons': 1.3.1_sfoxds7t5ydpegc3knd667wn6m
       compute-scroll-into-view: 1.0.17
       prop-types: 15.8.1
       react: 17.0.2
@@ -2560,8 +2562,8 @@ packages:
       styled-components: 5.3.6_v5ja746gkdtknuc6tj46sve3be
     dev: false
 
-  /@strapi/generate-new/4.5.1:
-    resolution: {integrity: sha512-AyJSyw1c8ImTEkWk5onTewnnXzOspiDGenOnDrJl2lrKPhrdWXJZeZuvz6ZrSrzl/G4PCHtqGi479FEED0QRzw==}
+  /@strapi/generate-new/4.5.2:
+    resolution: {integrity: sha512-pDJ5M/pbgeY1hKSn1mfXR0EYlYc0g3i5AWNweBtJ/n0EMJzDmJek78ORBoiAonHE8LcxYIK33GhdH0r6f2Z42g==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       '@sentry/node': 6.19.7
@@ -2581,13 +2583,13 @@ packages:
       - supports-color
     dev: false
 
-  /@strapi/generators/4.5.1:
-    resolution: {integrity: sha512-NImA8HqsKZPlK5EuF4QowFmmKA1mMI6BfqV2H3SySBKfAYuEL4jCEZttugViIFRfbdg7F5nNaow5eJDPPfGRSg==}
+  /@strapi/generators/4.5.2:
+    resolution: {integrity: sha512-AyYvH+rfzHn2FuyWBDcQSd1XA+l+Dt90LFmETFV0h+LuE59TBxbWY619YQTi5jBM9twaa93UVproEueLo3e9pw==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       '@sindresorhus/slugify': 1.1.0
-      '@strapi/typescript-utils': 4.5.1
-      '@strapi/utils': 4.5.1
+      '@strapi/typescript-utils': 4.5.2
+      '@strapi/utils': 4.5.2
       chalk: 4.1.2
       fs-extra: 10.0.0
       node-plop: 0.26.3
@@ -2597,8 +2599,8 @@ packages:
       - supports-color
     dev: false
 
-  /@strapi/helper-plugin/4.5.1_2zlrgcmdhuclyfgfbbnnhfihdm:
-    resolution: {integrity: sha512-v8ijJX0yluI11s8ZnhU5KTUoQShYFLo4EdPuyYgTiX4UJw6sZMyFM/r9N9oCQXNmb6AO7hUv5ogHliQkjx4cLw==}
+  /@strapi/helper-plugin/4.5.2_2zlrgcmdhuclyfgfbbnnhfihdm:
+    resolution: {integrity: sha512-xI0O5U+JSochOdrkOKuyHxIoAeE2zCFAeqKPRAAllrHlxQpmV3+hMCVP3xeSQdE2UCPHEAJCZo0RcbrsVhmZ0Q==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     peerDependencies:
       webpack: ^5.74.0
@@ -2634,8 +2636,8 @@ packages:
       - typescript
     dev: false
 
-  /@strapi/helper-plugin/4.5.1_d2m7qcaawobv5nbpmirkzlkoq4:
-    resolution: {integrity: sha512-v8ijJX0yluI11s8ZnhU5KTUoQShYFLo4EdPuyYgTiX4UJw6sZMyFM/r9N9oCQXNmb6AO7hUv5ogHliQkjx4cLw==}
+  /@strapi/helper-plugin/4.5.2_d2m7qcaawobv5nbpmirkzlkoq4:
+    resolution: {integrity: sha512-xI0O5U+JSochOdrkOKuyHxIoAeE2zCFAeqKPRAAllrHlxQpmV3+hMCVP3xeSQdE2UCPHEAJCZo0RcbrsVhmZ0Q==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     peerDependencies:
       webpack: ^5.74.0
@@ -2671,8 +2673,8 @@ packages:
       - typescript
     dev: false
 
-  /@strapi/helper-plugin/4.5.1_sfu4o4rzz7lwdwmlm3crsvs3um:
-    resolution: {integrity: sha512-v8ijJX0yluI11s8ZnhU5KTUoQShYFLo4EdPuyYgTiX4UJw6sZMyFM/r9N9oCQXNmb6AO7hUv5ogHliQkjx4cLw==}
+  /@strapi/helper-plugin/4.5.2_sfu4o4rzz7lwdwmlm3crsvs3um:
+    resolution: {integrity: sha512-xI0O5U+JSochOdrkOKuyHxIoAeE2zCFAeqKPRAAllrHlxQpmV3+hMCVP3xeSQdE2UCPHEAJCZo0RcbrsVhmZ0Q==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     peerDependencies:
       webpack: ^5.74.0
@@ -2708,8 +2710,8 @@ packages:
       - typescript
     dev: false
 
-  /@strapi/icons/1.2.8_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-QDfygQi19W+i1ROCAcPZxAzHorsrwK+TV89bGezW+n4hZbXpr02R94neQHCk/TNNiaRU91gKXAcAREkGdc+Kzw==}
+  /@strapi/icons/1.3.1_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-whR/Yr09PuxkmklU3YL1iNyBvuqCTerep1+bLEVEUVijwQJiigqIC07uv/zGGdZKpTelstDGNqFWTF5JcdbHbg==}
     peerDependencies:
       react: ^17.0.1
       react-dom: ^17.0.1
@@ -2718,41 +2720,41 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /@strapi/logger/4.5.1:
-    resolution: {integrity: sha512-edj5czqjaU92l/d94OYcltDSBeI0JscesNCLdGyLosPjeich568/JVtTV562BJnyku8+H+cr+lnIfuYNyk55+w==}
+  /@strapi/logger/4.5.2:
+    resolution: {integrity: sha512-tBdyiPSZJOxXPAcoWB/IF3pnzi4dCfElQ9dUSmT347NOPkk0ngLL6bDuVy/Ukxt0HlE4RAGhp4Jvbp7zZnjCaQ==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       lodash: 4.17.21
       winston: 3.3.3
     dev: false
 
-  /@strapi/permissions/4.5.1:
-    resolution: {integrity: sha512-14GnUb872nbkuVXZEJTKnBKBGgtDJuKgxf3ih5p77HwpRkWYKdRhUwrYyW6SH10aXibiR1AQJPcXMjbHVGMTDg==}
+  /@strapi/permissions/4.5.2:
+    resolution: {integrity: sha512-tosFVSKJb5Zmzhf6PM3rvfdCI+jdma94Rdm+EHlqHDMuNorOCBG5YWT6gCXDv8RjAkUkLVQ4H5vNAKYnrmp6cg==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       '@casl/ability': 5.4.4
-      '@strapi/utils': 4.5.1
+      '@strapi/utils': 4.5.2
       lodash: 4.17.21
       sift: 16.0.0
     dev: false
 
-  /@strapi/plugin-content-manager/4.5.1:
-    resolution: {integrity: sha512-QNaqDNhptUtuJI677WWeHcU8SlyqvE9ba4riEXX0uTbzztkn0q7DxQ5lWVspNBzR5rPJjcg66tFAumGCeKUg3w==}
+  /@strapi/plugin-content-manager/4.5.2:
+    resolution: {integrity: sha512-K4OB+G2OwNkUJIm9HlRQ7LvoEqG94ZQA6pvLuDzI9xFRjjs4hv8tNkXxAs96lkCpVAOKbHKIlHv45nZxfh1Z6A==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       '@sindresorhus/slugify': 1.1.0
-      '@strapi/utils': 4.5.1
+      '@strapi/utils': 4.5.2
       lodash: 4.17.21
     dev: false
 
-  /@strapi/plugin-content-type-builder/4.5.1_2zlrgcmdhuclyfgfbbnnhfihdm:
-    resolution: {integrity: sha512-tClwo7mRGm/HBQ0neKsQvDkBuNnKhZvt/TGPuiBbJQ52mg1y9w5x6PVV1nFRHvKTVLc0wFGDzwXi/fBfjIWNQQ==}
+  /@strapi/plugin-content-type-builder/4.5.2_2zlrgcmdhuclyfgfbbnnhfihdm:
+    resolution: {integrity: sha512-MCHvMypkTfYYq1QfMQ2CfbD6Ww8zZtpFeYLEc8GQGEaJO0YIB7crmso2aoxJPn800czkpLq2pMoSVd2IfEX+9Q==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       '@sindresorhus/slugify': 1.1.0
-      '@strapi/generators': 4.5.1
-      '@strapi/helper-plugin': 4.5.1_2zlrgcmdhuclyfgfbbnnhfihdm
-      '@strapi/utils': 4.5.1
+      '@strapi/generators': 4.5.2
+      '@strapi/helper-plugin': 4.5.2_2zlrgcmdhuclyfgfbbnnhfihdm
+      '@strapi/utils': 4.5.2
       fs-extra: 10.0.0
       lodash: 4.17.21
       pluralize: 8.0.0
@@ -2776,30 +2778,30 @@ packages:
       - webpack
     dev: false
 
-  /@strapi/plugin-email/4.5.1:
-    resolution: {integrity: sha512-mLwkUFPBvc8Hx48rVHGi4j8hawjvnQxXciTQbEWTwDNpdj6YjRqM0Znt0WWZnNKSdH83DbB89QYnXd6UhwT3ZQ==}
+  /@strapi/plugin-email/4.5.2:
+    resolution: {integrity: sha512-RK9age4uc+wNLARqr7/FOG/8dI9agxauFUbg1S1P7ujUo3swTEPYdWfIjnXV13wghrYU77Nv5muGqUiLimDrJg==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
-      '@strapi/provider-email-sendmail': 4.5.1
-      '@strapi/utils': 4.5.1
+      '@strapi/provider-email-sendmail': 4.5.2
+      '@strapi/utils': 4.5.2
       lodash: 4.17.21
     dev: false
 
-  /@strapi/plugin-i18n/4.5.1:
-    resolution: {integrity: sha512-DENqruoZSopKVWjBcFXVP3ukIDiiccfhKtq5CF82J2X+nAJpxbdHCnUyaW3vOGPBzCXsJsT6Se8fxeQkyRJwbg==}
+  /@strapi/plugin-i18n/4.5.2:
+    resolution: {integrity: sha512-A+ct5Zpc2YuaLf4MHbdhc2obBZeo9xdD+ENJ7TGdcRNOTb2q5IUPAaJy0+4KmaoSYBuUzESQioh/xLwWVMaing==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
-      '@strapi/utils': 4.5.1
+      '@strapi/utils': 4.5.2
       lodash: 4.17.21
     dev: false
 
-  /@strapi/plugin-upload/4.5.1_2zlrgcmdhuclyfgfbbnnhfihdm:
-    resolution: {integrity: sha512-ZnK7e1OO3ot9ZFzWwBRZYR2JsXNY9bpAZYQHd1mbDT1CztxHScLeHvnInfUJUVLUAsuBv6ZzHWh5+IslqL3uqw==}
+  /@strapi/plugin-upload/4.5.2_2zlrgcmdhuclyfgfbbnnhfihdm:
+    resolution: {integrity: sha512-1I30Xx0a3wMPL9sNCjFvsFcqOtH6HFEyMMNsjAVhr01mCQe2VYPBBm7sQM/nDb7b176Zq2SeJi2qW0Wh/aEotw==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
-      '@strapi/helper-plugin': 4.5.1_2zlrgcmdhuclyfgfbbnnhfihdm
-      '@strapi/provider-upload-local': 4.5.1
-      '@strapi/utils': 4.5.1
+      '@strapi/helper-plugin': 4.5.2_2zlrgcmdhuclyfgfbbnnhfihdm
+      '@strapi/provider-upload-local': 4.5.2
+      '@strapi/utils': 4.5.2
       byte-size: 7.0.1
       cropperjs: 1.5.12
       date-fns: 2.29.2
@@ -2828,12 +2830,12 @@ packages:
       - webpack
     dev: false
 
-  /@strapi/plugin-users-permissions/4.5.1_d2m7qcaawobv5nbpmirkzlkoq4:
-    resolution: {integrity: sha512-18rIVN7RymQBszLlz2TljbPzHleWVsk0rKAzomj3UDydcKhjvtlpF671Qxpiv+Ao0PtQNKwYLlrKdfMVXt88fQ==}
+  /@strapi/plugin-users-permissions/4.5.2_d2m7qcaawobv5nbpmirkzlkoq4:
+    resolution: {integrity: sha512-/ZYqGBWfy8ps+oVfZ9LDSdoX0SOU1GC8LBm3UUBJ50uPLZww8uauDwVY9v879U9YE8e6d9GGx1yAHlORligZ7A==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
-      '@strapi/helper-plugin': 4.5.1_d2m7qcaawobv5nbpmirkzlkoq4
-      '@strapi/utils': 4.5.1
+      '@strapi/helper-plugin': 4.5.2_d2m7qcaawobv5nbpmirkzlkoq4
+      '@strapi/utils': 4.5.2
       bcryptjs: 2.4.3
       grant-koa: 5.4.8_koa@2.13.4
       jsonwebtoken: 8.5.1
@@ -2863,60 +2865,60 @@ packages:
       - webpack
     dev: false
 
-  /@strapi/provider-email-sendgrid/4.5.1:
-    resolution: {integrity: sha512-DRrE4kgZ/Qa1U+huBhLiWYf3KLKQW82De0X5oSC56TpLHoU79bk4kdZSaa1MJsg2GSumDk7op6jj/8bvEVGkaw==}
+  /@strapi/provider-email-sendgrid/4.5.2:
+    resolution: {integrity: sha512-YPY8Hspec3sLi4W/OuxHOlrhfs4sxYkG83VmDweztkDk9VQd1Fs6BT0YGWrIDBtk50AS95OtOSP9S3OiVsqvJA==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       '@sendgrid/mail': 7.7.0
-      '@strapi/utils': 4.5.1
+      '@strapi/utils': 4.5.2
     transitivePeerDependencies:
       - debug
     dev: false
 
-  /@strapi/provider-email-sendmail/4.5.1:
-    resolution: {integrity: sha512-6u9AbZvNYk2neGI0TTh6Ypp+xudCMJCsx75OHjEIIx1Et9oyLkXPvJcdVSf/nmetAoqg6s13+P/S/Axwj7SejQ==}
+  /@strapi/provider-email-sendmail/4.5.2:
+    resolution: {integrity: sha512-Gz0ASFSVpMH85ECQ6JA5C2D5QAcOgnI1A1vj8XBurCfVnnAeHGnvgYuooHm/JSK34qNtijCZl26MDsPtkN2rnA==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
-      '@strapi/utils': 4.5.1
+      '@strapi/utils': 4.5.2
       sendmail: 1.6.1
     dev: false
 
-  /@strapi/provider-upload-aws-s3/4.5.1:
-    resolution: {integrity: sha512-nZESfx2/zuu2TrhJ68DF8Z/Bq4e/rAAOiVQOvhH7u3PvJ+8oiQExePMeT5FYVYigZR30AoJLvdIBRULdksp6VA==}
+  /@strapi/provider-upload-aws-s3/4.5.2:
+    resolution: {integrity: sha512-inYIajdwBVx3xRG/2IYkhnXTpVINKv19qlwcsLt1I4Epl/3yq1Y9JmGTkYYsUIP1YUsBR4Af/49tQ9jaBQNy2g==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       aws-sdk: 2.1215.0
       lodash: 4.17.21
     dev: false
 
-  /@strapi/provider-upload-local/4.5.1:
-    resolution: {integrity: sha512-keW8uQLfv60A85fIvrwZVqtyaZ9ql3sWmWkmASXLLay2IxbQSmPynevZ8zsrlp3mIA6lJ/DrcikJeR+QoyKEmg==}
+  /@strapi/provider-upload-local/4.5.2:
+    resolution: {integrity: sha512-SfdGU60nDo8XNpiwbt6KjBa0KFoPCJQeCPe+fTgcQTYlNYfPX+2StoB7QuX1QRP2j4cbH6HaAq+YjuEooEMJyA==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
-      '@strapi/utils': 4.5.1
+      '@strapi/utils': 4.5.2
       fs-extra: 10.0.0
     dev: false
 
-  /@strapi/strapi/4.5.1_3noqm3j4jb6nlgpfcq2weq2nuy:
-    resolution: {integrity: sha512-dbGvucbtBIa0xK2MHXj3+buIVmY39h8i3/oRckTN1N2Uj3qObv/iFTs+z2bRND+ynkNlyrpchdIqzyO3wOyWqw==}
+  /@strapi/strapi/4.5.2_3noqm3j4jb6nlgpfcq2weq2nuy:
+    resolution: {integrity: sha512-BXeYd5/WJ5umOVUVReCK2PvhpvXs4asmALSMYRFexWwpt48U7LzjyqfKUMPmn3cLiRxjbKPW0XcZ3G4+9Hlotg==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     hasBin: true
     requiresBuild: true
     dependencies:
       '@koa/cors': 3.4.3
       '@koa/router': 10.1.1
-      '@strapi/admin': 4.5.1_ygh763ygnhnletubncpyc2elge
-      '@strapi/database': 4.5.1_pg@8.8.0
-      '@strapi/generate-new': 4.5.1
-      '@strapi/generators': 4.5.1
-      '@strapi/logger': 4.5.1
-      '@strapi/permissions': 4.5.1
-      '@strapi/plugin-content-manager': 4.5.1
-      '@strapi/plugin-content-type-builder': 4.5.1_2zlrgcmdhuclyfgfbbnnhfihdm
-      '@strapi/plugin-email': 4.5.1
-      '@strapi/plugin-upload': 4.5.1_2zlrgcmdhuclyfgfbbnnhfihdm
-      '@strapi/typescript-utils': 4.5.1
-      '@strapi/utils': 4.5.1
+      '@strapi/admin': 4.5.2_tlw4jtnirpfjnrdrntcb43tcie
+      '@strapi/database': 4.5.2_pg@8.8.0
+      '@strapi/generate-new': 4.5.2
+      '@strapi/generators': 4.5.2
+      '@strapi/logger': 4.5.2
+      '@strapi/permissions': 4.5.2
+      '@strapi/plugin-content-manager': 4.5.2
+      '@strapi/plugin-content-type-builder': 4.5.2_2zlrgcmdhuclyfgfbbnnhfihdm
+      '@strapi/plugin-email': 4.5.2
+      '@strapi/plugin-upload': 4.5.2_2zlrgcmdhuclyfgfbbnnhfihdm
+      '@strapi/typescript-utils': 4.5.2
+      '@strapi/utils': 4.5.2
       bcryptjs: 2.4.3
       boxen: 5.1.2
       chalk: 4.1.2
@@ -2953,7 +2955,7 @@ packages:
       package-json: 7.0.0
       qs: 6.10.1
       resolve-cwd: 3.0.0
-      semver: 7.3.7
+      semver: 7.3.8
       statuses: 2.0.1
       uuid: 8.3.2
     transitivePeerDependencies:
@@ -2990,8 +2992,8 @@ packages:
       - webpack-plugin-serve
     dev: false
 
-  /@strapi/typescript-utils/4.5.1:
-    resolution: {integrity: sha512-4PQLeJVPivnFYKvtLYy4SgyqsgDj8lDi6pOwUQzxb2bHP9pW37NeLwH/P4aYHSNWgkCYdDSesTZAQuReCyqdgQ==}
+  /@strapi/typescript-utils/4.5.2:
+    resolution: {integrity: sha512-C4/Letz3pa+p7u4l8XxtVjCDEInommXkTTrULPDwfWQLjtcUIs2Bc7HH8PXSrZ6HAy6iaUpl5YgWwN9eIRTIBw==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       chalk: 4.1.2
@@ -3002,8 +3004,8 @@ packages:
       typescript: 4.6.2
     dev: false
 
-  /@strapi/utils/4.5.1:
-    resolution: {integrity: sha512-GmzM2+YmwiWSCtN6Gw+hanE5Z0ZVtzI75h57LAIwt/xymVGSIUm/zPFmmd7yqSj/4NNRb895On45EFPsCEZrRw==}
+  /@strapi/utils/4.5.2:
+    resolution: {integrity: sha512-KnaU6zlqUtJbqVCXR/OxRC7BYV5eMZkNcuKPbwQ+MWwuh/nMp5hs023CtArQzyM/rDMIWpv01Tdwg2rcZpcIoA==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       '@sindresorhus/slugify': 1.1.0
@@ -11491,14 +11493,6 @@ packages:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
 
-  /semver/7.3.7:
-    resolution: {integrity: sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      lru-cache: 6.0.0
-    dev: false
-
   /semver/7.3.8:
     resolution: {integrity: sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==}
     engines: {node: '>=10'}
@@ -11915,7 +11909,7 @@ packages:
     resolution: {integrity: sha512-+XPwoNl2Kk7VjAdcyEGbiMNQHLLPFhtAB6e2UBCglpCfzIYbTPM8WGUW8RQ92p8J9SMCnR+2i16IzPuZglO6hA==}
     engines: {node: '>=12.x.x <=16.x.x', npm: '>=6.0.0'}
     dependencies:
-      '@strapi/strapi': 4.5.1_3noqm3j4jb6nlgpfcq2weq2nuy
+      '@strapi/strapi': 4.5.2_3noqm3j4jb6nlgpfcq2weq2nuy
       axios: 0.26.1
       react-intl: 5.25.1_j4njqz2l44a4expcmhszoo26vm
     transitivePeerDependencies:
