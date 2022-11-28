@@ -78,7 +78,7 @@ importers:
   apps/cms:
     specifiers:
       '@retikolo/drag-drop-content-types': ^1.2.1
-      '@strapi/design-system': 1.3.1
+      '@strapi/design-system': 1.4.0
       '@strapi/icons': 1.3.1
       '@strapi/plugin-i18n': 4.5.2
       '@strapi/plugin-users-permissions': 4.5.2
@@ -91,7 +91,7 @@ importers:
       strapi-plugin-vercel-deploy: 1.3.1
     dependencies:
       '@retikolo/drag-drop-content-types': 1.2.1_4kgxs2s2iggj6ppulx5pc22i6u
-      '@strapi/design-system': 1.3.1_f2fdnw7so2zcptt3byb7zshvd4
+      '@strapi/design-system': 1.4.0_f2fdnw7so2zcptt3byb7zshvd4
       '@strapi/icons': 1.3.1_sfoxds7t5ydpegc3knd667wn6m
       '@strapi/plugin-i18n': 4.5.2
       '@strapi/plugin-users-permissions': 4.5.2_d2m7qcaawobv5nbpmirkzlkoq4
@@ -2210,6 +2210,15 @@ packages:
       webpack-dev-server: 4.11.1_acslyvumqsq7c457cl7o7zctcu
     dev: false
 
+  /@radix-ui/react-use-callback-ref/1.0.0_react@17.0.2:
+    resolution: {integrity: sha512-GZtyzoHz95Rhs6S63D2t/eqvdFCm7I+yHMLVQheKM7nBD8mbZIt+ct1jz4536MDnaOGKIxynJ8eHTkVGVVkoTg==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.20.1
+      react: 17.0.2
+    dev: false
+
   /@react-dnd/asap/4.0.1:
     resolution: {integrity: sha512-kLy0PJDDwvwwTXxqTFNAAllPHD73AycE9ypWeln/IguoGBEbvFcPDbCV03G52bEcC5E+YgupBE0VzHGdC8SIXg==}
     dev: false
@@ -2542,8 +2551,8 @@ packages:
       styled-components: 5.3.3_fane7jikarojcev26y27hpbhu4
     dev: false
 
-  /@strapi/design-system/1.3.1_f2fdnw7so2zcptt3byb7zshvd4:
-    resolution: {integrity: sha512-cs8h1pofsi/fDk7c8oQN9X17g2mTMY5F8AHsklGDwU8bLgpEoC45e/rhQ3r8vE18ZFtOfLXXj9Qy+aQw+Gnfdw==}
+  /@strapi/design-system/1.4.0_f2fdnw7so2zcptt3byb7zshvd4:
+    resolution: {integrity: sha512-K0qqnQL+Pu+Q059cVy2WYburTQeRimJfVDMNM1aPuSf9HeKcjDDYoeNxYSO5GZmucnAGkXUK1mYpaW0vzMkhmQ==}
     peerDependencies:
       '@strapi/icons': ^1.3.1
       react: ^17.0.1
@@ -2553,6 +2562,7 @@ packages:
     dependencies:
       '@floating-ui/react-dom': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
       '@internationalized/number': 3.1.1
+      '@radix-ui/react-use-callback-ref': 1.0.0_react@17.0.2
       '@strapi/icons': 1.3.1_sfoxds7t5ydpegc3knd667wn6m
       compute-scroll-into-view: 1.0.17
       prop-types: 15.8.1
