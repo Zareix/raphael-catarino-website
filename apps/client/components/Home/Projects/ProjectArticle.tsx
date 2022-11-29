@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { TbClick } from "react-icons/tb";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -68,12 +67,29 @@ const ProjectArticle = ({ active, project, setActive, visible }: Props) => {
           >
             {project.title}
           </h3>
-          <TbClick
+          <svg
+            stroke="currentColor"
+            fill="none"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className={`absolute right-2 bottom-2 text-gray-50 opacity-0 transition-opacity duration-700 ${
               active ? "" : "md:group-hover:opacity-80"
             }`}
-            size={24}
-          />
+            height="24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <desc></desc>
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <line x1="3" y1="12" x2="6" y2="12"></line>
+            <line x1="12" y1="3" x2="12" y2="6"></line>
+            <line x1="7.8" y1="7.8" x2="5.6" y2="5.6"></line>
+            <line x1="16.2" y1="7.8" x2="18.4" y2="5.6"></line>
+            <line x1="7.8" y1="16.2" x2="5.6" y2="18.4"></line>
+            <path d="M12 12l9 3l-4 2l-2 4l-3 -9"></path>
+          </svg>
         </motion.div>
         <div className="relative -z-10 h-full py-4">
           <motion.div

@@ -12,6 +12,7 @@
     "i18n": "pnpm run i18n:extract && pnpm run i18n:compile"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^13.0.5",
     "@plaiceholder/next": "2.5.0",
     "axios": "0.27.2",
     "framer-motion": "^7.6.5",
@@ -22,7 +23,6 @@
     "react-dom": "18.2.0",
     "react-google-recaptcha-v3": "1.10.0",
     "react-hook-form": "7.39.7",
-    "react-icons": "4.7.1",
     "react-intersection-observer": "9.4.1",
     "react-intl": "6.2.1",
     "react-markdown": "8.0.3",
