@@ -117,7 +117,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative flex min-h-screen w-full items-center bg-stone-100 dark:bg-gray-800 dark:text-gray-50"
+      className="relative flex min-h-screen w-full items-center"
       id="hero"
     >
       <div className="container flex flex-col px-6 md:flex-row md:gap-12 xl:px-40">
@@ -135,7 +135,10 @@ const Hero = () => {
         </Bio>
         {isMobile ? (
           <div className="flex">
-            <div className="slideInBottom mt-4 flex flex-col items-center justify-center gap-3">
+            <div
+              className="slideInBottom mt-4 flex flex-col items-center justify-center gap-3"
+              style={{ animationDelay: "1.25s" }}
+            >
               <SocialButtons />
             </div>
             <ProfilePicture hero={hero} />

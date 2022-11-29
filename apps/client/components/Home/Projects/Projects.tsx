@@ -18,10 +18,7 @@ const Projects = () => {
   };
 
   return (
-    <section
-      className="min-h-screen w-full bg-white py-10 dark:bg-gray-900 dark:text-gray-50"
-      id="projects"
-    >
+    <section className="min-h-screen w-full py-16" id="projects">
       <SectionTitle>{projects.title}</SectionTitle>
       <SectionSubtitle>{projects.subtitle}</SectionSubtitle>
       <div className="container flex flex-wrap items-center justify-center gap-6 md:gap-10">

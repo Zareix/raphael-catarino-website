@@ -16,8 +16,16 @@ h2 {
   @apply text-xl font-semibold;
 }
 
-section {
+main > section {
   scroll-margin-top: 6rem;
+}
+
+main > section:nth-child(even) {
+  @apply bg-white dark:bg-gray-900 dark:text-gray-50;
+}
+
+main > section:nth-child(odd) {
+  @apply bg-stone-100 dark:bg-gray-800 dark:text-gray-50;
 }
 
 .fadeIn {
