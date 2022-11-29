@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { Hero as HeroModel } from "@models/Hero";
 import useWindowWidth from "@hooks/use-window-width";
 import { useHomeContext } from "../";
+import { defineMessage, useIntl } from "react-intl";
 
 const rotateImageBg = keyframes`
   from {
@@ -196,25 +197,36 @@ const SocialButtons = () => (
   </>
 );
 
-const ProfilePicture = ({ hero }: { hero: HeroModel }) => (
-  <ImageWrapper
-    className="fadeIn ml-auto mr-6 h-44 w-44 md:h-auto md:w-1/3"
-    href={hero.CV.url}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <div className="relative h-full w-full overflow-hidden rounded-lg shadow">
-      <Image
-        src={hero.profilePicture.url}
-        alt=""
-        layout="fill"
-        objectFit="cover"
-        sizes="50vw"
-        blurDataURL={hero.profilePicture.placeHolder}
-        placeholder="blur"
-      />
-    </div>
-  </ImageWrapper>
-);
+const ProfilePicture = ({ hero }: { hero: HeroModel }) => {
+  const intl = useIntl();
+  const label = defineMessage({
+    id: "hero_cv_link",
+    defaultMessage: "Télécharger mon Curriculum vitae",
+    description: "Hero cv link",
+  });
+
+  return (
+    <ImageWrapper
+      className="fadeIn ml-auto mr-6 h-44 w-44 md:h-auto md:w-1/3"
+      href={hero.CV.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={intl.formatMessage(label)}
+    >
+      <div className="relative h-full w-full overflow-hidden rounded-lg shadow">
+        <Image
+          src={hero.profilePicture.url}
+          alt=""
+          layout="fill"
+          objectFit="cover"
+          sizes="50vw"
+          blurDataURL={hero.profilePicture.placeHolder}
+          placeholder="blur"
+          priority
+        />
+      </div>
+    </ImageWrapper>
+  );
+};
 
 export default Hero;

@@ -21,5 +21,7 @@
   "navbar_contact": "Contact",
   "navbar_experiences": "Experiences",
   "navbar_projects": "Projects",
-  "navbar_skills": "Skills"
+  "navbar_skills": "Skills",
+  "navbar_btn_drawer": "Open navigation drawer",
+  "hero_cv_link": "Download Curriculum vitae"
 }

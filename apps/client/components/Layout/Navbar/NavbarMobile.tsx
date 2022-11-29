@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import SvgFavicon from "@components/ui/SvgFavicon";
 import { useHomeContext } from "@components/Home";
 import { LangSelector } from "../LangSelector";
+import { defineMessage, useIntl } from "react-intl";
 
 const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
   width: 32px;
@@ -53,6 +54,12 @@ const Backdrop = styled.div`
 `;
 
 const NavbarMobile = () => {
+  const intl = useIntl();
+  const drawerBtnLabel = defineMessage({
+    id: "navbar_btn_drawer",
+    defaultMessage: "Ouvrir le menu de navigation",
+    description: "Navbar open drawer",
+  });
   const { toggleContactOpen } = useHomeContext();
   const [isDrawerOpened, setIsDrawerOpened] = useState(false);
   const router = useRouter();
@@ -73,12 +80,14 @@ const NavbarMobile = () => {
         <a
           className="relative h-10 w-10"
           href="#hero"
+          aria-label="Raphaël Catarino logo"
           onClick={() => setIsDrawerOpened(false)}
         >
           <SvgFavicon />
         </a>
         <DrawerButton
           isDrawerOpened={isDrawerOpened}
+          aria-label={intl.formatMessage(drawerBtnLabel)}
           onClick={() => setIsDrawerOpened(!isDrawerOpened)}
         />
       </nav>

@@ -54,7 +54,11 @@ const Navbar = () => {
   const { toggleContactOpen } = useHomeContext();
   return (
     <nav className="slideInTop mx-auto mt-5 flex w-max items-center justify-center rounded-md bg-gray-50 bg-opacity-70 px-3 py-2 shadow-sm backdrop-blur-md  dark:bg-gray-800 dark:bg-opacity-70">
-      <a className="relative h-10 w-10" href="#hero">
+      <a
+        className="relative h-10 w-10"
+        href="#hero"
+        aria-label="Raphaël Catarino logo"
+      >
         <SvgFavicon />
       </a>
       <ul className="ml-10 flex items-center gap-6">
