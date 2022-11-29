@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="container grid grid-cols-4 gap-6 px-4 md:px-8">
         <ul className="grid gap-2 px-4">
           <h3 className="font-bold hover:underline dark:text-gray-300">
-            <a href="">
+            <a href="#">
               <FormattedMessage
                 id="footer_title_home"
                 defaultMessage="Home"

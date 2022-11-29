@@ -1,14 +1,16 @@
-import type { GetStaticPropsContext, NextPage } from "next";
 import { useMemo } from "react";
+import type { GetStaticPropsContext, NextPage } from "next";
 import { IntlProvider } from "react-intl";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import { HomeData } from "@models/Home";
 import { StrapiHome } from "@models/strapi/StrapiHome";
 import { getStrapiMediaUrl, queryStrapiAPISingular } from "@helpers/strapi";
-import HomeComponent, { HomeProps } from "@components/Home";
 import { createPlaceholder } from "@helpers/plaiceholder";
 import { sortByRank } from "@helpers/sort";
+import HomeComponent, { HomeProps } from "@components/Home";
+import SEO from "@components/SEO";
 
 import English from "../lang/compiled/en.json";
 import French from "../lang/compiled/fr.json";
@@ -32,6 +34,7 @@ const Home: NextPage<HomeProps> = ({ home }: HomeProps) => {
 
   return (
     <IntlProvider messages={messages} locale={locale} defaultLocale="fr">
+      <SEO />
       <HomeComponent home={home} locale={locale} />
     </IntlProvider>
   );
