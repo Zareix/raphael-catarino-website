@@ -62,15 +62,13 @@ export const LangSelector = ({ alignRight }: LangSelectorProps) => {
           {!alignRight && (
             <li className="block py-1 px-2 hover:bg-gray-100 hover:bg-opacity-70 dark:hover:bg-gray-600 dark:hover:bg-opacity-70 dark:hover:text-white">
               <Link href="/" locale={locale} scroll={false}>
-                <a>
-                  <ReactCountryFlag
-                    countryCode={country(locale ?? "fr")}
-                    style={{
-                      fontSize: "1.5em",
-                      lineHeight: "1.5em",
-                    }}
-                  />
-                </a>
+                <ReactCountryFlag
+                  countryCode={country(locale ?? "fr")}
+                  style={{
+                    fontSize: "1.5em",
+                    lineHeight: "1.5em",
+                  }}
+                />
               </Link>
             </li>
           )}
@@ -82,30 +80,26 @@ export const LangSelector = ({ alignRight }: LangSelectorProps) => {
                 className="block py-1 px-2 hover:bg-gray-100 hover:bg-opacity-70 dark:hover:bg-gray-600 dark:hover:bg-opacity-70 dark:hover:text-white"
               >
                 <Link href="/" locale={l} scroll={false}>
-                  <a>
-                    <ReactCountryFlag
-                      countryCode={country(l)}
-                      style={{
-                        fontSize: "1.5em",
-                        lineHeight: "1.5em",
-                      }}
-                    />
-                  </a>
+                  <ReactCountryFlag
+                    countryCode={country(l)}
+                    style={{
+                      fontSize: "1.5em",
+                      lineHeight: "1.5em",
+                    }}
+                  />
                 </Link>
               </li>
             ))}
           {alignRight && (
             <li className="block py-1 px-2 hover:bg-gray-100 hover:bg-opacity-70 dark:hover:bg-gray-600 dark:hover:bg-opacity-70 dark:hover:text-white">
               <Link href="/" locale={locale} scroll={false}>
-                <a>
-                  <ReactCountryFlag
-                    countryCode={country(locale ?? "fr")}
-                    style={{
-                      fontSize: "1.5em",
-                      lineHeight: "1.5em",
-                    }}
-                  />
-                </a>
+                <ReactCountryFlag
+                  countryCode={country(locale ?? "fr")}
+                  style={{
+                    fontSize: "1.5em",
+                    lineHeight: "1.5em",
+                  }}
+                />
               </Link>
             </li>
           )}
