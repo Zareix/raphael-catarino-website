@@ -40,7 +40,7 @@ importers:
       sharp: 0.31.2
       styled-components: 5.3.6
       tailwindcss: 3.2.4
-      typescript: 4.9.3
+      typescript: 4.9.4
     dependencies:
       '@next/bundle-analyzer': 13.0.6
       '@plaiceholder/next': 2.5.0_next@13.0.6+sharp@0.31.2
@@ -54,7 +54,7 @@ importers:
       react-google-recaptcha-v3: 1.10.0_biqbaboplfbrettd7655fr4n2y
       react-hook-form: 7.40.0_react@18.2.0
       react-intersection-observer: 9.4.1_react@18.2.0
-      react-intl: 6.2.5_eetduzquwu67aqoq5644t6dxzu
+      react-intl: 6.2.5_o77wnou4wwnegu5woljtklrzru
       react-markdown: 8.0.4_kzbn2opkn2327fwg5yzwzya5o4
       sharp: 0.31.2
       styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
@@ -68,12 +68,12 @@ importers:
       autoprefixer: 10.4.13_postcss@8.4.19
       babel-plugin-formatjs: 10.3.35
       eslint: 8.29.0
-      eslint-config-next: 13.0.6_s5ps7njkmjlaqajutnox5ntcla
+      eslint-config-next: 13.0.6_ha6vam6werchizxrnqvarmz2zu
       postcss: 8.4.19
       prettier: 2.8.1
       prettier-plugin-tailwindcss: 0.2.0_prettier@2.8.1
       tailwindcss: 3.2.4_postcss@8.4.19
-      typescript: 4.9.3
+      typescript: 4.9.4
 
   apps/cms:
     specifiers:
@@ -1765,7 +1765,7 @@ packages:
       typescript: 4.6.2
     dev: false
 
-  /@formatjs/intl/2.6.3_typescript@4.9.3:
+  /@formatjs/intl/2.6.3_typescript@4.9.4:
     resolution: {integrity: sha512-JaVZk14U/GypVfCZPevQ0KdruFkq16FXx7g398/Dm+YEx/W7sRiftbZeDy4wQ7WGryb45e763XycxD9o/vm9BA==}
     peerDependencies:
       typescript: ^4.7
@@ -1780,7 +1780,7 @@ packages:
       '@formatjs/intl-listformat': 7.1.7
       intl-messageformat: 10.2.5
       tslib: 2.4.1
-      typescript: 4.9.3
+      typescript: 4.9.4
     dev: false
 
   /@formatjs/ts-transformer/3.11.5:
@@ -1797,7 +1797,7 @@ packages:
       chalk: 4.1.2
       json-stable-stringify: 1.0.1
       tslib: 2.4.1
-      typescript: 4.9.3
+      typescript: 4.9.4
     dev: true
 
   /@fortawesome/fontawesome-common-types/0.2.36:
@@ -3410,7 +3410,7 @@ packages:
       '@types/node': 18.11.11
     dev: false
 
-  /@typescript-eslint/parser/5.42.0_s5ps7njkmjlaqajutnox5ntcla:
+  /@typescript-eslint/parser/5.42.0_ha6vam6werchizxrnqvarmz2zu:
     resolution: {integrity: sha512-Ixh9qrOTDRctFg3yIwrLkgf33AHyEIn6lhyf5cCfwwiGtkWhNpVKlEZApi3inGQR/barWnY7qY8FbGKBO7p3JA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -3422,10 +3422,10 @@ packages:
     dependencies:
       '@typescript-eslint/scope-manager': 5.42.0
       '@typescript-eslint/types': 5.42.0
-      '@typescript-eslint/typescript-estree': 5.42.0_typescript@4.9.3
+      '@typescript-eslint/typescript-estree': 5.42.0_typescript@4.9.4
       debug: 4.3.4
       eslint: 8.29.0
-      typescript: 4.9.3
+      typescript: 4.9.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3443,7 +3443,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@typescript-eslint/typescript-estree/5.42.0_typescript@4.9.3:
+  /@typescript-eslint/typescript-estree/5.42.0_typescript@4.9.4:
     resolution: {integrity: sha512-2O3vSq794x3kZGtV7i4SCWZWCwjEtkWfVqX4m5fbUBomOsEOyd6OAD1qU2lbvV5S8tgy/luJnOYluNyYVeOTTg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -3458,8 +3458,8 @@ packages:
       globby: 11.1.0
       is-glob: 4.0.3
       semver: 7.3.8
-      tsutils: 3.21.0_typescript@4.9.3
-      typescript: 4.9.3
+      tsutils: 3.21.0_typescript@4.9.4
+      typescript: 4.9.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6025,7 +6025,7 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  /eslint-config-next/13.0.6_s5ps7njkmjlaqajutnox5ntcla:
+  /eslint-config-next/13.0.6_ha6vam6werchizxrnqvarmz2zu:
     resolution: {integrity: sha512-Tfn/0lirhkEuoGxKMtDQNtQuC7P3eHcyUyhIJY/OHtjU9ExHFtcge/Fe8Ou/Jd7DIC71vN3CT72oszVwia71cg==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
@@ -6036,7 +6036,7 @@ packages:
     dependencies:
       '@next/eslint-plugin-next': 13.0.6
       '@rushstack/eslint-patch': 1.2.0
-      '@typescript-eslint/parser': 5.42.0_s5ps7njkmjlaqajutnox5ntcla
+      '@typescript-eslint/parser': 5.42.0_ha6vam6werchizxrnqvarmz2zu
       eslint: 8.29.0
       eslint-import-resolver-node: 0.3.6
       eslint-import-resolver-typescript: 3.5.2_lt3hqehuojhfcbzgzqfngbtmrq
@@ -6044,7 +6044,7 @@ packages:
       eslint-plugin-jsx-a11y: 6.6.1_eslint@8.29.0
       eslint-plugin-react: 7.31.10_eslint@8.29.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.29.0
-      typescript: 4.9.3
+      typescript: 4.9.4
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
       - supports-color
@@ -10740,7 +10740,7 @@ packages:
       typescript: 4.6.2
     dev: false
 
-  /react-intl/6.2.5_eetduzquwu67aqoq5644t6dxzu:
+  /react-intl/6.2.5_o77wnou4wwnegu5woljtklrzru:
     resolution: {integrity: sha512-nz21POTKbE0sPEuEJU4o5YTZYY7VlIYCPNJaD6D2+xKyk6Noj6DoUK0LRO9LXuQNUuQ044IZl3m6ymzZRj8XFQ==}
     peerDependencies:
       react: ^16.6.0 || 17 || 18
@@ -10751,7 +10751,7 @@ packages:
     dependencies:
       '@formatjs/ecma402-abstract': 1.14.3
       '@formatjs/icu-messageformat-parser': 2.1.14
-      '@formatjs/intl': 2.6.3_typescript@4.9.3
+      '@formatjs/intl': 2.6.3_typescript@4.9.4
       '@formatjs/intl-displaynames': 6.2.3
       '@formatjs/intl-listformat': 7.1.7
       '@types/hoist-non-react-statics': 3.3.1
@@ -10760,7 +10760,7 @@ packages:
       intl-messageformat: 10.2.5
       react: 18.2.0
       tslib: 2.4.1
-      typescript: 4.9.3
+      typescript: 4.9.4
     dev: false
 
   /react-is/16.13.1:
@@ -12588,14 +12588,14 @@ packages:
     engines: {node: '>=0.6.x'}
     dev: false
 
-  /tsutils/3.21.0_typescript@4.9.3:
+  /tsutils/3.21.0_typescript@4.9.4:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
     engines: {node: '>= 6'}
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     dependencies:
       tslib: 1.14.1
-      typescript: 4.9.3
+      typescript: 4.9.4
     dev: true
 
   /tty-browserify/0.0.1:
@@ -12719,8 +12719,8 @@ packages:
     hasBin: true
     dev: false
 
-  /typescript/4.9.3:
-    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
+  /typescript/4.9.4:
+    resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
 
