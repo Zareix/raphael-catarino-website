@@ -32,7 +32,7 @@ importers:
       react: 18.2.0
       react-country-flag: 3.0.2
       react-dom: 18.2.0
-      react-google-recaptcha-v3: 1.10.0
+      react-google-recaptcha-v3: 1.10.1
       react-hook-form: 7.40.0
       react-intersection-observer: 9.4.1
       react-intl: 6.2.5
@@ -51,7 +51,7 @@ importers:
       react: 18.2.0
       react-country-flag: 3.0.2_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-google-recaptcha-v3: 1.10.0_biqbaboplfbrettd7655fr4n2y
+      react-google-recaptcha-v3: 1.10.1_biqbaboplfbrettd7655fr4n2y
       react-hook-form: 7.40.0_react@18.2.0
       react-intersection-observer: 9.4.1_react@18.2.0
       react-intl: 6.2.5_o77wnou4wwnegu5woljtklrzru
@@ -10677,10 +10677,10 @@ packages:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
     dev: false
 
-  /react-google-recaptcha-v3/1.10.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-JBoqU107X8klQmS8tQSbQh1IMsT1fH3kVoArIqnia0rtn0rPNG9Ld+9rD/dHJMculIczSZpGvIJTXXwtsolMcg==}
+  /react-google-recaptcha-v3/1.10.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-K3AYzSE0SasTn+XvV2tq+6YaxM+zQypk9rbCgG4OVUt7Rh4ze9basIKefoBz9sC0CNslJj9N1uwTTgRMJQbQJQ==}
     peerDependencies:
-      react: ^17.0 || ^18.0
+      react: ^16.3 || ^17.0 || ^18.0
       react-dom: ^17.0 || ^18.0
     dependencies:
       hoist-non-react-statics: 3.3.2
