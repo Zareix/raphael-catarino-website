@@ -1,6 +1,6 @@
 import React from "react";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styled, { keyframes } from "styled-components";
 import ReactMarkdown from "react-markdown";
 import { motion } from "framer-motion";
