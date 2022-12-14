@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
 import { SkillDomain } from "@models/Skills";
@@ -41,11 +41,12 @@ const SkillDomainArticle = ({ domain }: Props) => {
             <div className="relative aspect-square w-16 overflow-hidden rounded-md">
               <Image
                 src={skill.icon.url}
-                alt={skill.icon.alternativeText}
-                layout="fill"
-                objectFit="contain"
+                alt={skill.icon.alternativeText ?? ""}
                 placeholder="blur"
                 blurDataURL={skill.icon.placeHolder}
+                className="object-contain"
+                fill
+                sizes="5vw"
               />
             </div>
             <p className="mt-1">{skill.name}</p>

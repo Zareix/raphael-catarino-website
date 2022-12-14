@@ -1,6 +1,6 @@
 import React from "react";
 
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import ReactMarkdown from "react-markdown";
 import { motion } from "framer-motion";
@@ -180,7 +180,7 @@ const SocialButtons = () => (
       <svg
         stroke="currentColor"
         fill="currentColor"
-        stroke-width="0"
+        strokeWidth="0"
         viewBox="0 0 512 512"
         height="24"
         width="24"
@@ -203,7 +203,7 @@ const SocialButtons = () => (
       <svg
         stroke="currentColor"
         fill="currentColor"
-        stroke-width="0"
+        strokeWidth="0"
         viewBox="0 0 512 512"
         height="24"
         width="24"
@@ -236,12 +236,12 @@ const ProfilePicture = ({ hero }: { hero: HeroModel }) => {
         <Image
           src={hero.profilePicture.url}
           alt=""
-          layout="fill"
-          objectFit="cover"
-          sizes="50vw"
           blurDataURL={hero.profilePicture.placeHolder}
           placeholder="blur"
           priority
+          fill
+          sizes="50vw"
+          className="object-cover"
         />
       </div>
     </ImageWrapper>

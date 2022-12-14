@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -50,15 +50,15 @@ const ProjectArticle = ({ active, project, setActive, visible }: Props) => {
           <Image
             src={project.featuredImage.url}
             alt={project.featuredImage.alternativeText}
-            layout="fill"
-            objectFit="cover"
             placeholder="blur"
             blurDataURL={project.featuredImage.placeHolder}
-            className={`transition-all duration-200  ${
+            className={`object-cover transition-all duration-200 ${
               active
                 ? "blur-[2px]"
                 : "blur-[2px] md:blur-0 md:group-hover:blur-[2px]"
             }`}
+            fill
+            sizes="60vw"
           />
           <h3
             className={`absolute left-0 top-1/2 w-full -translate-y-1/2 text-center text-2xl text-gray-50 transition-opacity duration-200  md:opacity-0 ${
@@ -70,7 +70,7 @@ const ProjectArticle = ({ active, project, setActive, visible }: Props) => {
           <svg
             stroke="currentColor"
             fill="none"
-            stroke-width="2"
+            strokeWidth="2"
             viewBox="0 0 24 24"
             strokeLinecap="round"
             strokeLinejoin="round"
