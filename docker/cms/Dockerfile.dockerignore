@@ -3,7 +3,7 @@
 **/.turbo
 **/.cache
 **/docker
-**/.dockerignore
+**/*.dockerignore
 **/.DS_Store
 **/.vscode
 **/.vercel
@@ -14,6 +14,7 @@
 **/renovate.json
 **/build-docker.sh
 **/env*
+**/.env*
 **/.editorconfig
 **/.eslintignore
 **/.eslintrc
