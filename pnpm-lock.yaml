@@ -37,17 +37,17 @@ importers:
       react-intersection-observer: 9.4.1
       react-intl: 6.2.5
       react-markdown: 8.0.4
-      sharp: 0.31.2
+      sharp: 0.31.3
       styled-components: 5.3.6
       tailwindcss: 3.2.4
       typescript: 4.9.4
     dependencies:
       '@next/bundle-analyzer': 13.0.6
-      '@plaiceholder/next': 2.5.0_next@13.0.7+sharp@0.31.2
+      '@plaiceholder/next': 2.5.0_next@13.0.7+sharp@0.31.3
       axios: 0.27.2
       framer-motion: 7.9.1_biqbaboplfbrettd7655fr4n2y
       next: 13.0.7_qtpcxnaaarbm4ws7ughq6oxfve
-      plaiceholder: 2.5.0_sharp@0.31.2
+      plaiceholder: 2.5.0_sharp@0.31.3
       react: 18.2.0
       react-country-flag: 3.0.2_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -56,7 +56,7 @@ importers:
       react-intersection-observer: 9.4.1_react@18.2.0
       react-intl: 6.2.5_o77wnou4wwnegu5woljtklrzru
       react-markdown: 8.0.4_kzbn2opkn2327fwg5yzwzya5o4
-      sharp: 0.31.2
+      sharp: 0.31.3
       styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
     devDependencies:
       '@formatjs/cli': 5.1.12
@@ -2183,14 +2183,14 @@ packages:
       tslib: 2.4.1
     dev: true
 
-  /@plaiceholder/next/2.5.0_next@13.0.7+sharp@0.31.2:
+  /@plaiceholder/next/2.5.0_next@13.0.7+sharp@0.31.3:
     resolution: {integrity: sha512-vT8YtPpgQEKFtz0QiiCnH3NfyVlldYpnxR6X2sqCJvHk+pi/Be1nb62CdYQ7RoNePPcjBQoRDSPpZpGmg8mEdw==}
     peerDependencies:
       next: '>= 10.0.0'
       sharp: '>= 0.30.6'
     dependencies:
       next: 13.0.7_qtpcxnaaarbm4ws7ughq6oxfve
-      sharp: 0.31.2
+      sharp: 0.31.3
     dev: false
 
   /@pmmmwh/react-refresh-webpack-plugin/0.5.7_pvgfg2i233iclh4uhrrgev3t5a:
@@ -10170,7 +10170,7 @@ packages:
       find-up: 4.1.0
     dev: false
 
-  /plaiceholder/2.5.0_sharp@0.31.2:
+  /plaiceholder/2.5.0_sharp@0.31.3:
     resolution: {integrity: sha512-rygdNSWuYzs1GxxGjq2FiJdJB1AUaKhUHP/M7PIrSjAAGuoJC5ACiJx+cZZ+hDmMalxsxOMw0Sbbx3LF8jemGg==}
     peerDependencies:
       sharp: '>= 0.30.6'
@@ -10180,7 +10180,7 @@ packages:
       image-size: 1.0.2
       node-cache: 5.1.2
       node-fetch: 2.6.7_encoding@0.1.13
-      sharp: 0.31.2
+      sharp: 0.31.3
     dev: false
 
   /plop/2.7.6:
@@ -11642,6 +11642,21 @@ packages:
 
   /sharp/0.31.2:
     resolution: {integrity: sha512-DUdNVEXgS5A97cTagSLIIp8dUZ/lZtk78iNVZgHdHbx1qnQR7JAHY0BnXnwwH39Iw+VKhO08CTYhIg0p98vQ5Q==}
+    engines: {node: '>=14.15.0'}
+    requiresBuild: true
+    dependencies:
+      color: 4.2.3
+      detect-libc: 2.0.1
+      node-addon-api: 5.0.0
+      prebuild-install: 7.1.1
+      semver: 7.3.8
+      simple-get: 4.0.1
+      tar-fs: 2.1.1
+      tunnel-agent: 0.6.0
+    dev: false
+
+  /sharp/0.31.3:
+    resolution: {integrity: sha512-XcR4+FCLBFKw1bdB+GEhnUNXNXvnt0tDo4WsBsraKymuo/IAuPuCBVAL2wIkUw2r/dwFW5Q5+g66Kwl2dgDFVg==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
