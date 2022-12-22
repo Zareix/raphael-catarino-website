@@ -19,7 +19,7 @@ importers:
       '@types/sharp': 0.31.0
       '@types/styled-components': 5.1.26
       autoprefixer: 10.4.13
-      axios: 0.27.2
+      axios: 1.2.1
       babel-plugin-formatjs: 10.3.35
       eslint: 8.30.0
       eslint-config-next: 13.1.0
@@ -44,7 +44,7 @@ importers:
     dependencies:
       '@next/bundle-analyzer': 13.1.0
       '@plaiceholder/next': 2.5.0_next@13.1.0+sharp@0.31.3
-      axios: 0.27.2
+      axios: 1.2.1
       framer-motion: 8.0.1_biqbaboplfbrettd7655fr4n2y
       next: 13.1.0_qtpcxnaaarbm4ws7ughq6oxfve
       plaiceholder: 2.5.0_sharp@0.31.3
@@ -4082,6 +4082,16 @@ packages:
     dependencies:
       follow-redirects: 1.15.2_debug@4.3.4
       form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /axios/1.2.1:
+    resolution: {integrity: sha512-I88cFiGu9ryt/tfVEi4kX2SITsvDddTajXTOFmt2uK1ZVA8LytjtdeyefdQWEf5PU8w+4SSJDoYnggflB5tW4A==}
+    dependencies:
+      follow-redirects: 1.15.2
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
     dev: false
@@ -10451,6 +10461,10 @@ packages:
     dependencies:
       forwarded: 0.2.0
       ipaddr.js: 1.9.1
+    dev: false
+
+  /proxy-from-env/1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
     dev: false
 
   /psl/1.9.0:
