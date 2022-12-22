@@ -78,7 +78,7 @@ importers:
   apps/cms:
     specifiers:
       '@retikolo/drag-drop-content-types': ^1.2.1
-      '@strapi/design-system': 1.4.0
+      '@strapi/design-system': 1.4.1
       '@strapi/icons': 1.4.0
       '@strapi/plugin-i18n': 4.5.4
       '@strapi/plugin-users-permissions': 4.5.4
@@ -91,7 +91,7 @@ importers:
       strapi-plugin-vercel-deploy: 1.4.0
     dependencies:
       '@retikolo/drag-drop-content-types': 1.2.1_st2dlqmefz6mrqput3jbnren3m
-      '@strapi/design-system': 1.4.0_3xabqhpkduuvitibtt7mh42bpe
+      '@strapi/design-system': 1.4.1_3xabqhpkduuvitibtt7mh42bpe
       '@strapi/icons': 1.4.0_sfoxds7t5ydpegc3knd667wn6m
       '@strapi/plugin-i18n': 4.5.4
       '@strapi/plugin-users-permissions': 4.5.4_d2m7qcaawobv5nbpmirkzlkoq4
@@ -2558,27 +2558,6 @@ packages:
       - tedious
     dev: false
 
-  /@strapi/design-system/1.4.0_3xabqhpkduuvitibtt7mh42bpe:
-    resolution: {integrity: sha512-K0qqnQL+Pu+Q059cVy2WYburTQeRimJfVDMNM1aPuSf9HeKcjDDYoeNxYSO5GZmucnAGkXUK1mYpaW0vzMkhmQ==}
-    peerDependencies:
-      '@strapi/icons': ^1.3.1
-      react: ^17.0.1
-      react-dom: ^17.0.1
-      react-router-dom: ^5.2.0
-      styled-components: ^5.2.1
-    dependencies:
-      '@floating-ui/react-dom': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
-      '@internationalized/number': 3.1.1
-      '@radix-ui/react-use-callback-ref': 1.0.0_react@17.0.2
-      '@strapi/icons': 1.4.0_sfoxds7t5ydpegc3knd667wn6m
-      compute-scroll-into-view: 1.0.17
-      prop-types: 15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      react-router-dom: 5.3.4_react@17.0.2
-      styled-components: 5.3.6_v5ja746gkdtknuc6tj46sve3be
-    dev: false
-
   /@strapi/design-system/1.4.0_ospg4a5drjtkf7lkfjz2kznuqq:
     resolution: {integrity: sha512-K0qqnQL+Pu+Q059cVy2WYburTQeRimJfVDMNM1aPuSf9HeKcjDDYoeNxYSO5GZmucnAGkXUK1mYpaW0vzMkhmQ==}
     peerDependencies:
@@ -2598,6 +2577,27 @@ packages:
       react-dom: 17.0.2_react@17.0.2
       react-router-dom: 5.3.4_react@17.0.2
       styled-components: 5.3.3_fane7jikarojcev26y27hpbhu4
+    dev: false
+
+  /@strapi/design-system/1.4.1_3xabqhpkduuvitibtt7mh42bpe:
+    resolution: {integrity: sha512-olDi71FFQFU9luSC0yvIwB0i77Y/JIvt9HyLcUhK/rsRyiaiNzplAe5hi5aaphhJv++9rML2nSiwgfX/V4a5ZA==}
+    peerDependencies:
+      '@strapi/icons': ^1.4.1
+      react: ^17.0.1
+      react-dom: ^17.0.1
+      react-router-dom: ^5.2.0
+      styled-components: ^5.2.1
+    dependencies:
+      '@floating-ui/react-dom': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
+      '@internationalized/number': 3.1.1
+      '@radix-ui/react-use-callback-ref': 1.0.0_react@17.0.2
+      '@strapi/icons': 1.4.0_sfoxds7t5ydpegc3knd667wn6m
+      compute-scroll-into-view: 1.0.17
+      prop-types: 15.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-router-dom: 5.3.4_react@17.0.2
+      styled-components: 5.3.6_v5ja746gkdtknuc6tj46sve3be
     dev: false
 
   /@strapi/generate-new/4.5.4:
