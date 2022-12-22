@@ -8,6 +8,7 @@ ENV PATH /opt/strapi/node_modules/.bin:$PATH
 WORKDIR /opt/strapi
 COPY pnpm-lock.yaml pnpm-workspace.yaml .npmrc package.json ./
 COPY apps/cms/package.json apps/cms/package.json
+RUN npm i --global node-gyp
 RUN pnpm --filter cms i --prod --shamefully-hoist
 COPY . .
 RUN pnpm docker:cms:build
