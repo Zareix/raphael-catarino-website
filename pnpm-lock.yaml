@@ -23,7 +23,7 @@ importers:
       babel-plugin-formatjs: 10.3.35
       eslint: 8.30.0
       eslint-config-next: 13.1.0
-      framer-motion: ^7.9.1
+      framer-motion: ^8.0.0
       next: 13.1.0
       plaiceholder: 2.5.0
       postcss: 8.4.20
@@ -45,7 +45,7 @@ importers:
       '@next/bundle-analyzer': 13.0.6
       '@plaiceholder/next': 2.5.0_next@13.1.0+sharp@0.31.3
       axios: 0.27.2
-      framer-motion: 7.9.1_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 8.0.1_biqbaboplfbrettd7655fr4n2y
       next: 13.1.0_qtpcxnaaarbm4ws7ughq6oxfve
       plaiceholder: 2.5.0_sharp@0.31.3
       react: 18.2.0
@@ -6765,8 +6765,8 @@ packages:
       map-cache: 0.2.2
     dev: false
 
-  /framer-motion/7.9.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-oYZkESoGsLAc5P+ycz+IrPEkXB9i+e1LeIMZczO8cHKSo5LW4r4JXan9wRjn2u77Zn59K0UK1kGjxcNyLzbFPQ==}
+  /framer-motion/8.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-rr9Sb97cGM5BWU0jMsmTi9x5w8hF90p6wRUlXto5IFejxMVS8YUxT8Ljjy8RspQKPEGOQUZDIZNvlcLBhs0tMw==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0

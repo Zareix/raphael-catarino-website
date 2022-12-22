@@ -15,7 +15,7 @@
     "@next/bundle-analyzer": "^13.0.6",
     "@plaiceholder/next": "2.5.0",
     "axios": "0.27.2",
-    "framer-motion": "^7.9.1",
+    "framer-motion": "^8.0.0",
     "next": "13.1.0",
     "plaiceholder": "2.5.0",
     "react": "18.2.0",
