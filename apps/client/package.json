@@ -14,7 +14,7 @@
   "dependencies": {
     "@next/bundle-analyzer": "^13.1.0",
     "@plaiceholder/next": "2.5.0",
-    "axios": "1.2.1",
+    "axios": "1.2.2",
     "framer-motion": "^8.0.1",
     "next": "13.1.0",
     "plaiceholder": "2.5.0",
