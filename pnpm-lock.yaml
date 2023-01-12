@@ -78,7 +78,7 @@ importers:
   apps/cms:
     specifiers:
       '@retikolo/drag-drop-content-types': ^1.2.1
-      '@strapi/design-system': 1.4.1
+      '@strapi/design-system': 1.4.2
       '@strapi/icons': 1.4.1
       '@strapi/plugin-i18n': 4.5.6
       '@strapi/plugin-users-permissions': 4.5.6
@@ -91,7 +91,7 @@ importers:
       strapi-plugin-vercel-deploy: 1.4.0
     dependencies:
       '@retikolo/drag-drop-content-types': 1.2.1_cnc6u4bmij3wjo7ye6svgtodxy
-      '@strapi/design-system': 1.4.1_vizriwyakvcx6nylyotm4t7zuu
+      '@strapi/design-system': 1.4.2_vizriwyakvcx6nylyotm4t7zuu
       '@strapi/icons': 1.4.1_sfoxds7t5ydpegc3knd667wn6m
       '@strapi/plugin-i18n': 4.5.6
       '@strapi/plugin-users-permissions': 4.5.6_d2m7qcaawobv5nbpmirkzlkoq4
@@ -2524,10 +2524,10 @@ packages:
       styled-components: 5.3.3_fane7jikarojcev26y27hpbhu4
     dev: false
 
-  /@strapi/design-system/1.4.1_vizriwyakvcx6nylyotm4t7zuu:
-    resolution: {integrity: sha512-olDi71FFQFU9luSC0yvIwB0i77Y/JIvt9HyLcUhK/rsRyiaiNzplAe5hi5aaphhJv++9rML2nSiwgfX/V4a5ZA==}
+  /@strapi/design-system/1.4.2_vizriwyakvcx6nylyotm4t7zuu:
+    resolution: {integrity: sha512-0zH2c2t2XFKhw7N7VCmH4goaFZi6bKseyMtrb15oo4WYJzqZgTR/ER88L6gaDserW5xFu97yXHkYz+Ammk1exQ==}
     peerDependencies:
-      '@strapi/icons': ^1.4.1
+      '@strapi/icons': ^1.4.2
       react: ^17.0.1
       react-dom: ^17.0.1
       react-router-dom: ^5.2.0
