@@ -9,8 +9,7 @@ var agent = new http.Agent({ family: 4 });
 axios.defaults.httpAgent = agent;
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return;
-  <Component {...pageProps} />;
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

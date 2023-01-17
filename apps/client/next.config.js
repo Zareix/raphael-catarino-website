@@ -42,6 +42,6 @@ const nextConfig = {
   },
 };
 
-module.exports = module.exports = withBundleAnalyzer(
+module.exports = withBundleAnalyzer(
   withPlausible(withPlaiceholder(nextConfig))
 );
