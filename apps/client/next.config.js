@@ -1,6 +1,14 @@
 const path = require("path");
 const { withPlaiceholder } = require("@plaiceholder/next");
 
+const { withPlausibleProxy } = require("next-plausible");
+
+const withPlausible = withPlausibleProxy({
+  subdirectory: "events",
+  scriptName: "script.js",
+  customDomain: "https://plausible.raphael-catarino.fr",
+});
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -35,5 +43,5 @@ const nextConfig = {
 };
 
 module.exports = module.exports = withBundleAnalyzer(
-  withPlaiceholder(nextConfig)
+  withPlausible(withPlaiceholder(nextConfig))
 );
