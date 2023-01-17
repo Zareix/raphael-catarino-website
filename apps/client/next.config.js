@@ -5,7 +5,7 @@ const { withPlausibleProxy } = require("next-plausible");
 
 const withPlausible = withPlausibleProxy({
   subdirectory: "events",
-  scriptName: "script.js",
+  scriptName: "script",
   customDomain: "https://plausible.raphael-catarino.fr",
 });
 
