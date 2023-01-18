@@ -45,7 +45,7 @@ const ImageWrapper = styled.a`
   }
 
   .dark &::before {
-    background-color: #507ca9;
+    background-color: #075985;
   }
 
   &:hover::before {
@@ -148,7 +148,7 @@ const Hero = () => {
         )}
       </div>
 
-      <Divider>
+      {/* <Divider>
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +160,7 @@ const Hero = () => {
             className="fill-white dark:fill-gray-900"
           ></path>
         </svg>
-      </Divider>
+      </Divider> */}
     </section>
   );
 };

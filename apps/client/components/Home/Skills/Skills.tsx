@@ -12,7 +12,7 @@ const Skills = () => {
 
   return (
     <section
-      className="grid min-h-[80vh] w-full place-content-center py-10"
+      className="grid min-h-[80vh] w-full place-content-center py-28"
       id="skills"
     >
       <SectionTitle>{skills.title}</SectionTitle>

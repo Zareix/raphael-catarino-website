@@ -20,12 +20,20 @@ main > section {
   scroll-margin-top: 6rem;
 }
 
-main > section:nth-child(even) {
-  @apply bg-white dark:bg-gray-900 dark:text-gray-50;
+main > section:first-child {
+  @apply bg-white bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 dark:text-gray-50;
 }
 
-main > section:nth-child(odd) {
-  @apply bg-stone-100 dark:bg-gray-800 dark:text-gray-50;
+main > section:nth-child(2) {
+  @apply bg-stone-100 bg-gradient-to-b dark:from-gray-800 dark:to-gray-900 dark:text-gray-50;
+}
+
+main > section:nth-child(3) {
+  @apply border-t border-gray-700 bg-white bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 dark:text-gray-50;
+}
+
+main > section:nth-child(4) {
+  @apply bg-stone-100 bg-gradient-to-b dark:from-slate-800 dark:to-slate-900 dark:text-gray-50;
 }
 
 .fadeIn {
