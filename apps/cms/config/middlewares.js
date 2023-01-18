@@ -1,7 +1,5 @@
-module.exports = [
+module.exports = ({ env }) => [
   "strapi::errors",
-  /* Replace 'strapi::security', with this snippet */
-  /* Beginning of snippet */
   {
     name: "strapi::security",
     config: {
@@ -14,21 +12,20 @@ module.exports = [
             "data:",
             "blob:",
             "dl.airtable.com",
-            "s3.zrx.sh",
+            env("R2_PUBLIC_URL").replace(/^https?:\/\//, ""), // removes http or https from url
           ],
           "media-src": [
             "'self'",
             "data:",
             "blob:",
             "dl.airtable.com",
-            "s3.zrx.sh",
+            env("R2_PUBLIC_URL").replace(/^https?:\/\//, ""),
           ],
           upgradeInsecureRequests: null,
         },
       },
     },
   },
-  /* End of snippet */
   "strapi::cors",
   "strapi::poweredBy",
   "strapi::logger",
