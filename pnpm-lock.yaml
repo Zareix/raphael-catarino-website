@@ -81,7 +81,7 @@ importers:
     specifiers:
       '@retikolo/drag-drop-content-types': ^1.2.1
       '@strapi/design-system': 1.5.0
-      '@strapi/icons': 1.4.2
+      '@strapi/icons': 1.5.0
       '@strapi/plugin-i18n': 4.5.6
       '@strapi/plugin-users-permissions': 4.5.6
       '@strapi/provider-email-sendgrid': 4.5.6
@@ -93,8 +93,8 @@ importers:
       strapi-plugin-vercel-deploy: 1.4.0
     dependencies:
       '@retikolo/drag-drop-content-types': 1.2.1_cnc6u4bmij3wjo7ye6svgtodxy
-      '@strapi/design-system': 1.5.0_t3p5vmubp4nwq2jupsbhvp27au
-      '@strapi/icons': 1.4.2_sfoxds7t5ydpegc3knd667wn6m
+      '@strapi/design-system': 1.5.0_puwyylxnz4wzffkgwpxu2jfodi
+      '@strapi/icons': 1.5.0_sfoxds7t5ydpegc3knd667wn6m
       '@strapi/plugin-i18n': 4.5.6
       '@strapi/plugin-users-permissions': 4.5.6_d2m7qcaawobv5nbpmirkzlkoq4
       '@strapi/provider-email-sendgrid': 4.5.6
@@ -2527,7 +2527,7 @@ packages:
       styled-components: 5.3.3_fane7jikarojcev26y27hpbhu4
     dev: false
 
-  /@strapi/design-system/1.5.0_t3p5vmubp4nwq2jupsbhvp27au:
+  /@strapi/design-system/1.5.0_puwyylxnz4wzffkgwpxu2jfodi:
     resolution: {integrity: sha512-J08MZNmV+Jq7MfBS6G1WopCSgjgnlHnrU9YvwlHa4U37MrBhb+aAX+oF0IVlpvPCH82EMfrTMhphltTJP6gRSA==}
     peerDependencies:
       '@strapi/icons': ^1.4.2
@@ -2539,7 +2539,7 @@ packages:
       '@floating-ui/react-dom': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
       '@internationalized/number': 3.1.1
       '@radix-ui/react-use-callback-ref': 1.0.0_react@17.0.2
-      '@strapi/icons': 1.4.2_sfoxds7t5ydpegc3knd667wn6m
+      '@strapi/icons': 1.5.0_sfoxds7t5ydpegc3knd667wn6m
       compute-scroll-into-view: 1.0.17
       prop-types: 15.8.1
       react: 17.0.2
@@ -2691,8 +2691,8 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /@strapi/icons/1.4.2_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-V56sfBItnQ+lU/fU+nCYSQDjBK57EOxWKeM99tBx0RYhZzMJ5gRplWKsNRl/JhErVEPait0Dlv73EaixhdTyhw==}
+  /@strapi/icons/1.5.0_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-eKTwNMW1kJxSjzXgLp616chbxNFz5f/rsd9VuWOaLzqn3Eg0B4DcflmpGGPLE+YJ65MxWvYUlYrJIluqrbYgsA==}
     peerDependencies:
       react: ^17.0.1
       react-dom: ^17.0.1
