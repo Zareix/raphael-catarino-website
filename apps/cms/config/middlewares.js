@@ -12,14 +12,14 @@ module.exports = ({ env }) => [
             "data:",
             "blob:",
             "dl.airtable.com",
-            env("R2_PUBLIC_URL").replace(/^https?:\/\//, ""), // removes http or https from url
+            process.env.R2_PUBLIC_URL.replace(/^https?:\/\//, ""),
           ],
           "media-src": [
             "'self'",
             "data:",
             "blob:",
             "dl.airtable.com",
-            env("R2_PUBLIC_URL").replace(/^https?:\/\//, ""),
+            process.env.R2_PUBLIC_URL.replace(/^https?:\/\//, ""),
           ],
           upgradeInsecureRequests: null,
         },
