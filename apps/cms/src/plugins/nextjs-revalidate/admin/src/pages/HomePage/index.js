@@ -7,20 +7,19 @@
 import React, { memo, useState, useEffect } from "react";
 
 import { useNotification } from "@strapi/helper-plugin";
-import { BaseHeaderLayout, ContentLayout } from "@strapi/design-system/Layout";
-import { PaperPlane } from "@strapi/icons";
-import { Typography } from "@strapi/design-system/Typography";
-import { Button } from "@strapi/design-system/Button";
-
 import {
+  BaseHeaderLayout,
+  ContentLayout,
+  Typography,
+  Button,
   Table,
   Thead,
   Tbody,
   Tr,
   Td,
   Th,
-  TFooter,
-} from "@strapi/design-system/Table";
+} from "@strapi/design-system";
+import PaperPlane from "@strapi/icons/PaperPlane";
 
 import {
   getRevalidatePaths,
