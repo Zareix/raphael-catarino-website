@@ -21,19 +21,19 @@ main > section {
 }
 
 main > section:first-child {
-  @apply bg-white bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 dark:text-gray-50;
+  @apply bg-gradient-to-b from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800 dark:text-gray-50;
 }
 
 main > section:nth-child(2) {
-  @apply bg-stone-100 bg-gradient-to-b dark:from-gray-800 dark:to-gray-900 dark:text-gray-50;
+  @apply bg-gradient-to-b from-gray-200 to-gray-50 dark:from-gray-800 dark:to-gray-900 dark:text-gray-50;
 }
 
 main > section:nth-child(3) {
-  @apply border-t border-gray-700 bg-white bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 dark:text-gray-50;
+  @apply border-t border-gray-200 bg-gradient-to-b from-stone-50 to-stone-300 dark:border-gray-700 dark:from-slate-900 dark:to-slate-800 dark:text-gray-50;
 }
 
 main > section:nth-child(4) {
-  @apply bg-stone-100 bg-gradient-to-b dark:from-slate-800 dark:to-slate-900 dark:text-gray-50;
+  @apply bg-gradient-to-b from-stone-300 to-stone-50 dark:from-slate-800 dark:to-slate-900 dark:text-gray-50;
 }
 
 .fadeIn {

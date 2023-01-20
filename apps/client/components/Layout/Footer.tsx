@@ -11,10 +11,13 @@ const NavLink = styled.a.attrs({
     "text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:text-gray-700 text-sm hover:underline",
 })``;
 
-const Footer = () => {
-  const { toggleContactOpen } = useHomeContext();
+type Props = {
+  toggleContactOpen: Function;
+};
+
+const Footer = ({ toggleContactOpen }: Props) => {
   return (
-    <footer className="py-8 md:py-16">
+    <footer className="bg-gray-100 py-8 dark:bg-gray-800 md:py-16">
       <div className="container grid grid-cols-4 gap-6 px-4 md:px-8">
         <ul className="grid gap-2 px-4">
           <li>

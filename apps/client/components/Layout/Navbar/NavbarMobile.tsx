@@ -6,7 +6,9 @@ import { useRouter } from "next/router";
 import SvgFavicon from "@components/ui/SvgFavicon";
 import { useHomeContext } from "@components/Home";
 import { LangSelector } from "../LangSelector";
-import { defineMessage, useIntl } from "react-intl";
+import { defineMessage, FormattedMessage, useIntl } from "react-intl";
+import { NavigationLink } from "@models/Layout";
+import Link from "next/link";
 
 const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
   width: 32px;
@@ -19,8 +21,7 @@ const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: ${({ isDrawerOpened }) =>
-      isDrawerOpened ? "hsl(0 0% 0% / 0.8);" : "hsl(0 0% 0% / 0.6)"};
+    background-color: hsl(0 0% 0% / 0.8);
     left: 0;
     right: 0;
     border-radius: 100vw;
@@ -38,6 +39,11 @@ const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
     ${({ isDrawerOpened }) =>
       isDrawerOpened ? "bottom: auto; transform: rotate(-45deg);" : ""}
   }
+
+  .dark &::after,
+  .dark &::before {
+    background-color: hsl(0 0% 100% / 0.5);
+  }
 `;
 
 const backdrop = keyframes`
@@ -53,14 +59,18 @@ const Backdrop = styled.div`
   animation: ${backdrop} 200ms;
 `;
 
-const NavbarMobile = () => {
+type Props = {
+  toggleContactOpen: Function;
+  links: NavigationLink[];
+};
+
+const NavbarMobile = ({ links, toggleContactOpen }: Props) => {
   const intl = useIntl();
   const drawerBtnLabel = defineMessage({
     id: "navbar_btn_drawer",
     defaultMessage: "Ouvrir le menu de navigation",
     description: "Navbar open drawer",
   });
-  const { toggleContactOpen } = useHomeContext();
   const [isDrawerOpened, setIsDrawerOpened] = useState(false);
   const router = useRouter();
 
@@ -103,15 +113,29 @@ const NavbarMobile = () => {
         }`}
       >
         <ul className="space-y-1 px-6 py-4 text-right text-lg text-gray-700 dark:text-gray-200">
-          <li onClick={() => setIsDrawerOpened(false)}>
-            <a href="#experiences">Expériences</a>
-          </li>
-          <li onClick={() => setIsDrawerOpened(false)}>
-            <a href="#skills">Compétences</a>
-          </li>
-          <li onClick={() => setIsDrawerOpened(false)}>
-            <a href="#projects">Projets</a>
-          </li>
+          {links.map((link) =>
+            link.href.startsWith("#") ? (
+              <li key={link.id} onClick={() => setIsDrawerOpened(false)}>
+                <a href={link.href}>
+                  <FormattedMessage
+                    id={link.id}
+                    defaultMessage={link.defaultMessage}
+                    description={link.description}
+                  />
+                </a>
+              </li>
+            ) : (
+              <li key={link.id} onClick={() => setIsDrawerOpened(false)}>
+                <Link href={link.href}>
+                  <FormattedMessage
+                    id={link.id}
+                    defaultMessage={link.defaultMessage}
+                    description={link.description}
+                  />
+                </Link>
+              </li>
+            )
+          )}
           <li
             onClick={() => {
               setIsDrawerOpened(false);

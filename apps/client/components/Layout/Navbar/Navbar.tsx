@@ -6,8 +6,10 @@ import { FormattedMessage } from "react-intl";
 import SvgFavicon from "@components/ui/SvgFavicon";
 import { useHomeContext } from "@components/Home";
 import { LangSelector } from "../LangSelector";
+import { NavigationLink } from "@models/Layout";
+import Link from "next/link";
 
-const NavLink = styled.a.attrs({
+const NavLink = styled(Link).attrs({
   className: "text-gray-800 dark:text-gray-100 hover:text-gray-600",
 })`
   position: relative;
@@ -50,10 +52,14 @@ const NavLink = styled.a.attrs({
   }
 `;
 
-const Navbar = () => {
-  const { toggleContactOpen } = useHomeContext();
+type Props = {
+  toggleContactOpen: Function;
+  links: NavigationLink[];
+};
+
+const Navbar = ({ toggleContactOpen, links }: Props) => {
   return (
-    <nav className="slideInTop mx-auto mt-5 flex w-max items-center justify-center rounded-md border border-gray-50 border-opacity-10 bg-gray-50 bg-opacity-70 px-3 py-2 shadow-sm backdrop-blur-md  dark:bg-gray-800 dark:bg-opacity-70">
+    <nav className="slideInTop mx-auto mt-5 flex w-max items-center justify-center rounded-md border border-gray-50 border-opacity-10 bg-gray-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg  dark:bg-gray-800 dark:bg-opacity-70">
       <a
         className="relative h-10 w-10"
         href="#hero"
@@ -62,33 +68,29 @@ const Navbar = () => {
         <SvgFavicon />
       </a>
       <ul className="ml-10 flex items-center gap-6">
-        <li>
-          <NavLink href="#experiences">
-            <FormattedMessage
-              id="navbar_experiences"
-              defaultMessage="Expériences"
-              description="Navbar link experiences"
-            />
-          </NavLink>
-        </li>
-        <li>
-          <NavLink href="#skills">
-            <FormattedMessage
-              id="navbar_skills"
-              defaultMessage="Compétences"
-              description="Navbar link skills"
-            />
-          </NavLink>
-        </li>
-        <li>
-          <NavLink href="#projects">
-            <FormattedMessage
-              id="navbar_projects"
-              defaultMessage="Projets"
-              description="Navbar link projects"
-            />
-          </NavLink>
-        </li>
+        {links.map((link) =>
+          link.href.startsWith("#") ? (
+            <li key={link.id}>
+              <NavLink href={link.href} as="a">
+                <FormattedMessage
+                  id={link.id}
+                  defaultMessage={link.defaultMessage}
+                  description={link.description}
+                />
+              </NavLink>
+            </li>
+          ) : (
+            <li key={link.id}>
+              <NavLink href={link.href}>
+                <FormattedMessage
+                  id={link.id}
+                  defaultMessage={link.defaultMessage}
+                  description={link.description}
+                />
+              </NavLink>
+            </li>
+          )
+        )}
         <li>
           <NavLink as="button" onClick={() => toggleContactOpen()}>
             <FormattedMessage

@@ -16,7 +16,7 @@ const SkillDomainArticle = ({ domain }: Props) => {
   return (
     <article
       key={domain.id}
-      className={`relative mx-4 w-full rounded-lg bg-slate-900 px-4 pt-12 pb-6 font-mono text-gray-50 shadow-md transition-all duration-700 md:w-max md:min-w-[400px] md:max-w-[30%] md:px-8 
+      className={`relative mx-4 w-full rounded-lg border border-gray-600 bg-gray-900 bg-opacity-80 px-4 pt-12 pb-6 font-mono text-gray-50 shadow-md backdrop-blur transition-all duration-700 md:w-max md:min-w-[400px] md:max-w-[30%] md:px-8 
                     ${
                       inView
                         ? "translate-x-0 opacity-100 md:translate-y-0"
@@ -46,7 +46,7 @@ const SkillDomainArticle = ({ domain }: Props) => {
                 blurDataURL={skill.icon.placeHolder}
                 className="object-contain"
                 fill
-                sizes="5vw"
+                sizes="10vw"
               />
             </div>
             <p className="mt-1">{skill.name}</p>

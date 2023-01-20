@@ -11,7 +11,8 @@ const getStrapiMediaUrl = (url: string): string => {
 
 const queryStrapiAPISingular = async <T>(
   locale: string,
-  query: string
+  query: string,
+  params?: any
 ): Promise<StrapiSingularObject<T>> => {
   try {
     const res = (
@@ -19,6 +20,7 @@ const queryStrapiAPISingular = async <T>(
         `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}`,
         {
           params: {
+            ...params,
             locale,
             populate: "deep",
           },
@@ -36,7 +38,8 @@ const queryStrapiAPISingular = async <T>(
 
 const queryStrapiAPIPlural = async <T>(
   locale: string,
-  query: string
+  query: string,
+  params?: any
 ): Promise<StrapiPluralObject<T>> => {
   try {
     const res = (
@@ -44,6 +47,7 @@ const queryStrapiAPIPlural = async <T>(
         `${process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL}/api/${query}`,
         {
           params: {
+            ...params,
             locale,
             populate: "deep",
           },

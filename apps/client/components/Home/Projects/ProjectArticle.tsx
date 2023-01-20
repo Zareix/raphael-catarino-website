@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { Project } from "@models/Projects";
 import useWindowWidth from "@helpers/useWindowWidth";
+import { useInView } from "react-intersection-observer";
 
 type Props = {
   active: boolean;
@@ -15,13 +16,22 @@ type Props = {
 
 const ProjectArticle = ({ active, project, setActive, visible }: Props) => {
   const { isMobile } = useWindowWidth();
+  const { ref, inView } = useInView({
+    rootMargin: "-100px 0px",
+    triggerOnce: true,
+  });
 
   return !visible ? (
     <></>
   ) : (
     <AnimatePresence>
       <article
-        className={`relative isolate mx-4 min-h-[200px] w-full cursor-pointer md:w-max md:min-w-[350px] md:max-w-[28%] `}
+        ref={ref}
+        className={`relative isolate mx-4 min-h-[200px] w-full transform cursor-pointer duration-300 md:w-max md:min-w-[350px] md:max-w-[28%] ${
+          inView
+            ? "translate-x-0 opacity-100 md:translate-y-0"
+            : "-translate-x-9 opacity-0 md:translate-x-0 md:-translate-y-9"
+        }`}
         onClick={() => setActive(project.id)}
       >
         <motion.div

@@ -1,6 +1,3 @@
-import React from "react";
-import Image from "next/image";
-
 import { SectionSubtitle, SectionTitle } from "@components/ui/Home";
 import { useHomeContext } from "../";
 import SkillDomainArticle from "./SkillDomainArticle";

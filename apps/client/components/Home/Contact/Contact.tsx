@@ -52,8 +52,11 @@ type FormValues = {
   message: string;
 };
 
-const ContactForm = () => {
-  const { toggleContactOpen } = useHomeContext();
+type Props = {
+  toggleContactOpen: Function;
+};
+
+const ContactForm = ({ toggleContactOpen }: Props) => {
   const intl = useIntl();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const {
@@ -232,11 +235,11 @@ const ContactForm = () => {
   );
 };
 
-const Contact = () => (
+const Contact = ({ toggleContactOpen }: Props) => (
   <GoogleReCaptchaProvider
     reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY ?? ""}
   >
-    <ContactForm />
+    <ContactForm toggleContactOpen={toggleContactOpen} />
   </GoogleReCaptchaProvider>
 );
 
