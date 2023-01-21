@@ -23,5 +23,9 @@
   "navbar_projects": "Projects",
   "navbar_skills": "Skills",
   "navbar_btn_drawer": "Open navigation drawer",
-  "hero_cv_link": "Download Curriculum vitae"
+  "hero_cv_link": "Download Curriculum vitae",
+  "navbar_portfolio": "Portfolio",
+  "navbar_blog": "Blog",
+  "post_no_recent_posts": "No recent posts",
+  "post_recent_posts": "Recent posts"
 }

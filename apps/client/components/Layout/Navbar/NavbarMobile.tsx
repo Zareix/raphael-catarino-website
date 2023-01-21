@@ -9,6 +9,7 @@ import { LangSelector } from "../LangSelector";
 import { defineMessage, FormattedMessage, useIntl } from "react-intl";
 import { NavigationLink } from "@models/Layout";
 import Link from "next/link";
+import { ParsedUrlQueryInput } from "querystring";
 
 const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
   width: 32px;
@@ -62,9 +63,10 @@ const Backdrop = styled.div`
 type Props = {
   toggleContactOpen: Function;
   links: NavigationLink[];
+  linkQuery?: string | ParsedUrlQueryInput;
 };
 
-const NavbarMobile = ({ links, toggleContactOpen }: Props) => {
+const NavbarMobile = ({ links, toggleContactOpen, linkQuery }: Props) => {
   const intl = useIntl();
   const drawerBtnLabel = defineMessage({
     id: "navbar_btn_drawer",
@@ -145,7 +147,7 @@ const NavbarMobile = ({ links, toggleContactOpen }: Props) => {
             <button>Contact</button>
           </li>
           <li>
-            <LangSelector alignRight />
+            <LangSelector alignRight linkQuery={linkQuery} />
           </li>
         </ul>
       </div>

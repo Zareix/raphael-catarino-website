@@ -8,6 +8,7 @@ import { useHomeContext } from "@components/Home";
 import { LangSelector } from "../LangSelector";
 import { NavigationLink } from "@models/Layout";
 import Link from "next/link";
+import { ParsedUrlQueryInput } from "querystring";
 
 const NavLink = styled(Link).attrs({
   className: "text-gray-800 dark:text-gray-100 hover:text-gray-600",
@@ -55,9 +56,10 @@ const NavLink = styled(Link).attrs({
 type Props = {
   toggleContactOpen: Function;
   links: NavigationLink[];
+  linkQuery?: string | ParsedUrlQueryInput;
 };
 
-const Navbar = ({ toggleContactOpen, links }: Props) => {
+const Navbar = ({ toggleContactOpen, links, linkQuery }: Props) => {
   return (
     <nav className="slideInTop mx-auto mt-5 flex w-max items-center justify-center rounded-md border border-gray-50 border-opacity-10 bg-gray-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg  dark:bg-gray-800 dark:bg-opacity-70">
       <a
@@ -101,7 +103,7 @@ const Navbar = ({ toggleContactOpen, links }: Props) => {
           </NavLink>
         </li>
         <li>
-          <LangSelector />
+          <LangSelector linkQuery={linkQuery} />
         </li>
       </ul>
     </nav>

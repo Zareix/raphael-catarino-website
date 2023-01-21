@@ -2,9 +2,12 @@ import Layout from "@components/Layout";
 import { BlogPost } from "@models/BlogPost";
 import { NavigationLink } from "@models/Layout";
 import Image from "next/image";
+import Link from "next/link";
 import { HTMLAttributes, ImgHTMLAttributes } from "react";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { FormattedMessage } from "react-intl";
 import { useRemarkSync } from "react-remark";
+import Aside from "./Aside";
+import CodeBlock from "./CodeBlock";
 
 type Props = {
   post: BlogPost;
@@ -12,6 +15,12 @@ type Props = {
 };
 
 const navLinks: NavigationLink[] = [
+  {
+    href: "/",
+    id: "navbar_portfolio",
+    defaultMessage: "Portfolio",
+    description: "Navbar link portfolio",
+  },
   {
     href: "/blog",
     id: "navbar_blog",
@@ -33,16 +42,17 @@ const Post = ({ post, recentPosts }: Props) => {
             alt={props.alt ?? ""}
             width={500}
             height={500}
-            className="mx-auto my-4 w-3/4 rounded-lg object-contain"
+            className="mx-auto my-4 rounded-md object-contain md:w-3/4"
             sizes="60vw"
           />
         ),
+        code: CodeBlock,
       },
     },
   });
 
   return (
-    <Layout links={navLinks}>
+    <Layout links={navLinks} linkQuery={{ slug: post.slug }}>
       <div className="container mt-20 mb-8 min-h-[90vh] p-4 md:flex">
         <article className="overflow-hidden rounded-xl bg-white md:w-4/5">
           <div className="relative h-64 w-full">
@@ -60,12 +70,7 @@ const Post = ({ post, recentPosts }: Props) => {
           <hr className="mx-auto my-4 w-11/12" />
           <div className="mb-4 px-6">{reactContent}</div>
         </article>
-        <aside className="p-4">
-          <h2>Recent Posts</h2>
-          <ul>
-            <li>t</li>
-          </ul>
-        </aside>
+        <Aside recentPosts={recentPosts} />
       </div>
     </Layout>
   );
