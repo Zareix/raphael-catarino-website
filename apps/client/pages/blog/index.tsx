@@ -14,7 +14,7 @@ type BlogPostPageProps = {
 
 const BlogIndexPage: NextPage<BlogPostPageProps> = (props) => (
   <IntlProviderWrapper locale={props.locale}>
-    <SEO />
+    <SEO title="Raphaël Catarino | Blog" />
     <Blog {...props} />
   </IntlProviderWrapper>
 );
@@ -28,7 +28,7 @@ export async function getStaticProps({
     locale ?? "fr",
     "blog-posts",
     {
-      "pagination[pageSize]": 5,
+      sort: "publishedAt:desc",
     }
   );
 

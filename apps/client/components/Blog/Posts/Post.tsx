@@ -4,7 +4,7 @@ import { NavigationLink } from "@models/Layout";
 import Image from "next/image";
 import Link from "next/link";
 import { HTMLAttributes, ImgHTMLAttributes } from "react";
-import { FormattedMessage } from "react-intl";
+import { FormattedDate, FormattedMessage } from "react-intl";
 import { useRemarkSync } from "react-remark";
 import Aside from "./Aside";
 import CodeBlock from "./CodeBlock";
@@ -43,7 +43,8 @@ const Post = ({ post, recentPosts }: Props) => {
             width={500}
             height={500}
             className="mx-auto my-4 rounded-md object-contain md:w-3/4"
-            sizes="60vw"
+            sizes="(max-width: 640px) 95vw, 70vw"
+            quality={100}
           />
         ),
         code: CodeBlock,
@@ -53,8 +54,8 @@ const Post = ({ post, recentPosts }: Props) => {
 
   return (
     <Layout links={navLinks} linkQuery={{ slug: post.slug }}>
-      <div className="container mt-20 mb-8 min-h-[90vh] p-4 md:flex">
-        <article className="overflow-hidden rounded-xl bg-white md:w-4/5">
+      <div className="container mb-8 min-h-[90vh] pt-10 md:p-4 md:pt-20 lg:flex">
+        <article className="overflow-hidden bg-white dark:bg-slate-900 md:rounded-xl lg:w-4/5">
           <div className="relative h-64 w-full">
             <Image
               src={post.featuredImage.url}
@@ -63,10 +64,17 @@ const Post = ({ post, recentPosts }: Props) => {
               placeholder="blur"
               blurDataURL={post.featuredImage.placeHolder}
               className="object-cover"
-              sizes="90vw"
+              sizes="(max-width: 640px) 100vw, 70vw"
+              quality={100}
             />
           </div>
-          <h1 className="mx-6 mt-4 text-5xl">{post.title}</h1>
+          <div className="mx-6 mt-4">
+            <h1 className="text-5xl">{post.title}</h1>
+            <h2 className="font-medium">{post.description}</h2>
+            <p className="mt-2 text-sm italic opacity-70">
+              <FormattedDate value={post.publishedAt} /> - Raphaël G.C.
+            </p>
+          </div>
           <hr className="mx-auto my-4 w-11/12" />
           <div className="mb-4 px-6">{reactContent}</div>
         </article>

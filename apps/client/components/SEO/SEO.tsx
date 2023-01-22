@@ -2,18 +2,31 @@ import Head from "next/head";
 
 import { defineMessage, useIntl } from "react-intl";
 
-const SEO = () => {
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const SEO = ({
+  title = "Raphaël Catarino | Portfolio",
+  description,
+}: Props) => {
   const intl = useIntl();
-  const description = defineMessage({
-    id: "meta_description",
-    defaultMessage:
-      "Portfolio de Raphaël Catarino. Retrouvez ici tous mes projets, mes experiences et compétences.",
-    description: "Meta description",
-  });
+  const desc =
+    description ??
+    intl.formatMessage(
+      defineMessage({
+        id: "meta_description",
+        defaultMessage:
+          "Portfolio de Raphaël Catarino. Retrouvez ici tous mes projets, mes experiences et compétences.",
+        description: "Meta description",
+      })
+    );
 
   return (
     <Head>
-      <meta name="description" content={intl.formatMessage(description)}></meta>
+      <title>{title}</title>
+      <meta name="description" content={desc}></meta>
     </Head>
   );
 };

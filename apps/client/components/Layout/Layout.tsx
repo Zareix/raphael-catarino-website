@@ -1,5 +1,4 @@
 import { ReactNode, useState } from "react";
-import Head from "next/head";
 
 import useWindowWidth from "@hooks/use-window-width";
 import useThemeHandler from "@hooks/use-theme-handler";
@@ -26,9 +25,6 @@ const Layout = ({ children, links, linkQuery }: Props) => {
 
   return (
     <>
-      <Head>
-        <title>Raphael Catarino | Portfolio</title>
-      </Head>
       <header className="fixed top-0 isolate z-50 w-full">
         {isMobile ? (
           <NavbarMobile

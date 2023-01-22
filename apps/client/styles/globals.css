@@ -79,3 +79,33 @@ main > section:nth-child(4) {
     transform: translateY(0);
   }
 }
+
+/* Scrollbar */
+.dark *,
+.darkScroll * {
+  scrollbar-color: rgb(31 41 55) rgb(203 213 225 / 0.5);
+}
+
+.dark *:hover,
+.darkScroll *:hover {
+  scrollbar-color: rgb(31 41 55) rgb(203 213 225 / 0.7);
+}
+
+.dark *::-webkit-scrollbar,
+.darkScroll *::-webkit-scrollbar {
+  background-color: rgb(31 41 55);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.dark *::-webkit-scrollbar-thumb,
+.darkScroll *::-webkit-scrollbar-thumb {
+  background-color: rgb(203 213 225 / 0.5);
+  border-radius: 100vw;
+  border: solid 0.25rem rgb(31 41 55);
+}
+
+.dark *:hover::-webkit-scrollbar-thumb,
+.darkScroll *:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(203 213 225 / 0.7);
+}

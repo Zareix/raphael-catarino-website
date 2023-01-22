@@ -6,6 +6,7 @@ export type StrapiBlogPost = {
   content: string;
   slug: string;
   featuredImage: StrapiSingularObject<StrapiImage>;
+  description: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date;

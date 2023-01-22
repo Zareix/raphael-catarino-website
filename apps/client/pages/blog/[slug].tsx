@@ -34,7 +34,7 @@ export const getStaticProps = async (
 ) => {
   const slug = context.params?.slug;
 
-  const post = (
+  const postRes = (
     await queryStrapiAPIPlural<StrapiBlogPost>(
       context.locale ?? "fr",
       "blog-posts",
@@ -42,7 +42,28 @@ export const getStaticProps = async (
         "filters[slug][$eq]": slug,
       }
     )
-  ).data[0].attributes;
+  ).data[0];
+
+  const post = {
+    ...postRes.attributes,
+    id: postRes.id,
+  };
+
+  const recentPosts = (
+    await queryStrapiAPIPlural<StrapiBlogPost>(
+      context.locale ?? "fr",
+      "blog-posts",
+      {
+        sort: "publishedAt:desc",
+        "pagination[pageSize]": 5,
+      }
+    )
+  ).data
+    .map((post) => ({
+      ...post.attributes,
+      id: post.id,
+    }))
+    .filter((p) => p.id !== post.id);
 
   return {
     props: {
@@ -57,7 +78,7 @@ export const getStaticProps = async (
           ),
         },
       },
-      recentPosts: [],
+      recentPosts,
     },
   };
 };
@@ -70,7 +91,7 @@ type BlogPostPageProps = {
 
 const BlogPostPage = ({ locale, post, recentPosts }: BlogPostPageProps) => (
   <IntlProviderWrapper locale={locale}>
-    <SEO />
+    <SEO title={`RC | ${post.title}`} description={post.description} />
     <Post post={post} recentPosts={recentPosts} />
   </IntlProviderWrapper>
 );
