@@ -54,8 +54,8 @@ const Post = ({ post, recentPosts }: Props) => {
 
   return (
     <Layout links={navLinks} linkQuery={{ slug: post.slug }}>
-      <div className="container mb-8 min-h-[90vh] pt-10 md:p-4 md:pt-20 lg:flex">
-        <article className="overflow-hidden bg-white dark:bg-slate-900 md:rounded-xl lg:w-4/5">
+      <div className="container mb-8 min-h-[90vh] pt-10 md:p-4 md:pt-24 lg:flex">
+        <article className="min-h-[85vh] overflow-hidden bg-white dark:bg-slate-900 md:rounded-xl lg:w-4/5">
           <div className="relative h-64 w-full">
             <Image
               src={post.featuredImage.url}
@@ -69,7 +69,7 @@ const Post = ({ post, recentPosts }: Props) => {
             />
           </div>
           <div className="mx-6 mt-4">
-            <h1 className="text-5xl">{post.title}</h1>
+            <h1 className="text-4xl">{post.title}</h1>
             <h2 className="font-medium">{post.description}</h2>
             <p className="mt-2 text-sm italic opacity-70">
               <FormattedDate value={post.publishedAt} /> - Raphaël G.C.

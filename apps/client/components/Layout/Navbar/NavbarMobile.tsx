@@ -83,7 +83,7 @@ const NavbarMobile = ({ links, toggleContactOpen, linkQuery }: Props) => {
   return (
     <>
       <nav
-        className={`mx-auto flex w-full items-center justify-between overflow-hidden border-b bg-gray-50 py-2 px-5 transition-all dark:border-gray-700 dark:bg-gray-800 ${
+        className={`mx-auto flex w-full items-center justify-between overflow-hidden border-b bg-slate-50 py-2 px-5 transition-all dark:border-gray-700 dark:bg-slate-800 ${
           isDrawerOpened
             ? ""
             : "bg-opacity-70 backdrop-blur-md  dark:bg-opacity-70"

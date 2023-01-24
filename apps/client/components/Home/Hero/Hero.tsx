@@ -35,7 +35,7 @@ const ImageWrapper = styled.a`
     width: 100%;
     text-align: right;
     background-color: #78716c;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     color: #f9fafb;
     text-align: right;
     padding-right: 0.4rem;
@@ -120,6 +120,9 @@ const Hero = () => {
       className="relative flex min-h-screen w-full items-center"
       id="hero"
     >
+      <div className="absolute h-full w-full opacity-[0.05] invert dark:opacity-[0.02] dark:filter-none">
+        <Image src="/hero-bg.svg" alt="dddepth" fill className="object-fill" />
+      </div>
       <div className="container flex flex-col px-6 md:flex-row md:gap-12 xl:px-40">
         <Bio className="md:w-2/3">
           <h1 className="slideInBottom text-4xl">{hero.title}</h1>
@@ -191,7 +194,7 @@ const SocialButtons = () => (
       Github
     </motion.a>
     <motion.a
-      className="flex w-28 items-center justify-center gap-1 rounded-lg bg-sky-600 py-2 text-gray-50 shadow transition-shadow duration-200 hover:shadow-md"
+      className="flex w-28 items-center justify-center gap-1 rounded-lg bg-[#0B65C2] py-2 text-gray-50 shadow transition-shadow duration-200 hover:shadow-md"
       href="https://www.linkedin.com/in/raphaël-gonçalves-catarino"
       whileHover={{
         scale: 1.02,
@@ -232,7 +235,7 @@ const ProfilePicture = ({ hero }: { hero: HeroModel }) => {
       rel="noopener noreferrer"
       aria-label={intl.formatMessage(label)}
     >
-      <div className="relative h-full w-full overflow-hidden rounded-lg shadow">
+      <div className="relative h-full w-full overflow-hidden rounded-xl shadow">
         <Image
           src={hero.profilePicture.url}
           alt=""
@@ -240,7 +243,8 @@ const ProfilePicture = ({ hero }: { hero: HeroModel }) => {
           placeholder="blur"
           priority
           fill
-          sizes="50vw"
+          quality={100}
+          sizes="(max-width: 640px) 70vw, 20vw"
           className="object-cover"
         />
       </div>

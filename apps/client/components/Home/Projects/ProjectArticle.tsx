@@ -35,7 +35,7 @@ const ProjectArticle = ({ active, project, setActive, visible }: Props) => {
         onClick={() => setActive(project.id)}
       >
         <motion.div
-          className={`group absolute inset-0 z-0 overflow-hidden rounded-lg bg-slate-100 transition-shadow ${
+          className={`group absolute inset-0 z-0 overflow-hidden rounded-lg border border-slate-300 bg-slate-100 transition-shadow dark:border-slate-600 ${
             active ? "shadow-xl" : "shadow"
           }`}
           animate={{

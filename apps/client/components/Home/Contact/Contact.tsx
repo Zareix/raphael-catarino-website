@@ -8,7 +8,6 @@ import {
 } from "react-google-recaptcha-v3";
 
 import styled from "styled-components";
-import { useHomeContext } from "..";
 
 const Wrapper = styled.div`
   z-index: 50;
@@ -87,12 +86,12 @@ const ContactForm = ({ toggleContactOpen }: Props) => {
 
   return (
     <Wrapper
-      className="bg-gray-800 bg-opacity-60 backdrop-blur dark:bg-gray-700 dark:bg-opacity-20"
+      className="bg-slate-900 bg-opacity-50 backdrop-blur"
       onClick={() => toggleContactOpen()}
     >
       <Container
         onClick={(e) => e.stopPropagation()}
-        className="container relative rounded-md bg-gray-50 px-8 py-6 shadow dark:bg-gray-800 md:min-w-[400px]"
+        className="container relative rounded-md bg-gray-50 px-8 py-6 shadow-lg dark:bg-slate-800 md:min-w-[400px]"
       >
         <button
           onClick={() => toggleContactOpen()}

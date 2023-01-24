@@ -1,10 +1,7 @@
-import React from "react";
-
 import styled from "styled-components";
 import { FormattedMessage } from "react-intl";
 
 import SvgFavicon from "@components/ui/SvgFavicon";
-import { useHomeContext } from "@components/Home";
 import { LangSelector } from "../LangSelector";
 import { NavigationLink } from "@models/Layout";
 import Link from "next/link";
@@ -61,7 +58,7 @@ type Props = {
 
 const Navbar = ({ toggleContactOpen, links, linkQuery }: Props) => {
   return (
-    <nav className="slideInTop mx-auto mt-5 flex w-max items-center justify-center rounded-md border border-gray-50 border-opacity-10 bg-gray-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg  dark:bg-gray-800 dark:bg-opacity-70">
+    <nav className="slideInTop mx-auto mt-5 flex w-max items-center justify-center rounded-md border border-gray-50 border-opacity-10 bg-slate-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg  dark:bg-slate-800 dark:bg-opacity-70">
       <a
         className="relative h-10 w-10"
         href="#hero"

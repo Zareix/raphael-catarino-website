@@ -1,4 +1,5 @@
 import { SectionSubtitle, SectionTitle } from "@components/ui/Home";
+import Image from "next/image";
 import { useHomeContext } from "../";
 import SkillDomainArticle from "./SkillDomainArticle";
 
