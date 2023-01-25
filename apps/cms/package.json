@@ -1,7 +1,7 @@
 {
   "name": "cms",
   "version": "1.2.0",
-  "packageManager": "pnpm@7.25.1",
+  "packageManager": "pnpm@7.26.0",
   "description": "Strapi for RGC Portfolio",
   "scripts": {
     "develop": "strapi develop",
