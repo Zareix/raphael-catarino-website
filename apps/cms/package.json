@@ -10,9 +10,9 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@retikolo/drag-drop-content-types": "^1.3.2",
-    "@strapi/design-system": "1.4.2",
-    "@strapi/icons": "1.5.0",
+    "@retikolo/drag-drop-content-types": "^1.3.4",
+    "@strapi/design-system": "1.6.1",
+    "@strapi/icons": "1.6.1",
     "@strapi/plugin-i18n": "4.6.0",
     "@strapi/plugin-users-permissions": "4.6.0",
     "@strapi/provider-email-sendgrid": "4.6.0",
