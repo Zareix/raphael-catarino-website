@@ -92,7 +92,7 @@ importers:
       '@strapi/plugin-users-permissions': 4.6.0
       '@strapi/provider-email-sendgrid': 4.6.0
       '@strapi/strapi': 4.6.0
-      pg: 8.8.0
+      pg: 8.9.0
       strapi-plugin-ezforms: 0.1.3
       strapi-plugin-populate-deep: 2.0.0
       strapi-plugin-vercel-deploy: 1.4.0
@@ -104,8 +104,8 @@ importers:
       '@strapi/plugin-i18n': 4.6.0
       '@strapi/plugin-users-permissions': 4.6.0_d2m7qcaawobv5nbpmirkzlkoq4
       '@strapi/provider-email-sendgrid': 4.6.0
-      '@strapi/strapi': 4.6.0_wax5yv5wrhpplma2rzv2ovig4u
-      pg: 8.8.0
+      '@strapi/strapi': 4.6.0_vfryvogsm7odc66stgwwgbpudu
+      pg: 8.9.0
       strapi-plugin-ezforms: 0.1.3
       strapi-plugin-populate-deep: 2.0.0
       strapi-plugin-vercel-deploy: 1.4.0_fqpeavaznfwklku26pe2tzsfjq
@@ -2336,7 +2336,7 @@ packages:
     peerDependencies:
       '@strapi/strapi': ^4.0.0
     dependencies:
-      '@strapi/strapi': 4.6.0_wax5yv5wrhpplma2rzv2ovig4u
+      '@strapi/strapi': 4.6.0_vfryvogsm7odc66stgwwgbpudu
       array-move: 4.0.0
       react-sortable-hoc: 2.0.0_oxfzelaz5ynxsop2v2nu2h2m64
     transitivePeerDependencies:
@@ -2469,7 +2469,7 @@ packages:
       lodash.deburr: 4.1.0
     dev: false
 
-  /@strapi/admin/4.6.0_x4gve4svb52nrrggynhzw4scre:
+  /@strapi/admin/4.6.0_r2frpyc3gcrzhrrrryjjjghtje:
     resolution: {integrity: sha512-rS+JunGFhEx+Jee9G1IrBuiM/efS5cTDZJrSVVWc/5SCcXimu6o32SqwpvddCLH3ikfbn79wH2rFHcfsVrblzQ==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     peerDependencies:
@@ -2484,13 +2484,13 @@ packages:
       '@fingerprintjs/fingerprintjs': 3.3.6
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.10_pvgfg2i233iclh4uhrrgev3t5a
       '@strapi/babel-plugin-switch-ee-ce': 4.6.0
-      '@strapi/data-transfer': 4.6.0_jw3iijt2v3y5oqol4jeflbh424
+      '@strapi/data-transfer': 4.6.0_noim2n2jgjbahvnb6iue4m2bau
       '@strapi/design-system': 1.6.1_jwtvlh45msuxnxkimsxjqhd3ye
       '@strapi/helper-plugin': 4.6.0_jqomsm3xvhafinkiabvjin7fxy
       '@strapi/icons': 1.6.1_sfoxds7t5ydpegc3knd667wn6m
       '@strapi/permissions': 4.6.0
       '@strapi/provider-audit-logs-local': 4.6.0
-      '@strapi/strapi': 4.6.0_wax5yv5wrhpplma2rzv2ovig4u
+      '@strapi/strapi': 4.6.0_vfryvogsm7odc66stgwwgbpudu
       '@strapi/typescript-utils': 4.6.0
       '@strapi/utils': 4.6.0
       axios: 1.2.2_debug@4.3.4
@@ -2618,12 +2618,12 @@ packages:
       resolve: 1.20.0
     dev: false
 
-  /@strapi/data-transfer/4.6.0_jw3iijt2v3y5oqol4jeflbh424:
+  /@strapi/data-transfer/4.6.0_noim2n2jgjbahvnb6iue4m2bau:
     resolution: {integrity: sha512-laq4gAsjO4KoIiok77WRSpmfmVKOMEZrqHyTwEG8Ofmw3Mdd1b2QduabM8JkutEs9fA2m+Ng+j+8nCcxrD/jeg==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       '@strapi/logger': 4.6.0
-      '@strapi/strapi': 4.6.0_jw3iijt2v3y5oqol4jeflbh424
+      '@strapi/strapi': 4.6.0_noim2n2jgjbahvnb6iue4m2bau
       chalk: 4.1.2
       fs-extra: 10.0.0
       lodash: 4.17.21
@@ -2655,12 +2655,12 @@ packages:
       - webpack
     dev: false
 
-  /@strapi/data-transfer/4.6.0_wax5yv5wrhpplma2rzv2ovig4u:
+  /@strapi/data-transfer/4.6.0_vfryvogsm7odc66stgwwgbpudu:
     resolution: {integrity: sha512-laq4gAsjO4KoIiok77WRSpmfmVKOMEZrqHyTwEG8Ofmw3Mdd1b2QduabM8JkutEs9fA2m+Ng+j+8nCcxrD/jeg==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       '@strapi/logger': 4.6.0
-      '@strapi/strapi': 4.6.0_wax5yv5wrhpplma2rzv2ovig4u
+      '@strapi/strapi': 4.6.0_vfryvogsm7odc66stgwwgbpudu
       chalk: 4.1.2
       fs-extra: 10.0.0
       lodash: 4.17.21
@@ -2710,14 +2710,14 @@ packages:
       - webpack-plugin-serve
     dev: false
 
-  /@strapi/database/4.6.0_pg@8.8.0:
+  /@strapi/database/4.6.0_pg@8.9.0:
     resolution: {integrity: sha512-CKk/kfSpdGX9UHmQTRqRwcohIpPQbwO04VPxRvJ2JqbQk777+xtY3Lb24EsSFBtflrwHqVm3YLtG/sDOTAbbjQ==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     dependencies:
       date-fns: 2.29.3
       debug: 4.3.4
       fs-extra: 10.0.0
-      knex: 2.4.0_pg@8.8.0
+      knex: 2.4.0_pg@8.9.0
       lodash: 4.17.21
       semver: 7.3.8
       umzug: 3.1.1
@@ -3170,7 +3170,7 @@ packages:
       fs-extra: 10.0.0
     dev: false
 
-  /@strapi/strapi/4.6.0_jw3iijt2v3y5oqol4jeflbh424:
+  /@strapi/strapi/4.6.0_noim2n2jgjbahvnb6iue4m2bau:
     resolution: {integrity: sha512-RVHCwtdP5GVPcaNrUr5/Y863UjnKmKXDnnIiPr0GWPMZdwno4IZxIz1R4XgP8no9XpCbVJK1HsEmzrLcavAOMg==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     hasBin: true
@@ -3178,9 +3178,9 @@ packages:
     dependencies:
       '@koa/cors': 3.4.3
       '@koa/router': 10.1.1
-      '@strapi/admin': 4.6.0_x4gve4svb52nrrggynhzw4scre
-      '@strapi/data-transfer': 4.6.0_wax5yv5wrhpplma2rzv2ovig4u
-      '@strapi/database': 4.6.0_pg@8.8.0
+      '@strapi/admin': 4.6.0_r2frpyc3gcrzhrrrryjjjghtje
+      '@strapi/data-transfer': 4.6.0_vfryvogsm7odc66stgwwgbpudu
+      '@strapi/database': 4.6.0_pg@8.9.0
       '@strapi/generate-new': 4.6.0
       '@strapi/generators': 4.6.0
       '@strapi/logger': 4.6.0
@@ -3248,7 +3248,7 @@ packages:
       - webpack
     dev: false
 
-  /@strapi/strapi/4.6.0_wax5yv5wrhpplma2rzv2ovig4u:
+  /@strapi/strapi/4.6.0_vfryvogsm7odc66stgwwgbpudu:
     resolution: {integrity: sha512-RVHCwtdP5GVPcaNrUr5/Y863UjnKmKXDnnIiPr0GWPMZdwno4IZxIz1R4XgP8no9XpCbVJK1HsEmzrLcavAOMg==}
     engines: {node: '>=14.19.1 <=18.x.x', npm: '>=6.0.0'}
     hasBin: true
@@ -3256,9 +3256,9 @@ packages:
     dependencies:
       '@koa/cors': 3.4.3
       '@koa/router': 10.1.1
-      '@strapi/admin': 4.6.0_x4gve4svb52nrrggynhzw4scre
-      '@strapi/data-transfer': 4.6.0_wax5yv5wrhpplma2rzv2ovig4u
-      '@strapi/database': 4.6.0_pg@8.8.0
+      '@strapi/admin': 4.6.0_r2frpyc3gcrzhrrrryjjjghtje
+      '@strapi/data-transfer': 4.6.0_vfryvogsm7odc66stgwwgbpudu
+      '@strapi/database': 4.6.0_pg@8.9.0
       '@strapi/generate-new': 4.6.0
       '@strapi/generators': 4.6.0
       '@strapi/logger': 4.6.0
@@ -8760,7 +8760,7 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /knex/2.4.0_pg@8.8.0:
+  /knex/2.4.0_pg@8.9.0:
     resolution: {integrity: sha512-i0GWwqYp1Hs2yvc2rlDO6nzzkLhwdyOZKRdsMTB8ZxOs2IXQyL5rBjSbS1krowCh6V65T4X9CJaKtuIfkaPGSA==}
     engines: {node: '>=12'}
     hasBin: true
@@ -8797,7 +8797,7 @@ packages:
       getopts: 2.3.0
       interpret: 2.2.0
       lodash: 4.17.21
-      pg: 8.8.0
+      pg: 8.9.0
       pg-connection-string: 2.5.0
       rechoir: 0.8.0
       resolve-from: 5.0.0
@@ -10612,16 +10612,16 @@ packages:
     engines: {node: '>=4.0.0'}
     dev: false
 
-  /pg-pool/3.5.2_pg@8.8.0:
+  /pg-pool/3.5.2_pg@8.9.0:
     resolution: {integrity: sha512-His3Fh17Z4eg7oANLob6ZvH8xIVen3phEZh2QuyrIl4dQSDVEabNducv6ysROKpDNPSD+12tONZVWfSgMvDD9w==}
     peerDependencies:
       pg: '>=8.0'
     dependencies:
-      pg: 8.8.0
+      pg: 8.9.0
     dev: false
 
-  /pg-protocol/1.5.0:
-    resolution: {integrity: sha512-muRttij7H8TqRNu/DxrAJQITO4Ac7RmX3Klyr/9mJEOBeIpgnF8f9jAfRz5d3XwQZl5qBjF9gLsUtMPJE0vezQ==}
+  /pg-protocol/1.6.0:
+    resolution: {integrity: sha512-M+PDm637OY5WM307051+bsDia5Xej6d9IR4GwJse1qA1DIhiKlksvrneZOYQq42OM+spubpcNYEo2FcKQrDk+Q==}
     dev: false
 
   /pg-types/2.2.0:
@@ -10635,8 +10635,8 @@ packages:
       postgres-interval: 1.2.0
     dev: false
 
-  /pg/8.8.0:
-    resolution: {integrity: sha512-UXYN0ziKj+AeNNP7VDMwrehpACThH7LUl/p8TDFpEUuSejCUIwGSfxpHsPvtM6/WXFy6SU4E5RG4IJV/TZAGjw==}
+  /pg/8.9.0:
+    resolution: {integrity: sha512-ZJM+qkEbtOHRuXjmvBtOgNOXOtLSbxiMiUVMgE4rV6Zwocy03RicCVvDXgx8l4Biwo8/qORUnEqn2fdQzV7KCg==}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
       pg-native: '>=3.0.1'
@@ -10647,8 +10647,8 @@ packages:
       buffer-writer: 2.0.0
       packet-reader: 1.0.0
       pg-connection-string: 2.5.0
-      pg-pool: 3.5.2_pg@8.8.0
-      pg-protocol: 1.5.0
+      pg-pool: 3.5.2_pg@8.9.0
+      pg-protocol: 1.6.0
       pg-types: 2.2.0
       pgpass: 1.0.5
     dev: false
@@ -12576,7 +12576,7 @@ packages:
     peerDependencies:
       '@strapi/strapi': ^4.5.3
     dependencies:
-      '@strapi/strapi': 4.6.0_wax5yv5wrhpplma2rzv2ovig4u
+      '@strapi/strapi': 4.6.0_vfryvogsm7odc66stgwwgbpudu
       axios: 0.26.1
       react-intl: 5.25.1_j4njqz2l44a4expcmhszoo26vm
     transitivePeerDependencies:
