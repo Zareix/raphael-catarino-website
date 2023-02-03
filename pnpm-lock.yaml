@@ -20,7 +20,7 @@ importers:
       '@types/sharp': 0.31.1
       '@types/styled-components': 5.1.26
       autoprefixer: 10.4.13
-      axios: 1.3.1
+      axios: 1.3.2
       babel-plugin-formatjs: 10.3.36
       eslint: 8.33.0
       eslint-config-next: 13.1.6
@@ -48,7 +48,7 @@ importers:
     dependencies:
       '@next/bundle-analyzer': 13.1.0
       '@plaiceholder/next': 2.5.0_next@13.1.6+sharp@0.31.3
-      axios: 1.3.1
+      axios: 1.3.2
       framer-motion: 8.0.1_biqbaboplfbrettd7655fr4n2y
       next: 13.1.6_qtpcxnaaarbm4ws7ughq6oxfve
       next-plausible: 3.7.0_3vryta7zmbcsw4rrqf4axjqggm
@@ -4431,8 +4431,8 @@ packages:
       - debug
     dev: false
 
-  /axios/1.3.1:
-    resolution: {integrity: sha512-78pWJsQTceInlyaeBQeYZ/QgZeWS8hGeKiIJiDKQe3hEyBb7sEMq0K4gjx+Va6WHTYO4zI/RRl8qGRzn0YMadA==}
+  /axios/1.3.2:
+    resolution: {integrity: sha512-1M3O703bYqYuPhbHeya5bnhpYVsDDRyQSabNja04mZtboLNSuZ4YrltestrLXfHgmzua4TpUqRiVKbiQuo2epw==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
