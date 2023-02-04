@@ -93,7 +93,7 @@ importers:
       '@strapi/provider-email-sendgrid': 4.6.0
       '@strapi/strapi': 4.6.0
       pg: 8.9.0
-      strapi-plugin-ezforms: 0.1.3
+      strapi-plugin-ezforms: 0.1.5
       strapi-plugin-populate-deep: 2.0.0
       strapi-plugin-vercel-deploy: 1.4.0
       strapi-provider-upload-cloudflare-r2: ^1.0.2
@@ -106,7 +106,7 @@ importers:
       '@strapi/provider-email-sendgrid': 4.6.0
       '@strapi/strapi': 4.6.0_vfryvogsm7odc66stgwwgbpudu
       pg: 8.9.0
-      strapi-plugin-ezforms: 0.1.3
+      strapi-plugin-ezforms: 0.1.5_@strapi+strapi@4.6.0
       strapi-plugin-populate-deep: 2.0.0
       strapi-plugin-vercel-deploy: 1.4.0_fqpeavaznfwklku26pe2tzsfjq
       strapi-provider-upload-cloudflare-r2: 1.0.2
@@ -12556,10 +12556,13 @@ packages:
     resolution: {integrity: sha512-cNNS+VYsXIs5gI6gJipO4qZ8YYT274JHvNnQ1/R/x8Q8mdP0qj0zoMchRXmBNPqp/0eOEhX+3g7g6Fgb7meLIQ==}
     dev: false
 
-  /strapi-plugin-ezforms/0.1.3:
-    resolution: {integrity: sha512-h2QeK4c1Rt5xGIaw0jY4+ma6RbVcOB8ppyZnQVB7lVPuBsg01z+NSm12oeTb8rG+2ekPQcummF24ueMicFHH9w==}
-    engines: {node: '>=12.x.x <=16.x.x', npm: '>=6.0.0'}
+  /strapi-plugin-ezforms/0.1.5_@strapi+strapi@4.6.0:
+    resolution: {integrity: sha512-Bw/hMx7QcwBiHlgVhUDTeh16ti5uLE7zJGMuoEMyn92DXA8IwnxIoGOVQLGfmqZcjcwRhGOUwAznSfee2rQPSA==}
+    engines: {node: '>=14.x.x <=18.x.x', npm: '>=6.0.0'}
+    peerDependencies:
+      '@strapi/strapi': ^4.0.0
     dependencies:
+      '@strapi/strapi': 4.6.0_vfryvogsm7odc66stgwwgbpudu
       axios: 0.24.0
     transitivePeerDependencies:
       - debug
