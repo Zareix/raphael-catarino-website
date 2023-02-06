@@ -86,7 +86,7 @@ importers:
   apps/cms:
     specifiers:
       '@retikolo/drag-drop-content-types': ^1.3.4
-      '@strapi/design-system': 1.6.1
+      '@strapi/design-system': 1.6.3
       '@strapi/icons': 1.6.1
       '@strapi/plugin-i18n': 4.6.0
       '@strapi/plugin-users-permissions': 4.6.0
@@ -99,7 +99,7 @@ importers:
       strapi-provider-upload-cloudflare-r2: ^1.0.2
     dependencies:
       '@retikolo/drag-drop-content-types': 1.3.4_fjgebmtxehtvk2vwaveb6ervem
-      '@strapi/design-system': 1.6.1_npyusghgm4ns6kh5qasffzu3l4
+      '@strapi/design-system': 1.6.3_npyusghgm4ns6kh5qasffzu3l4
       '@strapi/icons': 1.6.1_sfoxds7t5ydpegc3knd667wn6m
       '@strapi/plugin-i18n': 4.6.0
       '@strapi/plugin-users-permissions': 4.6.0_d2m7qcaawobv5nbpmirkzlkoq4
@@ -2758,8 +2758,8 @@ packages:
       - '@lezer/common'
     dev: false
 
-  /@strapi/design-system/1.6.1_npyusghgm4ns6kh5qasffzu3l4:
-    resolution: {integrity: sha512-uOl2vWejoKZVQCHj8PH2sfWiDgmk6uAoCC9FSczjX0RJEF8AiLIrWND7cnlfGoVO+0XrJBSDUL+SxFHqKK+GlA==}
+  /@strapi/design-system/1.6.3_npyusghgm4ns6kh5qasffzu3l4:
+    resolution: {integrity: sha512-mRZC3HTQtJfW64hFosdueXuUgX/BVNZ41xSRGUXze0wd7t++4bfErr6dZETld6IYVRCLmH2Dr3O6aOArJZMJdg==}
     peerDependencies:
       '@strapi/icons': ^1.5.0
       react: ^17.0.1
