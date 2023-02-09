@@ -24,7 +24,7 @@
     "react-dom": "18.2.0",
     "react-google-recaptcha-v3": "1.10.1",
     "react-hook-form": "7.43.1",
-    "react-intersection-observer": "9.4.1",
+    "react-intersection-observer": "9.4.2",
     "react-intl": "6.2.8",
     "react-markdown": "8.0.5",
     "react-remark": "^2.1.0",
