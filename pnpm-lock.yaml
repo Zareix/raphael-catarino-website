@@ -10,7 +10,7 @@ importers:
 
   apps/client:
     specifiers:
-      '@formatjs/cli': 5.1.13
+      '@formatjs/cli': 6.0.1
       '@next/bundle-analyzer': ^13.1.0
       '@plaiceholder/next': 2.5.0
       '@types/node': 18.13.0
@@ -66,7 +66,7 @@ importers:
       sharp: 0.31.3
       styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
     devDependencies:
-      '@formatjs/cli': 5.1.13
+      '@formatjs/cli': 6.0.1
       '@types/node': 18.13.0
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
@@ -2006,8 +2006,8 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /@formatjs/cli/5.1.13:
-    resolution: {integrity: sha512-9rFWFCHEFeIUDqgMy4szoHXK7Iz29sNhY3n+N44m9VNPxjy2uWYqBEijk8bsBYhu4OLaDhHpwVbcHVJi848dHg==}
+  /@formatjs/cli/6.0.1:
+    resolution: {integrity: sha512-Fezqcvn6EAGOLvq1LuBJ8C1dNKb4AKqdL3Bc61uCNQjjvfJv3fsxgLYFV4pkOlLGE/xzXY+xywEkCxN3Eo7Arw==}
     engines: {node: '>= 16.5.0'}
     hasBin: true
     peerDependencies:
