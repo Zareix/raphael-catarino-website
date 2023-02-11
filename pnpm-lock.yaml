@@ -24,7 +24,7 @@ importers:
       babel-plugin-formatjs: 10.3.36
       eslint: 8.34.0
       eslint-config-next: 13.1.6
-      framer-motion: ^8.0.1
+      framer-motion: ^9.0.0
       next: 13.1.6
       next-plausible: ^3.7.0
       plaiceholder: 2.5.0
@@ -49,7 +49,7 @@ importers:
       '@next/bundle-analyzer': 13.1.0
       '@plaiceholder/next': 2.5.0_next@13.1.6+sharp@0.31.3
       axios: 1.3.2
-      framer-motion: 8.0.1_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 9.0.1_biqbaboplfbrettd7655fr4n2y
       next: 13.1.6_qtpcxnaaarbm4ws7ughq6oxfve
       next-plausible: 3.7.0_3vryta7zmbcsw4rrqf4axjqggm
       plaiceholder: 2.5.0_sharp@0.31.3
@@ -7295,8 +7295,8 @@ packages:
       map-cache: 0.2.2
     dev: false
 
-  /framer-motion/8.0.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-rr9Sb97cGM5BWU0jMsmTi9x5w8hF90p6wRUlXto5IFejxMVS8YUxT8Ljjy8RspQKPEGOQUZDIZNvlcLBhs0tMw==}
+  /framer-motion/9.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-0EP7+b/hnsbrFOum9zU+23Fq2cJJrLOqv/yJ26fIzK4CC33ZAjXZGi1/XyblbgnUF0cxZ/SEDj5IYHeQo42qNg==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -7305,7 +7305,7 @@ packages:
       hey-listen: 1.0.8
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      tslib: 2.4.0
+      tslib: 2.4.1
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
@@ -13332,10 +13332,6 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-
-  /tslib/2.4.0:
-    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
-    dev: false
 
   /tslib/2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
