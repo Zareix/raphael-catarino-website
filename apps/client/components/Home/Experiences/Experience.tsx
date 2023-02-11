@@ -47,6 +47,7 @@ const Article = styled.article`
 const Experience = ({ experience }: Props) => {
   const { ref, inView } = useInView({
     rootMargin: "0px -20% 0px -20%",
+    triggerOnce: true,
   });
   return (
     <Article key={experience.id} ref={ref}>

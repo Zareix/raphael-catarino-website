@@ -7,6 +7,7 @@ import NavbarMobile from "./Navbar/NavbarMobile";
 import Footer from "./Footer";
 import Contact from "@components/Home/Contact";
 import { NavigationLink } from "@models/Layout";
+import SkipToMainContent from "@components/ui/SkipToMainContent";
 import { ParsedUrlQueryInput } from "querystring";
 
 type Props = {
@@ -25,6 +26,7 @@ const Layout = ({ children, links, linkQuery }: Props) => {
 
   return (
     <>
+      <SkipToMainContent />
       <header className="fixed top-0 isolate z-50 w-full">
         {isMobile ? (
           <NavbarMobile
@@ -40,7 +42,9 @@ const Layout = ({ children, links, linkQuery }: Props) => {
           />
         )}
       </header>
-      <main className="isolate">{children}</main>
+      <main id="main" className="isolate">
+        {children}
+      </main>
       <Footer toggleContactOpen={toggleContactOpen} />
       {contactOpen && <Contact toggleContactOpen={toggleContactOpen} />}
     </>
