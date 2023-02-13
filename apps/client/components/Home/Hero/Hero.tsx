@@ -1,15 +1,14 @@
-import React from "react";
-
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import ReactMarkdown from "react-markdown";
 import { motion } from "framer-motion";
+import VanillaTilt from "vanilla-tilt";
 
 import { Hero as HeroModel } from "@models/Hero";
 import useWindowWidth from "@hooks/use-window-width";
 import { useHomeContext } from "../";
 import { defineMessage, useIntl } from "react-intl";
-import { SectionTitle } from "@components/ui/Home";
+import { useEffect, useRef } from "react";
 
 const rotateImageBg = keyframes`
   from {
@@ -19,40 +18,6 @@ const rotateImageBg = keyframes`
   to {
     width: 106%;
     transform: rotate(2deg) translate3d(0.5rem, 0.5rem, 0);
-  }
-`;
-
-const ImageWrapper = styled.a`
-  position: relative;
-  isolation: isolate;
-  animation-delay: 1.5s;
-
-  &::before {
-    content: "CV";
-    position: absolute;
-    left: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    text-align: right;
-    background-color: #78716c;
-    border-radius: 0.75rem;
-    color: #f9fafb;
-    text-align: right;
-    padding-right: 0.4rem;
-    padding-top: 0.5rem;
-    transition: all 500ms ease;
-    animation: ${rotateImageBg} 500ms 2.25s forwards;
-  }
-
-  .dark &::before {
-    background-color: #075985;
-  }
-
-  &:hover::before {
-    left: 1rem;
-    padding-right: 0.6rem;
-    font-size: 1.25rem;
   }
 `;
 
@@ -101,14 +66,11 @@ const Hero = () => {
 
   return (
     <section
-      className="relative flex min-h-screen w-full items-center"
+      className="relative flex w-full items-center pt-24 pb-16 md:min-h-screen md:py-0"
       id="hero"
     >
-      <div className="absolute h-full w-full opacity-[0.05] invert dark:opacity-[0.02] dark:filter-none">
-        <Image src="/hero-bg.svg" alt="dddepth" fill className="object-fill" />
-      </div>
       <div className="container flex flex-col px-6 md:flex-row md:gap-12 xl:px-40">
-        <Bio className="md:w-2/3">
+        <Bio className="z-10 md:w-2/3">
           <h1 className="slideInBottom text-4xl">{hero.title}</h1>
           <h2 className="slideInBottom mb-2 text-2xl">{hero.subtitle}</h2>
           <div className="slideInBottom grid gap-1 text-justify">
@@ -123,7 +85,7 @@ const Hero = () => {
         {isMobile ? (
           <div className="flex">
             <div
-              className="slideInBottom mt-4 flex flex-col items-center justify-center gap-3"
+              className="slideInBottom z-10 mt-4 flex flex-col items-center justify-center gap-3"
               style={{ animationDelay: "1.25s" }}
             >
               <SocialButtons cv={hero.CV.url} />
@@ -214,7 +176,7 @@ const SocialButtons = ({ cv }: { cv: string }) => {
         <svg
           stroke="currentColor"
           fill="currentColor"
-          stroke-width="0"
+          strokeWidth="0"
           viewBox="0 0 24 24"
           aria-hidden="true"
           height="24"
@@ -235,9 +197,30 @@ const SocialButtons = ({ cv }: { cv: string }) => {
 };
 
 const ProfilePicture = ({ hero }: { hero: HeroModel }) => {
+  const tiltRef = useRef(null);
+  useEffect(() => {
+    if (!tiltRef.current) return;
+    VanillaTilt.init(tiltRef.current, {
+      max: 10,
+      speed: 700,
+      reverse: true,
+      scale: 1.1,
+      glare: true,
+      "max-glare": 0.4,
+    });
+
+    return () => {};
+  }, [tiltRef]);
+
   return (
-    <div className="fadeIn ml-auto mr-6 h-44 w-44 md:h-auto md:w-1/3">
-      <div className="relative h-full w-full overflow-hidden rounded-xl shadow">
+    <div className="fadeIn relative ml-auto mr-6 h-44 w-44 md:h-auto md:w-1/3">
+      <div className="absolute -z-10 h-full w-full rotate-90 scale-[6] opacity-[0.05] invert dark:opacity-[0.02] dark:filter-none">
+        <Image src="/hero-bg.svg" alt="dddepth" fill className="object-fill" />
+      </div>
+      <div
+        className="relative h-full w-full overflow-hidden rounded-xl shadow"
+        ref={tiltRef}
+      >
         <Image
           src={hero.profilePicture.url}
           alt={hero.profilePicture.alternativeText}

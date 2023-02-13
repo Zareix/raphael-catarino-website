@@ -5,6 +5,7 @@
 html,
 body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
   @apply bg-gray-50 dark:bg-gray-800 dark:text-gray-50;
 }
 
@@ -17,7 +18,7 @@ h2 {
 }
 
 main > section {
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 0rem;
 }
 
 main > section:first-child {
@@ -29,7 +30,7 @@ main > section:nth-child(2) {
 }
 
 main > section:nth-child(3) {
-  @apply border-t border-gray-200 bg-gradient-to-b from-stone-50 to-stone-300 dark:border-gray-700 dark:from-slate-900 dark:to-slate-800 dark:text-gray-50;
+  @apply bg-gradient-to-b from-stone-50 to-stone-300 dark:from-slate-900 dark:to-slate-800 dark:text-gray-50;
 }
 
 main > section:nth-child(4) {
@@ -108,4 +109,21 @@ main > section:nth-child(4) {
 .dark *:hover::-webkit-scrollbar-thumb,
 .darkScroll *:hover::-webkit-scrollbar-thumb {
   background-color: rgb(203 213 225 / 0.7);
+}
+
+/* Skill */
+.skill-wrapper {
+  position: relative;
+}
+.skill-wrapper .grid-lines > div {
+  @apply absolute from-slate-400/0 via-slate-400/60 to-slate-400/0;
+}
+.skill-wrapper .grid-lines > .vertical {
+  @apply -top-1/2 h-[200%] w-px bg-gradient-to-b;
+}
+.skill-wrapper .grid-lines > .horizontal {
+  @apply -left-1/2 h-px w-[200%] bg-gradient-to-r;
+}
+.skill-wrapper .grid-lines > .outer {
+  @apply via-slate-400/50;
 }

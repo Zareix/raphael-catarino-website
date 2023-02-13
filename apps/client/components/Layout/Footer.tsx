@@ -17,7 +17,7 @@ type Props = {
 
 const Footer = ({ toggleContactOpen }: Props) => {
   return (
-    <footer className="bg-gray-100 py-8 dark:bg-gray-800 md:py-16">
+    <footer className="border-t border-gray-300 bg-gray-100 py-8 dark:border-gray-700 dark:bg-gray-800 md:py-16">
       <div className="container grid grid-cols-4 gap-6 px-4 md:px-8">
         <ul className="grid gap-2 px-4">
           <li>

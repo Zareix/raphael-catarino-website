@@ -13,6 +13,7 @@ importers:
       '@formatjs/cli': 6.0.1
       '@next/bundle-analyzer': ^13.1.0
       '@plaiceholder/next': 2.5.0
+      '@researchgate/react-intersection-observer': ^1.3.5
       '@types/node': 18.13.0
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.10
@@ -45,9 +46,11 @@ importers:
       styled-components: 5.3.6
       tailwindcss: 3.2.6
       typescript: 4.9.5
+      vanilla-tilt: ^1.8.0
     dependencies:
       '@next/bundle-analyzer': 13.1.0
       '@plaiceholder/next': 2.5.0_next@13.1.6+sharp@0.31.3
+      '@researchgate/react-intersection-observer': 1.3.5_biqbaboplfbrettd7655fr4n2y
       axios: 1.3.2
       framer-motion: 9.0.1_biqbaboplfbrettd7655fr4n2y
       next: 13.1.6_qtpcxnaaarbm4ws7ughq6oxfve
@@ -65,6 +68,7 @@ importers:
       react-syntax-highlighter: 15.5.0_react@18.2.0
       sharp: 0.31.3
       styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
+      vanilla-tilt: 1.8.0
     devDependencies:
       '@formatjs/cli': 6.0.1
       '@types/node': 18.13.0
@@ -2625,6 +2629,17 @@ packages:
 
   /@react-dnd/shallowequal/3.0.1:
     resolution: {integrity: sha512-XjDVbs3ZU16CO1h5Q3Ew2RPJqmZBDE/EVf1LYp6ePEffs3V/MX9ZbL5bJr8qiK5SbGmUMuDoaFgyKacYz8prRA==}
+    dev: false
+
+  /@researchgate/react-intersection-observer/1.3.5_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-aYlsex5Dd6BAHMJvJrUoFp8gzgMSL27xFvrxkVYW0bV1RMAapVsO+QeYLtTaSF/QCflktODodvv+wJm49oMnnQ==}
+    engines: {node: '>=10.18.1'}
+    peerDependencies:
+      react: ^16.3.2
+      react-dom: ^16.3.2
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@retikolo/drag-drop-content-types/1.3.4_cpxhxdw33cypreg6pfjvwqiapi:
@@ -13828,6 +13843,10 @@ packages:
 
   /value-equal/1.0.1:
     resolution: {integrity: sha512-NOJ6JZCAWr0zlxZt+xqCHNTEKOsrks2HQd4MqhP1qy4z1SkbEP467eNx6TgDKXMvUOb+OENfJCZwM+16n7fRfw==}
+    dev: false
+
+  /vanilla-tilt/1.8.0:
+    resolution: {integrity: sha512-wVCHyyfRuiRdKhDTNxKPb60lkagmywDSqLgFETEr71Sm646AvGxuf/14Kx9A8FaISyYvMoKQHk6FTqt+YLGhEw==}
     dev: false
 
   /vary/1.1.2:

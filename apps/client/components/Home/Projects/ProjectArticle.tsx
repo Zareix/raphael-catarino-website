@@ -40,7 +40,7 @@ const ProjectArticle = ({ active, project, setActive, visible }: Props) => {
           }`}
           animate={{
             translateX: active ? (isMobile ? "-120%" : "-2rem") : 0,
-            width: active ? "5rem" : "100%",
+            width: active ? "80px" : "100%",
             scale: 1,
           }}
           transition={{
