@@ -1,0 +1,10 @@
+{
+    "navbar": {
+        "experiences": "Experiences",
+        "skills": "Skills",
+        "projects": "Projects",
+        "blog": "Blog",
+        "contact": "Contact",
+        "portfolio": "Portfolio"
+    }
+}

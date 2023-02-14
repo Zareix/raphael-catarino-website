@@ -1,7 +1,7 @@
 import { Image } from "./Components";
 
 export type BlogPost = {
-  id: string;
+  id: number;
   title: string;
   content: string;
   slug: string;

@@ -21,13 +21,14 @@ importers:
       '@types/sharp': 0.31.1
       '@types/styled-components': 5.1.26
       autoprefixer: 10.4.13
-      axios: 1.3.4
-      babel-plugin-formatjs: 10.4.0
-      eslint: 8.35.0
-      eslint-config-next: 13.2.3
-      framer-motion: ^9.0.4
-      next: 13.2.3
-      next-plausible: ^3.7.2
+      axios: 1.3.3
+      babel-plugin-formatjs: 10.3.36
+      eslint: 8.34.0
+      eslint-config-next: 13.1.6
+      framer-motion: ^9.0.0
+      next: 13.1.6
+      next-intl: ^2.10.2
+      next-plausible: ^3.7.0
       plaiceholder: 2.5.0
       postcss: 8.4.21
       prettier: 2.8.4
@@ -36,9 +37,7 @@ importers:
       react-country-flag: 3.0.2
       react-dom: 18.2.0
       react-google-recaptcha-v3: 1.10.1
-      react-hook-form: 7.43.4
-      react-intersection-observer: 9.4.3
-      react-intl: 6.2.10
+      react-hook-form: 7.43.1
       react-markdown: 8.0.5
       react-remark: ^2.1.0
       react-syntax-highlighter: ^15.5.0
@@ -51,18 +50,17 @@ importers:
       '@next/bundle-analyzer': 13.1.6
       '@plaiceholder/next': 2.5.0_next@13.2.3+sharp@0.31.3
       '@researchgate/react-intersection-observer': 1.3.5_biqbaboplfbrettd7655fr4n2y
-      axios: 1.3.4
-      framer-motion: 9.0.4_biqbaboplfbrettd7655fr4n2y
-      next: 13.2.3_pjwopsidmaokadturxaafygjp4
-      next-plausible: 3.7.2_nvzgbose6yf6w7ijjprgspqefi
+      axios: 1.3.3
+      framer-motion: 9.0.1_biqbaboplfbrettd7655fr4n2y
+      next: 13.1.6_qtpcxnaaarbm4ws7ughq6oxfve
+      next-intl: 2.10.2_next@13.1.6+react@18.2.0
+      next-plausible: 3.7.0_3vryta7zmbcsw4rrqf4axjqggm
       plaiceholder: 2.5.0_sharp@0.31.3
       react: 18.2.0
       react-country-flag: 3.0.2_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-google-recaptcha-v3: 1.10.1_biqbaboplfbrettd7655fr4n2y
-      react-hook-form: 7.43.4_react@18.2.0
-      react-intersection-observer: 9.4.3_react@18.2.0
-      react-intl: 6.2.10_j5ip3o3v6sktjzl5cxtjyfbuo4
+      react-hook-form: 7.43.1_react@18.2.0
       react-markdown: 8.0.5_pmekkgnqduwlme35zpnqhenc34
       react-remark: 2.1.0_react@18.2.0
       react-syntax-highlighter: 15.5.0_react@18.2.0
@@ -2025,26 +2023,8 @@ packages:
       typescript: 4.6.2
     dev: false
 
-  /@formatjs/intl/2.6.7_typescript@4.9.5:
-    resolution: {integrity: sha512-9FvEJfUMzlmP5ZBK3EE0928kVsZmD5aeWXg+faP8+mKIvG3c0hkLEXQ2MiUrXQt4rsEzOPbYVtBdthzSM0e2fw==}
-    peerDependencies:
-      typescript: ^4.7
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@formatjs/ecma402-abstract': 1.14.3
-      '@formatjs/fast-memoize': 1.2.8
-      '@formatjs/icu-messageformat-parser': 2.3.0
-      '@formatjs/intl-displaynames': 6.2.6
-      '@formatjs/intl-listformat': 7.1.9
-      intl-messageformat: 10.3.1
-      tslib: 2.4.1
-      typescript: 4.9.5
-    dev: false
-
-  /@formatjs/ts-transformer/3.12.0:
-    resolution: {integrity: sha512-/jEpXcqA6y/vdijgkxSoKGfkGR5VcClJeI8hnpJ2PBCHfrc4ywFMyoZqRAakKW3IJVttaDo7mGvBAIDxV1F4Qg==}
+  /@formatjs/ts-transformer/3.11.6:
+    resolution: {integrity: sha512-JYlf+WT+Fxy+jWVXGhZcj3lvVqMp2LPmHoA0UXs7MvMz2gLdb+Gl6q6GI6Bw/veIt6qYwRP+hnJkRcZuXlCvbA==}
     peerDependencies:
       ts-jest: '>=27'
     peerDependenciesMeta:
@@ -4185,6 +4165,10 @@ packages:
     engines: {node: '>=6.5'}
     dependencies:
       event-target-shim: 5.0.1
+    dev: false
+
+  /accept-language-parser/1.5.0:
+    resolution: {integrity: sha512-QhyTbMLYo0BBGg1aWbeMG4ekWtds/31BrEU+DONOg/7ax23vxpL03Pb7/zBmha2v7vdD3AyzZVWBVGEZxKOXWw==}
     dev: false
 
   /accepts/1.3.8:
@@ -9899,8 +9883,21 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: false
 
-  /next-plausible/3.7.2_nvzgbose6yf6w7ijjprgspqefi:
-    resolution: {integrity: sha512-9PqFiVtD1kZO5gHFYTcgilHhg2WhMzD6I4NK/RUh9DGavD1N11IhNAvyGLFmvB3f4FtHC9IoAsauYDtQBt+riA==}
+  /next-intl/2.10.2_next@13.1.6+react@18.2.0:
+    resolution: {integrity: sha512-wMNNn8l/fwKprYhH6rLQb68GEBkZaACBl99tELL/Tw+AWkGKfvEmnfYEdkiqm5OBQbaJn+gH9gMzGMsJzs1MLA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      accept-language-parser: 1.5.0
+      next: 13.1.6_qtpcxnaaarbm4ws7ughq6oxfve
+      react: 18.2.0
+      use-intl: 2.10.2_react@18.2.0
+    dev: false
+
+  /next-plausible/3.7.0_3vryta7zmbcsw4rrqf4axjqggm:
+    resolution: {integrity: sha512-YQ/b+BcPIZHOsQPB+YkAAzP4l9oELt3qKazPYvuNr5WRHRDknpyIkge4hf6aeuM+Wg4sdxaY7DfbbAUZlgREuw==}
     peerDependencies:
       next: ^11.1.0 || ^12.0.0 || ^13.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11288,14 +11285,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-intersection-observer/9.4.3_react@18.2.0:
-    resolution: {integrity: sha512-WNRqMQvKpupr6MzecAQI0Pj0+JQong307knLP4g/nBex7kYfIaZsPpXaIhKHR+oV8z+goUbH9e10j6lGRnTzlQ==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
   /react-intl/5.25.1_j4njqz2l44a4expcmhszoo26vm:
     resolution: {integrity: sha512-pkjdQDvpJROoXLMltkP/5mZb0/XqrqLoPGKUCfbdkP8m6U9xbK40K51Wu+a4aQqTEvEK5lHBk0fWzUV72SJ3Hg==}
     peerDependencies:
@@ -11340,29 +11329,6 @@ packages:
       react: 18.2.0
       tslib: 2.4.1
       typescript: 4.9.5
-    dev: false
-
-  /react-intl/6.2.7_j4njqz2l44a4expcmhszoo26vm:
-    resolution: {integrity: sha512-3xjK7FZcOcI/uw5c6NrbSXnVqT04Liua5L5K9eeIxIeYYQjcpKl9nF0jx3+sfZv9SqbxnmsFlh1DtKiCyiaZcg==}
-    peerDependencies:
-      react: ^16.6.0 || 17 || 18
-      typescript: ^4.7
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@formatjs/ecma402-abstract': 1.14.3
-      '@formatjs/icu-messageformat-parser': 2.2.0
-      '@formatjs/intl': 2.6.5_typescript@4.6.2
-      '@formatjs/intl-displaynames': 6.2.4
-      '@formatjs/intl-listformat': 7.1.7
-      '@types/hoist-non-react-statics': 3.3.1
-      '@types/react': 18.0.28
-      hoist-non-react-statics: 3.3.2
-      intl-messageformat: 10.3.0
-      react: 17.0.2
-      tslib: 2.4.1
-      typescript: 4.6.2
     dev: false
 
   /react-is/16.13.1:
@@ -13365,6 +13331,7 @@ packages:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+    dev: true
 
   /uc.micro/1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
@@ -13633,6 +13600,17 @@ packages:
     dependencies:
       punycode: 1.3.2
       querystring: 0.2.0
+    dev: false
+
+  /use-intl/2.10.2_react@18.2.0:
+    resolution: {integrity: sha512-4RT+Vc8Dkzw+I2e4DEa+hjLwZow5sj7nqJYVr+UttZ5LVkmOP6IuVMgEhnjHHperL+ywlA5nhrOTTetTVzMpBg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@formatjs/ecma402-abstract': 1.14.3
+      intl-messageformat: 9.13.0
+      react: 18.2.0
     dev: false
 
   /use-isomorphic-layout-effect/1.1.2_react@17.0.2:

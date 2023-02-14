@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
 
 import styled, { keyframes } from "styled-components";
-import { useRouter } from "next/router";
 
 import SvgFavicon from "@components/ui/SvgFavicon";
-import { useHomeContext } from "@components/Home";
 import { LangSelector } from "../LangSelector";
-import { defineMessage, FormattedMessage, useIntl } from "react-intl";
 import { NavigationLink } from "@models/Layout";
 import Link from "next/link";
-import { ParsedUrlQueryInput } from "querystring";
+import { useTranslations } from "next-intl";
 
 const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
   width: 32px;
@@ -61,29 +59,24 @@ const Backdrop = styled.div`
 `;
 
 type Props = {
-  toggleContactOpen: Function;
   links: NavigationLink[];
-  linkQuery?: string | ParsedUrlQueryInput;
+  linkQuery: string;
 };
 
-const NavbarMobile = ({ links, toggleContactOpen, linkQuery }: Props) => {
-  const intl = useIntl();
-  const drawerBtnLabel = defineMessage({
-    id: "navbar_btn_drawer",
-    defaultMessage: "Ouvrir le menu de navigation",
-    description: "Navbar open drawer",
-  });
+const NavbarMobile = ({ links, linkQuery }: Props) => {
   const [isDrawerOpened, setIsDrawerOpened] = useState(false);
-  const router = useRouter();
+  const t = useTranslations("navbar");
+
+  const locale = "fr";
 
   useEffect(() => {
     setIsDrawerOpened(false);
-  }, [router.locale]);
+  }, [locale]);
 
   return (
     <>
       <nav
-        className={`mx-auto flex w-full items-center justify-between overflow-hidden border-b bg-slate-50 py-2 px-5 transition-all dark:border-gray-700 dark:bg-slate-800 ${
+        className={`mx-auto flex w-full items-center justify-between overflow-hidden border-b bg-slate-50 py-2 px-5 transition-all dark:border-gray-700 dark:bg-slate-800 md:hidden ${
           isDrawerOpened
             ? ""
             : "bg-opacity-70 backdrop-blur-md  dark:bg-opacity-70"
@@ -99,7 +92,6 @@ const NavbarMobile = ({ links, toggleContactOpen, linkQuery }: Props) => {
         </a>
         <DrawerButton
           isDrawerOpened={isDrawerOpened}
-          aria-label={intl.formatMessage(drawerBtnLabel)}
           onClick={() => setIsDrawerOpened(!isDrawerOpened)}
         />
       </nav>
@@ -118,33 +110,21 @@ const NavbarMobile = ({ links, toggleContactOpen, linkQuery }: Props) => {
           {links.map((link) =>
             link.href.startsWith("#") ? (
               <li key={link.id} onClick={() => setIsDrawerOpened(false)}>
-                <a href={link.href}>
-                  <FormattedMessage
-                    id={link.id}
-                    defaultMessage={link.defaultMessage}
-                    description={link.description}
-                  />
-                </a>
+                <a href={link.href}>{t(link.id)}</a>
               </li>
             ) : (
               <li key={link.id} onClick={() => setIsDrawerOpened(false)}>
-                <Link href={link.href}>
-                  <FormattedMessage
-                    id={link.id}
-                    defaultMessage={link.defaultMessage}
-                    description={link.description}
-                  />
-                </Link>
+                <Link href={link.href}>{t(link.id)}</Link>
               </li>
             )
           )}
           <li
             onClick={() => {
               setIsDrawerOpened(false);
-              toggleContactOpen();
+              //toggleContactOpen();
             }}
           >
-            <button>Contact</button>
+            <button>{t("contact")}</button>
           </li>
           <li>
             <LangSelector alignRight linkQuery={linkQuery} />

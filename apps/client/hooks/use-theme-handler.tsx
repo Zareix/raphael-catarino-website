@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 
 function useThemeHandler() {
@@ -33,4 +34,9 @@ function useThemeHandler() {
   return { theme: themeState };
 }
 
-export default useThemeHandler;
+const ThemeHandler = () => {
+  useThemeHandler();
+  return <></>;
+};
+
+export default ThemeHandler;

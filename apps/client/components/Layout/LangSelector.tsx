@@ -1,14 +1,14 @@
+"use client";
 import { useState } from "react";
 
-import { useRouter } from "next/router";
 import Link from "next/link";
 import ReactCountryFlag from "react-country-flag";
 import styled, { keyframes } from "styled-components";
-import { ParsedUrlQueryInput } from "querystring";
+import { useLocale } from "next-intl";
 
 type LangSelectorProps = {
   alignRight?: boolean;
-  linkQuery?: string | ParsedUrlQueryInput;
+  linkQuery: string;
 };
 
 const lsAnimate = keyframes`
@@ -27,8 +27,8 @@ const LangSelectorDropDown = styled.div`
 
 export const LangSelector = ({ alignRight, linkQuery }: LangSelectorProps) => {
   const [open, setOpen] = useState(false);
-  const router = useRouter();
-  const locale = router.locale ?? "fr";
+  const locale = useLocale();
+  const locales = ["fr", "en"];
 
   const country = (l: string): string => {
     switch (l) {
@@ -63,14 +63,7 @@ export const LangSelector = ({ alignRight, linkQuery }: LangSelectorProps) => {
         <ul className="flex text-sm text-gray-700 dark:text-gray-200">
           {!alignRight && (
             <li className="block py-1 px-2 hover:bg-gray-100 hover:bg-opacity-70 dark:hover:bg-gray-600 dark:hover:bg-opacity-70 dark:hover:text-white">
-              <Link
-                href={{
-                  href: router.pathname,
-                  query: linkQuery,
-                }}
-                locale={locale}
-                scroll={false}
-              >
+              <Link href={"/" + locale + "/" + linkQuery} scroll={false}>
                 <ReactCountryFlag
                   countryCode={country(locale ?? "fr")}
                   style={{
@@ -81,21 +74,14 @@ export const LangSelector = ({ alignRight, linkQuery }: LangSelectorProps) => {
               </Link>
             </li>
           )}
-          {router.locales
+          {locales
             ?.filter((l) => l !== locale)
             .map((l) => (
               <li
                 key={l}
                 className="block py-1 px-2 hover:bg-gray-100 hover:bg-opacity-70 dark:hover:bg-gray-600 dark:hover:bg-opacity-70 dark:hover:text-white"
               >
-                <Link
-                  href={{
-                    href: router.pathname,
-                    query: linkQuery,
-                  }}
-                  locale={l}
-                  scroll={false}
-                >
+                <Link href={"/" + l + "/" + linkQuery} scroll={false}>
                   <ReactCountryFlag
                     countryCode={country(l)}
                     style={{
@@ -108,14 +94,7 @@ export const LangSelector = ({ alignRight, linkQuery }: LangSelectorProps) => {
             ))}
           {alignRight && (
             <li className="block py-1 px-2 hover:bg-gray-100 hover:bg-opacity-70 dark:hover:bg-gray-600 dark:hover:bg-opacity-70 dark:hover:text-white">
-              <Link
-                href={{
-                  href: router.pathname,
-                  query: linkQuery,
-                }}
-                locale={locale}
-                scroll={false}
-              >
+              <Link href={"/" + locale + "/" + linkQuery} scroll={false}>
                 <ReactCountryFlag
                   countryCode={country(locale ?? "fr")}
                   style={{

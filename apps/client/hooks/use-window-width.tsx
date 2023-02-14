@@ -1,4 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -12,10 +14,10 @@ const useWindowWidth = () => {
     const callback = () => {
       setWidth(window.innerWidth);
     };
-    window.addEventListener('resize', callback);
+    window.addEventListener("resize", callback);
     callback();
     return () => {
-      window.removeEventListener('resize', callback);
+      window.removeEventListener("resize", callback);
     };
   }, []);
 

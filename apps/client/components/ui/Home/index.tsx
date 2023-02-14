@@ -1,3 +1,4 @@
+"use client";
 import styled, { keyframes } from "styled-components";
 
 const targetScale = keyframes`

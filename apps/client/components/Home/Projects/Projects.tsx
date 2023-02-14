@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+"use client";
+import { useState } from "react";
 
 import { motion } from "framer-motion";
 
-import { useHomeContext } from "..";
 import { SectionSubtitle, SectionTitle } from "@components/ui/Home";
 import ProjectArticle from "./ProjectArticle";
+import type { Projects as ProjectsModel } from "@models/Projects";
 
-const Projects = () => {
-  const {
-    home: { projects },
-  } = useHomeContext();
+type Props = {
+  projects: ProjectsModel;
+};
+
+const Projects = ({ projects }: Props) => {
   const [active, setActive] = useState(-1);
   const [max, setMax] = useState(4);
 

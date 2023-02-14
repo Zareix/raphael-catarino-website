@@ -1,13 +1,12 @@
 import { SectionSubtitle, SectionTitle } from "@components/ui/Home";
-import Image from "next/image";
-import { useHomeContext } from "../";
+import { Skills as SkillsModel } from "@models/Skills";
 import SkillDomainArticle from "./SkillDomainArticle";
 
-const Skills = () => {
-  const {
-    home: { skills },
-  } = useHomeContext();
+type Props = {
+  skills: SkillsModel;
+};
 
+const Skills = ({ skills }: Props) => {
   return (
     <section
       className="grid min-h-[80vh] w-full place-content-center overflow-hidden py-28"

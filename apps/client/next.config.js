@@ -36,9 +36,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  i18n: {
-    locales: ["en", "fr"],
-    defaultLocale: "fr",
+  experimental: {
+    appDir: true,
   },
 };
 

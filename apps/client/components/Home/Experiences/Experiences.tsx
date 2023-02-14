@@ -1,12 +1,12 @@
-import { useHomeContext } from "..";
 import { SectionSubtitle, SectionTitle } from "@components/ui/Home";
 import Experience from "./Experience";
+import { Experiences as ExperiencesModel } from "@models/Experiences";
 
-const Experiences = () => {
-  const {
-    home: { experiences },
-  } = useHomeContext();
+type Props = {
+  experiences: ExperiencesModel;
+};
 
+const Experiences = ({ experiences }: Props) => {
   return (
     <section className="w-full bg-white pt-8 pb-32 md:pt-28" id="experiences">
       <SectionTitle>{experiences.title}</SectionTitle>
