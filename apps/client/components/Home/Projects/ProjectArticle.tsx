@@ -2,9 +2,8 @@
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
-
 import { Project } from "@models/Projects";
-import useWindowWidth from "@helpers/useWindowWidth";
+import useWindowWidth from "@hooks/use-window-width";
 import ViewableMonitor from "@helpers/intersectionObserver";
 
 type Props = {

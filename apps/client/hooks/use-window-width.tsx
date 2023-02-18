@@ -1,27 +1,24 @@
 "use client";
-
-import { useEffect, useMemo, useState } from "react";
-
-const MOBILE_BREAKPOINT = 768;
+import { useEffect, useState } from "react";
 
 const useWindowWidth = () => {
-  const [isSSR, setIsSSR] = useState(true);
-  const [width, setWidth] = useState(!isSSR ? window.innerWidth : 1200);
-  const isMobile = useMemo(() => width < MOBILE_BREAKPOINT, [width]);
+  const [width, setWidth] = useState(99999999);
 
   useEffect(() => {
-    setIsSSR(false);
-    const callback = () => {
+    const handleResize = () => {
       setWidth(window.innerWidth);
     };
-    window.addEventListener("resize", callback);
-    callback();
+    setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", callback);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  return { width, isMobile };
+  return {
+    isMobile: width < 768,
+    width,
+  };
 };
 
 export default useWindowWidth;
