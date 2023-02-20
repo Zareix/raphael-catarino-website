@@ -26,7 +26,7 @@
     "react-google-recaptcha-v3": "1.10.1",
     "react-hook-form": "7.43.1",
     "react-intersection-observer": "9.4.2",
-    "react-intl": "6.2.8",
+    "react-intl": "6.2.9",
     "react-markdown": "8.0.5",
     "react-remark": "^2.1.0",
     "react-syntax-highlighter": "^15.5.0",
@@ -35,7 +35,7 @@
     "vanilla-tilt": "^1.8.0"
   },
   "devDependencies": {
-    "@formatjs/cli": "6.0.1",
+    "@formatjs/cli": "6.0.2",
     "@types/node": "18.14.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -43,7 +43,7 @@
     "@types/sharp": "0.31.1",
     "@types/styled-components": "5.1.26",
     "autoprefixer": "10.4.13",
-    "babel-plugin-formatjs": "10.3.36",
+    "babel-plugin-formatjs": "10.4.0",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "postcss": "8.4.21",
