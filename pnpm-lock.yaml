@@ -37,7 +37,7 @@ importers:
       react-dom: 18.2.0
       react-google-recaptcha-v3: 1.10.1
       react-hook-form: 7.43.2
-      react-intersection-observer: 9.4.2
+      react-intersection-observer: 9.4.3
       react-intl: 6.2.10
       react-markdown: 8.0.5
       react-remark: ^2.1.0
@@ -61,7 +61,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-google-recaptcha-v3: 1.10.1_biqbaboplfbrettd7655fr4n2y
       react-hook-form: 7.43.2_react@18.2.0
-      react-intersection-observer: 9.4.2_react@18.2.0
+      react-intersection-observer: 9.4.3_react@18.2.0
       react-intl: 6.2.10_j5ip3o3v6sktjzl5cxtjyfbuo4
       react-markdown: 8.0.5_pmekkgnqduwlme35zpnqhenc34
       react-remark: 2.1.0_react@18.2.0
@@ -11330,8 +11330,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-intersection-observer/9.4.2_react@18.2.0:
-    resolution: {integrity: sha512-AdK+ryzZ7U9ZJYttDUZ8q2Am3nqE0exg5Ryl5Y124KeVsix/1hGZPbdu58EqA98TwnzwDNWHxg/kwNawmIiUig==}
+  /react-intersection-observer/9.4.3_react@18.2.0:
+    resolution: {integrity: sha512-WNRqMQvKpupr6MzecAQI0Pj0+JQong307knLP4g/nBex7kYfIaZsPpXaIhKHR+oV8z+goUbH9e10j6lGRnTzlQ==}
     peerDependencies:
       react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
     dependencies:
