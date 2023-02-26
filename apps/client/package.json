@@ -44,7 +44,7 @@
     "@types/styled-components": "5.1.26",
     "autoprefixer": "10.4.13",
     "babel-plugin-formatjs": "10.4.0",
-    "eslint": "8.34.0",
+    "eslint": "8.35.0",
     "eslint-config-next": "13.2.1",
     "postcss": "8.4.21",
     "prettier": "2.8.4",
