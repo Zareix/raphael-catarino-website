@@ -11,7 +11,11 @@ axios.defaults.httpAgent = agent;
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <PlausibleProvider domain="raphael-catarino.fr">
+    <PlausibleProvider
+      domain="raphael-catarino.fr"
+      customDomain="plausible.raphael-catarino.fr"
+      selfHosted
+    >
       <Component {...pageProps} />
     </PlausibleProvider>
   );
