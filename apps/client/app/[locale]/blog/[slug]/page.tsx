@@ -4,6 +4,8 @@ import { StrapiBlogPost } from "@models/strapi/StrapiBlogPost";
 import { BlogPost } from "@models/BlogPost";
 import Post from "@components/Blog/Posts/Post";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import generateSEO from "@components/SEO";
 
 const locales = ["fr", "en"];
 
@@ -81,6 +83,21 @@ async function getBlogPost(
       }))
     ),
   };
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string; slug: string };
+}): Promise<Metadata> {
+  const data = await getBlogPost(params.locale, params.slug);
+  return generateSEO(
+    params.locale,
+    data.post?.title,
+    data.post?.description,
+    "article",
+    data.post?.publishedAt
+  );
 }
 
 type Props = {

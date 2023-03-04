@@ -1,5 +1,20 @@
+import { Metadata } from "next";
 import Layout from "@components/Layout";
 import { NavigationLink } from "@models/Layout";
+import generateSEO from "@components/SEO/";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const lang = (await import(`../../../lang/${params.locale}.json`)).default;
+  return generateSEO(
+    params.locale,
+    lang.seo.blog.title,
+    lang.seo.blog.description
+  );
+}
 
 const navLinks: NavigationLink[] = [
   {

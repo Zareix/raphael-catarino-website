@@ -6,12 +6,14 @@ import { motion } from "framer-motion";
 import { SectionSubtitle, SectionTitle } from "@components/ui/Home";
 import ProjectArticle from "./ProjectArticle";
 import type { Projects as ProjectsModel } from "@models/Projects";
+import { useTranslations } from "next-intl";
 
 type Props = {
   projects: ProjectsModel;
 };
 
 const Projects = ({ projects }: Props) => {
+  const t = useTranslations();
   const [active, setActive] = useState(-1);
   const [max, setMax] = useState(4);
 
@@ -46,7 +48,7 @@ const Projects = ({ projects }: Props) => {
               scale: 0.97,
             }}
           >
-            Voir plus
+            {t("projects.loadMore")}
           </motion.button>
         </div>
       )}

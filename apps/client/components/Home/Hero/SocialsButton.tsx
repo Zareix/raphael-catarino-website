@@ -1,7 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export const SocialButtons = ({ cv }: { cv: string }) => {
+  const t = useTranslations();
   return (
     <>
       <motion.a
@@ -83,7 +85,7 @@ export const SocialButtons = ({ cv }: { cv: string }) => {
           ></path>
           <path d="M12.971 1.816A5.23 5.23 0 0114.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 013.434 1.279 9.768 9.768 0 00-6.963-6.963z"></path>
         </svg>
-        Mon CV
+        {t("hero.cv")}
       </motion.a>
     </>
   );

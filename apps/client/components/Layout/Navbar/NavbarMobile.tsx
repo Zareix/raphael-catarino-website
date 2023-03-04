@@ -8,6 +8,7 @@ import { LangSelector } from "../LangSelector";
 import { NavigationLink } from "@models/Layout";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import LocalizedLink from "@helpers/LocalizedLink";
 
 const DrawerButton = styled.button<{ isDrawerOpened: boolean }>`
   width: 32px;
@@ -114,7 +115,7 @@ const NavbarMobile = ({ links, linkQuery }: Props) => {
               </li>
             ) : (
               <li key={link.id} onClick={() => setIsDrawerOpened(false)}>
-                <Link href={link.href}>{t(link.id)}</Link>
+                <LocalizedLink href={link.href}>{t(link.id)}</LocalizedLink>
               </li>
             )
           )}

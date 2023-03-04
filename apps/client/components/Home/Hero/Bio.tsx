@@ -13,8 +13,7 @@ export const Bio = styled.div`
   }
 
   p:first-child::first-letter {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      "Liberation Mono", "Courier New", monospace;
+    font-family: var(--font-mono);
     font-size: 3.5rem;
     float: left;
     margin-right: 0.25rem;
@@ -22,8 +21,7 @@ export const Bio = styled.div`
   }
 
   strong {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      "Liberation Mono", "Courier New", monospace;
+    font-family: var(--font-mono);
     font-size: 0.8rem;
     background-color: rgb(15, 23, 42);
     padding: 0.2rem 0.4rem;

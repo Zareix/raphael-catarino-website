@@ -7,10 +7,13 @@ import { StrapiHome } from "@models/strapi/StrapiHome";
 import { NavigationLink } from "@models/Layout";
 import Layout from "@components/Layout";
 
+export const dynamicParams = false;
+
 async function getHomeData(locale: string): Promise<HomeData> {
   const {
     data: { attributes: res },
   } = await queryStrapiAPISingular<StrapiHome>(locale, "home");
+
   return {
     hero: {
       ...res.hero,
@@ -130,14 +133,14 @@ const navLinks: NavigationLink[] = [
 ];
 
 type Props = {
-  locale: string;
+  params: { locale: string };
 };
 
-export default async function Page({ locale }: Props) {
-  const data = await getHomeData(locale);
+export default async function Page({ params }: Props) {
+  const data = await getHomeData(params.locale);
   return (
     <Layout links={navLinks} linkQuery="">
-      <HomeComponent home={data} locale={locale} />
+      <HomeComponent home={data} locale={params.locale} />
     </Layout>
   );
 }

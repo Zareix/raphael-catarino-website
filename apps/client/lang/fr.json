@@ -1,10 +1,33 @@
 {
+    "seo": {
+        "home": {
+            "title": "Portfolio",
+            "description": "Portfolio de Raphaël Catarino. Retrouvez ici tous mes projets, mes experiences et compétences."
+        },
+        "blog": {
+            "title": "Blog",
+            "description": "Retrouvez ici des articles sur le développement web, la programmation, le homelab et bien d'autres."
+        }
+    },
+    "layout": {
+        "skipToMainContent": "Aller au contenu principal"
+    },
     "navbar": {
+        "home": "Accueil",
         "experiences": "Expériences",
         "skills": "Compétences",
         "projects": "Projets",
         "blog": "Blog",
         "contact": "Contact",
         "portfolio": "Portfolio"
+    },
+    "hero": {
+        "cv": "Mon CV"
+    },
+    "projects": {
+        "loadMore": "Voir plus"
+    },
+    "blog": {
+        "recents": "Articles récents"
     }
 }

@@ -1,8 +1,8 @@
 "use client";
 import LocalizedLink from "@helpers/LocalizedLink";
 import { BlogPost } from "@models/BlogPost";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 type Props = {
@@ -13,6 +13,7 @@ type Props = {
 const PAGE_SIZE = 6;
 
 const Blog = ({ locale, recentPosts }: Props) => {
+  const t = useTranslations();
   const [page, setPage] = useState(1);
   const maxPage = Math.ceil(recentPosts.length / PAGE_SIZE);
 
@@ -27,7 +28,7 @@ const Blog = ({ locale, recentPosts }: Props) => {
   return (
     <>
       <div className="min-h-[90vh] px-8 py-20">
-        <h1>Posts récents</h1>
+        <h1>{t("blog.recents")}</h1>
         <div className="container mt-4 grid grid-cols-1 gap-5 md:grid-cols-3">
           {recentPosts
             .slice((page - 1) * PAGE_SIZE, (page - 1) * PAGE_SIZE + PAGE_SIZE)
