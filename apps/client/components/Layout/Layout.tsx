@@ -1,52 +1,31 @@
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
-import useWindowWidth from "@hooks/use-window-width";
-import useThemeHandler from "@hooks/use-theme-handler";
 import Navbar from "./Navbar";
 import NavbarMobile from "./Navbar/NavbarMobile";
 import Footer from "./Footer";
-import Contact from "@components/Home/Contact";
 import { NavigationLink } from "@models/Layout";
 import SkipToMainContent from "@components/ui/SkipToMainContent";
-import { ParsedUrlQueryInput } from "querystring";
+import ThemeHandler from "@hooks/use-theme-handler";
 
 type Props = {
   children: ReactNode;
   links: NavigationLink[];
-  linkQuery?: string | ParsedUrlQueryInput;
+  linkQuery?: string;
 };
 
-const Layout = ({ children, links, linkQuery }: Props) => {
-  useThemeHandler();
-  const { isMobile } = useWindowWidth();
-  const [contactOpen, setContactOpen] = useState(false);
-  const toggleContactOpen = () => {
-    setContactOpen(!contactOpen);
-  };
-
+const Layout = ({ children, links, linkQuery = "/" }: Props) => {
   return (
     <>
+      <ThemeHandler />
       <SkipToMainContent />
       <header className="fixed top-0 isolate z-50 w-full">
-        {isMobile ? (
-          <NavbarMobile
-            links={links}
-            toggleContactOpen={toggleContactOpen}
-            linkQuery={linkQuery}
-          />
-        ) : (
-          <Navbar
-            links={links}
-            toggleContactOpen={toggleContactOpen}
-            linkQuery={linkQuery}
-          />
-        )}
+        <NavbarMobile links={links} linkQuery={linkQuery} />
+        <Navbar links={links} linkQuery={linkQuery} />
       </header>
       <main id="main" className="isolate">
         {children}
       </main>
-      <Footer toggleContactOpen={toggleContactOpen} />
-      {contactOpen && <Contact toggleContactOpen={toggleContactOpen} />}
+      <Footer />
     </>
   );
 };

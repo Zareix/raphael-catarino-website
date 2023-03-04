@@ -9,5 +9,5 @@ export type StrapiBlogPost = {
   description: string;
   createdAt: Date;
   updatedAt: Date;
-  publishedAt: Date;
+  publishedAt: string;
 };

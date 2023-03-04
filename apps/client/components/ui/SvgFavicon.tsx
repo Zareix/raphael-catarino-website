@@ -1,6 +1,5 @@
-import React from 'react';
-
-import styled from 'styled-components';
+"use client";
+import styled from "styled-components";
 
 const Svg = styled.svg`
   path {

@@ -31,14 +31,14 @@ const nextConfig = {
     config.resolve.alias["@components"] = path.resolve(__dirname, "components");
     config.resolve.alias["@models"] = path.resolve(__dirname, "models");
     config.resolve.alias["@hooks"] = path.resolve(__dirname, "hooks");
+    config.resolve.alias["@styles"] = path.resolve(__dirname, "styles");
     return config;
   },
   typescript: {
     ignoreBuildErrors: true,
   },
-  i18n: {
-    locales: ["en", "fr"],
-    defaultLocale: "fr",
+  experimental: {
+    appDir: true,
   },
 };
 

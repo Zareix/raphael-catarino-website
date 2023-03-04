@@ -1,7 +1,7 @@
 import { Image } from "./Components";
 
 export type BlogPost = {
-  id: string;
+  id: number;
   title: string;
   content: string;
   slug: string;
@@ -9,5 +9,5 @@ export type BlogPost = {
   description: string;
   createdAt: Date;
   updatedAt: Date;
-  publishedAt: Date;
+  publishedAt: string;
 };

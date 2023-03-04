@@ -1,71 +1,34 @@
-import React from "react";
-
-import { FormattedMessage } from "react-intl";
-import styled from "styled-components";
-
+"use client";
 import SvgFavicon from "@components/ui/SvgFavicon";
-import { useHomeContext } from "@components/Home";
+import { useTranslations } from "next-intl";
+import { NavLinkFooter } from "./Navbar/Navlink";
 
-const NavLink = styled.a.attrs({
-  className:
-    "text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:text-gray-700 text-sm hover:underline",
-})``;
-
-type Props = {
-  toggleContactOpen: Function;
-};
-
-const Footer = ({ toggleContactOpen }: Props) => {
+const Footer = () => {
+  const t = useTranslations();
   return (
     <footer className="border-t border-gray-300 bg-gray-100 py-8 dark:border-gray-700 dark:bg-gray-800 md:py-16">
       <div className="container grid grid-cols-4 gap-6 px-4 md:px-8">
         <ul className="grid gap-2 px-4">
           <li>
             <h3 className="font-bold hover:underline dark:text-gray-300">
-              <a href="#">
-                <FormattedMessage
-                  id="footer_title_home"
-                  defaultMessage="Home"
-                  description="Footer home links title"
-                />
-              </a>
+              <a href="#">{t("navbar.home")}</a>
             </h3>
           </li>
           <li>
-            <NavLink href="#experiences">
-              <FormattedMessage
-                id="footer_experiences"
-                defaultMessage="Expériences"
-                description="Footer link experiences"
-              />
-            </NavLink>
+            <NavLinkFooter href="#experiences">
+              {t("navbar.experiences")}
+            </NavLinkFooter>
           </li>
           <li>
-            <NavLink href="#skills">
-              <FormattedMessage
-                id="footer_skills"
-                defaultMessage="Compétences"
-                description="Footer link skills"
-              />
-            </NavLink>
+            <NavLinkFooter href="#skills">{t("navbar.skills")}</NavLinkFooter>
           </li>
           <li>
-            <NavLink href="#projects">
-              <FormattedMessage
-                id="footer_projects"
-                defaultMessage="Projets"
-                description="Footer link projects"
-              />
-            </NavLink>
+            <NavLinkFooter href="#projects">
+              {t("navbar.projects")}
+            </NavLinkFooter>
           </li>
           <li>
-            <NavLink as="button" onClick={() => toggleContactOpen()}>
-              <FormattedMessage
-                id="footer_contact"
-                defaultMessage="Contact"
-                description="Footer link contact"
-              />
-            </NavLink>
+            <NavLinkFooter as="button">{t("navbar.contact")}</NavLinkFooter>
           </li>
         </ul>
         <hr className="col-span-4 dark:border-gray-400" />
