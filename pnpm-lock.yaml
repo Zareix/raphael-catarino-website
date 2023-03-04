@@ -25,10 +25,10 @@ importers:
       babel-plugin-formatjs: 10.4.0
       eslint: 8.35.0
       eslint-config-next: 13.2.3
-      framer-motion: ^9.0.0
+      framer-motion: ^9.1.7
       next: 13.2.3
       next-intl: ^2.10.4
-      next-plausible: ^3.7.0
+      next-plausible: ^3.7.2
       plaiceholder: 2.5.0
       postcss: 8.4.21
       prettier: 2.8.4
@@ -37,7 +37,7 @@ importers:
       react-country-flag: 3.0.2
       react-dom: 18.2.0
       react-google-recaptcha-v3: 1.10.1
-      react-hook-form: 7.43.1
+      react-hook-form: 7.43.4
       react-markdown: 8.0.5
       react-remark: ^2.1.0
       react-syntax-highlighter: ^15.5.0
@@ -51,16 +51,16 @@ importers:
       '@plaiceholder/next': 2.5.0_next@13.2.3+sharp@0.31.3
       '@researchgate/react-intersection-observer': 1.3.5_biqbaboplfbrettd7655fr4n2y
       axios: 1.3.4
-      framer-motion: 9.0.4_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 9.1.7_biqbaboplfbrettd7655fr4n2y
       next: 13.2.3_pjwopsidmaokadturxaafygjp4
       next-intl: 2.10.4_next@13.2.3+react@18.2.0
-      next-plausible: 3.7.0_nvzgbose6yf6w7ijjprgspqefi
+      next-plausible: 3.7.2_nvzgbose6yf6w7ijjprgspqefi
       plaiceholder: 2.5.0_sharp@0.31.3
       react: 18.2.0
       react-country-flag: 3.0.2_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-google-recaptcha-v3: 1.10.1_biqbaboplfbrettd7655fr4n2y
-      react-hook-form: 7.43.1_react@18.2.0
+      react-hook-form: 7.43.4_react@18.2.0
       react-markdown: 8.0.5_pmekkgnqduwlme35zpnqhenc34
       react-remark: 2.1.0_react@18.2.0
       react-syntax-highlighter: 15.5.0_react@18.2.0
@@ -2142,53 +2142,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       unist-util-visit: 1.4.1
-    dev: false
-
-  /@motionone/animation/10.15.1:
-    resolution: {integrity: sha512-mZcJxLjHor+bhcPuIFErMDNyrdb2vJur8lSfMCsuCB4UyV8ILZLvK+t+pg56erv8ud9xQGK/1OGPt10agPrCyQ==}
-    dependencies:
-      '@motionone/easing': 10.15.1
-      '@motionone/types': 10.15.1
-      '@motionone/utils': 10.15.1
-      tslib: 2.4.1
-    dev: false
-
-  /@motionone/dom/10.15.3:
-    resolution: {integrity: sha512-FQ7a2zMBXc1UeU8CG9G3yDpst55fbb0+C9A0VGfwOITitBCzigKZnXRgsRSWWR+FW57GSc13eGQxtYB0lKG0Ng==}
-    dependencies:
-      '@motionone/animation': 10.15.1
-      '@motionone/generators': 10.15.1
-      '@motionone/types': 10.15.1
-      '@motionone/utils': 10.15.1
-      hey-listen: 1.0.8
-      tslib: 2.4.1
-    dev: false
-
-  /@motionone/easing/10.15.1:
-    resolution: {integrity: sha512-6hIHBSV+ZVehf9dcKZLT7p5PEKHGhDwky2k8RKkmOvUoYP3S+dXsKupyZpqx5apjd9f+php4vXk4LuS+ADsrWw==}
-    dependencies:
-      '@motionone/utils': 10.15.1
-      tslib: 2.4.1
-    dev: false
-
-  /@motionone/generators/10.15.1:
-    resolution: {integrity: sha512-67HLsvHJbw6cIbLA/o+gsm7h+6D4Sn7AUrB/GPxvujse1cGZ38F5H7DzoH7PhX+sjvtDnt2IhFYF2Zp1QTMKWQ==}
-    dependencies:
-      '@motionone/types': 10.15.1
-      '@motionone/utils': 10.15.1
-      tslib: 2.4.1
-    dev: false
-
-  /@motionone/types/10.15.1:
-    resolution: {integrity: sha512-iIUd/EgUsRZGrvW0jqdst8st7zKTzS9EsKkP+6c6n4MPZoQHwiHuVtTQLD6Kp0bsBLhNzKIBlHXponn/SDT4hA==}
-    dev: false
-
-  /@motionone/utils/10.15.1:
-    resolution: {integrity: sha512-p0YncgU+iklvYr/Dq4NobTRdAPv9PveRDUXabPEeOjBLSO/1FNB2phNTZxOxpi1/GZwYpAoECEa0Wam+nsmhSw==}
-    dependencies:
-      '@motionone/types': 10.15.1
-      hey-listen: 1.0.8
-      tslib: 2.4.1
     dev: false
 
   /@mswjs/cookies/0.2.2:
@@ -7152,14 +7105,12 @@ packages:
       map-cache: 0.2.2
     dev: false
 
-  /framer-motion/9.0.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-lZ1+2/WBn8iYRYmeEFpu/X2fI1GNwJL+X21EpnWwKP3vkJsnWBXZF5kHF29wIPk9sBU2xDIpDm9SAVo206bp9A==}
+  /framer-motion/9.1.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-nKxBkIO4IPkMEqcBbbATxsVjwPYShKl051yhBv9628iAH6JLeHD0siBHxkL62oQzMC1+GNX73XtPjgP753ufuw==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
     dependencies:
-      '@motionone/dom': 10.15.3
-      hey-listen: 1.0.8
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       tslib: 2.4.1
@@ -7668,10 +7619,6 @@ packages:
   /helmet/4.6.0:
     resolution: {integrity: sha512-HVqALKZlR95ROkrnesdhbbZJFi/rIVSoNq6f3jA/9u6MIbTsPh3xZwihjeI5+DO/2sOV6HMHooXcEOuwskHpTg==}
     engines: {node: '>=10.0.0'}
-    dev: false
-
-  /hey-listen/1.0.8:
-    resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
     dev: false
 
   /highlight.js/10.7.3:
@@ -9872,8 +9819,8 @@ packages:
       use-intl: 2.10.4_react@18.2.0
     dev: false
 
-  /next-plausible/3.7.0_nvzgbose6yf6w7ijjprgspqefi:
-    resolution: {integrity: sha512-YQ/b+BcPIZHOsQPB+YkAAzP4l9oELt3qKazPYvuNr5WRHRDknpyIkge4hf6aeuM+Wg4sdxaY7DfbbAUZlgREuw==}
+  /next-plausible/3.7.2_nvzgbose6yf6w7ijjprgspqefi:
+    resolution: {integrity: sha512-9PqFiVtD1kZO5gHFYTcgilHhg2WhMzD6I4NK/RUh9DGavD1N11IhNAvyGLFmvB3f4FtHC9IoAsauYDtQBt+riA==}
     peerDependencies:
       next: ^11.1.0 || ^12.0.0 || ^13.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11252,8 +11199,8 @@ packages:
       react-side-effect: 2.1.2_react@17.0.2
     dev: false
 
-  /react-hook-form/7.43.1_react@18.2.0:
-    resolution: {integrity: sha512-+s3+s8LLytRMriwwuSqeLStVjRXFGxgjjx2jED7Z+wz1J/88vpxieRQGvJVvzrzVxshZ0BRuocFERb779m2kNg==}
+  /react-hook-form/7.43.4_react@18.2.0:
+    resolution: {integrity: sha512-JZp05wvmuV8qr3NNDWwyhiQL05sh9E8x/2NoWtkdiyyiezmwOr5pKexlvbCEfBMa7ZYrvzk88G/uhLl47T9b7Q==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18

@@ -40,7 +40,7 @@ function generateSiteMap(slugsFR: string[], slugsEN: string[]) {
 
 function SiteMap() {}
 
-export async function getServerSideProps({ res }) {
+export const getServerSideProps = async ({ res }) => {
   const postsParamsFR = (
     await queryStrapiAPIPlural<StrapiBlogPost>("fr", "blog-posts")
   ).data.map((post) => ({
@@ -66,6 +66,6 @@ export async function getServerSideProps({ res }) {
   return {
     props: {},
   };
-}
+};
 
 export default SiteMap;
