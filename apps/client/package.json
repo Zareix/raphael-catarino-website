@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.2.0",
-  "packageManager": "pnpm@7.28.0",
+  "packageManager": "pnpm@7.29.0",
   "scripts": {
     "develop": "next dev",
     "build": "NODE_ENV=production next build --no-lint",
