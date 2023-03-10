@@ -13,7 +13,7 @@
     "@plaiceholder/next": "2.5.0",
     "@researchgate/react-intersection-observer": "^1.3.5",
     "axios": "1.3.4",
-    "framer-motion": "^9.1.7",
+    "framer-motion": "^10.0.0",
     "next": "13.2.4",
     "next-intl": "^2.10.4",
     "next-plausible": "^3.7.2",

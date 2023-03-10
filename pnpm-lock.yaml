@@ -25,7 +25,7 @@ importers:
       babel-plugin-formatjs: 10.4.0
       eslint: 8.35.0
       eslint-config-next: 13.2.4
-      framer-motion: ^9.1.7
+      framer-motion: ^10.0.0
       next: 13.2.4
       next-intl: ^2.10.4
       next-plausible: ^3.7.2
@@ -51,7 +51,7 @@ importers:
       '@plaiceholder/next': 2.5.0_next@13.2.4+sharp@0.31.3
       '@researchgate/react-intersection-observer': 1.3.5_biqbaboplfbrettd7655fr4n2y
       axios: 1.3.4
-      framer-motion: 9.1.7_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 10.2.3_biqbaboplfbrettd7655fr4n2y
       next: 13.2.4_pjwopsidmaokadturxaafygjp4
       next-intl: 2.10.4_next@13.2.4+react@18.2.0
       next-plausible: 3.7.2_ld2jel3hspngo3u5lti2kgl2sq
@@ -7105,11 +7105,16 @@ packages:
       map-cache: 0.2.2
     dev: false
 
-  /framer-motion/9.1.7_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-nKxBkIO4IPkMEqcBbbATxsVjwPYShKl051yhBv9628iAH6JLeHD0siBHxkL62oQzMC1+GNX73XtPjgP753ufuw==}
+  /framer-motion/10.2.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-+TBxfia8Ym/lYSvTAhome7LYFIR8fKhImuln5zcp9D8nFI2wNSDdBRtK5WoWTyjHXJ7efv5xv376Ma85zHhtUg==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
