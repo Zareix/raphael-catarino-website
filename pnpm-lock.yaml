@@ -42,7 +42,7 @@ importers:
       react-remark: ^2.1.0
       react-syntax-highlighter: ^15.5.0
       sharp: 0.31.3
-      styled-components: 5.3.8
+      styled-components: 5.3.9
       tailwindcss: 3.2.7
       typescript: 4.9.5
       vanilla-tilt: ^1.8.0
@@ -65,7 +65,7 @@ importers:
       react-remark: 2.1.0_react@18.2.0
       react-syntax-highlighter: 15.5.0_react@18.2.0
       sharp: 0.31.3
-      styled-components: 5.3.8_7i5myeigehqah43i5u7wbekgba
+      styled-components: 5.3.9_7i5myeigehqah43i5u7wbekgba
       vanilla-tilt: 1.8.0
     devDependencies:
       '@formatjs/cli': 6.0.4
@@ -101,7 +101,7 @@ importers:
       strapi-provider-upload-cloudflare-r2: ^1.0.2
     dependencies:
       '@retikolo/drag-drop-content-types': 1.3.4_cpxhxdw33cypreg6pfjvwqiapi
-      '@strapi/design-system': 1.6.3_bhbv666wwbzrqpgjgakkfbzlc4
+      '@strapi/design-system': 1.6.3_7zxdnlb2ndv6ydtp36mil2w3j4
       '@strapi/icons': 1.6.3_sfoxds7t5ydpegc3knd667wn6m
       '@strapi/plugin-i18n': 4.6.1
       '@strapi/plugin-users-permissions': 4.6.1_w4kswzauvjfgwvn657umz4h6pi
@@ -2847,7 +2847,7 @@ packages:
       - tedious
     dev: false
 
-  /@strapi/design-system/1.6.3_bhbv666wwbzrqpgjgakkfbzlc4:
+  /@strapi/design-system/1.6.3_7zxdnlb2ndv6ydtp36mil2w3j4:
     resolution: {integrity: sha512-mRZC3HTQtJfW64hFosdueXuUgX/BVNZ41xSRGUXze0wd7t++4bfErr6dZETld6IYVRCLmH2Dr3O6aOArJZMJdg==}
     peerDependencies:
       '@strapi/icons': ^1.5.0
@@ -2867,7 +2867,7 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-router-dom: 5.3.4_react@17.0.2
-      styled-components: 5.3.8_v5ja746gkdtknuc6tj46sve3be
+      styled-components: 5.3.9_v5ja746gkdtknuc6tj46sve3be
     transitivePeerDependencies:
       - '@babel/runtime'
       - '@lezer/common'
@@ -4656,7 +4656,7 @@ packages:
       styled-components: 5.3.3_v5ja746gkdtknuc6tj46sve3be
     dev: false
 
-  /babel-plugin-styled-components/2.0.7_styled-components@5.3.8:
+  /babel-plugin-styled-components/2.0.7_styled-components@5.3.9:
     resolution: {integrity: sha512-i7YhvPgVqRKfoQ66toiZ06jPNA3p6ierpfUuEWxNF+fV27Uv5gxBkf8KZLHUCc1nFA9j6+80pYoIpqCeyW3/bA==}
     peerDependencies:
       styled-components: '>= 2'
@@ -4666,7 +4666,7 @@ packages:
       babel-plugin-syntax-jsx: 6.18.0
       lodash: 4.17.21
       picomatch: 2.3.1
-      styled-components: 5.3.8_7i5myeigehqah43i5u7wbekgba
+      styled-components: 5.3.9_7i5myeigehqah43i5u7wbekgba
     dev: false
 
   /babel-plugin-syntax-jsx/6.18.0:
@@ -12715,8 +12715,8 @@ packages:
       supports-color: 5.5.0
     dev: false
 
-  /styled-components/5.3.8_7i5myeigehqah43i5u7wbekgba:
-    resolution: {integrity: sha512-6jQrlvaJQ16uWVVO0rBfApaTPItkqaG32l3746enNZzpMDxMvzmHzj8rHUg39bvVtom0Y8o8ZzWuchEXKGjVsg==}
+  /styled-components/5.3.9_7i5myeigehqah43i5u7wbekgba:
+    resolution: {integrity: sha512-Aj3kb13B75DQBo2oRwRa/APdB5rSmwUfN5exyarpX+x/tlM/rwZA2vVk2vQgVSP6WKaZJHWwiFrzgHt+CLtB4A==}
     engines: {node: '>=10'}
     peerDependencies:
       react: '>= 16.8.0'
@@ -12728,7 +12728,7 @@ packages:
       '@emotion/is-prop-valid': 1.2.0
       '@emotion/stylis': 0.8.5
       '@emotion/unitless': 0.7.5
-      babel-plugin-styled-components: 2.0.7_styled-components@5.3.8
+      babel-plugin-styled-components: 2.0.7_styled-components@5.3.9
       css-to-react-native: 3.0.0
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
@@ -12738,8 +12738,8 @@ packages:
       supports-color: 5.5.0
     dev: false
 
-  /styled-components/5.3.8_v5ja746gkdtknuc6tj46sve3be:
-    resolution: {integrity: sha512-6jQrlvaJQ16uWVVO0rBfApaTPItkqaG32l3746enNZzpMDxMvzmHzj8rHUg39bvVtom0Y8o8ZzWuchEXKGjVsg==}
+  /styled-components/5.3.9_v5ja746gkdtknuc6tj46sve3be:
+    resolution: {integrity: sha512-Aj3kb13B75DQBo2oRwRa/APdB5rSmwUfN5exyarpX+x/tlM/rwZA2vVk2vQgVSP6WKaZJHWwiFrzgHt+CLtB4A==}
     engines: {node: '>=10'}
     peerDependencies:
       react: '>= 16.8.0'
@@ -12751,7 +12751,7 @@ packages:
       '@emotion/is-prop-valid': 1.2.0
       '@emotion/stylis': 0.8.5
       '@emotion/unitless': 0.7.5
-      babel-plugin-styled-components: 2.0.7_styled-components@5.3.8
+      babel-plugin-styled-components: 2.0.7_styled-components@5.3.9
       css-to-react-native: 3.0.0
       hoist-non-react-statics: 3.3.2
       react: 17.0.2
