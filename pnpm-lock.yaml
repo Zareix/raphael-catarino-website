@@ -89,7 +89,7 @@ importers:
     specifiers:
       '@retikolo/drag-drop-content-types': ^1.3.4
       '@strapi/design-system': 1.6.3
-      '@strapi/icons': 1.6.3
+      '@strapi/icons': 1.6.6
       '@strapi/plugin-i18n': 4.6.1
       '@strapi/plugin-users-permissions': 4.6.1
       '@strapi/provider-email-sendgrid': 4.6.1
@@ -101,8 +101,8 @@ importers:
       strapi-provider-upload-cloudflare-r2: ^1.0.2
     dependencies:
       '@retikolo/drag-drop-content-types': 1.3.4_cpxhxdw33cypreg6pfjvwqiapi
-      '@strapi/design-system': 1.6.3_7zxdnlb2ndv6ydtp36mil2w3j4
-      '@strapi/icons': 1.6.3_sfoxds7t5ydpegc3knd667wn6m
+      '@strapi/design-system': 1.6.3_ettb6bon6w2q42lgrwsvpjfuqa
+      '@strapi/icons': 1.6.6_sfoxds7t5ydpegc3knd667wn6m
       '@strapi/plugin-i18n': 4.6.1
       '@strapi/plugin-users-permissions': 4.6.1_w4kswzauvjfgwvn657umz4h6pi
       '@strapi/provider-email-sendgrid': 4.6.1
@@ -2847,7 +2847,7 @@ packages:
       - tedious
     dev: false
 
-  /@strapi/design-system/1.6.3_7zxdnlb2ndv6ydtp36mil2w3j4:
+  /@strapi/design-system/1.6.3_ettb6bon6w2q42lgrwsvpjfuqa:
     resolution: {integrity: sha512-mRZC3HTQtJfW64hFosdueXuUgX/BVNZ41xSRGUXze0wd7t++4bfErr6dZETld6IYVRCLmH2Dr3O6aOArJZMJdg==}
     peerDependencies:
       '@strapi/icons': ^1.5.0
@@ -2860,7 +2860,7 @@ packages:
       '@floating-ui/react-dom': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
       '@internationalized/number': 3.1.1
       '@radix-ui/react-use-callback-ref': 1.0.0_react@17.0.2
-      '@strapi/icons': 1.6.3_sfoxds7t5ydpegc3knd667wn6m
+      '@strapi/icons': 1.6.6_sfoxds7t5ydpegc3knd667wn6m
       '@uiw/react-codemirror': 4.8.1_cmq2bqwa5s5jlt7xjr3eo5xkzu
       compute-scroll-into-view: 1.0.17
       prop-types: 15.8.1
@@ -3034,6 +3034,16 @@ packages:
 
   /@strapi/icons/1.6.3_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-Tuwo/NOw8jO+9UPIRnRHdI/y0YR6MhWsbLFJL6Q+haKwl1WhXQigXaZQJfOy0H89wRZcSesSv9gLAWqiGAhOjw==}
+    peerDependencies:
+      react: ^17.0.2
+      react-dom: ^17.0.2
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
+  /@strapi/icons/1.6.6_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-DxPX2WycDzoDmfi4KU7jQ7aDGTC//Sb67LxTjX2WsNeRgZrl0KxA9h2p8ZeGDD/UEw1GjPAq/x1jYAPn7/j3mQ==}
     peerDependencies:
       react: ^17.0.2
       react-dom: ^17.0.2
