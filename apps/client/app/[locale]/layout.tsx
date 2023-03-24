@@ -59,7 +59,7 @@ export default async function RootLayout({
 
   return (
     <PlausibleProvider domain="raphael-catarino.fr">
-      <html className={`${base.variable} ${mono.variable}`}>
+      <html className={`${base.variable} ${mono.variable}`} lang={locale}>
         <head>
           <link rel="shortcut icon" href="/favicon.svg" />
         </head>

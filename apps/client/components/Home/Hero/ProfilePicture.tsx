@@ -48,7 +48,7 @@ const ProfilePicture = ({
           priority
           fill
           quality={100}
-          sizes="(max-width: 640px) 70vw, 20vw"
+          sizes="(max-width: 640px) 30vw, 20vw"
           className="object-cover"
         />
       </div>
