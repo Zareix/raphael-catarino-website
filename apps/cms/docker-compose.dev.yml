@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: strapi_rgc
+    ports:
+      - "5432:5432"

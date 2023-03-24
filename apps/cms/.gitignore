@@ -122,3 +122,5 @@ build
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
+
+db-data
