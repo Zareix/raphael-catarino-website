@@ -1,3 +1,0 @@
-# CMS
-
-CMS with Strapi

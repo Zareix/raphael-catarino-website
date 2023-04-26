@@ -1,25 +1,21 @@
-node_modules
-# Created by https://www.toptal.com/developers/gitignore/api/yarn
-# Edit at https://www.toptal.com/developers/gitignore?templates=yarn
+# build output
+dist/
 
-### yarn ###
-# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+# generated types
+.astro/
 
-.yarn/*
-!.yarn/releases
-!.yarn/patches
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
+# dependencies
+node_modules/
 
-# if you are NOT using Zero-installs, then:
-# comment the following lines
-#!.yarn/cache
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# and uncomment the following lines
-# .pnp.*
+# environment variables
+.env
+.env.production
 
-# End of https://www.toptal.com/developers/gitignore/api/yarn
-.turbo
-.vercel
-apps/client/lang/compiled
+# macOS-specific files
+.DS_Store
