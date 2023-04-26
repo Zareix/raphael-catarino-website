@@ -1,8 +1,7 @@
----
-import Hero from '../components/home/Hero.astro';
-import Layout from '../layouts/Layout.astro';
----
-
-<Layout>
-  <Hero />
-</Layout>
+<script is:inline>
+  if (navigator.language.startsWith('fr')) {
+    window.location.pathname = '/fr/';
+  } else {
+    window.location.pathname = '/en/';
+  }
+</script>

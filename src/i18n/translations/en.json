@@ -1,0 +1,12 @@
+{
+    "hero": {
+        "title": "Raphaël Catarino",
+        "subtitle": "Fullstack Developer"
+    },
+    "nav": {
+        "experiences": "Experiences",
+        "skills": "Skills",
+        "projects": "Projects",
+        "blog": "Blog"
+    }
+}
