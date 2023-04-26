@@ -1,0 +1,41 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import svgIcon from '@/assets/favicon.svg';
+
+export type NavigationLink = {
+  href: string;
+  label: string;
+};
+
+export type Props = {
+  links: NavigationLink[];
+};
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { links } = Astro.props;
+---
+
+<header class="fixed top-0 isolate z-50 w-full text-sm">
+  <nav
+    class="mx-auto mt-0 hidden w-max items-center justify-center rounded-b-lg border border-gray-50 border-opacity-10 bg-slate-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg dark:bg-slate-800 dark:bg-opacity-70 md:flex"
+  >
+    <a class="relative h-8 w-8" href="#hero" aria-label="Raphaël Catarino logo">
+      <img src={svgIcon} alt="Raphaël Catarino logo" />
+    </a>
+    <ul class="ml-10 flex items-center gap-6">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-gray-800 dark:text-gray-100 hover:text-gray-600"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

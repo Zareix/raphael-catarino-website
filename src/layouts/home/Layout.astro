@@ -1,0 +1,66 @@
+---
+import '@fontsource/inter/variable-full.css';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import Nav, { type NavigationLink } from './Nav.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const links: NavigationLink[] = [
+  {
+    href: '#experiences',
+    label: t('nav.experiences'),
+  },
+  {
+    href: '#skills',
+    label: t('nav.skills'),
+  },
+  {
+    href: '#projects',
+    label: t('nav.projects'),
+  },
+  {
+    href: '/blog',
+    label: t('nav.blog'),
+  },
+];
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <Nav links={links} />
+    <slot />
+  </body>
+</html>
+<style is:global>
+  html,
+  body {
+    @apply bg-stone-50 dark:text-stone-50;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  body {
+    min-height: 200vh;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+</style>
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+</script>
