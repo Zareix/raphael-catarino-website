@@ -12,5 +12,9 @@
         "skills": "Compétences",
         "projects": "Projets",
         "blog": "Blog"
+    },
+    "skills": {
+        "title": "Compétences",
+        "subtitle": "Langages et technologies que j'utilise"
     }
 }

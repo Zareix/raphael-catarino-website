@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import svgIcon from '@/assets/favicon.svg';
+import { Image } from '@astrojs/image/components';
 
 export type NavigationLink = {
   href: string;
@@ -20,8 +21,8 @@ const { links } = Astro.props;
   <nav
     class="mx-auto mt-0 hidden w-max items-center justify-center rounded-b-lg border border-gray-50 border-opacity-10 bg-slate-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg dark:bg-slate-800 dark:bg-opacity-70 md:flex"
   >
-    <a class="relative h-8 w-8" href="#hero" aria-label="Raphaël Catarino logo">
-      <img src={svgIcon} alt="Raphaël Catarino logo" />
+    <a class="relative" href="#hero" aria-label="Raphaël Catarino logo">
+      <Image src={svgIcon} alt="Raphaël Catarino logo" width={32} height={32} />
     </a>
     <ul class="ml-10 flex items-center gap-6">
       {

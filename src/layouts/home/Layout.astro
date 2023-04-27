@@ -41,7 +41,7 @@ const links: NavigationLink[] = [
 <style is:global lang="scss">
   html,
   body {
-    @apply bg-stone-50 dark:text-stone-50;
+    @apply text-sm bg-stone-50 dark:text-stone-50;
     font-family: 'Inter', sans-serif;
     font-size: 1.2rem;
     line-height: 1.5;
@@ -59,9 +59,15 @@ const links: NavigationLink[] = [
     @apply text-2xl font-semibold;
   }
 
-  section {
-    @apply min-h-screen;
+  h3 {
+    @apply text-xl font-semibold;
+  }
 
+  h4 {
+    @apply text-lg;
+  }
+
+  section {
     & > h1 {
       @apply text-center;
     }
