@@ -15,7 +15,7 @@ const getAllExperiences = async (lang: Lang = defaultLang) =>
         filter: {
           property: 'lang',
           select: {
-            equals: 'Experience',
+            equals: lang,
           },
         },
       })
@@ -31,4 +31,28 @@ const experienceConverter = (experience: ExperiencePage) => ({
   url: experience.properties.url.url,
 });
 
-export { getAllExperiences };
+const getAllSkills = async (lang: Lang = defaultLang) =>
+  (
+    (
+      await createNotionClient().databases.query({
+        database_id: env.NOTION_SKILLS_DB,
+      })
+    ).results as SkillsPage[]
+  )
+    .map((x) => skillsConverter(lang, x)) // group by domain
+    .reduce((acc, curr) => {
+      if (!acc[curr.domain]) {
+        acc[curr.domain] = [];
+      }
+      acc[curr.domain].push(curr);
+      return acc;
+    }, {} as Record<string, ReturnType<typeof skillsConverter>[]>);
+
+const skillsConverter = (lang: Lang, skill: SkillsPage) => ({
+  id: skill.id,
+  title: skill.properties.title.title[0].plain_text,
+  icon: skill.properties.icon.url,
+  domain: skill.properties[`domain-${lang}`].select.name,
+});
+
+export { getAllExperiences, getAllSkills };

@@ -4,17 +4,19 @@ type NotionPropertyBase = {
   type: string;
 };
 
+type NotionAnnotations = {
+  bold: boolean;
+  italic: boolean;
+  strikethrough: boolean;
+  underline: boolean;
+  code: boolean;
+  color: string;
+};
+
 type NotionRichText = {
   type: string;
   text: { content: string; link: null };
-  annotations: {
-    bold: boolean;
-    italic: boolean;
-    strikethrough: boolean;
-    underline: boolean;
-    code: boolean;
-    color: string;
-  };
+  annotations: NotionAnnotations;
   plain_text: string;
   href: null;
 };
@@ -39,14 +41,7 @@ type NotionFileProperty = NotionPropertyBase & {
 type NotionTitle = {
   type: string;
   text: { content: string; link: null };
-  annotations: {
-    bold: boolean;
-    italic: boolean;
-    strikethrough: boolean;
-    underline: boolean;
-    code: boolean;
-    color: string;
-  };
+  annotations: NotionAnnotations;
   plain_text: string;
   href: null;
 };
@@ -118,5 +113,12 @@ type ExperiencePage = NotionPage<{
   url: NotionURLProperty;
   title: NotionTitleProperty;
   lang: NotionSelectProperty;
+}>;
+
+type SkillsPage = NotionPage<{
+  title: NotionTitleProperty;
+  icon: NotionURLProperty;
+  'domain-en': NotionSelectProperty;
+  'domain-fr': NotionSelectProperty;
 }>;
 // ----- END PAGES -----

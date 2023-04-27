@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/image": "^0.16.6",
     "@astrojs/prefetch": "^0.2.1",
     "@astrojs/react": "^2.1.1",
     "@astrojs/tailwind": "^3.1.1",
@@ -22,6 +23,7 @@
     "gsap": "^3.11.5",
     "sass": "^1.62.1",
     "save-dev": "0.0.1-security",
+    "sharp": "^0.32.1",
     "split-type": "^0.3.3",
     "tailwindcss": "^3.0.24",
     "zod": "^3.21.4"

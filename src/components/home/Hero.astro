@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import heroPP from '@/assets/hero-pp.jpg';
+import { Picture } from '@astrojs/image/components';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -8,9 +9,9 @@ const t = useTranslations(lang);
 
 <section
   id="hero"
-  class="h-screen flex items-center justify-center gap-4 bg-gradient-to-b from-stone-300 to-stone-50 dark:from-slate-950 dark:to-slate-900"
+  class="h-screen flex flex-col md:flex-row items-center justify-center gap-4 bg-gradient-to-b from-stone-300 to-stone-50 dark:from-slate-950 dark:to-slate-900"
 >
-  <div class="w-1/2">
+  <div class="mx-8 md:w-1/2">
     <h1>{t('hero.title')}</h1>
     <h2>{t('hero.subtitle')}</h2>
     <p
@@ -26,10 +27,13 @@ const t = useTranslations(lang);
       de mes compétences dans ce domaine ainsi que mes divers projets.
     </p>
   </div>
-  <div class="w-1/3">
-    <img
+  <div class="md:w-1/3">
+    <Picture
       src={heroPP}
-      alt="hero"
+      widths={[200, 400, 800]}
+      aspectRatio="3:4"
+      sizes="(max-width: 800px) 80vw, 800px"
+      alt="descriptive text"
       class="aspect-square object-cover rounded-xl fade-in-bottom"
     />
   </div>

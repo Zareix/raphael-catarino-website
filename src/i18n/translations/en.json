@@ -12,5 +12,9 @@
         "skills": "Skills",
         "projects": "Projects",
         "blog": "Blog"
+    },
+    "skills": {
+        "title": "Skills",
+        "subtitle": "Technologies and tools I use"
     }
 }

@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { getAllExperiences } from '@/lib/notion';
+import { Image } from '@astrojs/image/components';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -15,18 +16,20 @@ const experiences = await getAllExperiences(lang);
     {t('experiences.subtitle')}
   </h2>
   <div
-    class="container flex items-end overflow-x-scroll py-4 px-2 md:snap-none justify-center my-16"
+    class="container flex items-end overflow-x-scroll py-4 px-2 md:snap-none my-16"
   >
     {
       experiences.map((exp) => (
         <article>
           <div class="fade-in-bottom mx-4 flex w-max max-w-[400px] snap-center items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700  dark:bg-gray-900 dark:text-gray-50">
-            <img
+            <Image
               src={exp.icon}
               alt={exp.entreprise}
               width={48}
               height={48}
-              class=" object-contain"
+              fit="contain"
+              background="rgba(255,255,255,0)"
+              format={exp.icon.includes('.svg') ? 'svg' : 'png'}
             />
             <div>
               <h3 class="w-min text-lg font-bold">{exp.title}</h3>
