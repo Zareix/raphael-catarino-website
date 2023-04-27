@@ -1,4 +1,8 @@
 {
+    "experiences": {
+        "title": "Experiences",
+        "subtitle": "My professional experiences"
+    },
     "hero": {
         "title": "Raphaël Catarino",
         "subtitle": "Fullstack Developer"

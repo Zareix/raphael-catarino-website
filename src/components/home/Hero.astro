@@ -1,7 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import heroPP from '@/assets/hero-pp.jpg';
-import screen from '@/assets/screen.png';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -41,20 +40,37 @@ const t = useTranslations(lang);
   import SplitType from 'split-type';
 
   const ourText = new SplitType('#hero :is(h1, h2)', { types: 'words, chars' });
-  gsap.from(ourText.chars, {
-    y: 50,
-    opacity: 0,
-    stagger: 0.01,
-    duration: 2,
-    ease: 'power4.out',
-  });
-
-  gsap.from('.fade-in-bottom', {
-    y: 50,
-    opacity: 0,
-    duration: 0.75,
-    delay: 0.5,
-    ease: 'power2.out',
-    stagger: 0.2,
-  });
+  gsap
+    .timeline()
+    .from(ourText.chars, {
+      y: 50,
+      opacity: 0,
+      stagger: 0.01,
+      duration: 2,
+      ease: 'power4.out',
+    })
+    .from('#hero .fade-in-bottom', {
+      y: 50,
+      opacity: 0,
+      duration: 0.75,
+      delay: -1.5,
+      ease: 'power2.out',
+      stagger: 0.2,
+    })
+    .fromTo(
+      '#hero img',
+      {
+        yPercent: 0,
+        ease: 'none',
+      },
+      {
+        scrollTrigger: {
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+        yPercent: -50,
+        ease: 'none',
+      }
+    );
 </script>

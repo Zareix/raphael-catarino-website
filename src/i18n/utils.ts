@@ -2,12 +2,14 @@ import { FlattenObjectKeys, flatten } from '@/lib/flatten';
 import en from './translations/en.json';
 import fr from './translations/fr.json';
 
-const languages = {
+export const languages = {
   en: 'English',
   fr: 'Français',
 };
 
-const defaultLang = 'en';
+export type Lang = keyof typeof languages;
+
+export const defaultLang = 'en';
 
 const translations = {
   en: flatten(en) as {

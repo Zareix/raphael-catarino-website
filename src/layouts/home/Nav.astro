@@ -39,3 +39,14 @@ const { links } = Astro.props;
     </ul>
   </nav>
 </header>
+<script>
+  import { gsap } from 'gsap';
+
+  gsap.from('nav', {
+    y: -100,
+    opacity: 0,
+    duration: 1,
+    delay: 1,
+    ease: 'power4.out',
+  });
+</script>
