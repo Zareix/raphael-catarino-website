@@ -1,5 +1,5 @@
 ---
-import '@fontsource/inter/variable-full.css';
+import '@fontsource/inter/variable.css';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Nav, { type NavigationLink } from './Nav.astro';
 
@@ -38,7 +38,7 @@ const links: NavigationLink[] = [
     <slot />
   </body>
 </html>
-<style is:global>
+<style is:global lang="scss">
   html,
   body {
     @apply bg-stone-50 dark:text-stone-50;
@@ -58,9 +58,35 @@ const links: NavigationLink[] = [
   h2 {
     @apply text-2xl font-semibold;
   }
+
+  section {
+    @apply min-h-screen;
+
+    & > h1 {
+      @apply text-center;
+    }
+
+    & > h2 {
+      @apply text-center;
+    }
+  }
 </style>
 <script>
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  // import Lenis from '@studio-freight/lenis';
   gsap.registerPlugin(ScrollTrigger);
+
+  // const lenis = new Lenis();
+
+  // lenis.on('scroll', (e: Event) => {
+  //   console.log(e);
+  // });
+
+  // const raf: FrameRequestCallback = (time) => {
+  //   lenis.raf(time);
+  //   requestAnimationFrame(raf);
+  // };
+
+  // requestAnimationFrame(raf);
 </script>

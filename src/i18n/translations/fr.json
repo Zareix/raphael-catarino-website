@@ -1,6 +1,16 @@
 {
+    "experiences": {
+        "title": "Expériences",
+        "subtitle": "Mes expériences professionnelles"
+    },
+    "hero": {
+        "title": "Raphaël Catarino",
+        "subtitle": "Développeur Fullstack"
+    },
     "nav": {
-        "home": "Accueil",
-        "about": "À propos"
+        "experiences": "Expériences",
+        "skills": "Compétences",
+        "projects": "Projets",
+        "blog": "Blog"
     }
 }
