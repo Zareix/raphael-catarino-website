@@ -1,4 +1,4 @@
-FROM node:16-alpine as build
+FROM node:20-alpine as build
 RUN apk update && apk add build-base curl gcc autoconf automake zlib-dev libpng-dev vips-dev && rm -rf /var/cache/apk/* > /dev/null 2>&1
 RUN curl -fsSL "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" -o /bin/pnpm && chmod +x /bin/pnpm
 ARG NODE_ENV=production
@@ -14,7 +14,7 @@ COPY . .
 RUN pnpm docker:cms:build
 
 
-FROM node:16-alpine as runner
+FROM node:20-alpine as runner
 RUN apk add vips-dev curl && rm -rf /var/cache/apk/*
 RUN curl -fsSL "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" -o /bin/pnpm && chmod +x /bin/pnpm
 ARG NODE_ENV=production
