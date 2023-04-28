@@ -41,21 +41,21 @@ importers:
       react-markdown: 8.0.7
       react-remark: ^2.1.0
       react-syntax-highlighter: ^15.5.0
-      sharp: 0.32.0
+      sharp: 0.32.1
       styled-components: 5.3.9
       tailwindcss: 3.3.2
       typescript: 5.0.4
       vanilla-tilt: ^1.8.0
     dependencies:
       '@next/bundle-analyzer': 13.2.4
-      '@plaiceholder/next': 2.5.0_next@13.2.4+sharp@0.32.0
+      '@plaiceholder/next': 2.5.0_next@13.2.4+sharp@0.32.1
       '@researchgate/react-intersection-observer': 1.3.5_biqbaboplfbrettd7655fr4n2y
       axios: 1.3.4
       framer-motion: 10.9.1_biqbaboplfbrettd7655fr4n2y
       next: 13.2.4_pjwopsidmaokadturxaafygjp4
       next-intl: 2.11.0_next@13.2.4+react@18.2.0
       next-plausible: 3.7.2_ld2jel3hspngo3u5lti2kgl2sq
-      plaiceholder: 2.5.0_sharp@0.32.0
+      plaiceholder: 2.5.0_sharp@0.32.1
       react: 18.2.0
       react-country-flag: 3.0.2_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -64,7 +64,7 @@ importers:
       react-markdown: 8.0.7_k4en7uapxoluuejoeg6o3ic2aa
       react-remark: 2.1.0_react@18.2.0
       react-syntax-highlighter: 15.5.0_react@18.2.0
-      sharp: 0.32.0
+      sharp: 0.32.1
       styled-components: 5.3.9_7i5myeigehqah43i5u7wbekgba
       vanilla-tilt: 1.8.0
     devDependencies:
@@ -2300,14 +2300,14 @@ packages:
       tslib: 2.4.1
     dev: true
 
-  /@plaiceholder/next/2.5.0_next@13.2.4+sharp@0.32.0:
+  /@plaiceholder/next/2.5.0_next@13.2.4+sharp@0.32.1:
     resolution: {integrity: sha512-vT8YtPpgQEKFtz0QiiCnH3NfyVlldYpnxR6X2sqCJvHk+pi/Be1nb62CdYQ7RoNePPcjBQoRDSPpZpGmg8mEdw==}
     peerDependencies:
       next: '>= 10.0.0'
       sharp: '>= 0.30.6'
     dependencies:
       next: 13.2.4_pjwopsidmaokadturxaafygjp4
-      sharp: 0.32.0
+      sharp: 0.32.1
     dev: false
 
   /@pmmmwh/react-refresh-webpack-plugin/0.5.10_zdrfnnsd3tid6nwjgfdbtvu23m:
@@ -4494,7 +4494,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.8
+      semver: 7.5.0
       tsutils: 3.21.0_typescript@5.0.4
       typescript: 5.0.4
     transitivePeerDependencies:
@@ -6129,7 +6129,7 @@ packages:
       postcss-modules-scope: 3.0.0_postcss@8.4.23
       postcss-modules-values: 4.0.0_postcss@8.4.23
       postcss-value-parser: 4.2.0
-      semver: 7.3.8
+      semver: 7.5.0
       webpack: 5.76.3_webpack-cli@5.0.1
     dev: false
 
@@ -7378,7 +7378,7 @@ packages:
       memfs: 3.4.9
       minimatch: 3.1.2
       schema-utils: 4.0.0
-      semver: 7.3.8
+      semver: 7.5.0
       tapable: 2.2.1
       typescript: 4.6.2
       webpack: 5.76.3_webpack-cli@5.0.1
@@ -10081,15 +10081,15 @@ packages:
     resolution: {integrity: sha512-fRlDb4I0eLcQeUvGq7IY3xHrSb0c9ummdvDSYWfT9+LKP+3jCKw/tKoqaM7r1BAoiAC6GtwyjaGnOz6B3OtF+A==}
     engines: {node: '>=10'}
     dependencies:
-      semver: 7.3.8
+      semver: 7.5.0
     dev: false
 
   /node-addon-api/5.0.0:
     resolution: {integrity: sha512-CvkDw2OEnme7ybCykJpVcKH+uAOLV2qLqiyla128dN9TkEWfrYmxG6C2boDe5KcNQqZF3orkqzGgOMvZ/JNekA==}
     dev: false
 
-  /node-addon-api/6.0.0:
-    resolution: {integrity: sha512-GyHvgPvUXBvAkXa0YvYnhilSB1A+FRYMpIVggKzPZqdaZfevZOuzfWzyvgzOwRLHBeo/MMswmJFsrNF4Nw1pmA==}
+  /node-addon-api/6.1.0:
+    resolution: {integrity: sha512-+eawOlIgy680F0kBzPUNFhMZGtJ1YmqM6l4+Crf4IkImjYrO/mqPwRMh352g23uIaQKFItcQ64I7KMaJxHgAVA==}
     dev: false
 
   /node-cache/5.1.2:
@@ -10487,7 +10487,7 @@ packages:
       got: 11.8.5
       registry-auth-token: 4.2.2
       registry-url: 5.1.0
-      semver: 7.3.8
+      semver: 7.5.0
     dev: false
 
   /packet-reader/1.0.0:
@@ -10743,7 +10743,7 @@ packages:
       find-up: 4.1.0
     dev: false
 
-  /plaiceholder/2.5.0_sharp@0.32.0:
+  /plaiceholder/2.5.0_sharp@0.32.1:
     resolution: {integrity: sha512-rygdNSWuYzs1GxxGjq2FiJdJB1AUaKhUHP/M7PIrSjAAGuoJC5ACiJx+cZZ+hDmMalxsxOMw0Sbbx3LF8jemGg==}
     peerDependencies:
       sharp: '>= 0.30.6'
@@ -10753,7 +10753,7 @@ packages:
       image-size: 1.0.2
       node-cache: 5.1.2
       node-fetch: 2.6.7_encoding@0.1.13
-      sharp: 0.32.0
+      sharp: 0.32.1
     dev: false
 
   /plop/2.7.6:
@@ -12101,6 +12101,14 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: false
+
+  /semver/7.5.0:
+    resolution: {integrity: sha512-+XC0AD/R7Q2mPSRuy2Id0+CGTZ98+8f+KvwirxOKIEyid+XSx6HbC63p+O4IndTHuX5Z+JxQ0TghCkO5Cg/2HA==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      lru-cache: 6.0.0
 
   /send/0.18.0:
     resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}
@@ -12209,22 +12217,22 @@ packages:
       detect-libc: 2.0.1
       node-addon-api: 5.0.0
       prebuild-install: 7.1.1
-      semver: 7.3.8
+      semver: 7.5.0
       simple-get: 4.0.1
       tar-fs: 2.1.1
       tunnel-agent: 0.6.0
     dev: false
 
-  /sharp/0.32.0:
-    resolution: {integrity: sha512-yLAypVcqj1toSAqRSwbs86nEzfyZVDYqjuUX8grhFpeij0DDNagKJXELS/auegDBRDg1XBtELdOGfo2X1cCpeA==}
+  /sharp/0.32.1:
+    resolution: {integrity: sha512-kQTFtj7ldpUqSe8kDxoGLZc1rnMFU0AO2pqbX6pLy3b7Oj8ivJIdoKNwxHVQG2HN6XpHPJqCSM2nsma2gOXvOg==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
       color: 4.2.3
       detect-libc: 2.0.1
-      node-addon-api: 6.0.0
+      node-addon-api: 6.1.0
       prebuild-install: 7.1.1
-      semver: 7.3.8
+      semver: 7.5.0
       simple-get: 4.0.1
       tar-fs: 2.1.1
       tunnel-agent: 0.6.0
