@@ -10,7 +10,7 @@ importers:
 
   apps/client:
     specifiers:
-      '@formatjs/cli': 6.0.4
+      '@formatjs/cli': 6.1.0
       '@next/bundle-analyzer': ^13.2.4
       '@plaiceholder/next': 2.5.0
       '@researchgate/react-intersection-observer': ^1.3.5
@@ -22,7 +22,7 @@ importers:
       '@types/styled-components': 5.1.26
       autoprefixer: 10.4.14
       axios: 1.3.4
-      babel-plugin-formatjs: 10.4.0
+      babel-plugin-formatjs: 10.5.0
       eslint: 8.39.0
       eslint-config-next: 13.2.4
       framer-motion: ^10.9.1
@@ -68,7 +68,7 @@ importers:
       styled-components: 5.3.10_7i5myeigehqah43i5u7wbekgba
       vanilla-tilt: 1.8.0
     devDependencies:
-      '@formatjs/cli': 6.0.4
+      '@formatjs/cli': 6.1.0
       '@types/node': 18.16.2
       '@types/react': 18.0.29
       '@types/react-dom': 18.0.11
@@ -76,7 +76,7 @@ importers:
       '@types/sharp': 0.31.1
       '@types/styled-components': 5.1.26
       autoprefixer: 10.4.14_postcss@8.4.23
-      babel-plugin-formatjs: 10.4.0
+      babel-plugin-formatjs: 10.5.0
       eslint: 8.39.0
       eslint-config-next: 13.2.4_iacogk7kkaymxepzhgcbytyi7q
       postcss: 8.4.23
@@ -1846,8 +1846,8 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /@formatjs/cli/6.0.4:
-    resolution: {integrity: sha512-ivb+uUcYmHnffBkXM7OM4NDofxyfnVvW5G52p+M9Cg3DGMz3wVBm3TwW3SXgGGTft7CMWHeGQGXjxTOwBYKeEA==}
+  /@formatjs/cli/6.1.0:
+    resolution: {integrity: sha512-A05diK7zr8LEw4KFrtJfDhIa5PNHHcdM4wSEsgLqU/KqzcT4Jf6RhgU6RExe7UBpvKKl51Q/j2JpPRlretDXcQ==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
@@ -1898,8 +1898,8 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /@formatjs/icu-messageformat-parser/2.3.0:
-    resolution: {integrity: sha512-xqtlqYAbfJDF4b6e4O828LBNOWXrFcuYadqAbYORlDRwhyJ2bH+xpUBPldZbzRGUN2mxlZ4Ykhm7jvERtmI8NQ==}
+  /@formatjs/icu-messageformat-parser/2.3.1:
+    resolution: {integrity: sha512-knF2AkAKN4Upv4oIiKY4Wd/dLH68TNMPgV/tJMu/T6FP9aQwbv8fpj7U3lkyniPaNVxvia56Gxax8MKOjtxLSQ==}
     dependencies:
       '@formatjs/ecma402-abstract': 1.14.3
       '@formatjs/icu-skeleton-parser': 1.3.18
@@ -1998,21 +1998,21 @@ packages:
       typescript: 4.6.2
     dev: false
 
-  /@formatjs/ts-transformer/3.12.0:
-    resolution: {integrity: sha512-/jEpXcqA6y/vdijgkxSoKGfkGR5VcClJeI8hnpJ2PBCHfrc4ywFMyoZqRAakKW3IJVttaDo7mGvBAIDxV1F4Qg==}
+  /@formatjs/ts-transformer/3.13.0:
+    resolution: {integrity: sha512-TshsXkt2loK2GWFJFYTrlNThfCd4ubcEpokl9FWzGoR5f5e2FOxDPs69nTqw+7jodlKtx4VaTSfpNMtPvD9ZfQ==}
     peerDependencies:
       ts-jest: '>=27'
     peerDependenciesMeta:
       ts-jest:
         optional: true
     dependencies:
-      '@formatjs/icu-messageformat-parser': 2.3.0
+      '@formatjs/icu-messageformat-parser': 2.3.1
       '@types/json-stable-stringify': 1.0.34
       '@types/node': 17.0.45
       chalk: 4.1.2
       json-stable-stringify: 1.0.1
       tslib: 2.4.1
-      typescript: 4.9.5
+      typescript: 5.0.4
     dev: true
 
   /@humanwhocodes/config-array/0.11.8:
@@ -5142,16 +5142,16 @@ packages:
       webpack: 5.76.3_webpack-cli@5.0.1
     dev: false
 
-  /babel-plugin-formatjs/10.4.0:
-    resolution: {integrity: sha512-m9heKeKjINsaL20RPrZ7bqvB298WPJOOVRB0AdTtXHs9MOWkXYx89YdJRu/L6dgj7IGg09OG7OZXIvlYGVBPLg==}
+  /babel-plugin-formatjs/10.5.0:
+    resolution: {integrity: sha512-LEitfIZYyVIDJQpfdoff2fHS4AFdDqR36ajb+8L+vA5RrWwG1D96jLHJ5R7D1JvoLGKD57TY89Cr7jwBkeFCNw==}
     dependencies:
       '@babel/core': 7.20.12
       '@babel/helper-plugin-utils': 7.20.2
       '@babel/plugin-syntax-jsx': 7.18.6_@babel+core@7.20.12
       '@babel/traverse': 7.20.13
       '@babel/types': 7.20.7
-      '@formatjs/icu-messageformat-parser': 2.3.0
-      '@formatjs/ts-transformer': 3.12.0
+      '@formatjs/icu-messageformat-parser': 2.3.1
+      '@formatjs/ts-transformer': 3.13.0
       '@types/babel__core': 7.1.19
       '@types/babel__helper-plugin-utils': 7.10.0
       '@types/babel__traverse': 7.18.2
@@ -8843,7 +8843,7 @@ packages:
       jws: 3.2.2
       lodash: 4.17.21
       ms: 2.1.3
-      semver: 7.3.8
+      semver: 7.5.0
     dev: false
 
   /jsx-ast-utils/3.3.3:
@@ -13196,12 +13196,6 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: false
-
-  /typescript/4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: true
 
   /typescript/5.0.4:
     resolution: {integrity: sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==}
