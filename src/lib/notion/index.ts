@@ -18,6 +18,12 @@ const getAllExperiences = async (lang: Lang = defaultLang) =>
             equals: lang,
           },
         },
+        sorts: [
+          {
+            property: 'order',
+            direction: 'ascending',
+          },
+        ],
       })
     ).results as ExperiencePage[]
   ).map(experienceConverter);
@@ -29,6 +35,7 @@ const experienceConverter = (experience: ExperiencePage) => ({
   date: experience.properties.date.rich_text[0].plain_text,
   icon: experience.properties.icon.files[0].file.url,
   url: experience.properties.url.url,
+  order: experience.properties.order.number,
 });
 
 const getAllSkills = async (lang: Lang = defaultLang) =>
@@ -36,10 +43,16 @@ const getAllSkills = async (lang: Lang = defaultLang) =>
     (
       await createNotionClient().databases.query({
         database_id: env.NOTION_SKILLS_DB,
+        sorts: [
+          {
+            property: 'order',
+            direction: 'ascending',
+          },
+        ],
       })
     ).results as SkillsPage[]
   )
-    .map((x) => skillsConverter(lang, x)) // group by domain
+    .map((x) => skillsConverter(lang, x))
     .reduce((acc, curr) => {
       if (!acc[curr.domain]) {
         acc[curr.domain] = [];
@@ -53,6 +66,7 @@ const skillsConverter = (lang: Lang, skill: SkillsPage) => ({
   title: skill.properties.title.title[0].plain_text,
   icon: skill.properties.icon.url,
   domain: skill.properties[`domain-${lang}`].select.name,
+  order: skill.properties.order.number,
 });
 
 export { getAllExperiences, getAllSkills };

@@ -2,6 +2,7 @@
 import { Image } from '@astrojs/image/components';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { getAllSkills } from '@/lib/notion';
+import GridLines from '@/components/home/skills/GridLines.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -19,23 +20,12 @@ const skills = await getAllSkills(lang);
     {t('skills.subtitle')}
   </h2>
   <div
-    class="skill-wrapper container flex flex-wrap items-center justify-center gap-6 md:gap-12"
+    class="relative container flex flex-wrap items-center justify-center gap-6 md:gap-12"
   >
-    <div class="grid-lines w-full">
-      <div class="vertical left-0"></div>
-      <div class="vertical left-1/4"></div>
-      <div class="vertical left-2/4"></div>
-      <div class="vertical left-3/4"></div>
-      <div class="vertical right-0"></div>
-      <div class="horizontal top-0"></div>
-      <div class="horizontal top-1/2"></div>
-      <div class="horizontal bottom-0"></div>
-      <div class="vertical outer -right-[25%]"></div>
-      <div class="vertical outer -left-[25%]"></div>
-    </div>
+    <GridLines />
     {
       Object.keys(skills).map((domain) => (
-        <article class="relative md:w-max md:min-w-[400px] md:max-w-[30%] mx-4 flex flex-wrap justify-center gap-x-8 gap-y-2 rounded-lg border border-gray-800 bg-gray-900 bg-opacity-[83%] px-4  pt-12 pb-6 font-mono text-gray-50 shadow-md md:px-8">
+        <article class="relative min-w-[300px] md:w-max md:min-w-[400px] md:max-w-[30%] mx-4 flex flex-wrap justify-center gap-x-8 gap-y-2 rounded-lg border border-gray-800 bg-gray-900 bg-opacity-[83%] px-4  pt-12 pb-6 font-mono text-gray-50 shadow-md md:px-8">
           <div class="absolute top-2 left-2 flex gap-1 md:top-3 md:left-4">
             <div class="h-2 w-2 rounded-full bg-red-400 md:h-3 md:w-3" />
             <div class="aspect-square h-2 w-2 rounded-full bg-yellow-400 md:h-3 md:w-3" />
@@ -54,7 +44,7 @@ const skills = await getAllSkills(lang);
                 height={64}
                 format={skill.icon.includes('.svg') ? 'svg' : 'png'}
               />
-              <h4 class="mt-1">{skill.title}</h4>
+              <h4 class="mt-1 text-sm">{skill.title}</h4>
             </div>
           ))}
         </article>
@@ -62,34 +52,32 @@ const skills = await getAllSkills(lang);
     }
   </div>
 </section>
-<style>
-  .skill-wrapper {
-    position: relative;
-  }
-  .skill-wrapper .grid-lines > div {
-    @apply absolute from-slate-400/0 via-slate-400/60 to-slate-400/0;
-  }
-  .skill-wrapper .grid-lines > .vertical {
-    @apply -top-1/2 h-[200%] w-px bg-gradient-to-b;
-  }
-  .skill-wrapper .grid-lines > .horizontal {
-    @apply -left-1/2 h-px w-[200%] bg-gradient-to-r;
-  }
-  .skill-wrapper .grid-lines > .outer {
-    @apply via-slate-400/50;
-  }
-</style>
 <script>
   import { gsap } from 'gsap';
 
-  gsap.from('#skills article', {
-    scrollTrigger: {
-      trigger: '#skills article',
-      start: 'top 90%',
-    },
-    y: 100,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.2,
+  const articles = gsap.utils.toArray<Element>('#skills article');
+
+  articles.forEach((article) => {
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      gsap.from(article, {
+        scrollTrigger: {
+          trigger: article,
+          start: 'top 90%',
+        },
+        x: -100,
+        opacity: 0,
+        duration: 0.5,
+      });
+    } else {
+      gsap.from(article, {
+        scrollTrigger: {
+          trigger: article,
+          start: 'top 90%',
+        },
+        y: 100,
+        opacity: 0,
+        duration: 0.5,
+      });
+    }
   });
 </script>
