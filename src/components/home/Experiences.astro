@@ -87,18 +87,14 @@ const experiences = await getAllExperiences(lang);
 <script>
   import { gsap } from 'gsap';
 
-  const articles = gsap.utils.toArray<Element>('#experiences article .content');
-
-  articles.forEach((article) => {
-    gsap.from(article, {
-      scrollTrigger: {
-        trigger: article,
-        start: 'top 90%',
-      },
-      y: 100,
-      opacity: 0,
-      duration: 0.5,
-      stagger: 0.2,
-    });
+  gsap.from('#experiences article .content', {
+    scrollTrigger: {
+      trigger: '#experiences article',
+      start: 'top 90%',
+    },
+    y: 100,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.2,
   });
 </script>
