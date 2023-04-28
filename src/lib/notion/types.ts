@@ -83,6 +83,10 @@ type NotionIcon =
       };
     };
 
+type NotionNumberProperty = NotionPropertyBase & {
+  number: number;
+};
+
 type NotionPage<T extends Record<string, NotionPropertyBase>> = {
   object: string;
   id: string;
@@ -107,12 +111,13 @@ type NotionPage<T extends Record<string, NotionPropertyBase>> = {
 
 // ----- PAGES -----
 type ExperiencePage = NotionPage<{
+  lang: NotionSelectProperty;
   date: NotionRichTextProperty;
   entreprise: NotionRichTextProperty;
   icon: NotionFileProperty;
   url: NotionURLProperty;
   title: NotionTitleProperty;
-  lang: NotionSelectProperty;
+  order: NotionNumberProperty;
 }>;
 
 type SkillsPage = NotionPage<{
@@ -120,5 +125,15 @@ type SkillsPage = NotionPage<{
   icon: NotionURLProperty;
   'domain-en': NotionSelectProperty;
   'domain-fr': NotionSelectProperty;
+  order: NotionNumberProperty;
+}>;
+
+type ProjectsPage = NotionPage<{
+  lang: NotionSelectProperty;
+  title: NotionTitleProperty;
+  featuredImage: NotionFileProperty;
+  repoUrl: NotionURLProperty;
+  publicUrl: NotionURLProperty;
+  order: NotionNumberProperty;
 }>;
 // ----- END PAGES -----

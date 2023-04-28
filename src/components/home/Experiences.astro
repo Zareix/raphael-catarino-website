@@ -8,7 +8,7 @@ const t = useTranslations(lang);
 const experiences = await getAllExperiences(lang);
 ---
 
-<section id="experiences" class="flex flex-col items-center">
+<section id="experiences" class="flex flex-col items-center my-24">
   <h1>
     {t('experiences.title')}
   </h1>
@@ -16,12 +16,12 @@ const experiences = await getAllExperiences(lang);
     {t('experiences.subtitle')}
   </h2>
   <div
-    class="container flex items-end overflow-x-scroll py-4 px-2 md:snap-none my-16"
+    class="container flex items-end overflow-x-scroll py-4 px-2 md:snap-none my-10 overflow-y-hidden"
   >
     {
       experiences.map((exp) => (
         <article>
-          <div class="fade-in-bottom mx-4 flex w-max max-w-[400px] snap-center items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700  dark:bg-gray-900 dark:text-gray-50">
+          <div class="content mx-4 flex w-max max-w-[400px] snap-center items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700  dark:bg-gray-900 dark:text-gray-50">
             <Image
               src={exp.icon}
               alt={exp.entreprise}
@@ -86,14 +86,19 @@ const experiences = await getAllExperiences(lang);
 
 <script>
   import { gsap } from 'gsap';
-  gsap.from('#experiences .fade-in-bottom', {
-    scrollTrigger: {
-      trigger: '#experiences',
-      start: 'top 70%',
-    },
-    y: 100,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.2,
+
+  const articles = gsap.utils.toArray<Element>('#experiences article .content');
+
+  articles.forEach((article) => {
+    gsap.from(article, {
+      scrollTrigger: {
+        trigger: article,
+        start: 'top 90%',
+      },
+      y: 100,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.2,
+    });
   });
 </script>
