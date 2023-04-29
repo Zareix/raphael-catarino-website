@@ -34,7 +34,7 @@ importers:
       prettier: 2.8.8
       prettier-plugin-tailwindcss: 0.2.8
       react: 18.2.0
-      react-country-flag: 3.0.2
+      react-country-flag: 3.1.0
       react-dom: 18.2.0
       react-google-recaptcha-v3: 1.10.1
       react-hook-form: 7.43.9
@@ -57,7 +57,7 @@ importers:
       next-plausible: 3.7.2_gcoziurebgu6zyuvqklu6y76di
       plaiceholder: 2.5.0_sharp@0.32.1
       react: 18.2.0
-      react-country-flag: 3.0.2_react@18.2.0
+      react-country-flag: 3.1.0_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-google-recaptcha-v3: 1.10.1_biqbaboplfbrettd7655fr4n2y
       react-hook-form: 7.43.9_react@18.2.0
@@ -11141,8 +11141,8 @@ packages:
       react: 17.0.2
     dev: false
 
-  /react-country-flag/3.0.2_react@18.2.0:
-    resolution: {integrity: sha512-JPaz+q3QD0/nZtHBKj5x3O7r/SgSG9kxbymdaIU0RqlDAcorJIe4KV0DFhWIdKh69q5cPVkIVERcMYGZdvXgAA==}
+  /react-country-flag/3.1.0_react@18.2.0:
+    resolution: {integrity: sha512-JWQFw1efdv9sTC+TGQvTKXQg1NKbDU2mBiAiRWcKM9F1sK+/zjhP2yGmm8YDddWyZdXVkR8Md47rPMJmo4YO5g==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=16'
