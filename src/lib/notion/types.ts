@@ -64,6 +64,17 @@ type NotionURLProperty = NotionPropertyBase & {
   url: string;
 };
 
+type NotionDateProperty = NotionPropertyBase & {
+  date: {
+    start: string;
+    end?: string;
+  };
+};
+
+type NotionCheckboxProperty = NotionPropertyBase & {
+  checkbox: boolean;
+};
+
 type NotionCover = {
   type: 'external';
   external: {
@@ -113,6 +124,8 @@ type NotionPage<T extends Record<string, NotionPropertyBase>> = {
 type ExperiencePage = NotionPage<{
   lang: NotionSelectProperty;
   date: NotionRichTextProperty;
+  dateRange: NotionDateProperty;
+  dateIncludeMonth: NotionCheckboxProperty;
   entreprise: NotionRichTextProperty;
   icon: NotionFileProperty;
   url: NotionURLProperty;
