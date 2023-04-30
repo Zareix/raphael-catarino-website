@@ -20,7 +20,7 @@ const getAllExperiences = async (lang: Lang = defaultLang) =>
         },
         sorts: [
           {
-            property: 'order',
+            property: 'dateRange',
             direction: 'ascending',
           },
         ],
@@ -32,10 +32,15 @@ const experienceConverter = (experience: ExperiencePage) => ({
   id: experience.id,
   title: experience.properties.title.title[0].plain_text,
   entreprise: experience.properties.entreprise.rich_text[0].plain_text,
-  date: experience.properties.date.rich_text[0].plain_text,
+  date: {
+    start: new Date(experience.properties.dateRange.date.start),
+    end: experience.properties.dateRange.date.end
+      ? new Date(experience.properties.dateRange.date.end)
+      : undefined,
+  },
+  dateIncludeMonth: experience.properties.dateIncludeMonth.checkbox,
   icon: experience.properties.icon.files[0].file.url,
   url: experience.properties.url.url,
-  order: experience.properties.order.number,
 });
 
 const getAllSkills = async (lang: Lang = defaultLang) =>
