@@ -31,7 +31,7 @@
     "vanilla-tilt": "^1.8.0"
   },
   "devDependencies": {
-    "@formatjs/cli": "6.1.0",
+    "@formatjs/cli": "6.1.1",
     "@types/node": "18.16.3",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
@@ -39,7 +39,7 @@
     "@types/sharp": "0.31.1",
     "@types/styled-components": "5.1.26",
     "autoprefixer": "10.4.14",
-    "babel-plugin-formatjs": "10.5.0",
+    "babel-plugin-formatjs": "10.5.1",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.2",
     "postcss": "8.4.23",
