@@ -13,7 +13,11 @@ const t = useTranslations(lang);
 >
   <div class="mx-8 md:w-1/2">
     <h1>{t('hero.title')}</h1>
-    <h2>{t('hero.subtitle')}</h2>
+    <h2
+      class="bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-purple-800"
+    >
+      {t('hero.subtitle')}
+    </h2>
     <p
       class="fade-in-bottom first-letter:font-serif first-letter:text-3xl text-sm text-justify"
     >
@@ -21,27 +25,25 @@ const t = useTranslations(lang);
       domaine ainsi que mes divers projets.
     </p>
   </div>
-  <div class="md:w-1/3">
+  <div class="md:w-1/3 max-w-[300px]">
     <Picture
       src={heroPP}
       widths={[200, 400, 800]}
       aspectRatio="3:4"
       sizes="(max-width: 800px) 80vw, 800px"
       alt="descriptive text"
-      class="aspect-square object-cover rounded-xl fade-in-bottom"
+      class="aspect-square object-cover rounded-xl fade-in-bottom shadow-2xl shadow-blue-500/30 dark:shadow-purple-800/70"
     />
   </div>
 </section>
 
 <script>
   import { gsap } from 'gsap';
-  import SplitType from 'split-type';
 
-  const ourText = new SplitType('#hero :is(h1, h2)', { types: 'words, chars' });
   gsap
     .timeline()
-    .from(ourText.chars, {
-      y: 50,
+    .from('#hero :is(h1, h2)', {
+      y: -50,
       opacity: 0,
       stagger: 0.01,
       duration: 2,
@@ -63,11 +65,12 @@ const t = useTranslations(lang);
       },
       {
         scrollTrigger: {
+          trigger: '#hero',
           start: 'top top',
           end: 'bottom top',
           scrub: true,
         },
-        yPercent: -75,
+        yPercent: -50,
         ease: 'none',
       }
     );

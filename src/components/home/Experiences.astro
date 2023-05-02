@@ -9,7 +9,9 @@ const experiences = await getAllExperiences(lang);
 ---
 
 <section id="experiences" class="flex flex-col items-center my-24">
-  <h1>
+  <h1
+    class="bg-clip-text text-transparent bg-gradient-to-br from-slate-900 to-purple-700 to-[40%]"
+  >
     {t('experiences.title')}
   </h1>
   <h2>
@@ -112,4 +114,22 @@ const experiences = await getAllExperiences(lang);
     duration: 0.5,
     stagger: 0.2,
   });
+
+  gsap.fromTo(
+    '#experiences h1',
+    {
+      '--tw-gradient-to-position': 180,
+      ease: 'none',
+    },
+    {
+      scrollTrigger: {
+        trigger: '#experiences',
+        start: '10% bottom',
+        end: 'bottom bottom',
+        scrub: true,
+      },
+      '--tw-gradient-to-position': 20,
+      ease: 'none',
+    }
+  );
 </script>

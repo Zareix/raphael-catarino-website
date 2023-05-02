@@ -25,7 +25,7 @@ const skills = await getAllSkills(lang);
     <GridLines />
     {
       Object.keys(skills).map((domain) => (
-        <article class="relative min-w-[300px] md:w-max md:min-w-[400px] md:max-w-[30%] mx-4 flex flex-wrap justify-center gap-x-8 gap-y-2 rounded-lg border border-gray-800 bg-gray-900 bg-opacity-[83%] px-4  pt-12 pb-6 font-mono text-gray-50 shadow-md md:px-8">
+        <article class="relative overflow-hidden min-w-[300px] md:w-max md:min-w-[400px] md:max-w-[30%] mx-4 flex flex-wrap justify-center gap-x-8 gap-y-2 rounded-lg border border-gray-700 bg-slate-800/80 px-4 pt-12 pb-6 font-mono text-gray-50 shadow-md md:px-8">
           <div class="absolute top-2 left-2 flex gap-1 md:top-3 md:left-4">
             <div class="h-2 w-2 rounded-full bg-red-400 md:h-3 md:w-3" />
             <div class="aspect-square h-2 w-2 rounded-full bg-yellow-400 md:h-3 md:w-3" />
@@ -80,4 +80,44 @@ const skills = await getAllSkills(lang);
       });
     }
   });
+
+  const cards = document.querySelectorAll<HTMLElement>('#skills article');
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (event) => {
+      const e = event as MouseEvent;
+      const rect = card.getBoundingClientRect();
+      const left = e.clientX - rect.left;
+      const top = e.clientY - rect.top;
+      card.style.setProperty('--left', `${left}px`);
+      card.style.setProperty('--top', `${top}px`);
+    });
+  });
 </script>
+<style>
+  article {
+    --left: 0px;
+    --top: 0px;
+  }
+
+  article::before {
+    content: '';
+    width: 8rem;
+    height: 8rem;
+
+    border-radius: 50%;
+    @apply bg-purple-800 bg-opacity-80;
+    filter: blur(50px);
+    opacity: 0;
+    transition: opacity 350ms;
+
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    transform: translate(-50%, -50%);
+    z-index: -10;
+  }
+
+  article:hover::before {
+    opacity: 1;
+  }
+</style>
