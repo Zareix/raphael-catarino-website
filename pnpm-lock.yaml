@@ -89,7 +89,7 @@ importers:
     specifiers:
       '@retikolo/drag-drop-content-types': ^1.3.4
       '@strapi/design-system': 1.6.6
-      '@strapi/icons': 1.6.6
+      '@strapi/icons': 1.7.5
       '@strapi/plugin-i18n': 4.8.2
       '@strapi/plugin-users-permissions': 4.8.2
       '@strapi/provider-email-sendgrid': 4.8.2
@@ -101,8 +101,8 @@ importers:
       strapi-provider-upload-cloudflare-r2: ^1.0.2
     dependencies:
       '@retikolo/drag-drop-content-types': 1.3.4_vwdjea7wbmd7lmy4igpml2cb6q
-      '@strapi/design-system': 1.6.6_5sntu4xq3jigypdqw3jzpplrua
-      '@strapi/icons': 1.6.6_sfoxds7t5ydpegc3knd667wn6m
+      '@strapi/design-system': 1.6.6_nat47swkpeoizjr7cjkavzgue4
+      '@strapi/icons': 1.7.5_sfoxds7t5ydpegc3knd667wn6m
       '@strapi/plugin-i18n': 4.8.2_hjfb6m27djrhif5ahbvetebioy
       '@strapi/plugin-users-permissions': 4.8.2_hjfb6m27djrhif5ahbvetebioy
       '@strapi/provider-email-sendgrid': 4.8.2
@@ -3034,7 +3034,7 @@ packages:
       - codemirror
     dev: false
 
-  /@strapi/design-system/1.6.6_5sntu4xq3jigypdqw3jzpplrua:
+  /@strapi/design-system/1.6.6_nat47swkpeoizjr7cjkavzgue4:
     resolution: {integrity: sha512-CIOCQDJukv2VFEAF5N4wZ2sddRWuJIjN663yuE0nVTAO7dbxZepDkgA4QLk/tgWQmt9vWt4VUFK2REW7tfHUcg==}
     peerDependencies:
       '@strapi/icons': ^1.5.0
@@ -3047,7 +3047,7 @@ packages:
       '@floating-ui/react-dom': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
       '@internationalized/number': 3.1.1
       '@radix-ui/react-use-callback-ref': 1.0.0_react@17.0.2
-      '@strapi/icons': 1.6.6_sfoxds7t5ydpegc3knd667wn6m
+      '@strapi/icons': 1.7.5_sfoxds7t5ydpegc3knd667wn6m
       '@uiw/react-codemirror': 4.19.9_gfwr5mcgyugzw5b3esx4gnzila
       compute-scroll-into-view: 1.0.17
       prop-types: 15.8.1
@@ -3182,11 +3182,11 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /@strapi/icons/1.6.6_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-DxPX2WycDzoDmfi4KU7jQ7aDGTC//Sb67LxTjX2WsNeRgZrl0KxA9h2p8ZeGDD/UEw1GjPAq/x1jYAPn7/j3mQ==}
+  /@strapi/icons/1.7.5_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-wpR9OcT2YM6l1/hgBsjovXxr8vxRgZcRHdOMKEy7IAPIKO7BImlKsjW3KE/5I2G8shCXeixPPjdU+fWL4F694w==}
     peerDependencies:
-      react: ^17.0.2
-      react-dom: ^17.0.2
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
     dependencies:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
