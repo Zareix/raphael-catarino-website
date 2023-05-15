@@ -1,7 +1,7 @@
 {
   "name": "raphael-catarino-website",
   "private": true,
-  "packageManager": "pnpm@7.32.4",
+  "packageManager": "pnpm@8.5.1",
   "workspaces": [
     "apps/*"
   ],
