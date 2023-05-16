@@ -4,6 +4,12 @@ import { marked } from 'marked';
 import { env } from '@/lib/env';
 import { Lang, defaultLang } from '@/i18n/utils';
 
+const DATABASES = {
+  EXPERIENCES: '68b2593d6da04b47bf468c65b6056f68',
+  SKILLS: 'bc18a0ae0f2041b5bd31280619debcd5',
+  PROJECTS: 'f86c64f9267544cea0c060fec905fc87',
+} as const;
+
 const createNotionClient = () =>
   new Client({
     auth: env.NOTION_API_TOKEN,
@@ -24,7 +30,7 @@ const getAllExperiences = async (lang: Lang = defaultLang) =>
   (
     (
       await createNotionClient().databases.query({
-        database_id: env.NOTION_EXPERIENCES_DB,
+        database_id: DATABASES.EXPERIENCES,
         filter: {
           property: 'lang',
           select: {
@@ -63,7 +69,7 @@ const getAllSkills = async (lang: Lang = defaultLang) =>
   (
     (
       await createNotionClient().databases.query({
-        database_id: env.NOTION_SKILLS_DB,
+        database_id: DATABASES.SKILLS,
         sorts: [
           {
             property: 'order',
@@ -94,7 +100,7 @@ const getAllProjects = async (lang: Lang = defaultLang) => {
   const projects = (
     (
       await createNotionClient().databases.query({
-        database_id: env.NOTION_PROJECTS_DB,
+        database_id: DATABASES.PROJECTS,
         filter: {
           property: 'lang',
           select: {
