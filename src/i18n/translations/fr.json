@@ -16,5 +16,9 @@
     "skills": {
         "title": "Compétences",
         "subtitle": "Langages et technologies que j'utilise"
+    },
+    "projects": {
+        "title": "Projets",
+        "subtitle": "Mes projets personnels"
     }
 }

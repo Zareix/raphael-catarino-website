@@ -1,4 +1,6 @@
 import { Client } from '@notionhq/client';
+import { NotionToMarkdown } from 'notion-to-md';
+import { marked } from 'marked';
 import { env } from '@/lib/env';
 import { Lang, defaultLang } from '@/i18n/utils';
 
@@ -6,6 +8,17 @@ const createNotionClient = () =>
   new Client({
     auth: env.NOTION_API_TOKEN,
   });
+
+const addContent = async <T extends { id: string }>(page: T) => {
+  const notion = createNotionClient();
+  const n2m = new NotionToMarkdown({ notionClient: notion });
+
+  const mdString = n2m.toMarkdownString(await n2m.pageToMarkdown(page.id));
+  return {
+    ...page,
+    content: marked(mdString.parent),
+  };
+};
 
 const getAllExperiences = async (lang: Lang = defaultLang) =>
   (
@@ -39,7 +52,10 @@ const experienceConverter = (experience: ExperiencePage) => ({
       : undefined,
   },
   dateIncludeMonth: experience.properties.dateIncludeMonth.checkbox,
-  icon: experience.properties.icon.files[0].file.url,
+  icon:
+    experience.properties.icon.files[0].type === 'external'
+      ? experience.properties.icon.files[0].external.url
+      : experience.properties.icon.files[0].file.url,
   url: experience.properties.url.url,
 });
 
@@ -74,4 +90,41 @@ const skillsConverter = (lang: Lang, skill: SkillsPage) => ({
   order: skill.properties.order.number,
 });
 
-export { getAllExperiences, getAllSkills };
+const getAllProjects = async (lang: Lang = defaultLang) => {
+  const projects = (
+    (
+      await createNotionClient().databases.query({
+        database_id: env.NOTION_PROJECTS_DB,
+        filter: {
+          property: 'lang',
+          select: {
+            equals: lang,
+          },
+        },
+        sorts: [
+          {
+            property: 'order',
+            direction: 'ascending',
+          },
+        ],
+      })
+    ).results as ProjectsPage[]
+  ).map(projectsConverter);
+  return await Promise.all(projects.map(addContent));
+};
+
+const projectsConverter = (project: ProjectsPage) => ({
+  id: project.id,
+  lang: project.properties.lang.select.name,
+  title: project.properties.title.title[0].plain_text,
+  featuredImage:
+    project.properties.featuredImage.files[0].type === 'external'
+      ? project.properties.featuredImage.files[0].external.url
+      : project.properties.featuredImage.files[0].file.url,
+  repoUrl: project.properties.repoUrl?.url,
+  publicUrl: project.properties.publicUrl?.url,
+  technologies: project.properties.technologies.multi_select.map((x) => x.name),
+  order: project.properties.order.number,
+});
+
+export { getAllExperiences, getAllSkills, getAllProjects };
