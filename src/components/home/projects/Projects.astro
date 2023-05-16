@@ -1,0 +1,199 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getAllProjects } from '@/lib/notion';
+import { Picture } from '@astrojs/image/components';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const projects = await getAllProjects(lang);
+---
+
+<section
+  id="projects"
+  class="grid w-full place-content-center overflow-hidden py-12"
+>
+  <h1>
+    {t('projects.title')}
+  </h1>
+  <h2>
+    {t('projects.subtitle')}
+  </h2>
+  <div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+    {
+      projects.map((project) => (
+        <article
+          class="group relative m-4 overflow-hidden rounded-md bg-stone-100 transition-shadow hover:shadow-xl"
+          data-title={project.title}
+          data-text={project.content}
+        >
+          <Picture
+            src={project.featuredImage}
+            widths={[200, 400]}
+            aspectRatio="16:9"
+            sizes="(max-width: 800px) 80vw, 600px"
+            alt="descriptive text"
+            fit="cover"
+            class="w-full"
+          />
+          <div class="overlay absolute inset-0 grid place-content-center bg-slate-900/40 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
+            <h3 class="text-white">{project.title}</h3>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+  <div class="detail rounded-lg">
+    <img />
+    <div class="content rounded-b-lg bg-white">
+      <h2 class="title">Placeholder title</h2>
+      <div class="description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure cum, est
+        amet delectus, blanditiis voluptatem laborum pariatur consequatur quae
+        voluptate, nisi. Laborum adipisci iste earum distinctio, fugit, quas
+        ipsa impedit.
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .detail {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    width: 90.1vmin;
+    cursor: pointer;
+    font-size: 0;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    max-height: 100%;
+    overflow: auto;
+
+    img {
+      position: relative;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .content {
+      padding: 2rem 1.5rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+      flex-grow: 1;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { Flip } from 'gsap/Flip';
+
+  gsap.registerPlugin(Flip);
+
+  const items = gsap.utils.toArray('#projects article'),
+    details = document.querySelector('#projects .detail'),
+    detailContent = document.querySelector('#projects .content'),
+    detailImage = document.querySelector('#projects .detail img'),
+    detailTitle = document.querySelector('#projects .detail .title'),
+    detailDescription = document.querySelector(
+      '#projects .detail .description'
+    );
+
+  let activeItem: Element | null; // keeps track of which item is open (details)
+
+  gsap.set(detailContent, { yPercent: -100 }); // close the details "drawer" (content) initially
+
+  function showDetails(item: HTMLElement) {
+    if (activeItem) {
+      // someone could click on an element behind the open details panel in which case we should just close it.
+      return hideDetails();
+    }
+    let onLoad = () => {
+      // position the details on top of the item (scaled down)
+      Flip.fit(details, item, { scale: true, fitChild: detailImage });
+
+      // record the state
+      const state = Flip.getState(details);
+
+      // set the final state
+      gsap.set(details, { clearProps: true }); // wipe out all inline stuff so it's in the native state (not scaled)
+      gsap.set(details, {
+        xPercent: -50,
+        top: '50%',
+        yPercent: -50,
+        visibility: 'visible',
+        overflow: 'hidden',
+      });
+
+      Flip.from(state, {
+        duration: 0.5,
+        scale: true,
+        onComplete: () => {
+          gsap.set(details, { overflow: 'auto' });
+        }, // to permit scrolling if necessary
+      })
+        // Flip.from() returns a timeline, so add a tween to reveal the detail content. That way, if the flip gets interrupted and forced to completion & killed, this does too.
+        .to(detailContent, { yPercent: 0, delay: -0.2 }, 0.2);
+
+      detailImage?.removeEventListener('load', onLoad);
+      document.addEventListener('click', hideDetails);
+    };
+
+    // Change image and text
+    const data = item.dataset;
+    if (!detailImage || !detailTitle || !detailDescription) return;
+    detailImage.addEventListener('load', onLoad);
+    (detailImage as HTMLImageElement).src = item.querySelector('img')!.src;
+    (detailTitle as HTMLHeadingElement).innerText = data.title!;
+    detailDescription.innerHTML = data.text!;
+
+    // stagger-fade the items out from the one that was selected in a staggered way (and kill the tween of the selected item)
+    gsap
+      .to(items, {
+        opacity: 0.3,
+        stagger: { amount: 0.7, from: items.indexOf(item), grid: 'auto' },
+      })
+      .kill(item);
+    // gsap.to('.app', { backgroundColor: '#888', duration: 1, delay: 0.3 }); // fade out the background
+    activeItem = item;
+  }
+
+  function hideDetails() {
+    document.removeEventListener('click', hideDetails);
+    gsap.set(details, { overflow: 'hidden' });
+
+    // record the current state of details
+    const state = Flip.getState(details);
+
+    // scale details down so that its detailImage fits exactly on top of activeItem
+    Flip.fit(details, activeItem, { scale: true, fitChild: detailImage });
+
+    // animate the other elements, like all fade all items back up to full opacity, slide the detailContent away, and tween the background color to white.
+    const tl = gsap.timeline();
+    tl.set(details, { overflow: 'hidden' })
+      .to(detailContent, { yPercent: -100 })
+      .to(items, {
+        opacity: 1,
+        stagger: { amount: 0.7, from: items.indexOf(activeItem), grid: 'auto' },
+      });
+    // .to('.app', { backgroundColor: '#fff' }, '<');
+
+    // animate from the original state to the current one.
+    Flip.from(state, {
+      scale: true,
+      duration: 0.5,
+      onInterrupt: () => {
+        tl.kill();
+      },
+    }).set(details, { visibility: 'hidden' });
+
+    activeItem = null;
+  }
+
+  // Add click listeners
+  gsap.utils
+    .toArray<HTMLElement>('#projects article')
+    .forEach((item) => item.addEventListener('click', () => showDetails(item)));
+</script>

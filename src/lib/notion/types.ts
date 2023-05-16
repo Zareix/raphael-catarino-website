@@ -4,6 +4,27 @@ type NotionPropertyBase = {
   type: string;
 };
 
+type NotionColor =
+  | 'default'
+  | 'gray'
+  | 'brown'
+  | 'orange'
+  | 'yellow'
+  | 'green'
+  | 'blue'
+  | 'purple'
+  | 'pink'
+  | 'red'
+  | 'gray_background'
+  | 'brown_background'
+  | 'orange_background'
+  | 'yellow_background'
+  | 'green_background'
+  | 'blue_background'
+  | 'purple_background'
+  | 'pink_background'
+  | 'red_background';
+
 type NotionAnnotations = {
   bold: boolean;
   italic: boolean;
@@ -25,14 +46,22 @@ type NotionRichTextProperty = NotionPropertyBase & {
   rich_text: Array<NotionRichText>;
 };
 
-type NotionFile = {
-  name: string;
-  type: string;
-  file: {
-    url: string;
-    expiry_time: string;
-  };
-};
+type NotionFile =
+  | {
+      name: string;
+      type: 'file';
+      file: {
+        url: string;
+        expiry_time: string;
+      };
+    }
+  | {
+      name: string;
+      type: 'external';
+      external: {
+        url: string;
+      };
+    };
 
 type NotionFileProperty = NotionPropertyBase & {
   files: Array<NotionFile>;
@@ -98,6 +127,14 @@ type NotionNumberProperty = NotionPropertyBase & {
   number: number;
 };
 
+type NotionMultiselectProperty = NotionPropertyBase & {
+  multi_select: Array<{
+    id: string;
+    name: string;
+    color: NotionColor;
+  }>;
+};
+
 type NotionPage<T extends Record<string, NotionPropertyBase>> = {
   object: string;
   id: string;
@@ -147,6 +184,7 @@ type ProjectsPage = NotionPage<{
   featuredImage: NotionFileProperty;
   repoUrl: NotionURLProperty;
   publicUrl: NotionURLProperty;
+  technologies: NotionMultiselectProperty;
   order: NotionNumberProperty;
 }>;
 // ----- END PAGES -----

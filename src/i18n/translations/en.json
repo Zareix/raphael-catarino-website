@@ -16,5 +16,9 @@
     "skills": {
         "title": "Skills",
         "subtitle": "Technologies and tools I use"
+    },
+    "projects": {
+        "title": "Projects",
+        "subtitle": "Some projects I worked on"
     }
 }
