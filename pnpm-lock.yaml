@@ -23,8 +23,8 @@ dependencies:
     specifier: ^1.0.11
     version: 1.0.11
   '@t3-oss/env-core':
-    specifier: ^0.2.1
-    version: 0.2.1(zod@3.21.4)
+    specifier: ^0.3.0
+    version: 0.3.0(typescript@5.0.4)(zod@3.21.4)
   '@types/node':
     specifier: ^18.16.1
     version: 18.16.1
@@ -771,11 +771,13 @@ packages:
     resolution: {integrity: sha512-N4VpYVXQS0BhbExl9CADyPp3vmRb2p4JME+exdguT/OrYTprkUv13BQODtryR/QebWS36n/NKgic5lVBMMa4+A==}
     dev: false
 
-  /@t3-oss/env-core@0.2.1(zod@3.21.4):
-    resolution: {integrity: sha512-aTf/E+t0i7WsHJelg8LaynUVgIXeQdDViIr3LCL8XiE+qzE8vWoTgfc+VML/lBBgE2cbcG2VCBnk45EUCjIRdQ==}
+  /@t3-oss/env-core@0.3.0(typescript@5.0.4)(zod@3.21.4):
+    resolution: {integrity: sha512-d2D/CSvPPPooysZFO4OZH/aneYVppwjnYJSyBMcZtvtDQH++QgmHlOui8aUriPf4+Ul/DmhQjQEh0eGorINihw==}
     peerDependencies:
+      typescript: '>=4.7.2'
       zod: ^3.0.0
     dependencies:
+      typescript: 5.0.4
       zod: 3.21.4
     dev: false
 
