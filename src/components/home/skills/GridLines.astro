@@ -1,26 +1,23 @@
 <div class="grid-lines w-full">
-  <div class="vertical left-0"></div>
   <div class="vertical left-1/4"></div>
   <div class="vertical left-2/4"></div>
   <div class="vertical left-3/4"></div>
-  <div class="vertical right-0"></div>
-  <div class="horizontal top-0"></div>
-  <div class="horizontal top-1/2"></div>
-  <div class="horizontal bottom-0"></div>
-  <div class="vertical outer -right-[25%]"></div>
-  <div class="vertical outer -left-[25%]"></div>
+  <div class="horizontal top-1/4"></div>
+  <div class="horizontal top-2/4"></div>
+  <div class="horizontal top-3/4"></div>
 </div>
-<style>
-  .grid-lines > div {
-    @apply absolute from-slate-400/0 via-slate-400/60 to-slate-400/0;
-  }
-  .grid-lines > .vertical {
-    @apply -top-1/2 h-[200%] w-px bg-gradient-to-b;
-  }
-  .grid-lines > .horizontal {
-    @apply -left-1/2 h-px w-[200%] bg-gradient-to-r;
-  }
-  .grid-lines > .outer {
-    @apply via-slate-400/50;
+<style lang="scss">
+  .grid-lines {
+    div {
+      @apply absolute from-gray-400/0 via-gray-400/80 to-gray-400/0;
+
+      &.vertical {
+        @apply top-[-10%] h-[120%] w-px bg-gradient-to-b;
+      }
+
+      &.horizontal {
+        @apply left-[-10%] h-px w-[120%] bg-gradient-to-r;
+      }
+    }
   }
 </style>
