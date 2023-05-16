@@ -25,7 +25,7 @@
     "notion-to-md": "^2.7.0",
     "sass": "^1.62.1",
     "save-dev": "0.0.1-security",
-    "sharp": "^0.31.3",
+    "sharp": "^0.32.0",
     "split-type": "^0.3.3",
     "tailwindcss": "^3.0.24",
     "zod": "^3.21.4"
