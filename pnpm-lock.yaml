@@ -13,15 +13,12 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^3.1.1
     version: 3.1.1(astro@2.3.1)(tailwindcss@3.3.2)
-  '@fontsource/inter':
-    specifier: ^4.5.15
-    version: 4.5.15
+  '@fontsource-variable/inter':
+    specifier: ^5.0.1
+    version: 5.0.1
   '@notionhq/client':
     specifier: ^2.2.4
     version: 2.2.4
-  '@studio-freight/lenis':
-    specifier: ^1.0.11
-    version: 1.0.11
   '@t3-oss/env-core':
     specifier: ^0.3.0
     version: 0.3.0(typescript@5.0.4)(zod@3.21.4)
@@ -38,11 +35,11 @@ dependencies:
     specifier: ^3.11.5
     version: 3.11.5
   marked:
-    specifier: ^5.0.1
-    version: 5.0.1
+    specifier: ^5.0.2
+    version: 5.0.2
   notion-to-md:
-    specifier: ^2.7.0
-    version: 2.7.0
+    specifier: ^3.0.1
+    version: 3.0.1
   sass:
     specifier: ^1.62.1
     version: 1.62.1
@@ -64,8 +61,8 @@ dependencies:
 
 devDependencies:
   '@types/marked':
-    specifier: ^4.3.0
-    version: 4.3.0
+    specifier: ^5.0.0
+    version: 5.0.0
   prettier:
     specifier: ^2.8.8
     version: 2.8.8
@@ -675,8 +672,8 @@ packages:
     dev: false
     optional: true
 
-  /@fontsource/inter@4.5.15:
-    resolution: {integrity: sha512-FzleM9AxZQK2nqsTDtBiY0PMEVWvnKnuu2i09+p6DHvrHsuucoV2j0tmw+kAT3L4hvsLdAIDv6MdGehsPIdT+Q==}
+  /@fontsource-variable/inter@5.0.1:
+    resolution: {integrity: sha512-cqBEayOWZqERrWnwDUTyUsClZpN1Pv3w/1+NRxwKV4sRdy3RyyRL9DRIgauq8ySxNtJ5ZkNimxsZzCdoiR2Fcw==}
     dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
@@ -767,10 +764,6 @@ packages:
       escalade: 3.1.1
     dev: false
 
-  /@studio-freight/lenis@1.0.11:
-    resolution: {integrity: sha512-N4VpYVXQS0BhbExl9CADyPp3vmRb2p4JME+exdguT/OrYTprkUv13BQODtryR/QebWS36n/NKgic5lVBMMa4+A==}
-    dev: false
-
   /@t3-oss/env-core@0.3.0(typescript@5.0.4)(zod@3.21.4):
     resolution: {integrity: sha512-d2D/CSvPPPooysZFO4OZH/aneYVppwjnYJSyBMcZtvtDQH++QgmHlOui8aUriPf4+Ul/DmhQjQEh0eGorINihw==}
     peerDependencies:
@@ -830,8 +823,8 @@ packages:
     resolution: {integrity: sha512-sqm9g7mHlPY/43fcSNrCYfOeX9zkTTK+euO5E6+CVijSMm5tTjkVdwdqRkY3ljjIAf8679vps5jKUoJBCLsMDA==}
     dev: false
 
-  /@types/marked@4.3.0:
-    resolution: {integrity: sha512-zK4gSFMjgslsv5Lyvr3O1yCjgmnE4pr8jbG8qVn4QglMwtpvPCf4YT2Wma7Nk95OxUUJI8Z+kzdXohbM7mVpGw==}
+  /@types/marked@5.0.0:
+    resolution: {integrity: sha512-YcZe50jhltsCq7rc9MNZC/4QB/OnA2Pd6hrOSTOFajtabN+38slqgDDCeE/0F83SjkKBQcsZUj7VLWR0H5cKRA==}
     dev: true
 
   /@types/mdast@3.0.11:
@@ -2130,8 +2123,8 @@ packages:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
     dev: false
 
-  /marked@5.0.1:
-    resolution: {integrity: sha512-Nn9peC4lvIZdcfp8Uze6xk4ZYowkcj/K6+e/6rLHadhtjqeip/bYRxMgt3124IGGJ3RPs2uX5YVmAGbUutY18g==}
+  /marked@5.0.2:
+    resolution: {integrity: sha512-TXksm9GwqXCRNbFUZmMtqNLvy3K2cQHuWmyBDLOrY1e6i9UvZpOTJXoz7fBjYkJkaUFzV9hBFxMuZSyQt8R6KQ==}
     engines: {node: '>= 18'}
     hasBin: true
     dev: false
@@ -2650,11 +2643,14 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /notion-to-md@2.7.0:
-    resolution: {integrity: sha512-KVn3nLjcfR1ApW9KC/YbNWOhOxocWE1Gsng/Ih6U+GxsV43dNVZuxxWuO4SRAFr68WFmNvmJexB+7bDYNJUIJQ==}
+  /notion-to-md@3.0.1:
+    resolution: {integrity: sha512-cqo5tbIwZXxg6AtMTZ+nHKGGdS1tmBI8bEZdHJPPmVx1gGeQI0LNu8R0NO/pJvxBvT1eIcZz75mEWC2U1aO3uA==}
     engines: {node: '>=12'}
     dependencies:
       markdown-table: 2.0.0
+      node-fetch: 2.6.9
+    transitivePeerDependencies:
+      - encoding
     dev: false
 
   /npm-run-path@5.1.0:

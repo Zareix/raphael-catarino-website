@@ -1,5 +1,5 @@
 ---
-import '@fontsource/inter/variable.css';
+import '@fontsource-variable/inter';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Nav, { type NavigationLink } from './Nav.astro';
 
@@ -46,8 +46,8 @@ const links: NavigationLink[] = [
 <style is:global lang="scss">
   html,
   body {
-    @apply text-sm text-slate-900 bg-stone-50 dark:text-stone-50 dark:bg-slate-900;
-    font-family: 'Inter', sans-serif;
+    @apply bg-stone-50 text-sm text-slate-900 dark:bg-slate-900 dark:text-stone-50;
+    font-family: 'Inter Variable', sans-serif;
     font-size: 1.2rem;
     line-height: 1.5;
     scroll-behavior: smooth;
@@ -87,21 +87,8 @@ const links: NavigationLink[] = [
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   import SplitType from 'split-type';
-  // import Lenis from '@studio-freight/lenis';
+
   gsap.registerPlugin(ScrollTrigger);
-
-  // const lenis = new Lenis();
-
-  // lenis.on('scroll', (e: Event) => {
-  //   console.log(e);
-  // });
-
-  // const raf: FrameRequestCallback = (time) => {
-  //   lenis.raf(time);
-  //   requestAnimationFrame(raf);
-  // };
-
-  // requestAnimationFrame(raf);
 
   const subtitles = document.querySelectorAll('section:not(#hero) > h2');
   subtitles.forEach((subtitle) => {
