@@ -22,7 +22,10 @@ const addContent = async <T extends { id: string }>(page: T) => {
   const mdString = n2m.toMarkdownString(await n2m.pageToMarkdown(page.id));
   return {
     ...page,
-    content: marked(mdString.parent),
+    content: marked(mdString.parent, {
+      mangle: false,
+      headerIds: false,
+    }),
   };
 };
 
