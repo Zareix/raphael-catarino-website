@@ -3,9 +3,7 @@ import { z } from 'zod';
 
 export const env = createEnv({
   clientPrefix: 'ASTRO_PUBLIC_',
-  server: {
-    NOTION_API_TOKEN: z.string(),
-  },
+  server: {},
   client: {},
   runtimeEnv: import.meta.env,
   skipValidation: !!import.meta.env.SKIP_ENV_VALIDATION,

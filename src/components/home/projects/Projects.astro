@@ -1,11 +1,14 @@
 ---
+import ProjectContent from './ProjectContent.astro';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import { getAllProjects } from '@/lib/notion';
 import { Picture } from '@astrojs/image/components';
+import { getCollection } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const projects = await getAllProjects(lang);
+const projects = await getCollection('projects', ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
 ---
 
 <section
@@ -21,22 +24,18 @@ const projects = await getAllProjects(lang);
   <div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     {
       projects.map((project) => (
-        <article
-          class="group relative m-4 overflow-hidden rounded-md bg-stone-100 transition-shadow hover:shadow-xl"
-          data-title={project.title}
-          data-text={project.content}
-        >
+        <article class="group relative m-4 overflow-hidden rounded-md bg-stone-100 transition-shadow hover:shadow-xl">
           <Picture
-            src={project.featuredImage}
+            src={`/home/projects/${project.data.featuredImage}`}
+            alt={project.data.title}
             widths={[200, 400]}
             aspectRatio="16:9"
             sizes="(max-width: 800px) 80vw, 600px"
-            alt="descriptive text"
             fit="cover"
             class="w-full"
           />
-          <div class="overlay absolute inset-0 grid place-content-center bg-slate-900/40 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
-            <h3 class="text-white">{project.title}</h3>
+          <div class="overlay absolute inset-0 grid place-content-center bg-gray-950/40 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
+            <h3 class="text-white">{project.data.title}</h3>
           </div>
         </article>
       ))

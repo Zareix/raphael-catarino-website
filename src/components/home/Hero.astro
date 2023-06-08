@@ -9,30 +9,29 @@ const t = useTranslations(lang);
 
 <section
   id="hero"
-  class="h-screen flex flex-col md:flex-row items-center justify-center gap-4 bg-gradient-to-b from-stone-300 to-stone-50 dark:from-slate-950 dark:to-slate-900"
+  class="flex h-screen flex-col items-center justify-center gap-4 bg-gradient-to-b from-stone-300 to-stone-50 dark:from-slate-950 dark:to-slate-900 md:flex-row"
 >
   <div class="mx-8 md:w-1/2">
     <h1>{t('hero.title')}</h1>
     <h2
-      class="bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-purple-800"
+      class="bg-gradient-to-br from-blue-400 to-purple-800 bg-clip-text text-transparent"
     >
       {t('hero.subtitle')}
     </h2>
     <p
-      class="fade-in-bottom first-letter:font-serif first-letter:text-3xl text-sm text-justify"
+      class="fade-in-bottom text-justify text-sm first-letter:font-serif first-letter:text-3xl"
     >
-      Vous trouverez sur ce site l'intégralité de mes compétences dans ce
-      domaine ainsi que mes divers projets.
+      {t('hero.description')}
     </p>
   </div>
-  <div class="md:w-1/3 max-w-[300px]">
+  <div class="max-w-[300px] md:w-1/3">
     <Picture
       src={heroPP}
       widths={[200, 400, 800]}
       aspectRatio="3:4"
       sizes="(max-width: 800px) 80vw, 800px"
       alt="descriptive text"
-      class="aspect-square object-cover rounded-xl fade-in-bottom shadow-2xl shadow-blue-500/30 dark:shadow-purple-800/70"
+      class="fade-in-bottom aspect-square rounded-xl object-cover shadow-2xl shadow-blue-500/30 dark:shadow-purple-800/70"
     />
   </div>
 </section>

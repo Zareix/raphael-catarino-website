@@ -4,5 +4,5 @@ experiences:
     enterprise: High School La Rochefoucauld
     link: https://laroche.org/
     logo: 'laroche.webp'
-    date: 2019
+    date: '2019'
 ---

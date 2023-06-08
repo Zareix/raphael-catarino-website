@@ -1,21 +1,15 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import { getAllExperiences } from '@/lib/notion';
 import { Image } from '@astrojs/image/components';
+import { getCollection } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const experiences = (
-  await Astro.glob<{
-    experiences: {
-      title: string;
-      enterprise: string;
-      link: string;
-      logo: string;
-      date: string;
-    }[];
-  }>(`../../content/**/experiences.md`)
-).filter((x) => x.file.includes(`/${lang}/`))[0].frontmatter.experiences;
+  await getCollection('experiences', ({ id }) => {
+    return id.startsWith(`${lang}.`);
+  })
+)[0].data.experiences;
 ---
 
 <section id="experiences" class="my-24 flex flex-col items-center">

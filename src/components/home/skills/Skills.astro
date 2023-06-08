@@ -1,20 +1,14 @@
 ---
 import { Image } from '@astrojs/image/components';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import { getAllSkills } from '@/lib/notion';
 import GridLines from '@/components/home/skills/GridLines.astro';
+import { getCollection } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const skills = (
-  await Astro.glob<{
-    name: string;
-    technologies: {
-      name: string;
-      icon: string;
-    }[];
-  }>(`../../../content/**/skills/*.md`)
-).filter((x) => x.file.includes(`/${lang}/`));
+const skills = await getCollection('skills', ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
 ---
 
 <section
@@ -40,9 +34,9 @@ const skills = (
             <div class="aspect-square h-2 w-2 rounded-full bg-green-400 md:h-3 md:w-3" />
           </div>
           <h3 class="absolute left-1/2 top-4 -translate-x-1/2 whitespace-nowrap md:top-2">
-            {domain.frontmatter.name}
+            {domain.data.name}
           </h3>
-          {domain.frontmatter.technologies.map((skill) => (
+          {domain.data.technologies.map((skill) => (
             <div class="grid max-w-[33%] justify-items-center text-center">
               <Image
                 src={skill.icon}

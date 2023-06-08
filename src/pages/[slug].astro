@@ -1,14 +1,16 @@
 ---
 export function getStaticPaths() {
-  return [{ params: { slug: 'blog' } }];
+  return [{ params: { slug: 'blog' } }, { params: { slug: 'sw.js' } }];
 }
 ---
 
 <script is:inline>
-  const slug = window.location.pathname.split('/')[1] || '';
-  if (navigator.language.startsWith('fr')) {
-    window.location.pathname = `/fr/${slug}`;
-  } else {
-    window.location.pathname = `/en/${slug}`;
-  }
+const slug = window.location.pathname.split('/')[1] || '';
+if (navigator.language.startsWith('fr')) {
+  window.location.pathname = `/fr/${slug}`;
+} else if (navigator.language.startsWith('en')) {
+  window.location.pathname = `/en/${slug}`;
+} else {
+  window.location.pathname = `${slug}`;
+}
 </script>
