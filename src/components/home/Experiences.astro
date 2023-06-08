@@ -5,12 +5,22 @@ import { Image } from '@astrojs/image/components';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const experiences = await getAllExperiences(lang);
+const experiences = (
+  await Astro.glob<{
+    experiences: {
+      title: string;
+      enterprise: string;
+      link: string;
+      logo: string;
+      date: string;
+    }[];
+  }>(`../../content/**/experiences.md`)
+).filter((x) => x.file.includes(`/${lang}/`))[0].frontmatter.experiences;
 ---
 
-<section id="experiences" class="flex flex-col items-center my-24">
+<section id="experiences" class="my-24 flex flex-col items-center">
   <h1
-    class="bg-clip-text text-transparent bg-gradient-to-br from-slate-900 to-purple-700 to-[40%]"
+    class="bg-gradient-to-br from-slate-900 to-purple-700 to-[40%] bg-clip-text text-transparent"
   >
     {t('experiences.title')}
   </h1>
@@ -18,47 +28,32 @@ const experiences = await getAllExperiences(lang);
     {t('experiences.subtitle')}
   </h2>
   <div
-    class="container flex items-end overflow-x-scroll py-4 px-2 md:snap-none my-10 overflow-y-hidden"
+    class="container my-10 flex items-end overflow-y-hidden overflow-x-scroll px-2 py-4 md:snap-none"
   >
     {
       experiences.map((exp) => (
         <article>
           <div class="content mx-4 flex w-max max-w-[400px] snap-center items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700  dark:bg-gray-900 dark:text-gray-50">
             <Image
-              src={exp.icon}
-              alt={exp.entreprise}
+              src={`/home/experiences/${exp.logo}`}
+              alt={exp.enterprise}
               width={48}
               height={48}
               fit="contain"
               background="rgba(255,255,255,0)"
-              format={exp.icon.includes('.svg') ? 'svg' : 'png'}
+              format={exp.logo.includes('.svg') ? 'svg' : 'png'}
             />
             <div>
               <h3 class="w-min text-lg font-bold">{exp.title}</h3>
-              <a href={exp.url} class="hover:underline">
-                <h4 class="text-zinc-600 dark:text-zinc-400 text-sm">
-                  {exp.entreprise}
+              <a href={exp.link} class="hover:underline">
+                <h4 class="text-sm text-zinc-600 dark:text-zinc-400">
+                  {exp.enterprise}
                 </h4>
               </a>
             </div>
           </div>
-          <div class="mt-8 text-center text-zinc-600 dark:text-zinc-300 text-sm">
-            {exp.date.start.toLocaleDateString(lang, {
-              day: undefined,
-              month: exp.dateIncludeMonth ? 'long' : undefined,
-              year: 'numeric',
-            })}
-            {exp.date.end && (
-              <>
-                {' '}
-                -{' '}
-                {exp.date.end.toLocaleDateString(lang, {
-                  day: undefined,
-                  month: exp.dateIncludeMonth ? 'long' : undefined,
-                  year: 'numeric',
-                })}
-              </>
-            )}
+          <div class="mt-8 text-center text-sm text-zinc-600 dark:text-zinc-300">
+            {exp.date}
           </div>
         </article>
       ))

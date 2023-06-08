@@ -158,26 +158,6 @@ type NotionPage<T extends Record<string, NotionPropertyBase>> = {
 // ----- END NOTION BASE -----
 
 // ----- PAGES -----
-type ExperiencePage = NotionPage<{
-  lang: NotionSelectProperty;
-  date: NotionRichTextProperty;
-  dateRange: NotionDateProperty;
-  dateIncludeMonth: NotionCheckboxProperty;
-  entreprise: NotionRichTextProperty;
-  icon: NotionFileProperty;
-  url: NotionURLProperty;
-  title: NotionTitleProperty;
-  order: NotionNumberProperty;
-}>;
-
-type SkillsPage = NotionPage<{
-  title: NotionTitleProperty;
-  icon: NotionURLProperty;
-  'domain-en': NotionSelectProperty;
-  'domain-fr': NotionSelectProperty;
-  order: NotionNumberProperty;
-}>;
-
 type ProjectsPage = NotionPage<{
   lang: NotionSelectProperty;
   title: NotionTitleProperty;

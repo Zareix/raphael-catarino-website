@@ -5,8 +5,6 @@ import { env } from '@/lib/env';
 import { Lang, defaultLang } from '@/i18n/utils';
 
 const DATABASES = {
-  EXPERIENCES: '68b2593d6da04b47bf468c65b6056f68',
-  SKILLS: 'bc18a0ae0f2041b5bd31280619debcd5',
   PROJECTS: 'f86c64f9267544cea0c060fec905fc87',
 } as const;
 
@@ -28,76 +26,6 @@ const addContent = async <T extends { id: string }>(page: T) => {
     }),
   };
 };
-
-const getAllExperiences = async (lang: Lang = defaultLang) =>
-  (
-    (
-      await createNotionClient().databases.query({
-        database_id: DATABASES.EXPERIENCES,
-        filter: {
-          property: 'lang',
-          select: {
-            equals: lang,
-          },
-        },
-        sorts: [
-          {
-            property: 'dateRange',
-            direction: 'ascending',
-          },
-        ],
-      })
-    ).results as ExperiencePage[]
-  ).map(experienceConverter);
-
-const experienceConverter = (experience: ExperiencePage) => ({
-  id: experience.id,
-  title: experience.properties.title.title[0].plain_text,
-  entreprise: experience.properties.entreprise.rich_text[0].plain_text,
-  date: {
-    start: new Date(experience.properties.dateRange.date.start),
-    end: experience.properties.dateRange.date.end
-      ? new Date(experience.properties.dateRange.date.end)
-      : undefined,
-  },
-  dateIncludeMonth: experience.properties.dateIncludeMonth.checkbox,
-  icon:
-    experience.properties.icon.files[0].type === 'external'
-      ? experience.properties.icon.files[0].external.url
-      : experience.properties.icon.files[0].file.url,
-  url: experience.properties.url.url,
-});
-
-const getAllSkills = async (lang: Lang = defaultLang) =>
-  (
-    (
-      await createNotionClient().databases.query({
-        database_id: DATABASES.SKILLS,
-        sorts: [
-          {
-            property: 'order',
-            direction: 'ascending',
-          },
-        ],
-      })
-    ).results as SkillsPage[]
-  )
-    .map((x) => skillsConverter(lang, x))
-    .reduce((acc, curr) => {
-      if (!acc[curr.domain]) {
-        acc[curr.domain] = [];
-      }
-      acc[curr.domain].push(curr);
-      return acc;
-    }, {} as Record<string, ReturnType<typeof skillsConverter>[]>);
-
-const skillsConverter = (lang: Lang, skill: SkillsPage) => ({
-  id: skill.id,
-  title: skill.properties.title.title[0].plain_text,
-  icon: skill.properties.icon.url,
-  domain: skill.properties[`domain-${lang}`].select.name,
-  order: skill.properties.order.number,
-});
 
 const getAllProjects = async (lang: Lang = defaultLang) => {
   const projects = (
@@ -136,4 +64,4 @@ const projectsConverter = (project: ProjectsPage) => ({
   order: project.properties.order.number,
 });
 
-export { getAllExperiences, getAllSkills, getAllProjects };
+export { getAllProjects };
