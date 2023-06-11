@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@astrojs/image':
     specifier: ^0.16.6
@@ -20,8 +24,8 @@ dependencies:
     specifier: ^2.2.4
     version: 2.2.4
   '@t3-oss/env-core':
-    specifier: ^0.3.0
-    version: 0.3.0(typescript@5.0.4)(zod@3.21.4)
+    specifier: ^0.4.0
+    version: 0.4.0(typescript@5.0.4)(zod@3.21.4)
   '@types/node':
     specifier: ^18.16.1
     version: 18.16.1
@@ -764,8 +768,8 @@ packages:
       escalade: 3.1.1
     dev: false
 
-  /@t3-oss/env-core@0.3.0(typescript@5.0.4)(zod@3.21.4):
-    resolution: {integrity: sha512-d2D/CSvPPPooysZFO4OZH/aneYVppwjnYJSyBMcZtvtDQH++QgmHlOui8aUriPf4+Ul/DmhQjQEh0eGorINihw==}
+  /@t3-oss/env-core@0.4.0(typescript@5.0.4)(zod@3.21.4):
+    resolution: {integrity: sha512-6JlMp0Vru15q/axHzBKsQQjiyGS6k+EsZBY1iErGVmOGzNSoVluBahnYFP7tEkwZ7KoRgSq4NRIc1Ez7SVYuxQ==}
     peerDependencies:
       typescript: '>=4.7.2'
       zod: ^3.0.0
