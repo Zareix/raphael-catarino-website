@@ -9,4 +9,4 @@ My portfolio / blog v3
 
 ## Stack
 
-- Front : Astro
+- 100% Astro
