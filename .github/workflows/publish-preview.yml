@@ -21,7 +21,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 19
+          node-version: 20
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
@@ -45,7 +45,6 @@ jobs:
       - name: Run build command
         run: |
           export NODE_ENV=production
-          export NOTION_API_TOKEN=${{ secrets.NOTION_API_TOKEN }}
           pnpm run build
       - name: Archive dist
         uses: actions/upload-artifact@v3
