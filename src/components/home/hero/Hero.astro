@@ -15,11 +15,11 @@ const t = useTranslations(lang);
   <div class="mx-8">
     <h1>{t('hero.title')}</h1>
     <h2
-      class="bg-gradient-to-br from-blue-400 to-purple-800 bg-clip-text text-transparent"
+      class="mx-0 bg-gradient-to-br from-blue-400 to-purple-800 bg-clip-text text-transparent"
     >
       {t('hero.subtitle')}
     </h2>
-    <div class="hidden lg:block">
+    <div class="mt-2 hidden md:block">
       <SocialsIcon />
     </div>
   </div>
@@ -32,7 +32,7 @@ const t = useTranslations(lang);
       alt="descriptive text"
       class="fade-in-bottom aspect-square rounded-xl object-cover shadow-2xl shadow-blue-500/30 dark:shadow-purple-800/70"
     />
-    <div class="flex justify-end lg:hidden">
+    <div class="mt-2 flex justify-end md:hidden">
       <SocialsIcon />
     </div>
   </div>
