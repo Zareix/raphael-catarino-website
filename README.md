@@ -10,4 +10,3 @@ My portfolio / blog v3
 ## Stack
 
 - Front : Astro
-- CMS (Headless) : Notion Databases
