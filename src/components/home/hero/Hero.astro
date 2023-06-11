@@ -2,6 +2,7 @@
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import heroPP from '@/assets/hero-pp.jpg';
 import { Picture } from '@astrojs/image/components';
+import SocialsIcon from './SocialsIcon.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -11,18 +12,16 @@ const t = useTranslations(lang);
   id="hero"
   class="flex h-screen flex-col items-center justify-center gap-4 bg-gradient-to-b from-stone-300 to-stone-50 dark:from-slate-950 dark:to-slate-900 md:flex-row"
 >
-  <div class="mx-8 md:w-1/2">
+  <div class="mx-8">
     <h1>{t('hero.title')}</h1>
     <h2
       class="bg-gradient-to-br from-blue-400 to-purple-800 bg-clip-text text-transparent"
     >
       {t('hero.subtitle')}
     </h2>
-    <p
-      class="fade-in-bottom text-justify text-sm first-letter:font-serif first-letter:text-3xl"
-    >
-      {t('hero.description')}
-    </p>
+    <div class="hidden lg:block">
+      <SocialsIcon />
+    </div>
   </div>
   <div class="max-w-[300px] md:w-1/3">
     <Picture
@@ -33,6 +32,9 @@ const t = useTranslations(lang);
       alt="descriptive text"
       class="fade-in-bottom aspect-square rounded-xl object-cover shadow-2xl shadow-blue-500/30 dark:shadow-purple-800/70"
     />
+    <div class="flex justify-end lg:hidden">
+      <SocialsIcon />
+    </div>
   </div>
 </section>
 
@@ -41,6 +43,7 @@ const t = useTranslations(lang);
 
   gsap
     .timeline()
+    .delay(4)
     .from('#hero :is(h1, h2)', {
       y: -50,
       opacity: 0,
