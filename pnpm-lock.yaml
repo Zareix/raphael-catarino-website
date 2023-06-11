@@ -1,9 +1,13 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@astrojs/image':
-    specifier: ^0.16.6
-    version: 0.16.6(astro@2.3.1)(sharp@0.32.0)
+    specifier: ^0.17.0
+    version: 0.17.0(astro@2.3.1)(sharp@0.32.0)
   '@astrojs/prefetch':
     specifier: ^0.2.1
     version: 0.2.1
@@ -97,10 +101,10 @@ packages:
     resolution: {integrity: sha512-W/2Mdsq75ruK31dPVlXLdvAoknYDcm6+zXiFToSzQWI7wZqqR+51XTFgx90ojYbefk7z4VOJSVtZBz2pA82F5A==}
     dev: false
 
-  /@astrojs/image@0.16.6(astro@2.3.1)(sharp@0.32.0):
-    resolution: {integrity: sha512-/MJ0aByhuNAT7VeMwXVjS0e5IH8MxsYeEnymOJ0/1VBmZFmcbtb1nUeLE0uO3EV3kNYGRJtwGyald8YJ9ncW4A==}
+  /@astrojs/image@0.17.0(astro@2.3.1)(sharp@0.32.0):
+    resolution: {integrity: sha512-YSolAMFtABhmgLH5BCeGX5e7QKApgSI1XcxO+HLqHFayQKVQ9r6fwslodTjzQkqxgcWEcQKF4nFR4Sq3hAq6YQ==}
     peerDependencies:
-      astro: ^2.2.2
+      astro: ^2.6.0
       sharp: '>=0.31.0'
     peerDependenciesMeta:
       sharp:
