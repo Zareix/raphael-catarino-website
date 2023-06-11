@@ -91,7 +91,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install Dependencies
-        run: npm install -g @unlighthouse/cli puppeteer
+        run: |
+          npm install -g @unlighthouse/cli puppeteer
+          python3 -m pip install jtbl
       - name: Unlighthouse assertions and client
         env:
           PUBLISHED_URL: ${{ needs.publish.outputs.published_url }}
@@ -107,4 +109,5 @@ jobs:
       - name: Add job summary
         run: |
           echo "# Unlighthouse results 🌟" > $GITHUB_STEP_SUMMARY
-          echo "Available at [${{ steps.publish.outputs.url }}](${{ steps.publish.outputs.url }})" >> $GITHUB_STEP_SUMMARY
+          cat unlighthouse/ci-result.json | jtbl -m >> $GITHUB_STEP_SUMMARY
+          echo "Full results available [here](${{ steps.publish.outputs.url }})" >> $GITHUB_STEP_SUMMARY
