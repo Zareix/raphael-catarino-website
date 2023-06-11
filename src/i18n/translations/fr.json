@@ -5,11 +5,13 @@
     },
     "hero": {
         "title": "Raphaël Catarino",
-        "subtitle": "Développeur Fullstack",
-        "description": "Vous trouverez sur ce site l'intégralité de mes compétences dans ce domaine ainsi que mes divers projets."
+        "subtitle": "Développeur Fullstack"
     },
     "loading": {
         "title": "Chargement"
+    },
+    "meta": {
+        "description": "Vous trouverez sur ce site l'intégralité de mes compétences dans ce domaine ainsi que mes divers projets."
     },
     "nav": {
         "experiences": "Expériences",

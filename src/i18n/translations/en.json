@@ -5,11 +5,13 @@
     },
     "hero": {
         "title": "Raphaël Catarino",
-        "subtitle": "Fullstack Developer",
-        "description": "You will find on this site all my skills in this field as well as my various projects."
+        "subtitle": "Fullstack Developer"
     },
     "loading": {
         "title": "Loading"
+    },
+    "meta": {
+        "description": "You will find on this site all my skills in this field as well as my various projects."
     },
     "nav": {
         "experiences": "Experiences",
