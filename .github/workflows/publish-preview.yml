@@ -59,6 +59,8 @@ jobs:
       deployments: write
     name: 'Publish'
     needs: build
+    outputs:
+      published_url: ${{ steps.publish.outputs.url }}
     steps:
       - name: Download build output
         uses: actions/download-artifact@v3
@@ -81,3 +83,28 @@ jobs:
           echo "URL: ${{ steps.publish.outputs.url }}"
           echo "Environment: ${{ steps.publish.outputs.environment }}"
           echo "Alias: ${{ steps.publish.outputs.alias }}"
+
+  unlightouse:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    name: 'Unlighthouse'
+    needs: publish
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install Dependencies
+        run: npm install -g @unlighthouse/cli puppeteer
+      - name: Unlighthouse assertions and client
+        env:
+          PUBLISHED_URL: ${{ needs.publish.outputs.published_url }}
+        run: 'unlighthouse-ci --site $PUBLISHED_URL --build-static --output-path ./unlighthouse --reporter jsonExpanded'
+      - name: Publish results to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.ACCOUNT_ID }}
+          projectName: raphael-catarino-website-unlighthouse
+          directory: unlighthouse
+          branch: preview
