@@ -96,15 +96,15 @@ jobs:
         env:
           PUBLISHED_URL: ${{ needs.publish.outputs.published_url }}
         run: 'unlighthouse-ci --site $PUBLISHED_URL --build-static --output-path ./unlighthouse'
-      - name: Publish Unlighthouse results
-        uses: actions/upload-artifact@v3
-        with:
-          name: unlighthouse-results
-          path: unlighthouse
       - name: Publish results to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.ACCOUNT_ID }}
-          projectName: raphael-catarino-website_unlighthouse
+          projectName: raphael-catarino-website-unlighthouse
           directory: unlighthouse
+        id: publish
+      - name: Add job summary
+        run: |
+          echo "# Unlighthouse results 🌟" > $GITHUB_STEP_SUMMARY
+          echo "Available at [${{ steps.publish.outputs.url }}](${{ steps.publish.outputs.url }})" >> $GITHUB_STEP_SUMMARY
