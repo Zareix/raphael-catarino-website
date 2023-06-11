@@ -11,7 +11,7 @@ export default defineConfig({
       serviceEntryPoint: '@astrojs/image/sharp',
     }),
     prefetch({
-      selector: "a[href^='/products']",
+      selector: "a[href^='/']",
     }),
   ],
 });
