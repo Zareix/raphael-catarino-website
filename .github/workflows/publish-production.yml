@@ -97,7 +97,12 @@ jobs:
       - name: Unlighthouse assertions and client
         env:
           PUBLISHED_URL: ${{ needs.publish.outputs.published_url }}
-        run: 'unlighthouse-ci --site $PUBLISHED_URL --build-static --output-path ./unlighthouse'
+        run: 'unlighthouse-ci --site $PUBLISHED_URL --build-static --output-path ./unlighthouse --reporter jsonExpanded'
+      - name: Archive unlighthouse results
+        uses: actions/upload-artifact@v3
+        with:
+          name: unlighthouse
+          path: unlighthouse
       - name: Publish results to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
@@ -110,4 +115,4 @@ jobs:
         run: |
           echo "# Unlighthouse results 🌟" > $GITHUB_STEP_SUMMARY
           cat unlighthouse/ci-result.json | jtbl -m >> $GITHUB_STEP_SUMMARY
-          echo "Full results available [here](${{ steps.publish.outputs.url }})" >> $GITHUB_STEP_SUMMARY
+          echo "\nFull results available [here](${{ steps.publish.outputs.url }})" >> $GITHUB_STEP_SUMMARY
