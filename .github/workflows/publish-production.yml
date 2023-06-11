@@ -100,4 +100,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: unlighthouse-results
-          path: ./unlighthouse
+          path: unlighthouse
+      - name: Publish results to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.ACCOUNT_ID }}
+          projectName: raphael-catarino-website_unlighthouse
+          directory: unlighthouse
