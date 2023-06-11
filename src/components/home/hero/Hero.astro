@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import heroPP from '@/assets/hero-pp.jpg';
-import { Picture } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import SocialsIcon from './SocialsIcon.astro';
 
 const lang = getLangFromUrl(Astro.url);
@@ -24,10 +24,10 @@ const t = useTranslations(lang);
     </div>
   </div>
   <div class="max-w-[300px] md:w-1/3">
-    <Picture
+    <Image
       src={heroPP}
-      widths={[200, 400, 800]}
-      aspectRatio="3:4"
+      width="800"
+      height="800"
       sizes="(max-width: 800px) 80vw, 800px"
       alt="descriptive text"
       class="fade-in-bottom aspect-square rounded-xl object-cover shadow-2xl shadow-blue-500/30 dark:shadow-purple-800/70"

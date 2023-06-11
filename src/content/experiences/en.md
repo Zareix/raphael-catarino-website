@@ -13,7 +13,7 @@ experiences:
   - title: Internship Quality Analyst / Automatisation Developer
     enterprise: Keolis
     link: https://www.keolis.com
-    logo: 'iut_de_paris.png'
+    logo: 'keolis.png'
     date: 'Avril 2021 - Août 2021'
   - title: Software engineer
     enterprise: EFREI Paris

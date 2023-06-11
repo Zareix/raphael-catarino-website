@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
@@ -28,15 +28,21 @@ const experiences = (
       experiences.map((exp) => (
         <article>
           <div class="content mx-4 flex w-max max-w-[400px] snap-center items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700  dark:bg-gray-900 dark:text-gray-50">
-            <Image
-              src={`/home/experiences/${exp.logo}`}
-              alt={exp.enterprise}
-              width={48}
-              height={48}
-              fit="contain"
-              background="rgba(255,255,255,0)"
-              format={exp.logo.includes('.svg') ? 'svg' : 'png'}
-            />
+            {exp.logo.includes('.svg') ? (
+              <img
+                src={`/home/experiences/${exp.logo}`}
+                alt={exp.enterprise}
+                width={48}
+                height={48}
+              />
+            ) : (
+              <Image
+                src={`/home/experiences/${exp.logo}`}
+                alt={exp.enterprise}
+                width={48}
+                height={48}
+              />
+            )}
             <div>
               <h3 class="w-min text-lg font-bold">{exp.title}</h3>
               <a href={exp.link} class="hover:underline">

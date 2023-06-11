@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import { Picture } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
@@ -24,14 +24,12 @@ const projects = await getCollection('projects', ({ id }) => {
     {
       projects.map((project) => (
         <article class="group relative m-4 overflow-hidden rounded-md bg-stone-100 transition-shadow hover:shadow-xl">
-          <Picture
+          <Image
             src={`/home/projects/${project.data.featuredImage}`}
             alt={project.data.title}
-            widths={[200, 400]}
-            aspectRatio="16:9"
-            sizes="(max-width: 800px) 80vw, 600px"
-            fit="cover"
-            class="w-full"
+            width={600}
+            height={400}
+            class="aspect-video w-full object-cover"
           />
           <div class="overlay absolute inset-0 grid place-content-center bg-gray-950/40 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
             <h3 class="text-white">{project.data.title}</h3>

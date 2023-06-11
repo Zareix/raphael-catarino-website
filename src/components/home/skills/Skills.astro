@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import GridLines from '@/components/home/skills/GridLines.astro';
 import { getCollection } from 'astro:content';
@@ -38,14 +38,23 @@ const skills = await getCollection('skills', ({ id }) => {
           </h3>
           {domain.data.technologies.map((skill) => (
             <div class="grid max-w-[33%] justify-items-center text-center">
-              <Image
-                src={skill.icon}
-                alt={skill.name}
-                class="relative overflow-hidden rounded-md"
-                width={64}
-                height={64}
-                format={skill.icon.includes('.svg') ? 'svg' : 'png'}
-              />
+              {skill.icon.includes('.svg') ? (
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  class="relative overflow-hidden rounded-md"
+                  width={64}
+                  height={64}
+                />
+              ) : (
+                <Image
+                  src={skill.icon}
+                  alt={skill.name}
+                  class="relative overflow-hidden rounded-md"
+                  width={64}
+                  height={64}
+                />
+              )}
               <h4 class="mt-1 text-sm">{skill.name}</h4>
             </div>
           ))}

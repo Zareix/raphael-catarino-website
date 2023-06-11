@@ -1,5 +1,5 @@
 ---
-name: Base de données
+name: Database
 technologies:
   - name: MySQL
     icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg
