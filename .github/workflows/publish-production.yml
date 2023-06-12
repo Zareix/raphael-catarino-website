@@ -17,14 +17,18 @@ jobs:
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-      - uses: actions/cache@v3
+      - name: Restore cached dependencies
+        uses: actions/cache/restore@v3
         with:
           path: $BUN_INSTALL/install/cache
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
       - name: Install dependencies
         run: bun install
+      - name: Save dependencies cache
+        uses: actions/cache/save@v3
+        with:
+          path: $BUN_INSTALL/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
       - name: Run build command
         run: |
           export NODE_ENV=production
