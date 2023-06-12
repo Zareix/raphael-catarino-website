@@ -13,7 +13,7 @@ experiences:
   - title: Stage Quality Analyst / Développeur Automatisation
     enterprise: Keolis
     link: https://www.keolis.com
-    logo: 'keaoli.png'
+    logo: 'keolis.png'
     date: 'Avril 2021 - Août 2021'
   - title: Ingénieur informatique
     enterprise: EFREI Paris

@@ -1,12 +1,12 @@
 ---
 import '@fontsource-variable/inter';
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import Nav, { type NavigationLink } from './Nav.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import Nav from '~/layouts/Nav.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const links: NavigationLink[] = [
+const links: Parameters<typeof Nav>[0]['links'] = [
   {
     href: '#experiences',
     label: t('nav.experiences'),
@@ -39,70 +39,71 @@ const links: NavigationLink[] = [
       src="https://plausible.raphael-catarino.fr/js/script.js"></script>
   </head>
   <body>
-    <Nav links={links} />
+    <Nav base="#hero" links={links} animationDelay={5} />
     <slot />
   </body>
-
-  <style is:global lang="scss">
-    html,
-    body {
-      @apply bg-stone-50 text-sm text-slate-900 dark:bg-slate-900 dark:text-stone-50 lg:text-base;
-      font-family: 'Inter Variable', sans-serif;
-      font-size: 1.2rem;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 200vh;
-    }
-
-    h1 {
-      @apply text-4xl font-bold lg:text-5xl;
-    }
-
-    h2 {
-      @apply mx-2 text-2xl font-semibold lg:text-3xl;
-    }
-
-    h3 {
-      @apply text-xl font-semibold lg:text-2xl;
-    }
-
-    h4 {
-      @apply text-lg lg:text-xl;
-    }
-
-    section {
-      & > h1 {
-        @apply text-center;
-      }
-
-      & > h2 {
-        @apply text-center;
-      }
-    }
-  </style>
-  <script>
-    import { gsap } from 'gsap';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
-    import SplitType from 'split-type';
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const subtitles = document.querySelectorAll('section:not(#hero) > h2');
-    subtitles.forEach((subtitle) => {
-      const subtitleSplit = new SplitType(subtitle as HTMLElement, {
-        types: 'lines, words',
-        lineClass: 'overflow-hidden',
-      });
-      gsap.from(subtitleSplit.words, {
-        scrollTrigger: {
-          trigger: subtitle.parentElement,
-          start: 'top 80%',
-        },
-        y: '100%',
-      });
-    });
-  </script>
 </html>
+
+<style is:global lang="scss">
+  html,
+  body {
+    @apply bg-stone-50 text-sm text-slate-900 dark:bg-slate-900 dark:text-stone-50 lg:text-base;
+    font-family: 'Inter Variable', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 200vh;
+  }
+
+  h1 {
+    @apply text-4xl font-bold lg:text-5xl;
+  }
+
+  h2 {
+    @apply mx-2 text-2xl font-semibold lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl font-semibold lg:text-2xl;
+  }
+
+  h4 {
+    @apply text-lg lg:text-xl;
+  }
+
+  section {
+    & > h1 {
+      @apply text-center;
+    }
+
+    & > h2 {
+      @apply text-center;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import SplitType from 'split-type';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const subtitles = document.querySelectorAll('section:not(#hero) > h2');
+  subtitles.forEach((subtitle) => {
+    const subtitleSplit = new SplitType(subtitle as HTMLElement, {
+      types: 'lines, words',
+      lineClass: 'overflow-hidden',
+    });
+    gsap.from(subtitleSplit.words, {
+      scrollTrigger: {
+        trigger: subtitle.parentElement,
+        start: 'top 80%',
+      },
+      y: '100%',
+    });
+  });
+</script>

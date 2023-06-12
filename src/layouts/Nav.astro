@@ -1,5 +1,5 @@
 ---
-import svgIcon from '@/assets/favicon.svg';
+import svgIcon from '~/assets/favicon.svg';
 
 export type NavigationLink = {
   href: string;
@@ -8,16 +8,19 @@ export type NavigationLink = {
 
 export type Props = {
   links: NavigationLink[];
+  base: string;
+  animationDelay: number;
 };
 
-const { links } = Astro.props;
+const { links, base, animationDelay } = Astro.props;
 ---
 
 <header class="fixed top-0 isolate z-30 w-full text-sm">
   <nav
     class="mx-auto mt-0 hidden w-max items-center justify-center rounded-b-lg border border-gray-50 border-opacity-10 bg-slate-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg dark:bg-slate-800 dark:bg-opacity-70 md:flex"
+    data-animation-delay={animationDelay}
   >
-    <a class="relative" href="#hero" aria-label="Raphaël Catarino logo">
+    <a class="relative" href={base} aria-label="Raphaël Catarino logo">
       <img
         src={svgIcon.src}
         alt="Raphaël Catarino logo"
@@ -48,7 +51,7 @@ const { links } = Astro.props;
     y: -100,
     opacity: 0,
     duration: 1,
-    delay: 5,
+    delay: document.querySelector('nav')?.dataset.animationDelay,
     ease: 'power4.out',
   });
 </script>

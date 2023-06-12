@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import GridLines from '@/components/home/skills/GridLines.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import GridLines from '~/components/home/skills/GridLines.astro';
 import { getCollection } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);

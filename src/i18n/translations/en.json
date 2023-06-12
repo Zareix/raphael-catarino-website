@@ -14,10 +14,11 @@
         "description": "You will find on this site all my skills in this field as well as my various projects."
     },
     "nav": {
+        "blog": "Blog",
         "experiences": "Experiences",
-        "skills": "Skills",
+        "portfolio": "Portfolio",
         "projects": "Projects",
-        "blog": "Blog"
+        "skills": "Skills"
     },
     "skills": {
         "title": "Skills",

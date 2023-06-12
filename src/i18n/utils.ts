@@ -1,4 +1,4 @@
-import { FlattenObjectKeys, flatten } from '@/lib/flatten';
+import { FlattenObjectKeys, flatten } from '~/lib/flatten';
 import en from './translations/en.json';
 import fr from './translations/fr.json';
 

@@ -1,0 +1,64 @@
+---
+import '@fontsource-variable/inter';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import Nav from '~/layouts/Nav.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const links: Parameters<typeof Nav>[0]['links'] = [
+    {
+        href: '/',
+        label: t('nav.portfolio'),
+    },
+];
+---
+
+<html lang={lang}>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <title>RC | Blog</title>
+        <meta name="description" content={t('meta.description')} />
+        <script
+            defer
+            data-domain="raphael-catarino.fr"
+            src="https://plausible.raphael-catarino.fr/js/script.js"></script>
+    </head>
+    <body>
+        <Nav base="/blog" links={links} animationDelay={0} />
+        <slot />
+    </body>
+</html>
+
+<style is:global lang="scss">
+    html,
+    body {
+        @apply bg-stone-50 text-sm text-slate-900 dark:bg-slate-900 dark:text-stone-50 lg:text-base;
+        font-family: 'Inter Variable', sans-serif;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-height: 200vh;
+    }
+
+    h1 {
+        @apply text-4xl font-bold lg:text-5xl;
+    }
+
+    h2 {
+        @apply mx-2 text-2xl font-semibold lg:text-3xl;
+    }
+
+    h3 {
+        @apply text-xl font-semibold lg:text-2xl;
+    }
+
+    h4 {
+        @apply text-lg lg:text-xl;
+    }
+</style>
