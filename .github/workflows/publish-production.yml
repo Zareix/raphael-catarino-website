@@ -20,14 +20,14 @@ jobs:
       - name: Restore cached dependencies
         uses: actions/cache/restore@v3
         with:
-          path: $BUN_INSTALL/install/cache
+          path: ~/.bun/install/cache
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
       - name: Install dependencies
         run: bun install
       - name: Save dependencies cache
         uses: actions/cache/save@v3
         with:
-          path: $BUN_INSTALL/install/cache
+          path: ~/.bun/install/cache
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
       - name: Run build command
         run: |
@@ -36,7 +36,7 @@ jobs:
       - name: Archive dist
         uses: actions/upload-artifact@v3
         with:
-          name: build-output
+          name: build-output-prod
           path: dist
 
   publish:
@@ -52,7 +52,7 @@ jobs:
       - name: Download build output
         uses: actions/download-artifact@v3
         with:
-          name: build-output
+          name: build-output-prod
           path: build-output
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
