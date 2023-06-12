@@ -93,9 +93,7 @@ jobs:
       - name: Install Dependencies
         run: npm install -g @unlighthouse/cli puppeteer
       - name: Unlighthouse assertions and client
-        env:
-          PUBLISHED_URL: ${{ needs.publish.outputs.published_url }}
-        run: 'unlighthouse-ci --site $PUBLISHED_URL --build-static --output-path ./unlighthouse --reporter jsonExpanded'
+        run: 'unlighthouse-ci --site raphael-catarino.fr --build-static --output-path ./unlighthouse --reporter jsonExpanded'
       - name: Publish results to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:

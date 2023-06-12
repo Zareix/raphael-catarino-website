@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://raphael-catarino.fr/sitemap-index.xml
