@@ -2,7 +2,7 @@ export default {
   site: 'raphael-catarino.fr',
   outputPath: 'unlighthouse',
   scanner: {
-    samples: 2,
+    samples: 1,
   },
   ci: {
     budget: 70,
