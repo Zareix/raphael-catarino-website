@@ -93,7 +93,12 @@ jobs:
       - name: Install Dependencies
         run: npm install -g @unlighthouse/cli puppeteer
       - name: Unlighthouse assertions and client
-        run: 'unlighthouse-ci --site raphael-catarino.fr --build-static --output-path ./unlighthouse --reporter jsonExpanded'
+        run: 'unlighthouse-ci'
+      - name: Archive unlighthouse
+        uses: actions/upload-artifact@v3
+        with:
+          name: unlighthouse
+          path: unlighthouse
       - name: Publish results to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
