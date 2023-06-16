@@ -1,8 +1,8 @@
 ---
 title: Homelab
-featuredImage: 'homelab.png'
+featuredImage: '../assets/homelab.png'
 repoUrl:
-publicUrl:
+publicUrl: https://homelab.raphael-catarino.fr
 technologies:
   - Proxmox
   - Docker

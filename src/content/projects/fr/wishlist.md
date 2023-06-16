@@ -1,6 +1,6 @@
 ---
 title: Wishlist
-featuredImage: 'wishlist.png'
+featuredImage: '../assets/wishlist.png'
 repoUrl: https://github.com/Zareix/raphael-wishlist
 publicUrl: https://wishlist.raphael-catarino.fr/
 technologies:

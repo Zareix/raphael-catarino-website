@@ -1,6 +1,6 @@
 ---
 title: La nuit de l'info 2019
-featuredImage: 'nuitinfo.png'
+featuredImage: '../assets/nuitinfo.png'
 repoUrl:
 publicUrl: https://www.nuitdelinfo.com/
 technologies:

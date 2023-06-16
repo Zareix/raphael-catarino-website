@@ -2,6 +2,7 @@
 import { getLangFromUrl, useTranslations } from '~/i18n/utils';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import ProjectDialog from '~/components/home/projects/ProjectDialog.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -23,9 +24,9 @@ const projects = await getCollection('projects', ({ id }) => {
   <div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     {
       projects.map((project) => (
-        <article class="group relative m-4 overflow-hidden rounded-md bg-stone-100 transition-shadow hover:shadow-xl">
+        <article class="group relative m-4 cursor-pointer overflow-hidden rounded-md bg-stone-100 transition-shadow hover:shadow-xl">
           <Image
-            src={`/home/projects/${project.data.featuredImage}`}
+            src={project.data.featuredImage}
             alt={project.data.title}
             width={600}
             height={400}
@@ -34,8 +35,51 @@ const projects = await getCollection('projects', ({ id }) => {
           <div class="overlay absolute inset-0 grid place-content-center bg-gray-950/40 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
             <h3 class="text-white">{project.data.title}</h3>
           </div>
+          <ProjectDialog {project} />
         </article>
       ))
     }
   </div>
 </section>
+
+<script>
+  const closeDialog = (modal: HTMLDialogElement) => {
+    modal.setAttribute('closing', '');
+    modal.addEventListener(
+      'animationend',
+      () => {
+        modal.removeAttribute('closing');
+        modal.close();
+      },
+      { once: true }
+    );
+  };
+
+  document.querySelectorAll('#projects article').forEach((article) => {
+    const modal = article.querySelector('dialog');
+    article.addEventListener('click', () => {
+      if (!modal) return;
+      if (modal.open) {
+        closeDialog(modal);
+      } else {
+        modal.showModal();
+      }
+    });
+    modal?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const rect = modal.getBoundingClientRect();
+      if (
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width
+      ) {
+        return;
+      }
+      closeDialog(modal);
+    });
+    modal?.querySelector('button')?.addEventListener('click', () => {
+      closeDialog(modal);
+    });
+  });
+</script>

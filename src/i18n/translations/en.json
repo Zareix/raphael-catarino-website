@@ -26,6 +26,10 @@
     },
     "projects": {
         "title": "Projects",
-        "subtitle": "Some projects I worked on"
+        "subtitle": "Some projects I worked on",
+        "project": {
+            "publicLink": "Project",
+            "sourceLink": "Source"
+        }
     }
 }

@@ -1,6 +1,6 @@
 ---
 title: 'Projet S4 : KUWYS'
-featuredImage: 'kuwys.jpg'
+featuredImage: '../assets/kuwys.jpg'
 repoUrl: https://github.com/Zareix/iut-pjs4-kuwys
 publicUrl: https://pjs4-iut-ts.web.app/
 technologies:

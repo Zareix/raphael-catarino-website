@@ -22,29 +22,21 @@ const experiences = (
     {t('experiences.subtitle')}
   </h2>
   <div
-    class="container my-10 flex items-end overflow-y-hidden overflow-x-scroll px-2 py-4 md:snap-none"
+    class="container my-10 flex snap-x items-end overflow-y-hidden overflow-x-scroll px-2 py-4 md:snap-none"
   >
     {
       experiences.map((exp) => (
-        <article>
-          <div class="content mx-4 flex w-max max-w-[400px] snap-center items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700  dark:bg-gray-900 dark:text-gray-50">
-            {exp.logo.includes('.svg') ? (
-              <img
-                src={`/home/experiences/${exp.logo}`}
-                alt={exp.enterprise}
-                width={48}
-                height={48}
-              />
-            ) : (
-              <Image
-                src={`/home/experiences/${exp.logo}`}
-                alt={exp.enterprise}
-                width={48}
-                height={48}
-              />
-            )}
+        <article class="snap-center">
+          <div class="content mx-4 flex w-max max-w-[400px] items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700  dark:bg-gray-900 dark:text-gray-50">
+            <Image
+              src={exp.logo}
+              alt={exp.enterprise}
+              width={48}
+              height={48}
+              class="h-[48px] w-[48px] object-contain"
+            />
             <div>
-              <h3 class="w-min text-lg font-bold">{exp.title}</h3>
+              <h3 class="w-min text-base font-bold md:text-lg">{exp.title}</h3>
               <a href={exp.link} class="hover:underline">
                 <h4 class="text-sm text-zinc-600 dark:text-zinc-400">
                   {exp.enterprise}

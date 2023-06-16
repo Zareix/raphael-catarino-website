@@ -26,6 +26,10 @@
     },
     "projects": {
         "title": "Projets",
-        "subtitle": "Mes projets personnels"
+        "subtitle": "Mes projets personnels",
+        "project": {
+            "publicLink": "Projet",
+            "sourceLink": "Sources"
+        }
     }
 }
