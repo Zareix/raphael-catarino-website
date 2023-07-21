@@ -1,0 +1,14 @@
+---
+import SocialsIcon from '~/components/home/hero/SocialsIcon.astro';
+import svgIcon from '~/assets/favicon.svg';
+---
+
+<footer
+  class="flex flex-col justify-end items-center gap-2 text-sm p-4 h-40 bg-stone-300 dark:bg-slate-950"
+>
+  <SocialsIcon />
+  <p class="opacity-80 flex gap-2 items-center">
+    <img src={svgIcon.src} alt="Raphaël Catarino logo" width={24} height={24} />
+     &copy; Raphaël Catarino - 2023
+  </p>
+</footer>
