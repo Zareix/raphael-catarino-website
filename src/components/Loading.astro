@@ -1,23 +1,21 @@
 ---
 import { getLangFromUrl, useTranslations } from '~/i18n/utils';
-import { isDevEnv } from '~/lib/dev';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-{
-  !isDevEnv() && (
-    <section
-      id="loading"
-      class="fixed inset-0 z-50 grid place-content-center bg-gradient-to-b from-stone-300 to-stone-50 dark:from-slate-950 dark:to-slate-900"
-    >
-      <h1 class="bg-gradient-to-r from-slate-900 from-[-200%] via-purple-600 to-slate-900 to-[200%] bg-clip-text py-6 text-5xl text-transparent dark:from-slate-900 dark:via-purple-400 dark:to-slate-900 lg:text-6xl">
-        {t('loading.title')}
-      </h1>
-    </section>
-  )
-}
+<section
+  id="loading"
+  class="fixed inset-0 z-50 grid place-content-center bg-gradient-to-b from-stone-300 to-stone-50 dark:from-slate-950 dark:to-slate-900"
+>
+  <h1
+    class="bg-gradient-to-r from-slate-900 from-[-200%] via-purple-600 to-slate-900 to-[200%] bg-clip-text py-6 text-5xl text-transparent dark:from-slate-900 dark:via-purple-400 dark:to-slate-900 lg:text-6xl"
+  >
+    {t('loading.title')}
+  </h1>
+</section>
+ )
 <script>
   import gsap from 'gsap';
 
