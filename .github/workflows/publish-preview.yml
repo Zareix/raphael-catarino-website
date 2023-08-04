@@ -56,7 +56,8 @@ jobs:
           projectName: raphael-catarino-website
           directory: build-output
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.head_ref }}
+          branch: ${{ github.ref }}
+          wranglerVersion: 3
         id: publish
       - name: Outputs
         run: |
