@@ -1,5 +1,6 @@
 ---
 import svgIcon from '~/assets/favicon.svg';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
 
 export type NavigationLink = {
   href: string;
@@ -11,6 +12,9 @@ export type Props = {
   base: string;
   animationDelay: number;
 };
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const { links, base, animationDelay } = Astro.props;
 ---
@@ -41,6 +45,14 @@ const { links, base, animationDelay } = Astro.props;
           </li>
         ))
       }
+      <li>
+        <button
+          class="text-gray-800 hover:text-gray-600 dark:text-gray-100"
+          id="contactFormButton"
+        >
+          {t('nav.contact')}
+        </button>
+      </li>
     </ul>
   </nav>
 </header>
@@ -54,4 +66,12 @@ const { links, base, animationDelay } = Astro.props;
     delay: document.querySelector('nav')?.dataset.animationDelay,
     ease: 'power4.out',
   });
+
+  document
+    .querySelector('#contactFormButton')
+    ?.addEventListener('click', () => {
+      document
+        .querySelector<HTMLDialogElement>('#contactFormDialog')
+        ?.showModal();
+    });
 </script>

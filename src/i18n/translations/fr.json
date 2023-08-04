@@ -18,7 +18,8 @@
         "experiences": "Expériences",
         "portfolio": "Portfolio",
         "projects": "Projets",
-        "skills": "Compétences"
+        "skills": "Compétences",
+        "contact": "Contact"
     },
     "skills": {
         "title": "Compétences",

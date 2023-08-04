@@ -3,6 +3,7 @@ import '@fontsource-variable/inter';
 import { getLangFromUrl, useTranslations } from '~/i18n/utils';
 import Nav from '~/layouts/Nav.astro';
 import Footer from '~/layouts/Footer.astro';
+import ContactDialog from '~/components/contact/ContactDialog.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -44,6 +45,7 @@ const links: Parameters<typeof Nav>[0]['links'] = [
     <Nav base="#hero" links={links} animationDelay={4.5} />
     <slot />
     <Footer />
+    <ContactDialog />
   </body>
 </html>
 

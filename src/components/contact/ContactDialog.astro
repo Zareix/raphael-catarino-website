@@ -1,0 +1,27 @@
+---
+import ContactForm from '~/components/contact/ContactForm.svelte';
+---
+
+<dialog id="contactFormDialog" class="rounded-lg p-6">
+  <ContactForm client:visible />
+</dialog>
+
+<script>
+  const modal =
+    document?.querySelector<HTMLDialogElement>('#contactFormDialog');
+  if (modal) {
+    modal.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const rect = modal.getBoundingClientRect();
+      if (
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width
+      ) {
+        return;
+      }
+      modal.close();
+    });
+  }
+</script>
