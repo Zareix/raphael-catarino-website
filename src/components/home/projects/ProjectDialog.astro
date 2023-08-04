@@ -13,9 +13,7 @@ const project = Astro.props.project;
 const { Content } = await project.render();
 ---
 
-<dialog
-  class="sm:max-w-md cursor-default rounded-md p-0 text-slate-900 duration-1000 backdrop:bg-slate-950/50 backdrop:backdrop-blur focus:outline-none dark:bg-slate-900 dark:text-stone-50"
->
+<dialog class="p-0">
   <Image
     src={project.data.featuredImage}
     alt={project.data.title}
@@ -110,50 +108,3 @@ const { Content } = await project.render();
     </div>
   </div>
 </dialog>
-
-<style>
-  dialog[open] {
-    animation:
-      slide-up 400ms forwards,
-      fade-in 400ms forwards;
-  }
-  dialog[open]::backdrop {
-    animation: fade-in 400ms forwards;
-  }
-
-  dialog[closing] {
-    pointer-events: none;
-    animation: fade-out 200ms forwards;
-  }
-
-  dialog[closing]::backdrop {
-    animation: fade-out 200ms forwards;
-  }
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade-out {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes slide-up {
-    0% {
-      transform: translateY(10%);
-    }
-    100% {
-      transform: translateY(0%);
-    }
-  }
-</style>

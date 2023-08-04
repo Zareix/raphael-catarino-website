@@ -23,6 +23,9 @@
           alert('Message failed to send.');
         }
         loading = false;
+        name = '';
+        email = '';
+        message = '';
       })
       .catch((err) => {
         console.error(err);
@@ -44,7 +47,7 @@
       type="email"
       id="email"
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 px-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="name@flowbite.com"
+      placeholder="name@example.com"
       required
       bind:value={email}
     />
@@ -84,7 +87,7 @@
   </div>
   <button
     type="submit"
-    class="ml-auto text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-1.5 text-center mr-2"
+    class="ml-auto transition-all shadow border border-gray-300 text-white bg-gradient-to-br from-purple-700 via-blue-400 to-purple-700 dark:from-purple-800 dark:via-blue-600 dark:to-purple-800 dark:border-gray-500 bg-size-200 bg-pos-0 hover:bg-pos-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-1.5 text-center mr-2"
     disabled={loading}
   >
     {loading ? 'Sending...' : 'Send'}

@@ -43,17 +43,7 @@ const projects = await getCollection('projects', ({ id }) => {
 </section>
 
 <script>
-  const closeDialog = (modal: HTMLDialogElement) => {
-    modal.setAttribute('closing', '');
-    modal.addEventListener(
-      'animationend',
-      () => {
-        modal.removeAttribute('closing');
-        modal.close();
-      },
-      { once: true },
-    );
-  };
+  import { closeDialog, handleDialogBackdropClick } from '~/lib/modal';
 
   document.querySelectorAll('#projects article').forEach((article) => {
     const modal = article.querySelector('dialog');
@@ -65,19 +55,7 @@ const projects = await getCollection('projects', ({ id }) => {
         modal.showModal();
       }
     });
-    modal?.addEventListener('click', (event) => {
-      event.stopPropagation();
-      const rect = modal.getBoundingClientRect();
-      if (
-        rect.top <= event.clientY &&
-        event.clientY <= rect.top + rect.height &&
-        rect.left <= event.clientX &&
-        event.clientX <= rect.left + rect.width
-      ) {
-        return;
-      }
-      closeDialog(modal);
-    });
+    handleDialogBackdropClick(modal);
     modal?.querySelector('button')?.addEventListener('click', () => {
       closeDialog(modal);
     });

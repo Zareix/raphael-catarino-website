@@ -88,6 +88,55 @@ const links: Parameters<typeof Nav>[0]['links'] = [
       @apply text-center;
     }
   }
+
+  dialog {
+    @apply cursor-default rounded-md p-6 text-slate-900 duration-1000 backdrop:bg-slate-950/50 backdrop:backdrop-blur focus:outline-none dark:bg-slate-900 dark:text-stone-50 sm:max-w-md;
+  }
+
+  dialog[open] {
+    animation:
+      dialog-slide-up 400ms forwards,
+      dialog-fade-in 400ms forwards;
+  }
+  dialog[open]::backdrop {
+    animation: dialog-fade-in 400ms forwards;
+  }
+
+  dialog[closing] {
+    pointer-events: none;
+    animation: dialog-fade-out 200ms forwards;
+  }
+
+  dialog[closing]::backdrop {
+    animation: dialog-fade-out 200ms forwards;
+  }
+
+  @keyframes dialog-fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes dialog-fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes dialog-slide-up {
+    0% {
+      transform: translateY(10%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
 </style>
 
 <script>
