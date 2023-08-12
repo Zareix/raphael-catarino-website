@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
   let name = '';
   let email = '';
   let message = '';
 
-  let loading = false;
+  let state: 'idle' | 'loading' | 'error' | 'success' = 'idle';
 
   const submit = () => {
-    loading = true;
+    state = 'loading';
     fetch('/api/contact', {
       method: 'POST',
       headers: {
@@ -22,7 +22,7 @@
         } else {
           alert('Message failed to send.');
         }
-        loading = false;
+        state = 'idle';
         name = '';
         email = '';
         message = '';
@@ -30,7 +30,7 @@
       .catch((err) => {
         console.error(err);
         alert('Message failed to send.');
-        loading = false;
+        state = 'idle';
       });
   };
 </script>
@@ -75,7 +75,6 @@
       Your message
     </label>
     <textarea
-      type="message"
       id="message"
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 px-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       placeholder="Type here your message..."
@@ -88,8 +87,8 @@
   <button
     type="submit"
     class="ml-auto transition-all shadow border border-gray-300 text-white bg-gradient-to-br from-purple-700 via-blue-400 to-purple-700 dark:from-purple-800 dark:via-blue-600 dark:to-purple-800 dark:border-gray-500 bg-size-200 bg-pos-0 hover:bg-pos-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-1.5 text-center mr-2"
-    disabled={loading}
+    disabled={state === 'loading'}
   >
-    {loading ? 'Sending...' : 'Send'}
+    {state === 'loading' ? 'Sending...' : 'Send'}
   </button>
 </form>
