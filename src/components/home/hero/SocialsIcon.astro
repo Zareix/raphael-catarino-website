@@ -1,8 +1,4 @@
----
-
----
-
-<div class="flex items-center gap-2 fill-white text-base">
+<div class="socials flex items-center gap-2 fill-white text-base">
   <a
     href="https://github.com/zareix"
     class="fade-in-bottom relative block h-8 w-8 rounded-lg border border-slate-400 bg-slate-800 fill-white text-white shadow-md backdrop-blur transition-shadow duration-300 hover:shadow-lg hover:shadow-[#161b22]/20 dark:hover:shadow-slate-700/80 dark:border-slate-600 dark:bg-slate-500/10"
@@ -56,11 +52,12 @@
 <script>
   import { gsap } from 'gsap';
 
-  const links = document.querySelectorAll('a');
+  const links = document.querySelectorAll('.socials a');
   links.forEach((link) => {
     const animation = gsap.to(link, {
       paused: true,
-      scale: 1.1,
+      scale: 1.05,
+      translate: '0 -10%',
       duration: 0.2,
     });
 

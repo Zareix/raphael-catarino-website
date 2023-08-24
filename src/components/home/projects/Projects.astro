@@ -11,10 +11,7 @@ const projects = await getCollection('projects', ({ id }) => {
 });
 ---
 
-<section
-  id="projects"
-  class="grid w-full place-content-center overflow-hidden py-12"
->
+<section id="projects" class="grid w-full place-content-center py-12">
   <h1>
     {t('projects.title')}
   </h1>
@@ -24,7 +21,7 @@ const projects = await getCollection('projects', ({ id }) => {
   <div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     {
       projects.map((project) => (
-        <article class="group block relative m-4 cursor-pointer overflow-hidden rounded-md bg-stone-100 transition-shadow hover:shadow-xl">
+        <article class="group block relative m-4 overflow-hidden cursor-pointer rounded-md bg-stone-100 transition-shadow hover:shadow-xl">
           <Image
             src={project.data.featuredImage}
             alt={project.data.title}
@@ -61,3 +58,18 @@ const projects = await getCollection('projects', ({ id }) => {
     });
   });
 </script>
+
+<style>
+  @keyframes appear {
+    from {
+      opacity: 0;
+      translate: 0 50%;
+    }
+  }
+
+  article {
+    animation: appear both ease-in-out;
+    animation-timeline: view();
+    animation-range: entry;
+  }
+</style>

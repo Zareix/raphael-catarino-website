@@ -14,7 +14,7 @@ const experiences = (
 
 <section id="experiences" class="my-24 flex flex-col items-center">
   <h1
-    class="bg-gradient-to-br from-slate-900 to-purple-700 to-[40%] bg-clip-text text-transparent"
+    class="bg-gradient-to-br from-slate-900 to-purple-700 to-[40%] bg-clip-text text-transparent dark:to-purple-800"
   >
     {t('experiences.title')}
   </h1>
@@ -105,7 +105,7 @@ const experiences = (
   gsap.fromTo(
     '#experiences h1',
     {
-      '--tw-gradient-to-position': 180,
+      '--tw-gradient-to-position': 220,
       ease: 'none',
     },
     {
@@ -115,8 +115,8 @@ const experiences = (
         end: 'bottom bottom',
         scrub: true,
       },
-      '--tw-gradient-to-position': 20,
+      '--tw-gradient-to-position': 0,
       ease: 'none',
-    }
+    },
   );
 </script>
