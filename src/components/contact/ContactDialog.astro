@@ -1,5 +1,9 @@
 ---
 import ContactForm from '~/components/contact/ContactForm.svelte';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <dialog id="contactFormDialog">
@@ -20,7 +24,20 @@ import ContactForm from '~/components/contact/ContactForm.svelte';
       ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
     >
   </button>
-  <ContactForm client:visible />
+  <ContactForm
+    client:visible
+    translations={{
+      title: t('contact.title'),
+      emailLabel: t('contact.emailLabel'),
+      emailPlaceholder: t('contact.emailPlaceholder'),
+      nameLabel: t('contact.nameLabel'),
+      namePlaceholder: t('contact.namePlaceholder'),
+      messageLabel: t('contact.messageLabel'),
+      messagePlaceholder: t('contact.messagePlaceholder'),
+      sending: t('contact.sending'),
+      send: t('contact.send'),
+    }}
+  />
 </dialog>
 
 <script>

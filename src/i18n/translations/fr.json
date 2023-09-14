@@ -1,4 +1,15 @@
 {
+    "contact": {
+        "title": "Me contacter",
+        "emailLabel": "Votre email",
+        "emailPlaceholder": "name@exemple.com",
+        "nameLabel": "Votre nom",
+        "namePlaceholder": "John Doe",
+        "messageLabel": "Votre message",
+        "messagePlaceholder": "Votre message...",
+        "sending": "Envoi en cours...",
+        "send": "Envoyer"
+    },
     "experiences": {
         "title": "Expériences",
         "subtitle": "Mes expériences professionnelles"

@@ -1,4 +1,15 @@
 {
+    "contact": {
+        "title": "Contact me",
+        "emailLabel": "Your email",
+        "emailPlaceholder": "name@example.com",
+        "nameLabel": "Your name",
+        "namePlaceholder": "John Doe",
+        "messageLabel": "Your message",
+        "messagePlaceholder": "Type here your message...",
+        "sending": "Sending...",
+        "send": "Send"
+    },
     "experiences": {
         "title": "Experiences",
         "subtitle": "My professional experiences"

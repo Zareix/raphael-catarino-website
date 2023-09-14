@@ -1,4 +1,4 @@
-import { FlattenObjectKeys, flatten } from '~/lib/flatten';
+import { flatten } from '~/lib/flatten';
 import en from './translations/en.json';
 import fr from './translations/fr.json';
 
@@ -12,12 +12,8 @@ export type Lang = keyof typeof languages;
 export const defaultLang = 'en';
 
 const translations = {
-  en: flatten(en) as {
-    [K in FlattenObjectKeys<typeof en>]: string;
-  },
-  fr: flatten(fr) as {
-    [K in FlattenObjectKeys<typeof fr>]: string;
-  },
+  en: flatten<typeof en>(en),
+  fr: flatten<typeof fr>(fr),
 } as const;
 
 export function getLangFromUrl(url: URL) {

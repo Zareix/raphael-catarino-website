@@ -1,10 +1,6 @@
 ---
 import '@fontsource-variable/inter';
-import { getLangFromUrl, useTranslations } from '~/i18n/utils';
 import Layout from '~/layouts/blog/Layout.astro';
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
 <Layout>Hello</Layout>

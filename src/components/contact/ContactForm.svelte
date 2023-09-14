@@ -1,4 +1,16 @@
 <script lang="ts">
+  export let translations = {
+    title: 'Contact me',
+    emailLabel: 'Your email',
+    emailPlaceholder: 'name@example.com',
+    nameLabel: 'Your name',
+    namePlaceholder: 'John Doe',
+    messageLabel: 'Your message',
+    messagePlaceholder: 'Type here your message...',
+    sending: 'Sending...',
+    send: 'Send',
+  };
+
   let name = '';
   let email = '';
   let message = '';
@@ -36,18 +48,18 @@
 </script>
 
 <form class="flex flex-col gap-4" on:submit|preventDefault={submit}>
-  <h2 class="text-center">Contact me</h2>
+  <h2 class="text-center">{translations.title}</h2>
   <div>
     <label
       for="email"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >Your email</label
+      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+      >{translations.emailLabel}</label
     >
     <input
       type="email"
       id="email"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 px-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="name@example.com"
+      class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+      placeholder={translations.emailPlaceholder}
       required
       bind:value={email}
     />
@@ -55,14 +67,14 @@
   <div>
     <label
       for="name"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >Your name</label
+      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+      >{translations.nameLabel}</label
     >
     <input
       type="name"
       id="name"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 px-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="John Doe"
+      class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+      placeholder={translations.namePlaceholder}
       required
       bind:value={name}
     />
@@ -70,14 +82,14 @@
   <div>
     <label
       for="message"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
     >
-      Your message
+      {translations.nameLabel}
     </label>
     <textarea
       id="message"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 px-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="Type here your message..."
+      class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+      placeholder={translations.messagePlaceholder}
       rows="4"
       cols="50"
       required
@@ -86,9 +98,9 @@
   </div>
   <button
     type="submit"
-    class="ml-auto transition-all shadow border border-gray-300 text-white bg-gradient-to-br from-purple-700 via-blue-400 to-purple-700 dark:from-purple-800 dark:via-blue-600 dark:to-purple-800 dark:border-gray-500 bg-size-200 bg-pos-0 hover:bg-pos-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-1.5 text-center mr-2"
+    class="ml-auto mr-2 rounded-lg border border-gray-300 bg-gradient-to-br from-purple-700 via-blue-400 to-purple-700 bg-size-200 bg-pos-0 px-4 py-1.5 text-center text-sm font-medium text-white shadow transition-all hover:bg-pos-100 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-gray-500 dark:from-purple-800 dark:via-blue-600 dark:to-purple-800 dark:focus:ring-blue-800"
     disabled={state === 'loading'}
   >
-    {state === 'loading' ? 'Sending...' : 'Send'}
+    {state === 'loading' ? translations.sending : translations.send}
   </button>
 </form>

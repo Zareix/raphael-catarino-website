@@ -25,9 +25,6 @@ export default defineConfig({
     }),
     svelte(),
   ],
-  experimental: {
-    assets: true,
-  },
   output: 'hybrid',
   adapter: cloudflare({
     mode: 'advanced',

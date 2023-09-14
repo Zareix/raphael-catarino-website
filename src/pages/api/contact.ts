@@ -35,8 +35,6 @@ export const post: APIRoute = async ({ request }) => {
     );
   }
 
-  console.log(env);
-
   const msg = {
     to: env.EMAIL_TO,
     from: {
