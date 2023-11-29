@@ -28,4 +28,9 @@ export default defineConfig({
   adapter: cloudflare({
     mode: 'advanced',
   }),
+  image: {
+    service: {
+      entrypoint: './src/lib/image-service.ts',
+    },
+  },
 });
