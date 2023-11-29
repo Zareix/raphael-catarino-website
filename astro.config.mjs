@@ -1,6 +1,5 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import prefetch from '@astrojs/prefetch';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 
@@ -9,11 +8,11 @@ import svelte from '@astrojs/svelte';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://raphael-catarino.fr',
+  prefetch: {
+    prefetchAll: true,
+  },
   integrations: [
     tailwind(),
-    prefetch({
-      selector: "a[href^='/']",
-    }),
     sitemap({
       i18n: {
         defaultLocale: 'en',
@@ -29,9 +28,4 @@ export default defineConfig({
   adapter: cloudflare({
     mode: 'advanced',
   }),
-  image: {
-    service: {
-      entrypoint: './src/lib/image-service.ts',
-    },
-  },
 });
