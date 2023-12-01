@@ -16,16 +16,16 @@
     "@astrojs/tailwind": "^5.0.2",
     "@builder.io/qwik": "^1.2.19",
     "@fontsource-variable/inter": "^5.0.15",
-    "@qwikdev/astro": "^0.2.5",
+    "@qwikdev/astro": "^0.2.8",
     "@t3-oss/env-core": "^0.7.1",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/node": "^20.10.0",
-    "astro": "^3.6.3",
-    "gsap": "^3.12.2",
+    "@types/node": "^20.10.1",
+    "astro": "^3.6.4",
+    "gsap": "^3.12.3",
     "sass": "^1.69.5",
     "sharp": "^0.33.0",
     "split-type": "^0.3.4",
-    "svelte": "^4.2.7",
+    "svelte": "^4.2.8",
     "tailwindcss": "^3.3.5",
     "zod": "^3.22.4"
   },
@@ -33,6 +33,7 @@
     "prettier": "^3.1.0",
     "prettier-plugin-astro": "^0.12.2",
     "prettier-plugin-svelte": "^3.1.2",
-    "prettier-plugin-tailwindcss": "^0.5.7"
+    "prettier-plugin-tailwindcss": "^0.5.7",
+    "typescript": "^5.3.2"
   }
 }
