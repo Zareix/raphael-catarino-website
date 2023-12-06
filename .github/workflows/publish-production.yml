@@ -23,7 +23,7 @@ jobs:
           path: ~/.bun/install/cache
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
       - name: Install dependencies
-        run: bun install --production
+        run: bun install
       - name: Save dependencies cache
         uses: actions/cache/save@v3
         with:
