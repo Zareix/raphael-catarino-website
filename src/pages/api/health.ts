@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
-export const get: APIRoute = async () => {
+export const GET: APIRoute = async () => {
   return new Response(
     JSON.stringify({
       healthy: true,

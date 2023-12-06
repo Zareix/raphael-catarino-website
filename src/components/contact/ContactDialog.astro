@@ -1,6 +1,6 @@
 ---
-import ContactForm from '~/components/contact/ContactForm.svelte';
 import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import { ContactForm } from './ContactForm';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -25,7 +25,6 @@ const t = useTranslations(lang);
     >
   </button>
   <ContactForm
-    client:visible
     translations={{
       title: t('contact.title'),
       emailLabel: t('contact.emailLabel'),

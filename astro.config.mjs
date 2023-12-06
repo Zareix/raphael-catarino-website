@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 
-import svelte from '@astrojs/svelte';
+import qwikdev from '@qwikdev/astro';
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,11 +22,15 @@ export default defineConfig({
         },
       },
     }),
-    svelte(),
+    qwikdev(),
   ],
   output: 'hybrid',
   adapter: cloudflare({
-    mode: 'advanced',
+    mode: "advanced",
+    runtime: {
+     mode: 'local',
+     type: 'pages',
+    }
   }),
   image: {
     service: {

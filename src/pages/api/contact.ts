@@ -5,12 +5,12 @@ import { env } from '~/lib/env';
 export const prerender = false;
 
 const contactSchema = z.object({
-  name: z.string().nonempty("Name can't be empty"),
+  name: z.string().min(1, "Name can't be empty"),
   email: z.string().email('Email is invalid'),
-  message: z.string().nonempty("Message can't be empty"),
+  message: z.string().min(1, "Message can't be empty"),
 });
 
-export const post: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request }) => {
   if (request.headers.get('Content-Type') !== 'application/json') {
     return new Response(null, { status: 400 });
   }
