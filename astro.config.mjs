@@ -26,7 +26,11 @@ export default defineConfig({
   ],
   output: 'hybrid',
   adapter: cloudflare({
-    mode: 'advanced',
+    mode: "advanced",
+    runtime: {
+     mode: 'local',
+     type: 'pages',
+    }
   }),
   image: {
     service: {

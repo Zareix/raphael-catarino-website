@@ -1,32 +1,37 @@
-import { component$, useSignal } from '@builder.io/qwik';
+import { component$, useSignal, $ } from '@builder.io/qwik';
 
-export const ContactForm = component$(() => {
-  const state = useSignal<'idle' | 'loading' | 'error' | 'success'>('idle');
-
-  const translations = {
-    title: 'Contact me',
-    emailLabel: 'Your email',
-    emailPlaceholder: 'name@example.com',
-    nameLabel: 'Your name',
-    namePlaceholder: 'John Doe',
-    messageLabel: 'Your message',
-    messagePlaceholder: 'Type here your message...',
-    sending: 'Sending...',
-    send: 'Send',
+type ContactFormProps = {
+  translations: {
+    title: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    sending: string;
+    send: string;
   };
+};
 
-  const name = '';
-  const email = '';
-  const message = '';
+export const ContactForm = component$(({ translations }: ContactFormProps) => {
+  const state = useSignal<'idle' | 'loading' | 'error' | 'success'>('idle');
+  const name = useSignal<string>('');
+  const email = useSignal<string>('');
+  const message = useSignal<string>('');
 
-  const submit = () => {
+  const submit = $(() => {
     state.value = 'loading';
     fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        message: message.value,
+      }),
     })
       .then((res) => res.json())
       .then((res) => {
@@ -37,19 +42,19 @@ export const ContactForm = component$(() => {
           alert('Message failed to send.');
         }
         state.value = 'idle';
-        // name = '';
-        // email = '';
-        // message = '';
+        name.value = '';
+        email.value = '';
+        message.value = '';
       })
       .catch((err) => {
         console.error(err);
         alert('Message failed to send.');
         state.value = 'idle';
       });
-  };
+  });
 
   return (
-    <form class="flex flex-col gap-4" onSubmit$={submit}>
+    <form class="flex flex-col gap-4" preventdefault:submit onSubmit$={submit}>
       <h2 class="text-center">{translations.title}</h2>
       <div>
         <label
@@ -64,7 +69,7 @@ export const ContactForm = component$(() => {
           class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           placeholder={translations.emailPlaceholder}
           required
-          value={email}
+          bind:value={email}
         />
       </div>
       <div>
@@ -80,7 +85,7 @@ export const ContactForm = component$(() => {
           class="block w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           placeholder={translations.namePlaceholder}
           required
-          value={name}
+          bind:value={name}
         />
       </div>
       <div>
@@ -97,7 +102,7 @@ export const ContactForm = component$(() => {
           rows={4}
           cols={50}
           required
-          value={message}
+          bind:value={message}
         />
       </div>
       <button
