@@ -23,3 +23,6 @@ pnpm-debug.log*
 unlighthouse
 
 .dev.vars
+
+.tmp*
+.wrangler
