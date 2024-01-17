@@ -18,14 +18,14 @@ jobs:
         with:
           bun-version: latest
       - name: Restore cached dependencies
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: ~/.bun/install/cache
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
       - name: Install dependencies
         run: bun install
       - name: Save dependencies cache
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         with:
           path: ~/.bun/install/cache
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
