@@ -37,4 +37,11 @@ export default defineConfig({
       entrypoint: './src/lib/image-service.ts',
     },
   },
+  redirects: {
+    '/s/github': 'https://github.com/Zareix',
+    '/s/instagram': 'https://www.instagram.com/raphaelgc',
+    '/s/linkedin':
+      'https://www.linkedin.com/in/rapha%C3%ABl-gon%C3%A7alves-catarino/',
+    '/s/bento': 'https://bento.me/raphael-catarino',
+  },
 });
