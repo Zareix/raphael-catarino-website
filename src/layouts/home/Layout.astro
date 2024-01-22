@@ -149,7 +149,7 @@ const links: Parameters<typeof Nav>[0]['links'] = [
   const subtitles = document.querySelectorAll('section:not(#hero) > h2');
   subtitles.forEach((subtitle) => {
     const subtitleSplit = new SplitType(subtitle as HTMLElement, {
-      types: 'lines, words',
+      types: 'lines,words',
       lineClass: 'overflow-hidden',
     });
     gsap.from(subtitleSplit.words, {
