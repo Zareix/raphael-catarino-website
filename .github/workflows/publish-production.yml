@@ -50,7 +50,7 @@ jobs:
       published_url: ${{ steps.publish.outputs.url }}
     steps:
       - name: Download build output
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-output-prod
           path: build-output
