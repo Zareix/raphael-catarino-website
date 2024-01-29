@@ -34,7 +34,7 @@ jobs:
           export NODE_ENV=production
           bun run build
       - name: Archive dist
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-output-prod
           path: dist
@@ -88,7 +88,7 @@ jobs:
       - name: Unlighthouse assertions and client
         run: unlighthouse-ci
       - name: Archive unlighthouse
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: unlighthouse
           path: unlighthouse
