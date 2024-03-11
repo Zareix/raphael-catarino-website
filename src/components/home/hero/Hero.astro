@@ -10,7 +10,7 @@ const t = useTranslations(lang);
 
 <section
   id="hero"
-  class="flex h-screen flex-col items-center justify-center gap-4 bg-gradient-to-b from-stone-300 to-stone-50 dark:from-slate-950 dark:to-slate-900 md:flex-row"
+  class="flex h-screen flex-col items-center justify-center gap-4 bg-gradient-to-b from-stone-300 to-stone-50 md:flex-row dark:from-slate-950 dark:to-slate-900"
 >
   <div class="mx-8">
     <h1>{t('hero.title')}</h1>
@@ -44,20 +44,19 @@ const t = useTranslations(lang);
 
   gsap
     .timeline()
-    .delay(3.5)
     .from('#hero :is(h1, h2)', {
       y: -50,
       opacity: 0,
-      stagger: 0.01,
+      stagger: 0.05,
       duration: 2,
-      ease: 'power4.out',
+      ease: 'power3.out',
     })
     .from('#hero .fade-in-bottom', {
       y: 50,
       opacity: 0,
       duration: 0.75,
       delay: -1.5,
-      ease: 'power2.out',
+      ease: 'power3.out',
       stagger: 0.2,
     })
     .fromTo(

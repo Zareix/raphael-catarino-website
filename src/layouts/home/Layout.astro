@@ -50,9 +50,11 @@ const links: Parameters<typeof Nav>[0]['links'] = [
 </html>
 
 <style is:global lang="scss">
+  @import 'open-props/easings';
+
   html,
   body {
-    @apply bg-stone-50 text-sm text-slate-900 dark:bg-slate-900 dark:text-stone-50 lg:text-base;
+    @apply bg-stone-50 text-sm text-slate-900 lg:text-base dark:bg-slate-900 dark:text-stone-50;
     font-family: 'Inter Variable', sans-serif;
     font-size: 1.2rem;
     line-height: 1.5;
@@ -90,12 +92,12 @@ const links: Parameters<typeof Nav>[0]['links'] = [
   }
 
   dialog {
-    @apply cursor-default rounded-md p-6 text-slate-900 duration-1000 backdrop:bg-slate-950/50 backdrop:backdrop-blur focus:outline-none dark:bg-slate-900 dark:text-stone-50 sm:max-w-md;
+    @apply cursor-default rounded-md p-6 text-slate-900 duration-1000 backdrop:bg-slate-950/50 backdrop:backdrop-blur focus:outline-none sm:max-w-md dark:bg-slate-900 dark:text-stone-50;
   }
 
   dialog[open] {
     animation:
-      dialog-slide-up 400ms forwards,
+      dialog-slide-up 750ms forwards var(--ease-spring-2),
       dialog-fade-in 400ms forwards;
   }
   dialog[open]::backdrop {

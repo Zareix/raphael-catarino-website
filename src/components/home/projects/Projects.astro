@@ -21,15 +21,15 @@ const projects = await getCollection('projects', ({ id }) => {
   <div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     {
       projects.map((project) => (
-        <article class="group block relative m-4 overflow-hidden cursor-pointer rounded-md bg-stone-100 transition-shadow hover:shadow-xl">
+        <article class="group relative m-4 block cursor-pointer overflow-hidden rounded-md bg-stone-100 transition-shadow hover:shadow-xl">
           <Image
             src={project.data.featuredImage}
             alt={project.data.title}
             width={600}
             height={400}
-            class="w-full object-cover aspect-video"
+            class="aspect-video w-full object-cover"
           />
-          <div class="overlay inset-0 absolute grid place-content-center bg-gray-950/40 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
+          <div class="overlay absolute inset-0 grid place-content-center bg-gray-950/40 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
             <h3 class="text-white">{project.data.title}</h3>
           </div>
           <ProjectDialog {project} />
@@ -68,7 +68,7 @@ const projects = await getCollection('projects', ({ id }) => {
   }
 
   article {
-    animation: appear both ease-in-out;
+    animation: appear both var(--ease-spring-1);
     animation-timeline: view();
     animation-range: entry;
   }
