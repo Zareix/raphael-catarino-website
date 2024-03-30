@@ -2,13 +2,20 @@
 import { getLangFromUrl, useTranslations } from '~/i18n/utils';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import ProjectDialog from '~/components/home/projects/ProjectDialog.astro';
+import ProjectCard from '~/components/home/projects/ProjectCard';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const projects = await getCollection('projects', ({ id }) => {
-  return id.startsWith(`${lang}/`);
-});
+const projects = await Promise.all(
+  (
+    await getCollection('projects', ({ id }) => {
+      return id.startsWith(`${lang}/`);
+    })
+  ).map(async (project) => ({
+    ...project,
+    content: await project.render(),
+  })),
+);
 ---
 
 <section id="projects" class="grid w-full place-content-center py-12">
@@ -21,43 +28,21 @@ const projects = await getCollection('projects', ({ id }) => {
   <div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     {
       projects.map((project) => (
-        <article class="group relative m-4 block cursor-pointer overflow-hidden rounded-md bg-stone-100 transition-shadow hover:shadow-xl">
+        <ProjectCard project={project} lang={lang} client:visible>
           <Image
             src={project.data.featuredImage}
             alt={project.data.title}
             width={600}
             height={400}
             class="aspect-video w-full object-cover"
+            slot="image"
           />
-          <div class="overlay absolute inset-0 grid place-content-center bg-gray-950/40 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
-            <h3 class="text-white">{project.data.title}</h3>
-          </div>
-          <ProjectDialog {project} />
-        </article>
+          <project.content.Content slot="content" />
+        </ProjectCard>
       ))
     }
   </div>
 </section>
-
-<script>
-  import { closeDialog, handleDialogBackdropClick } from '~/lib/modal';
-
-  document.querySelectorAll('#projects article').forEach((article) => {
-    const modal = article.querySelector('dialog');
-    article.addEventListener('click', () => {
-      if (!modal) return;
-      if (modal.open) {
-        closeDialog(modal);
-      } else {
-        modal.showModal();
-      }
-    });
-    handleDialogBackdropClick(modal);
-    modal?.querySelector('button')?.addEventListener('click', () => {
-      closeDialog(modal);
-    });
-  });
-</script>
 
 <style>
   @keyframes appear {

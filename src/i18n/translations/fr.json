@@ -1,6 +1,7 @@
 {
     "contact": {
         "title": "Me contacter",
+        "buttonText": "Contact",
         "emailLabel": "Votre email",
         "emailPlaceholder": "name@exemple.com",
         "nameLabel": "Votre nom",
@@ -29,8 +30,7 @@
         "experiences": "Expériences",
         "portfolio": "Portfolio",
         "projects": "Projets",
-        "skills": "Compétences",
-        "contact": "Contact"
+        "skills": "Compétences"
     },
     "skills": {
         "title": "Compétences",

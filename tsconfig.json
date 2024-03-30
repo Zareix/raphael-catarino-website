@@ -3,7 +3,7 @@
   "compilerOptions": {
     "types": ["bun-types"],
     "jsx": "react-jsx",
-    "jsxImportSource": "@builder.io/qwik",
+    "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]

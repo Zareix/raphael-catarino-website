@@ -27,3 +27,10 @@ export function useTranslations(lang: keyof typeof translations) {
     return translations[lang][key] || translations[defaultLang][key];
   };
 }
+
+export function formatList(lang: Lang, list: string[]) {
+  return new Intl.ListFormat(lang, {
+    style: 'short',
+    type: 'conjunction',
+  }).format(list);
+}

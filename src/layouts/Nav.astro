@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import svgIcon from '~/assets/favicon.svg';
+import ContactButton from '~/components/contact/ContactButton.tsx';
 import { getLangFromUrl, useTranslations } from '~/i18n/utils';
 
 export type NavigationLink = {
@@ -22,13 +23,17 @@ const { links, base, animationDelay } = Astro.props;
 
 <header class="fixed top-0 isolate z-30 w-full">
   <nav
-    class="mx-auto mt-2 hidden w-max items-center justify-center rounded-xl border border-gray-50 border-opacity-10 bg-slate-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg dark:bg-slate-800 dark:bg-opacity-70 md:flex"
+    class="mx-auto mt-2 flex w-max items-center justify-center rounded-xl border border-gray-50 border-opacity-10 bg-slate-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg dark:bg-slate-800 dark:bg-opacity-70"
     data-animation-delay={animationDelay}
   >
-    <a class="relative" href={base} aria-label="Raphaël Catarino logo">
+    <a
+      class="relative hidden md:block"
+      href={base}
+      aria-label="Raphaël Catarino logo"
+    >
       <Image src={svgIcon} alt="Raphaël Catarino logo" width="28" height="28" />
     </a>
-    <ul class="ml-6 flex items-center gap-4 text-sm">
+    <ul class="flex items-center gap-4 text-sm md:ml-4">
       {
         links.map((link) => (
           <li>
@@ -42,12 +47,7 @@ const { links, base, animationDelay } = Astro.props;
         ))
       }
       <li>
-        <button
-          class="text-gray-800 transition-colors hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-200"
-          id="contactFormButton"
-        >
-          {t('nav.contact')}
-        </button>
+        <ContactButton client:visible lang={lang} />
       </li>
     </ul>
   </nav>
@@ -62,12 +62,4 @@ const { links, base, animationDelay } = Astro.props;
     delay: document.querySelector('nav')?.dataset.animationDelay,
     ease: 'power4.out',
   });
-
-  document
-    .querySelector('#contactFormButton')
-    ?.addEventListener('click', () => {
-      document
-        .querySelector<HTMLDialogElement>('#contactFormDialog')
-        ?.showModal();
-    });
 </script>

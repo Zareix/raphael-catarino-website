@@ -21,10 +21,10 @@ const links: Parameters<typeof Nav>[0]['links'] = [
     href: '#projects',
     label: t('nav.projects'),
   },
-  {
-    href: '/blog',
-    label: t('nav.blog'),
-  },
+  // {
+  //   href: '/blog',
+  //   label: t('nav.blog'),
+  // },
 ];
 ---
 
@@ -42,10 +42,9 @@ const links: Parameters<typeof Nav>[0]['links'] = [
       src="https://plausible.raphael-catarino.fr/js/script.js"></script>
   </head>
   <body>
-    <Nav base="#hero" links={links} animationDelay={4.5} />
+    <Nav base="#hero" links={links} animationDelay={1.5} />
     <slot />
     <Footer />
-    <ContactDialog />
   </body>
 </html>
 

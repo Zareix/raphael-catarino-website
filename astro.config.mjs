@@ -2,8 +2,9 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
-
 import qwikdev from '@qwikdev/astro';
+
+import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,7 +23,7 @@ export default defineConfig({
         },
       },
     }),
-    qwikdev(),
+    react(),
   ],
   output: 'hybrid',
   adapter: cloudflare({
@@ -31,12 +32,8 @@ export default defineConfig({
       mode: 'local',
       type: 'pages',
     },
+    imageService: 'compile',
   }),
-  image: {
-    service: {
-      entrypoint: './src/lib/image-service.ts',
-    },
-  },
   redirects: {
     '/s/github': 'https://github.com/Zareix',
     '/s/instagram': 'https://www.instagram.com/raphaelgc',
