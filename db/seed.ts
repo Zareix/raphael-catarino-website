@@ -57,7 +57,7 @@ export default async function seed() {
       titleEn: 'Scientific high school diploma',
       enterprise: 'Lycée La Rochefoucauld',
       link: 'https://laroche.org/',
-      logo: 'laroche.webp',
+      logo: 'laroche',
       date: '2019',
     },
     {
@@ -66,7 +66,7 @@ export default async function seed() {
       titleEn: 'Computer Science DUT',
       enterprise: 'IUT de Paris',
       link: 'https://iutparis-seine.u-paris.fr/',
-      logo: 'iut_de_paris.png',
+      logo: 'iut_de_paris',
       date: '2019 - 2021',
     },
     {
@@ -75,7 +75,7 @@ export default async function seed() {
       titleEn: 'Internship Quality Analyst / Automatisation Developer',
       enterprise: 'Keolis',
       link: 'https://www.keolis.com',
-      logo: 'keolis.png',
+      logo: 'keolis',
       date: 'Avril 2021 - Août 2021',
     },
     {
@@ -84,7 +84,7 @@ export default async function seed() {
       titleEn: 'Software engineer',
       enterprise: 'EFREI Paris',
       link: 'https://www.efrei.fr/',
-      logo: 'efrei.png',
+      logo: 'efrei',
       date: '2021 - 2024',
     },
     {
@@ -93,7 +93,7 @@ export default async function seed() {
       titleEn: 'Fullstack developer (Apprentice)',
       enterprise: 'Société Générale',
       link: 'https://particuliers.societegenerale.fr/',
-      logo: 'sg.png',
+      logo: 'sg',
       date: '2021 - 2024',
     },
   ]);

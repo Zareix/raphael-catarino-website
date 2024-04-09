@@ -9,7 +9,7 @@ const t = useTranslations(lang);
 const images: Record<string, ImageMetadata> = {};
 await Astro.glob('/src/assets/experiences/*').then((files) => {
   files.forEach((file) => {
-    const name = file.default.src.split('/').pop().split('?').shift();
+    const name = file.default.src.split('.')[0].split('/').pop();
     images[name] = file.default;
   });
 });
