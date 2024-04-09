@@ -1,4 +1,4 @@
-import { flatten } from '~/lib/flatten';
+import { flatten } from '~/lib/utils';
 import en from './translations/en.json';
 import fr from './translations/fr.json';
 

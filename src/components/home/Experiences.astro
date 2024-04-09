@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import { getLangFromUrl, useTranslations } from '~/i18n';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
@@ -34,6 +34,7 @@ const experiences = (
               width={48}
               height={48}
               class="h-[48px] w-[48px] object-contain"
+              densities={[1, 2]}
             />
             <div>
               <h3 class="w-min text-base font-bold md:text-lg">{exp.title}</h3>

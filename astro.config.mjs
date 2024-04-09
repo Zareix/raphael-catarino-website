@@ -2,15 +2,18 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
-import qwikdev from '@qwikdev/astro';
-
 import react from '@astrojs/react';
+
+import db from '@astrojs/db';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://raphael-catarino.fr',
   prefetch: {
     prefetchAll: true,
+  },
+  image: {
+    domains: ['cdn.jsdelivr.net'],
   },
   integrations: [
     tailwind(),
@@ -24,6 +27,7 @@ export default defineConfig({
       },
     }),
     react(),
+    db(),
   ],
   output: 'hybrid',
   adapter: cloudflare({

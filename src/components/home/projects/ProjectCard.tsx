@@ -1,7 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { useState } from 'react';
 import { Drawer } from 'vaul';
-import { useTranslations, type Lang, formatList } from '~/i18n/utils';
+import { useTranslations, type Lang, formatList } from '~/i18n';
 
 type Props = {
   project: CollectionEntry<'projects'>;
@@ -19,6 +19,7 @@ const ProjectCard = ({ project, image, content, lang }: Props) => {
       snapPoints={[0.4, 1]}
       activeSnapPoint={snap}
       setActiveSnapPoint={setSnap}
+      fadeFromIndex={0}
     >
       <Drawer.Trigger asChild>
         <button className="relative m-4 block cursor-pointer overflow-hidden rounded-md bg-stone-100 transition hover:opacity-65 hover:shadow-xl hover:ring sm:hover:opacity-100 sm:hover:ring-0">

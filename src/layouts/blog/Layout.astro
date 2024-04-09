@@ -1,6 +1,6 @@
 ---
 import '@fontsource-variable/inter';
-import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import { getLangFromUrl, useTranslations } from '~/i18n';
 import Nav from '~/layouts/Nav.astro';
 import Footer from '~/layouts/Footer.astro';
 
@@ -38,7 +38,7 @@ const links: Parameters<typeof Nav>[0]['links'] = [
 <style is:global lang="scss">
   html,
   body {
-    @apply bg-stone-50 text-sm text-slate-900 dark:bg-slate-900 dark:text-stone-50 lg:text-base;
+    @apply bg-stone-50 text-sm text-slate-900 lg:text-base dark:bg-slate-900 dark:text-stone-50;
     font-family: 'Inter Variable', sans-serif;
     font-size: 1.2rem;
     line-height: 1.5;

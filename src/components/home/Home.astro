@@ -4,8 +4,7 @@ import Hero from '~/components/home/hero/Hero.astro';
 import Experiences from '~/components/home/Experiences.astro';
 import Skills from '~/components/home/skills/Skills.astro';
 import Projects from '~/components/home/projects/Projects.astro';
-import Loading from '~/components/Loading.astro';
-import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+import { getLangFromUrl, useTranslations } from '~/i18n';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
