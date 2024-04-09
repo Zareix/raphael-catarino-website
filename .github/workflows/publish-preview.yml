@@ -1,4 +1,8 @@
 name: '[PREVIEW] Build & Publish'
+
+env:
+  ASTRO_STUDIO_APP_TOKEN: ${{secrets.ASTRO_STUDIO_APP_TOKEN }}
+
 on:
   pull_request:
     branches:
