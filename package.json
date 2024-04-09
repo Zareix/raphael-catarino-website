@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "dev:remote": "astro dev",
-    "build": "astro build --remote",
+    "build": "NODE_ENV=production SKIP_ENV_VALIDATION=1 astro build --remote",
     "lint": "bun run astro check",
     "preview": "npx wrangler pages dev ./dist --node-compat",
     "astro": "astro"

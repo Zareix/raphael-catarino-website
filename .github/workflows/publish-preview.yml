@@ -28,9 +28,7 @@ jobs:
       - name: Install dependencies
         run: bun install
       - name: Run build command
-        run: |
-          export NODE_ENV=production
-          bun run build
+        run: bun run build
       - name: Archive dist
         uses: actions/upload-artifact@v4
         with:

@@ -15,4 +15,5 @@ export const env = createEnv({
     EMAIL_TO: process.env.EMAIL_TO ?? import.meta.env.EMAIL_TO,
     EMAIL_FROM: process.env.EMAIL_FROM ?? import.meta.env.EMAIL_FROM,
   },
+  skipValidation: !!process.env.SKIP_ENV_VALIDATION,
 });
