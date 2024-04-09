@@ -4,10 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "dev:remote": "astro dev",
+    "dev:remote": "astro dev --remote",
+    "db:seed:remote": "astro db execute ./db/seed.ts --remote",
+    "db:push": "astro db push",
+    "db:push:force": "astro db push --force-reset",
     "build": "NODE_ENV=production SKIP_ENV_VALIDATION=1 astro build --remote",
     "lint": "bun run astro check",
-    "preview": "npx wrangler pages dev ./dist --node-compat",
+    "preview": "bunx wrangler pages dev ./dist --node-compat",
     "astro": "astro"
   },
   "dependencies": {

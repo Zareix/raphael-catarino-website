@@ -13,23 +13,6 @@ const projectsCollection = defineCollection({
     }),
 });
 
-const experiencesCollection = defineCollection({
-  type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      experiences: z.array(
-        z.object({
-          title: z.string(),
-          enterprise: z.string(),
-          link: z.string(),
-          logo: image(),
-          date: z.string(),
-        }),
-      ),
-    }),
-});
-
 export const collections = {
   projects: projectsCollection,
-  experiences: experiencesCollection,
 };

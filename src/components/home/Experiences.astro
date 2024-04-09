@@ -1,15 +1,24 @@
 ---
 import { getLangFromUrl, useTranslations } from '~/i18n';
 import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
+import { Experience, db } from 'astro:db';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const images: Record<string, ImageMetadata> = {};
+await Astro.glob('/src/assets/experiences/*').then((files) => {
+  files.forEach((file) => {
+    const name = file.default.src.split('/').pop().split('?').shift();
+    images[name] = file.default;
+  });
+});
 const experiences = (
-  await getCollection('experiences', ({ id }) => {
-    return id.startsWith(`${lang}.`);
-  })
-)[0].data.experiences;
+  await await db.select().from(Experience).orderBy('id', 'desc')
+).map((exp) => ({
+  ...exp,
+  logo: images[exp.logo],
+}));
 ---
 
 <section id="experiences" class="my-24 flex flex-col items-center">
@@ -37,7 +46,9 @@ const experiences = (
               densities={[1, 2]}
             />
             <div>
-              <h3 class="w-min text-base font-bold md:text-lg">{exp.title}</h3>
+              <h3 class="w-min text-base font-bold md:text-lg">
+                {lang === 'en' ? exp.titleEn : exp.titleFr}
+              </h3>
               <a href={exp.link} class="hover:underline">
                 <h4 class="text-sm text-zinc-600 dark:text-zinc-400">
                   {exp.enterprise}
