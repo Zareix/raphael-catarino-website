@@ -9,4 +9,5 @@ My portfolio / blog v3
 
 ## Stack
 
-- 100% Astro
+- 99% Astro with a few React components
+- Deployed on Cloudflare Pages
