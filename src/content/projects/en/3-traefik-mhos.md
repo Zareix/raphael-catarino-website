@@ -10,4 +10,4 @@ technologies:
 date:
 ---
 
-Traefik-mhos (Multi HOSts) helps you use a single traefik for proxying multiple docker hosts (withtout swarm or k8s).
+Traefik-mhos (Multi HOSts) helps you use a single traefik for proxying multiple docker hosts (without swarm or k8s).

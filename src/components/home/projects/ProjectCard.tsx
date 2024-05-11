@@ -1,5 +1,4 @@
 import type { CollectionEntry } from 'astro:content';
-import { useState } from 'react';
 import { Drawer } from 'vaul';
 import { useTranslations, type Lang, formatList } from '~/i18n';
 

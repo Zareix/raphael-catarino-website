@@ -1,7 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "types": ["bun-types"],
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",
@@ -9,5 +8,5 @@
       "~/*": ["src/*"]
     }
   },
-  "include": ["src/**/*"]
+  "exclude": ["node_modules", "dist", ".wrangler", "public", "unlighthouse"]
 }

@@ -2,6 +2,7 @@
 import { getLangFromUrl, useTranslations } from '~/i18n';
 import { Image } from 'astro:assets';
 import { Experience, db } from 'astro:db';
+import { desc } from 'astro:db';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -14,7 +15,7 @@ await Astro.glob('/src/assets/experiences/*').then((files) => {
   });
 });
 const experiences = (
-  await await db.select().from(Experience).orderBy('id', 'desc')
+  await db.select().from(Experience).orderBy(desc(Experience.id))
 ).map((exp) => ({
   ...exp,
   logo: images[exp.logo],

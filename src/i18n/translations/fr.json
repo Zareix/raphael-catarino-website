@@ -1,47 +1,47 @@
 {
-    "contact": {
-        "title": "Me contacter",
-        "buttonText": "Contact",
-        "emailLabel": "Votre email",
-        "emailPlaceholder": "name@exemple.com",
-        "nameLabel": "Votre nom",
-        "namePlaceholder": "John Doe",
-        "messageLabel": "Votre message",
-        "messagePlaceholder": "Votre message...",
-        "sending": "Envoi en cours...",
-        "send": "Envoyer"
-    },
-    "experiences": {
-        "title": "Expériences",
-        "subtitle": "Mes expériences professionnelles"
-    },
-    "hero": {
-        "title": "Raphaël Catarino",
-        "subtitle": "Développeur Fullstack"
-    },
-    "loading": {
-        "title": "Chargement"
-    },
-    "meta": {
-        "description": "Vous trouverez sur ce site l'intégralité de mes compétences dans ce domaine ainsi que mes divers projets."
-    },
-    "nav": {
-        "blog": "Blog",
-        "experiences": "Expériences",
-        "portfolio": "Portfolio",
-        "projects": "Projets",
-        "skills": "Compétences"
-    },
-    "skills": {
-        "title": "Compétences",
-        "subtitle": "Langages et technologies que j'utilise"
-    },
-    "projects": {
-        "title": "Projets",
-        "subtitle": "Mes projets personnels",
-        "project": {
-            "publicLink": "Projet",
-            "sourceLink": "Sources"
-        }
+  "contact": {
+    "title": "Me contacter",
+    "buttonText": "Contact",
+    "emailLabel": "Votre email",
+    "emailPlaceholder": "name@exemple.com",
+    "nameLabel": "Votre nom",
+    "namePlaceholder": "John Doe",
+    "messageLabel": "Votre message",
+    "messagePlaceholder": "Votre message...",
+    "sending": "Envoi en cours...",
+    "send": "Envoyer"
+  },
+  "experiences": {
+    "title": "Expériences",
+    "subtitle": "Mes expériences professionnelles"
+  },
+  "hero": {
+    "title": "Raphaël Catarino",
+    "subtitle": "Développeur Fullstack"
+  },
+  "loading": {
+    "title": "Chargement"
+  },
+  "meta": {
+    "description": "Vous trouverez sur ce site l'intégralité de mes compétences dans ce domaine ainsi que mes divers projets."
+  },
+  "nav": {
+    "blog": "Blog",
+    "experiences": "Expériences",
+    "portfolio": "Portfolio",
+    "projects": "Projets",
+    "skills": "Compétences"
+  },
+  "skills": {
+    "title": "Compétences",
+    "subtitle": "Langages et technologies que j'utilise"
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Mes projets personnels",
+    "project": {
+      "publicLink": "Projet",
+      "sourceLink": "Sources"
     }
+  }
 }

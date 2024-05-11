@@ -40,9 +40,4 @@ export default defineConfig({
       'https://www.linkedin.com/in/rapha%C3%ABl-gon%C3%A7alves-catarino/',
     '/s/bento': 'https://bento.me/raphael-catarino',
   },
-  vite: {
-    build: {
-      minify: false,
-    },
-  },
 });

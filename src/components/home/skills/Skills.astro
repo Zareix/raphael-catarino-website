@@ -7,7 +7,7 @@ import { Image } from 'astro:assets';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const skills = await await db.select().from(Skill);
+const skills = await db.select().from(Skill);
 const domains = groupBy(skills, ({ category }) => category);
 ---
 
