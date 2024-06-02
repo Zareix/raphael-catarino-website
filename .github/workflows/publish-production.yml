@@ -55,6 +55,7 @@ jobs:
           directory: build-output
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: main
+          wranglerVersion: '3'
         id: publish
       - name: Outputs
         run: |
