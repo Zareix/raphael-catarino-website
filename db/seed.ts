@@ -33,6 +33,7 @@ export default async function seed() {
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
       category: 'Backend',
     },
+
     {
       name: 'Svelte',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg',
@@ -47,6 +48,27 @@ export default async function seed() {
       name: 'Astro',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg',
       category: 'Frontend',
+    },
+
+    {
+      name: 'Docker',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+      category: 'DevOps',
+    },
+    {
+      name: 'Kubernetes',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg',
+      category: 'DevOps',
+    },
+    {
+      name: 'Terraform',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg',
+      category: 'DevOps',
+    },
+    {
+      name: 'Ansible',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg',
+      category: 'DevOps',
     },
   ]);
 

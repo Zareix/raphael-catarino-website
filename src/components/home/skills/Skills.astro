@@ -3,8 +3,7 @@ import { Skill, db } from 'astro:db';
 import { getLangFromUrl, useTranslations } from '~/i18n';
 import GridLines from '~/components/home/skills/GridLines.astro';
 import { groupBy } from '~/lib/utils';
-import { Image } from 'astro:assets';
-
+import { SkillsSelector } from './SkillsSelector';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const skills = await db.select().from(Skill);
@@ -16,16 +15,15 @@ const domains = groupBy(skills, ({ category }) => category);
   class="relative grid w-full place-content-center overflow-hidden py-12"
 >
   <GridLines />
-  <h1>
+  <h1 class="z-10">
     {t('skills.title')}
   </h1>
-  <h2>
+  <h2 class="z-10">
     {t('skills.subtitle')}
   </h2>
-  <div
-    class="container mt-6 flex flex-wrap items-center justify-center gap-6 md:gap-12"
-  >
-    {
+  <div class="domains container z-10 mt-4">
+    <SkillsSelector domains={domains} client:visible />
+    <!-- {
       Object.entries(domains).map((domain) => (
         <article class="relative mx-4 flex min-w-[300px] flex-wrap justify-center gap-x-8 gap-y-2 overflow-hidden rounded-lg border border-gray-700 bg-slate-800/90 px-4 pb-6 pt-12 font-mono text-gray-50 shadow-md md:w-max md:min-w-[400px] md:max-w-[30%] md:px-8">
           <div class="absolute left-2 top-2 flex gap-1 md:left-4 md:top-3">
@@ -51,75 +49,26 @@ const domains = groupBy(skills, ({ category }) => category);
           ))}
         </article>
       ))
-    }
+    } -->
   </div>
 </section>
-<script>
-  import { gsap } from 'gsap';
-
-  const articles = gsap.utils.toArray<Element>('#skills article');
-
-  articles.forEach((article) => {
-    if (window.matchMedia('(max-width: 768px)').matches) {
-      gsap.from(article, {
-        scrollTrigger: {
-          trigger: article,
-          start: 'top 90%',
-        },
-        x: -100,
-        opacity: 0,
-        duration: 0.5,
-      });
-    } else {
-      gsap.from(article, {
-        scrollTrigger: {
-          trigger: article,
-          start: 'top 90%',
-        },
-        y: 100,
-        opacity: 0,
-        duration: 0.5,
-      });
-    }
-  });
-
-  const cards = document.querySelectorAll<HTMLElement>('#skills article');
-  cards.forEach((card) => {
-    card.addEventListener('mousemove', (event) => {
-      const e = event as MouseEvent;
-      const rect = card.getBoundingClientRect();
-      const left = e.clientX - rect.left;
-      const top = e.clientY - rect.top;
-      card.style.setProperty('--left', `${left}px`);
-      card.style.setProperty('--top', `${top}px`);
-    });
-  });
-</script>
 <style>
-  article {
-    --left: 0px;
-    --top: 0px;
+  @keyframes appearBlur {
+    0% {
+      opacity: 0;
+      scale: 0.85;
+      filter: blur(15px);
+    }
+    75% {
+      opacity: 1;
+      scale: 1;
+    }
+    100% {
+      filter: blur(0);
+    }
   }
 
-  article::before {
-    content: '';
-    width: 8rem;
-    height: 8rem;
-
-    border-radius: 50%;
-    @apply bg-purple-800 bg-opacity-70;
-    filter: blur(50px);
-    opacity: 0;
-    transition: opacity 500ms;
-
-    position: absolute;
-    top: var(--top);
-    left: var(--left);
-    transform: translate(-50%, -50%);
-    z-index: -10;
-  }
-
-  article:hover::before {
-    opacity: 1;
+  .domains :global(.domain-content) {
+    animation: appearBlur 400ms ease-out;
   }
 </style>

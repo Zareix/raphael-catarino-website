@@ -1,8 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '~/i18n';
 import { Image } from 'astro:assets';
-import { Experience, db } from 'astro:db';
-import { desc } from 'astro:db';
+import { Experience, db, asc } from 'astro:db';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -15,7 +14,7 @@ await Astro.glob('/src/assets/experiences/*').then((files) => {
   });
 });
 const experiences = (
-  await db.select().from(Experience).orderBy(desc(Experience.id))
+  await db.select().from(Experience).orderBy(asc(Experience.id))
 ).map((exp) => ({
   ...exp,
   logo: images[exp.logo],
@@ -37,7 +36,7 @@ const experiences = (
     {
       experiences.map((exp) => (
         <article class="snap-center">
-          <div class="content mx-4 flex w-max max-w-[400px] items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700  dark:bg-gray-900 dark:text-gray-50">
+          <div class="content mx-4 flex w-max max-w-[400px] items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50">
             <Image
               src={exp.logo}
               alt={exp.enterprise}
@@ -103,6 +102,10 @@ const experiences = (
 
 <script>
   import { gsap } from 'gsap';
+
+  document.querySelector('#experiences .container')?.scrollTo({
+    left: 10000,
+  });
 
   gsap.from('#experiences article .content', {
     scrollTrigger: {
