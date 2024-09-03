@@ -1,13 +1,11 @@
 ---
-import { Skill, db } from 'astro:db';
 import { getLangFromUrl, useTranslations } from '~/i18n';
 import GridLines from '~/components/home/skills/GridLines.astro';
-import { groupBy } from '~/lib/utils';
-import { SkillsSelector } from './SkillsSelector';
+import { SkillsSelector, type SkillsSelectorProps } from './SkillsSelector';
+import { domains } from '~/content/skills';
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const skills = await db.select().from(Skill);
-const domains = groupBy(skills, ({ category }) => category);
 ---
 
 <section
@@ -23,35 +21,9 @@ const domains = groupBy(skills, ({ category }) => category);
   </h2>
   <div class="domains container z-10 mt-4">
     <SkillsSelector domains={domains} client:visible />
-    <!-- {
-      Object.entries(domains).map((domain) => (
-        <article class="relative mx-4 flex min-w-[300px] flex-wrap justify-center gap-x-8 gap-y-2 overflow-hidden rounded-lg border border-gray-700 bg-slate-800/90 px-4 pb-6 pt-12 font-mono text-gray-50 shadow-md md:w-max md:min-w-[400px] md:max-w-[30%] md:px-8">
-          <div class="absolute left-2 top-2 flex gap-1 md:left-4 md:top-3">
-            <div class="h-2 w-2 rounded-full bg-red-400 md:h-3 md:w-3" />
-            <div class="aspect-square h-2 w-2 rounded-full bg-yellow-400 md:h-3 md:w-3" />
-            <div class="aspect-square h-2 w-2 rounded-full bg-green-400 md:h-3 md:w-3" />
-          </div>
-          <h3 class="absolute left-1/2 top-4 -translate-x-1/2 whitespace-nowrap md:top-2">
-            {domain[0]}
-          </h3>
-          {domain[1].map((skill) => (
-            <div class="grid max-w-[33%] justify-items-center text-center">
-              <Image
-                src={skill.icon}
-                alt={skill.name}
-                class="relative overflow-hidden rounded-md"
-                width={64}
-                height={64}
-                densities={[1, 2]}
-              />
-              <h4 class="mt-1 text-sm">{skill.name}</h4>
-            </div>
-          ))}
-        </article>
-      ))
-    } -->
   </div>
 </section>
+
 <style>
   @keyframes appearBlur {
     0% {

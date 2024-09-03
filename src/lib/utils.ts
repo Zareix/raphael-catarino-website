@@ -40,5 +40,4 @@ function groupBy<T, K extends keyof any>(
     {} as Record<K, T[]>,
   );
 }
-
 export { flatten, type FlattenObjectKeys, groupBy };

@@ -1,17 +1,12 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 
-type Props = {
-  domains: Record<
-    string,
-    {
-      name: string;
-      icon: string;
-      category: string;
-    }[]
-  >;
+import * as icons from './Icons';
+
+export type SkillsSelectorProps = {
+  domains: Record<string, Array<keyof typeof icons>>;
 };
 
-export const SkillsSelector = ({ domains }: Props) => {
+export const SkillsSelector = ({ domains }: SkillsSelectorProps) => {
   const [selectedDomainName, setSelectedDomainName] = useState<string>(
     Object.keys(domains)[0],
   );
@@ -46,17 +41,13 @@ export const SkillsSelector = ({ domains }: Props) => {
             {skills.map((skill) => (
               <div
                 className="relative grid justify-items-center text-center"
-                key={skill.name}
+                key={skill}
               >
-                <img
-                  src={skill.icon}
-                  alt={skill.name}
-                  className="relative overflow-hidden rounded-md"
-                  width={64}
-                  height={64}
-                />
+                {icons[skill]({
+                  className: 'h-16 w-16 overflow-hidden',
+                })}
                 <h4 className="absolute -bottom-6 mt-1 text-sm font-light text-gray-600 dark:text-gray-300">
-                  {skill.name}
+                  {skill.replace('CSharp', 'C#')}
                 </h4>
               </div>
             ))}
