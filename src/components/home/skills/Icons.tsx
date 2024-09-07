@@ -390,7 +390,7 @@ export const Kubernetes = (props: SVGProps<SVGSVGElement>) => (
 
 export const Terraform = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" {...props}>
-    <g fill-rule="evenodd">
+    <g fillRule="evenodd">
       <path d="M77.941 44.5v36.836L46.324 62.918V26.082zm0 0" fill="#5c4ee5" />
       <path
         d="M81.41 81.336l31.633-18.418V26.082L81.41 44.5zm0 0"

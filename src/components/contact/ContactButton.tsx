@@ -1,6 +1,7 @@
 import { Drawer } from 'vaul';
 import { useState } from 'react';
 import { useTranslations, type Lang } from '~/i18n';
+import { actions } from 'astro:actions';
 
 type Props = {
   lang: Lang;
@@ -19,27 +20,20 @@ const ContactButton = ({ lang }: Props) => {
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setState('loading');
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+    actions
+      .submitContact({
         name,
         email,
         message,
-      }),
-    })
-      .then((res) => res.json())
+      })
       .then((res) => {
-        // console.log(res);
-        if (res.success) {
+        if (res.error) {
+          setState('error');
+          alert('Message failed to send. Please try again later.');
+        } else {
           setState('success');
           alert('Message sent!');
           setModalOpen(false);
-        } else {
-          setState('error');
-          alert('Message failed to send.');
         }
         setName('');
         setEmail('');
