@@ -1,5 +1,3 @@
-import type { Lang } from '~/i18n';
-
 type Experience = {
   titleFr: string;
   titleEn: string;
@@ -8,14 +6,6 @@ type Experience = {
   logo: string;
   date: string;
 };
-
-// date link logo titleEn titleFr enterprise
-// 2019	https://laroche.org/	laroche	Scientific high school diploma	Baccalauréat général scientifique	Lycée La Rochefoucauld
-// 2019 - 2021	https://iutparis-seine.u-paris.fr/	iut_de_paris	Computer Science DUT	DUT Informatique	IUT de Paris
-// Avril 2021 - Août 2021	https://www.keolis.com	keolis	Internship Quality Analyst / Automatisation Developer	Stage Quality Analyst / Développeur Automatisation	Keolis
-// 2021 - 2024	https://www.efrei.fr/	efrei	Software engineer	Ingénieur informatique	EFREI Paris
-// 2021 - 2024	https://particuliers.societegenerale.fr/	sg	Fullstack developer (Apprentice)	Développeur Full Stack (Alternance)	Société Générale
-// 2024 - today https://www.neosoft.fr/ neosoft Software engineer Ingénieur Développeur Fullstack Néosoft
 
 export const EXPERIENCES = [
   {
