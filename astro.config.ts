@@ -4,8 +4,6 @@ import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 
-import db from '@astrojs/db';
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://raphael-catarino.fr',
@@ -27,7 +25,6 @@ export default defineConfig({
       },
     }),
     react(),
-    db(),
   ],
   output: 'hybrid',
   adapter: cloudflare({

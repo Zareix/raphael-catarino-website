@@ -29,7 +29,7 @@ export const SkillsSelector = ({ domains }: SkillsSelectorProps) => {
           </li>
         ))}
       </ul>
-      <div className="relative grid h-[160px] justify-center">
+      <div className="relative grid justify-center">
         {Object.entries(domains).map(([domain, skills]) => (
           <div
             className={

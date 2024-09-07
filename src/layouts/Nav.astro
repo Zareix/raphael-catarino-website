@@ -46,7 +46,7 @@ const { links, base, animationDelay } = Astro.props;
         ))
       }
       <li>
-        <ContactButton client:visible lang={lang} />
+        <ContactButton client:only lang={lang} />
       </li>
     </ul>
   </nav>
