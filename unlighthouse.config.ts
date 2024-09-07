@@ -3,7 +3,7 @@ export default {
   outputPath: 'unlighthouse',
   scanner: {
     samples: 1,
-    exclude: ['/api/*', '/cdn-cgi/*'],
+    exclude: ['/api/*', '/cdn-cgi/l/email-protection'],
   },
   ci: {
     budget: 70,
