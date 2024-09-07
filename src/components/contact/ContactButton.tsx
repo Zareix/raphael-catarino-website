@@ -68,7 +68,7 @@ const ContactButton = ({ lang }: Props) => {
               aria-label="close"
             />
             <div className="mx-auto max-w-md">
-              <form className="flex flex-col gap-4" onSubmit={submit}>
+              <form className="flex flex-col gap-4 px-4" onSubmit={submit}>
                 <Drawer.Title className="text-center">
                   {t('contact.title')}
                 </Drawer.Title>
@@ -126,12 +126,7 @@ const ContactButton = ({ lang }: Props) => {
                 </div>
                 <button
                   type="submit"
-                  className="group relative isolate ml-auto inline-flex items-center justify-center overflow-hidden
-                    rounded-md bg-purple-500 px-3 py-[0.1875rem] text-sm font-medium text-white shadow-[0_1px_theme(colors.white/0.07)_inset,0_1px_3px_theme(colors.gray.900/0.2)] 
-                    ring-1 ring-purple-500 transition duration-300 ease-[cubic-bezier(0.4,0.36,0,1)]
-                    before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-b before:from-white/20 before:opacity-50 before:transition-opacity before:duration-300 before:ease-[cubic-bezier(0.4,0.36,0,1)]
-                    after:pointer-events-none after:absolute after:inset-0 after:-z-10 after:rounded-md after:bg-gradient-to-b after:from-white/10 after:from-[46%] after:to-[54%] after:mix-blend-overlay
-                    hover:before:opacity-100 dark:bg-purple-800 dark:ring-0"
+                  className="group relative isolate ml-auto inline-flex items-center justify-center overflow-hidden rounded-md bg-purple-500 px-3 py-[0.1875rem] text-sm font-medium text-white shadow-[0_1px_theme(colors.white/0.07)_inset,0_1px_3px_theme(colors.gray.900/0.2)] ring-1 ring-purple-500 transition duration-300 ease-[cubic-bezier(0.4,0.36,0,1)] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-b before:from-white/20 before:opacity-50 before:transition-opacity before:duration-300 before:ease-[cubic-bezier(0.4,0.36,0,1)] after:pointer-events-none after:absolute after:inset-0 after:-z-10 after:rounded-md after:bg-gradient-to-b after:from-white/10 after:from-[46%] after:to-[54%] after:mix-blend-overlay hover:before:opacity-100 dark:bg-purple-800 dark:ring-0"
                   disabled={state === 'loading'}
                 >
                   {state === 'loading'

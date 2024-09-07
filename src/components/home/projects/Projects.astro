@@ -28,7 +28,7 @@ const projects = await Promise.all(
   <div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     {
       projects.map((project) => (
-        <ProjectCard project={project} lang={lang} client:visible>
+        <ProjectCard project={project} lang={lang} client:only="react">
           <Image
             src={project.data.featuredImage}
             alt={project.data.title}
