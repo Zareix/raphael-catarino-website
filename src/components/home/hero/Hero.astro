@@ -23,7 +23,7 @@ const t = useTranslations(lang);
       <SocialsIcon />
     </div>
   </div>
-  <div class="max-w-[300px] md:w-1/3">
+  <div id="hero-image" class="max-w-[300px] md:w-1/3">
     <Image
       src={heroPP}
       width="800"
@@ -31,7 +31,7 @@ const t = useTranslations(lang);
       sizes="(max-width: 800px) 80vw, 800px"
       alt="descriptive text"
       loading="eager"
-      class="fade-in-bottom aspect-square rounded-xl object-cover shadow-2xl shadow-blue-500/30 dark:shadow-purple-800/70"
+      class="aspect-square rounded-xl object-cover shadow-2xl shadow-blue-500/30 dark:shadow-purple-800/70"
     />
     <div class="mt-2 flex justify-end md:hidden">
       <SocialsIcon />
@@ -39,41 +39,41 @@ const t = useTranslations(lang);
   </div>
 </section>
 
-<script>
-  import { gsap } from 'gsap';
+<style>
+  @keyframes animate-hero-title {
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-  gsap
-    .timeline()
-    .from('#hero :is(h1, h2)', {
-      y: -50,
-      opacity: 0,
-      stagger: 0.05,
-      duration: 2,
-      ease: 'power3.out',
-    })
-    .from('#hero .fade-in-bottom', {
-      y: 50,
-      opacity: 0,
-      duration: 0.75,
-      delay: -1.5,
-      ease: 'power3.out',
-      stagger: 0.2,
-    })
-    .fromTo(
-      '#hero img',
-      {
-        yPercent: 0,
-        ease: 'none',
-      },
-      {
-        scrollTrigger: {
-          trigger: '#hero',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-        yPercent: -30,
-        ease: 'none',
-      },
-    );
-</script>
+  @keyframes animate-hero-image {
+    85% {
+      opacity: 1;
+      scale: 1;
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+      filter: blur(0);
+    }
+  }
+
+  h1 {
+    opacity: 0;
+    transform: translateY(-80px);
+    animation: animate-hero-title 1s forwards var(--ease-out-3);
+  }
+  h2 {
+    opacity: 0;
+    transform: translateY(-70px);
+    animation: animate-hero-title 1s 0.1s forwards var(--ease-out-3);
+  }
+
+  #hero-image {
+    opacity: 0;
+    scale: 0.85;
+    filter: blur(15px);
+    animation: animate-hero-image 0.8s 0.75s forwards var(--ease-out-4);
+  }
+</style>

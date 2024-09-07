@@ -1,7 +1,7 @@
 <div class="socials flex items-center gap-2 fill-white text-base">
   <a
     href="https://github.com/zareix"
-    class="fade-in-bottom relative block h-8 w-8 rounded-lg border border-slate-400 bg-slate-800 fill-white text-white shadow-md backdrop-blur transition-shadow duration-300 hover:shadow-lg hover:shadow-[#161b22]/20 dark:border-slate-600 dark:bg-slate-500/10 dark:hover:shadow-slate-700/80"
+    class="relative block h-8 w-8 transform rounded-lg border border-slate-400 bg-slate-800 fill-white text-white shadow-md backdrop-blur transition-all duration-300 hover:shadow-lg hover:shadow-[#161b22]/20 dark:border-slate-600 dark:bg-slate-500/10 dark:hover:shadow-slate-700/80"
     aria-label="My Github Profile"
   >
     <svg
@@ -19,7 +19,7 @@
   >
   <a
     href="https://www.linkedin.com/in/rapha%C3%ABl-gon%C3%A7alves-catarino/"
-    class="fade-in-bottom relative block h-8 w-8 rounded-lg border border-slate-400 bg-[#006699] text-white shadow-md transition-shadow duration-300 hover:shadow-lg hover:shadow-[#006699]/40 dark:border-slate-600 dark:bg-blue-500/30"
+    class="relative block h-8 w-8 transform rounded-lg border border-slate-400 bg-[#006699] text-white shadow-md transition-all duration-300 hover:shadow-lg hover:shadow-[#006699]/40 dark:border-slate-600 dark:bg-blue-500/30"
     aria-label="My LinkedIn Profile"
   >
     <svg
@@ -49,19 +49,26 @@
   </a>
 </div>
 
-<script>
-  import { gsap } from 'gsap';
+<style>
+  @keyframes animate-socials-button {
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-  const links = document.querySelectorAll('.socials a');
-  links.forEach((link) => {
-    const animation = gsap.to(link, {
-      paused: true,
-      scale: 1.05,
-      translate: '0 -10%',
-      duration: 0.2,
-    });
+  a:first-child {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: animate-socials-button 0.5s 1.1s forwards var(--ease-out-3);
+  }
+  a:nth-child(2) {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: animate-socials-button 0.5s 1.3s forwards var(--ease-out-3);
+  }
 
-    link.addEventListener('mouseenter', () => animation.play());
-    link.addEventListener('mouseleave', () => animation.reverse());
-  });
-</script>
+  a:hover {
+    scale: 1.05;
+  }
+</style>

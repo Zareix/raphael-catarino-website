@@ -13,15 +13,17 @@ const t = useTranslations(lang);
   class="relative grid w-full place-content-center overflow-hidden py-24"
 >
   <GridLines />
-  <h1 class="z-10">
+  <h1
+    class="z-10 bg-gradient-to-br from-purple-700 to-purple-950 to-[180%] bg-clip-text text-transparent dark:from-slate-50 dark:to-slate-500 dark:to-100%"
+  >
     {t('skills.title')}
   </h1>
   <h2 class="z-10">
     {t('skills.subtitle')}
   </h2>
-  <div class="domains container z-10 mt-4">
+  <section class="domains container z-10 mt-4">
     <SkillsSelector domains={domains} client:visible />
-  </div>
+  </section>
 </section>
 
 <style>

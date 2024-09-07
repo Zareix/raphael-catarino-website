@@ -62,7 +62,7 @@ const ContactButton = ({ lang }: Props) => {
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 z-40 bg-black/40 backdrop-blur" />
         <Drawer.Content className="fixed bottom-0 left-0 right-0 z-50 mx-[-1px] flex flex-col">
-          <div className="border-b-none mx-auto flex max-w-[600px] flex-1 flex-col rounded-t-[10px] border border-gray-200 bg-stone-50 p-4 md:px-12 dark:bg-slate-900">
+          <div className="border-b-none mx-auto flex max-w-[600px] flex-1 flex-col rounded-t-[10px] border border-gray-200 bg-stone-50 p-4 md:px-12 dark:border-slate-500 dark:bg-slate-900">
             <Drawer.Close
               className="mx-auto mb-4 h-1.5 w-12 flex-shrink-0 rounded-full bg-stone-300"
               aria-label="close"

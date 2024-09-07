@@ -21,7 +21,7 @@ const experiences = EXPERIENCES.map((exp) => ({
 
 <section id="experiences" class="flex flex-col items-center py-24">
   <h1
-    class="bg-gradient-to-br from-slate-900 to-purple-700 to-[40%] bg-clip-text text-transparent dark:to-purple-800"
+    class="bg-gradient-to-br from-purple-950 from-[-40%] to-purple-700 to-[90%] bg-clip-text text-transparent dark:from-slate-500 dark:from-0% dark:to-slate-50 dark:to-100%"
   >
     {t('experiences.title')}
   </h1>
@@ -97,40 +97,3 @@ const experiences = EXPERIENCES.map((exp) => ({
     }
   }
 </style>
-
-<script>
-  import { gsap } from 'gsap';
-
-  document.querySelector('#experiences .container')?.scrollTo({
-    left: 10000,
-  });
-
-  gsap.from('#experiences article .content', {
-    scrollTrigger: {
-      trigger: '#experiences article',
-      start: 'top 90%',
-    },
-    y: 100,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.2,
-  });
-
-  gsap.fromTo(
-    '#experiences h1',
-    {
-      '--tw-gradient-to-position': 220,
-      ease: 'none',
-    },
-    {
-      scrollTrigger: {
-        trigger: '#experiences',
-        start: '20% bottom',
-        end: 'bottom bottom',
-        scrub: true,
-      },
-      '--tw-gradient-to-position': 0,
-      ease: 'none',
-    },
-  );
-</script>

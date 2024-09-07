@@ -19,7 +19,9 @@ const projects = await Promise.all(
 ---
 
 <section id="projects" class="grid w-full place-content-center py-24">
-  <h1>
+  <h1
+    class="bg-gradient-to-br from-purple-700 to-purple-950 to-[180%] bg-clip-text leading-normal text-transparent dark:from-slate-500 dark:from-0% dark:to-slate-50 dark:to-100%"
+  >
     {t('projects.title')}
   </h1>
   <h2>
@@ -28,7 +30,7 @@ const projects = await Promise.all(
   <div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
     {
       projects.map((project) => (
-        <ProjectCard project={project} lang={lang} client:only="react">
+        <ProjectCard project={project} lang={lang} client:visible>
           <Image
             src={project.data.featuredImage}
             alt={project.data.title}
