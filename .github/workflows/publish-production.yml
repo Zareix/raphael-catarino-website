@@ -43,6 +43,9 @@ jobs:
         with:
           name: build-output-prod
           path: build-output
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
       - name: Deploy
         id: publish
         uses: cloudflare/wrangler-action@v3
