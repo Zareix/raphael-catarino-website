@@ -1,8 +1,5 @@
 name: '[PREVIEW] Build & Publish'
 
-env:
-  ASTRO_STUDIO_APP_TOKEN: ${{secrets.ASTRO_STUDIO_APP_TOKEN }}
-
 on:
   pull_request:
     branches:
@@ -43,7 +40,7 @@ jobs:
     name: 'Publish'
     needs: build
     outputs:
-      published_url: ${{ steps.publish.outputs.url }}
+      published_url: ${{ steps.publish.outputs.deployment-url }}
     steps:
       - name: Download build output
         uses: actions/download-artifact@v4
@@ -51,19 +48,12 @@ jobs:
           name: build-output-preview
           path: build-output
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        id: publish
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.ACCOUNT_ID }}
-          projectName: raphael-catarino-website
-          directory: build-output
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          wranglerVersion: 3
-        id: publish
+          command: pages deploy --project-name=raphael-catarino-website --branch=${{ github.ref }} build-output
       - name: Outputs
         run: |
-          echo "ID: ${{ steps.publish.outputs.id }}"
-          echo "URL: ${{ steps.publish.outputs.url }}"
-          echo "Environment: ${{ steps.publish.outputs.environment }}"
-          echo "Alias: ${{ steps.publish.outputs.alias }}"
+          echo "URL: ${{ steps.publish.outputs.deployment-url }}"

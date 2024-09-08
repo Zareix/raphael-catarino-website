@@ -1,8 +1,5 @@
 name: '[PROD] Build & Publish'
 
-env:
-  ASTRO_STUDIO_APP_TOKEN: ${{secrets.ASTRO_STUDIO_APP_TOKEN }}
-
 on:
   push:
     branches:
@@ -39,30 +36,23 @@ jobs:
     name: 'Publish'
     needs: build
     outputs:
-      published_url: ${{ steps.publish.outputs.url }}
+      published_url: ${{ steps.publish.outputs.deployment-url }}
     steps:
       - name: Download build output
         uses: actions/download-artifact@v4
         with:
           name: build-output-prod
           path: build-output
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.ACCOUNT_ID }}
-          projectName: raphael-catarino-website
-          directory: build-output
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          wranglerVersion: '3'
+          command: pages deploy --project-name=raphael-catarino-website --branch=main build-output
         id: publish
       - name: Outputs
         run: |
-          echo "ID: ${{ steps.publish.outputs.id }}"
-          echo "URL: ${{ steps.publish.outputs.url }}"
-          echo "Environment: ${{ steps.publish.outputs.environment }}"
-          echo "Alias: ${{ steps.publish.outputs.alias }}"
+          echo "URL: ${{ steps.publish.outputs.deployment-url }}"
 
   unlightouse:
     runs-on: ubuntu-latest
@@ -86,10 +76,8 @@ jobs:
           name: unlighthouse
           path: unlighthouse
       - name: Publish results to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.ACCOUNT_ID }}
-          projectName: raphael-catarino-website-unlighthouse
-          directory: unlighthouse
-          branch: main
+          command: pages deploy --project-name=raphael-catarino-website-unlighthouse --branch=main unlighthouse
