@@ -1,8 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import svgIcon from '~/assets/favicon.svg';
-import ContactButton from '~/components/contact/ContactButton.tsx';
-import { getLangFromUrl } from '~/i18n';
 
 export type NavigationLink = {
   href: string;
@@ -15,14 +13,12 @@ export type Props = {
   animationDelay: number;
 };
 
-const lang = getLangFromUrl(Astro.url);
-
 const { links, base, animationDelay } = Astro.props;
 ---
 
 <header class="fixed top-0 isolate z-30 w-full">
   <nav
-    class="mx-auto mt-2 flex hidden w-max items-center justify-center rounded-xl border border-gray-50 border-opacity-10 bg-slate-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg dark:bg-slate-800 dark:bg-opacity-70"
+    class="mx-auto mt-2 hidden w-max items-center justify-center rounded-xl border border-gray-50 border-opacity-10 bg-slate-50 bg-opacity-50 px-3 py-2 shadow-sm backdrop-blur-lg dark:bg-slate-800 dark:bg-opacity-70"
     data-animation-delay={animationDelay}
   >
     <a
@@ -45,9 +41,6 @@ const { links, base, animationDelay } = Astro.props;
           </li>
         ))
       }
-      <!-- <li>
-        <ContactButton client:idle lang={lang} />
-      </li> -->
     </ul>
   </nav>
 </header>
@@ -73,6 +66,7 @@ const { links, base, animationDelay } = Astro.props;
   window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     if (nav) {
+      nav.classList.add('flex');
       nav.classList.remove('hidden');
     }
   });

@@ -80,13 +80,38 @@ const links: Parameters<typeof Nav>[0]['links'] = [
     @apply text-lg lg:text-xl;
   }
 
-  section {
-    & > h1 {
-      @apply text-center;
-    }
+  section > :is(h1, h2) {
+    @apply text-center;
+  }
 
-    & > h2 {
-      @apply text-center;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+      filter: blur(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0px);
     }
   }
+
+  :is(h1, h2):not(#hero :is(h1, h2)) {
+    opacity: 0;
+    transition:
+      opacity 0.3s,
+      transform 0.3s;
+    animation-delay: 0.5s;
+  }
+
+  :is(h1, h2):not(#hero :is(h1, h2)).visible {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
 </style>
+
+<script>
+  import { createObserver } from '~/lib/utils';
+
+  createObserver(':is(h1, h2):not(#hero :is(h1,h2))', 'visible');
+</script>

@@ -363,8 +363,6 @@ export const Kubernetes = (props: SVGProps<SVGSVGElement>) => (
         wordSpacing: 'normal',
         textTransform: 'none',
         direction: 'ltr',
-        blockProgression: 'tb',
-        writingMode: 'lr-tb',
         textAnchor: 'start',
         baselineShift: 'baseline',
         color: '#000',
@@ -379,9 +377,7 @@ export const Kubernetes = (props: SVGProps<SVGSVGElement>) => (
         visibility: 'visible',
         display: 'inline',
         overflow: 'visible',
-        enableBackground: 'accumulate',
         fontFamily: 'Sans',
-        InkscapeFontSpecification: 'Sans',
       }}
       transform="translate(-6 -175)"
     />

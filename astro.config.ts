@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 
@@ -10,8 +9,18 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
-  image: {
-    domains: ['cdn.jsdelivr.net'],
+  i18n: {
+    defaultLocale: 'en',
+    locales: [
+      {
+        path: 'fr',
+        codes: ['fr-FR'],
+      },
+      {
+        path: 'en',
+        codes: ['en-US'],
+      },
+    ],
   },
   integrations: [
     tailwind(),
@@ -26,10 +35,6 @@ export default defineConfig({
     }),
     react(),
   ],
-  output: 'hybrid',
-  adapter: cloudflare({
-    imageService: 'compile',
-  }),
   redirects: {
     '/s/github': 'https://github.com/Zareix',
     '/s/instagram': 'https://www.instagram.com/raphaelgc',

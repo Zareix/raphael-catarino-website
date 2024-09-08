@@ -40,4 +40,34 @@ function groupBy<T, K extends keyof any>(
     {} as Record<K, T[]>,
   );
 }
-export { flatten, type FlattenObjectKeys, groupBy };
+
+const createObserver = (
+  selector: string,
+  className: string,
+  options?: {
+    root: null;
+    rootMargin: string;
+    threshold: number;
+  },
+) => {
+  const observerOptions = {
+    root: options?.root ?? null,
+    rootMargin: options?.rootMargin ?? '-200px 0px',
+    threshold: options?.threshold ?? 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add(className);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(selector).forEach((element) => {
+    observer.observe(element);
+  });
+};
+
+export { flatten, type FlattenObjectKeys, groupBy, createObserver };
