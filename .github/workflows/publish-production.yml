@@ -44,12 +44,13 @@ jobs:
           name: build-output-prod
           path: build-output
       - name: Deploy
+        id: publish
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.ACCOUNT_ID }}
           command: pages deploy --project-name=raphael-catarino-website --branch=main build-output
-        id: publish
+          packageManager: bun
       - name: Outputs
         run: |
           echo "URL: ${{ steps.publish.outputs.deployment-url }}"
@@ -81,3 +82,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.ACCOUNT_ID }}
           command: pages deploy --project-name=raphael-catarino-website-unlighthouse --branch=main unlighthouse
+          packageManager: bun

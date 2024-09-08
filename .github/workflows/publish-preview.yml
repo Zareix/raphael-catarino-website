@@ -54,6 +54,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.ACCOUNT_ID }}
           command: pages deploy --project-name=raphael-catarino-website --branch=${{ github.ref }} build-output
+          packageManager: bun
       - name: Outputs
         run: |
           echo "URL: ${{ steps.publish.outputs.deployment-url }}"
