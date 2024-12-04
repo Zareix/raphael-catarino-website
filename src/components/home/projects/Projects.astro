@@ -3,6 +3,7 @@ import { getLangFromUrl, useTranslations } from '~/i18n';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import ProjectCard from '~/components/home/projects/ProjectCard';
+import { render } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,7 +14,7 @@ const projects = await Promise.all(
     })
   ).map(async (project) => ({
     ...project,
-    content: await project.render(),
+    content: await render(project),
   })),
 );
 ---

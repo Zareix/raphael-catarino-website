@@ -14,11 +14,11 @@ export default defineConfig({
     locales: [
       {
         path: 'fr',
-        codes: ['fr-FR'],
+        codes: ['fr', 'fr-FR'],
       },
       {
         path: 'en',
-        codes: ['en-US'],
+        codes: ['en', 'en-US'],
       },
     ],
   },

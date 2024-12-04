@@ -2,7 +2,7 @@
 import { getLangFromUrl, useTranslations } from '~/i18n';
 import GridLines from '~/components/home/skills/GridLines.astro';
 import { SkillsSelector } from './SkillsSelector';
-import { domains } from '~/content/skills';
+import { DOMAINS } from '~/content/skills';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -22,7 +22,7 @@ const t = useTranslations(lang);
     {t('skills.subtitle')}
   </h2>
   <section class="domains container z-10 mt-4">
-    <SkillsSelector domains={domains} client:visible />
+    <SkillsSelector domains={DOMAINS} client:visible />
   </section>
 </section>
 

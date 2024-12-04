@@ -8,5 +8,6 @@
       "~/*": ["src/*"]
     }
   },
+  "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["node_modules", "dist", ".wrangler", "public", "unlighthouse"]
 }

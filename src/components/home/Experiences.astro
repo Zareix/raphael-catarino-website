@@ -6,16 +6,27 @@ import { EXPERIENCES } from '~/content/experiences';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const images: Record<string, ImageMetadata> = {};
-await Astro.glob('/src/assets/experiences/*').then((files) => {
-  files.forEach((file) => {
-    const name = file.default.src.split('.')[0].split('/').pop();
-    images[name] = file.default;
-  });
-});
+const images: Array<
+  ImageMetadata & {
+    name: string;
+  }
+> = Object.values(
+  import.meta.glob('/src/assets/experiences/*', { eager: true }),
+)
+  .map((file) => {
+    const f = file as { default: ImageMetadata };
+    const name = f.default.src.split('.')[0].split('/').pop();
+    if (!name) return;
+    return {
+      ...f.default,
+      name,
+    };
+  })
+  .filter((x) => !!x);
+
 const experiences = EXPERIENCES.map((exp) => ({
   ...exp,
-  logo: images[exp.logo],
+  logo: images.find((x) => x.name === exp.logo),
 }));
 ---
 
@@ -35,14 +46,16 @@ const experiences = EXPERIENCES.map((exp) => ({
       experiences.map((exp) => (
         <article class="snap-center">
           <div class="content mx-4 flex w-max max-w-[400px] items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50">
-            <Image
-              src={exp.logo}
-              alt={exp.enterprise}
-              width={48}
-              height={48}
-              class="h-[48px] w-[48px] object-contain"
-              densities={[1, 2]}
-            />
+            {exp.logo && (
+              <Image
+                src={exp.logo}
+                alt={exp.enterprise}
+                width={48}
+                height={48}
+                class="h-[48px] w-[48px] object-contain"
+                densities={[1, 2]}
+              />
+            )}
             <div>
               <h3 class="w-min text-base font-bold md:text-lg">
                 {lang === 'en' ? exp.titleEn : exp.titleFr}
@@ -63,7 +76,7 @@ const experiences = EXPERIENCES.map((exp) => ({
   </div>
 </section>
 
-<style lang="scss">
+<style>
   article {
     position: relative;
     &::before {

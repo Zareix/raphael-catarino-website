@@ -48,7 +48,7 @@ const links: Parameters<typeof Nav>[0]['links'] = [
   </body>
 </html>
 
-<style is:global lang="scss">
+<style is:global>
   @import 'open-props/easings';
 
   html,
@@ -107,6 +107,22 @@ const links: Parameters<typeof Nav>[0]['links'] = [
 
   :is(h1, h2):not(#hero :is(h1, h2)).visible {
     animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      scrollbar-color: #64748b #0f172a;
+    }
+
+    ::-webkit-scrollbar {
+      background: #0f172a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #64748b;
+      border-radius: 0.5rem;
+      border: 3px solid #0f172a;
+    }
   }
 </style>
 
