@@ -2,10 +2,16 @@ import { useEffect, useRef, useState } from 'react';
 import { DOMAINS } from '~/content/skills';
 
 import * as icons from '~/components/home/skills/Icons';
+import { useTranslations, type Lang } from '~/i18n';
 
 const domains = Object.values(DOMAINS).flat();
 
-const SkillsSubtitle = () => {
+type Props = {
+  lang: Lang;
+};
+
+const SkillsSubtitle = ({ lang }: Props) => {
+  const t = useTranslations(lang);
   const [currentIndex, setCurrentIndex] = useState<number>();
 
   useEffect(() => {
@@ -31,7 +37,7 @@ const SkillsSubtitle = () => {
 
   return (
     <h3 className="flex items-center gap-2 text-slate-700 dark:text-gray-300">
-      <div>Building with </div>
+      <div>{t('hero.subtitle-techno')}</div>
       <div
         id="heroTechno"
         className={

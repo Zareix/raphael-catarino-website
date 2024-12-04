@@ -17,7 +17,8 @@
   },
   "hero": {
     "title": "Raphaël Catarino",
-    "subtitle": "Fullstack Developer"
+    "subtitle": "Fullstack Developer",
+    "subtitle-techno": "Using"
   },
   "loading": {
     "title": "Loading"

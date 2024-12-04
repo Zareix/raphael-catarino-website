@@ -20,7 +20,7 @@ const t = useTranslations(lang);
     >
       {t('hero.subtitle')}
     </h2>
-    <SkillsSubtitle client:load />
+    <SkillsSubtitle client:load lang={lang} />
     <div class="mt-2 hidden md:block">
       <SocialsIcon />
     </div>
