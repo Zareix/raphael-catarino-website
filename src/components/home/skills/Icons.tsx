@@ -94,6 +94,7 @@ export const Astro = (props: SVGProps<SVGSVGElement>) => (
     height="1em"
     preserveAspectRatio="xMidYMid"
     {...props}
+    className={props.className + ' dark:first:fill-white'}
   >
     <path d="M182.022 9.147c2.982 3.702 4.502 8.697 7.543 18.687L256 246.074a276.467 276.467 0 0 0-79.426-26.891L133.318 73.008a5.63 5.63 0 0 0-10.802.017L79.784 219.11A276.453 276.453 0 0 0 0 246.04L66.76 27.783c3.051-9.972 4.577-14.959 7.559-18.654a24.541 24.541 0 0 1 9.946-7.358C88.67 0 93.885 0 104.314 0h47.683c10.443 0 15.664 0 20.074 1.774a24.545 24.545 0 0 1 9.95 7.373Z" />
     <path
@@ -420,8 +421,9 @@ export const Go = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 207 78"
     width="1em"
     {...props}
+    className={props.className + ' *:fill-[#00acd7] dark:*:fill-white'}
   >
-    <g fill="#000000" fillRule="evenodd">
+    <g fillRule="evenodd">
       <path d="m16.2 24.1c-.4 0-.5-.2-.3-.5l2.1-2.7c.2-.3.7-.5 1.1-.5h35.7c.4 0 .5.3.3.6l-1.7 2.6c-.2.3-.7.6-1 .6z" />
       <path d="m1.1 33.3c-.4 0-.5-.2-.3-.5l2.1-2.7c.2-.3.7-.5 1.1-.5h45.6c.4 0 .6.3.5.6l-.8 2.4c-.1.4-.5.6-.9.6z" />
       <path d="m25.3 42.5c-.4 0-.5-.3-.3-.6l1.4-2.5c.2-.3.6-.6 1-.6h20c.4 0 .6.3.6.7l-.2 2.4c0 .4-.4.7-.7.7z" />

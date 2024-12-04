@@ -3,6 +3,7 @@ import { getLangFromUrl, useTranslations } from '~/i18n';
 import heroPP from '~/assets/hero-pp.jpg';
 import { Image } from 'astro:assets';
 import SocialsIcon from './SocialsIcon.astro';
+import SkillsSubtitle from '~/components/home/hero/SkillsSubtitle';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -19,13 +20,7 @@ const t = useTranslations(lang);
     >
       {t('hero.subtitle')}
     </h2>
-    <h3 class="text-slate-700 dark:text-gray-300">
-      Building with <span
-        id="heroTechno"
-        class="bg-gradient-to-t from-purple-700 to-purple-950 to-[180%] bg-clip-text pr-2 italic text-transparent dark:from-slate-50 dark:to-slate-500 dark:to-100%"
-        >React</span
-      >
-    </h3>
+    <SkillsSubtitle client:load />
     <div class="mt-2 hidden md:block">
       <SocialsIcon />
     </div>
@@ -45,34 +40,6 @@ const t = useTranslations(lang);
     </div>
   </div>
 </section>
-
-<script>
-  import { DOMAINS } from '~/content/skills';
-
-  const domains = Object.values(DOMAINS).flat();
-
-  let currentIndex = 0;
-  const changeTechno = () => {
-    const technoTitle = document.getElementById('heroTechno');
-    if (!technoTitle) return;
-    currentIndex = (currentIndex + 1) % domains.length;
-    technoTitle.style.animationName = 'none';
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        technoTitle.style.animation =
-          'animate-hero-techno 0.8s var(--ease-out-4)';
-        technoTitle.innerText = domains[currentIndex];
-
-        setTimeout(() => {
-          changeTechno();
-        }, 2000);
-      }, 0);
-    });
-  };
-  setTimeout(() => {
-    changeTechno();
-  }, 2000);
-</script>
 
 <style>
   @keyframes animate-hero-title {
@@ -120,10 +87,14 @@ const t = useTranslations(lang);
     animation: animate-hero-title 1s 0.1s forwards var(--ease-out-3);
   }
 
-  h3 {
+  #hero :global(h3) {
     opacity: 0;
     transform: translateY(-60px);
     animation: animate-hero-title 1s 0.2s forwards var(--ease-out-3);
+  }
+
+  #hero :global(#heroTechno.animate) {
+    animation: animate-hero-techno 0.8s var(--ease-out-4);
   }
 
   #hero-image {
