@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+@import 'open-props/easings';
+@plugin '@tailwindcss/typography';
+
+html,
+body {
+  @apply bg-stone-50 text-sm text-slate-900 lg:text-base dark:bg-slate-900 dark:text-stone-50;
+  font-family: 'Inter Variable', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 200vh;
+}
+
+section > h1 {
+  @apply text-3xl font-bold lg:text-4xl;
+}
+
+section > h2 {
+  @apply text-2xl font-semibold lg:text-3xl;
+}
+
+section > h3 {
+  @apply text-xl font-semibold lg:text-2xl;
+}
+
+section > h4 {
+  @apply text-lg lg:text-xl;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    scrollbar-color: #64748b #0f172a;
+  }
+
+  ::-webkit-scrollbar {
+    background: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #64748b;
+    border-radius: 0.5rem;
+    border: 3px solid #0f172a;
+  }
+}

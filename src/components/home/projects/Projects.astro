@@ -28,7 +28,9 @@ const projects = await Promise.all(
   <h2>
     {t('projects.subtitle')}
   </h2>
-  <div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+  <div
+    class="container grid grid-cols-1 md:grid-cols-2 lg:px-12 xl:grid-cols-3"
+  >
     {
       projects.map((project) => (
         <ProjectCard project={project} lang={lang} client:visible>

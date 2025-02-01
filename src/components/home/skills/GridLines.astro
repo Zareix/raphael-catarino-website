@@ -1,27 +1,46 @@
 <div class="grid-lines z-0 w-full">
-  <div class="vertical left-[20%]"></div>
-  <div class="vertical left-[40%]"></div>
-  <div class="vertical left-[60%]"></div>
-  <div class="vertical left-[80%]"></div>
-  <div class="horizontal top-[25%]"></div>
-  <div class="horizontal top-[50%]"></div>
-  <div class="horizontal top-[75%]"></div>
+  <div
+    class="vertical left-[20%] bg-gradient-to-b from-gray-400/0 via-gray-400/80 to-gray-400/0"
+  >
+  </div>
+  <div
+    class="vertical left-[40%] bg-gradient-to-b from-gray-400/0 via-gray-400/80 to-gray-400/0"
+  >
+  </div>
+  <div
+    class="vertical left-[60%] bg-gradient-to-b from-gray-400/0 via-gray-400/80 to-gray-400/0"
+  >
+  </div>
+  <div
+    class="vertical left-[80%] bg-gradient-to-b from-gray-400/0 via-gray-400/80 to-gray-400/0"
+  >
+  </div>
+  <div
+    class="horizontal top-[25%] bg-gradient-to-r from-gray-400/0 via-gray-400/80 to-gray-400/0"
+  >
+  </div>
+  <div
+    class="horizontal top-[50%] bg-gradient-to-r from-gray-400/0 via-gray-400/80 to-gray-400/0"
+  >
+  </div>
+  <div
+    class="horizontal top-[75%] bg-gradient-to-r from-gray-400/0 via-gray-400/80 to-gray-400/0"
+  >
+  </div>
 </div>
 <style>
   .grid-lines {
     div {
-      @apply from-gray-400/0 via-gray-400/80 to-gray-400/0;
       position: absolute;
 
       &.vertical {
-        @apply bg-gradient-to-b;
+        background-image: linear-gradient(var(--tw-gradient-stops));
         top: -10%;
         height: 120%;
         width: 1px;
       }
 
       &.horizontal {
-        @apply bg-gradient-to-r;
         left: -10%;
         width: 120%;
         height: 1px;

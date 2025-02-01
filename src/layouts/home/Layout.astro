@@ -4,6 +4,8 @@ import { getLangFromUrl, useTranslations } from '~/i18n';
 import Nav from '~/layouts/Nav.astro';
 import Footer from '~/layouts/Footer.astro';
 
+import '~/styles/global.css';
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -50,37 +52,6 @@ const links: Parameters<typeof Nav>[0]['links'] = [
 </html>
 
 <style is:global>
-  @import 'open-props/easings';
-
-  html,
-  body {
-    @apply bg-stone-50 text-sm text-slate-900 lg:text-base dark:bg-slate-900 dark:text-stone-50;
-    font-family: 'Inter Variable', sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.5;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    min-height: 200vh;
-  }
-
-  h1 {
-    @apply text-4xl font-bold lg:text-5xl;
-  }
-
-  h2 {
-    @apply mx-2 text-2xl font-semibold lg:text-3xl;
-  }
-
-  h3 {
-    @apply text-xl font-semibold lg:text-2xl;
-  }
-
-  h4 {
-    @apply text-lg lg:text-xl;
-  }
-
   section > :is(h1, h2) {
     @apply text-center;
   }
@@ -108,22 +79,6 @@ const links: Parameters<typeof Nav>[0]['links'] = [
 
   :is(h1, h2):not(#hero :is(h1, h2)).visible {
     animation: fadeIn 0.5s ease-out forwards;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    html {
-      scrollbar-color: #64748b #0f172a;
-    }
-
-    ::-webkit-scrollbar {
-      background: #0f172a;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #64748b;
-      border-radius: 0.5rem;
-      border: 3px solid #0f172a;
-    }
   }
 </style>
 

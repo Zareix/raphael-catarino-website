@@ -30,7 +30,7 @@ const experiences = EXPERIENCES.map((exp) => ({
 }));
 ---
 
-<section id="experiences" class="flex flex-col items-center py-24">
+<section id="experiences" class="flex flex-col items-center py-24 lg:px-12">
   <h1
     class="bg-gradient-to-br from-purple-950 from-[-40%] to-purple-700 to-[90%] bg-clip-text text-transparent dark:from-slate-500 dark:from-0% dark:to-slate-50 dark:to-100%"
   >
@@ -40,12 +40,12 @@ const experiences = EXPERIENCES.map((exp) => ({
     {t('experiences.subtitle')}
   </h2>
   <div
-    class="container my-10 flex snap-x items-end overflow-y-hidden overflow-x-scroll px-2 py-4 md:snap-none"
+    class="container my-10 flex snap-x items-end overflow-x-scroll overflow-y-hidden px-2 py-4 md:snap-none"
   >
     {
       experiences.map((exp) => (
         <article class="snap-center">
-          <div class="content mx-4 flex w-max max-w-[400px] items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50 bg-opacity-60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50">
+          <div class="content mx-4 flex w-max max-w-[400px] items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50/60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50">
             {exp.logo && (
               <Image
                 src={exp.logo}
