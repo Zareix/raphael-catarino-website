@@ -19,7 +19,7 @@
     "@fontsource-variable/inter": "^5.1.1",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.2",
-    "astro": "5.8.2",
+    "astro": "5.9.0",
     "open-props": "^1.7.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
