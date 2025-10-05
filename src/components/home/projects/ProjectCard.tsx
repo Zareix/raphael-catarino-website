@@ -21,7 +21,7 @@ const ProjectCard = ({ project, image, content, lang }: Props) => {
       </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 z-40 bg-black/40 backdrop-blur" />
-        <Drawer.Content className="fixed bottom-0 left-0 right-0 z-50 mx-[-1px] flex flex-col">
+        <Drawer.Content className="fixed right-0 bottom-0 left-0 z-50 mx-[-1px] flex flex-col">
           <div className="border-b-none mx-auto flex max-w-[600px] flex-1 flex-col rounded-t-[10px] border border-gray-200 bg-stone-50 p-4 pb-12 md:px-12 dark:border-slate-800 dark:bg-slate-900">
             <Drawer.Close
               className="mx-auto mb-4 h-1.5 w-12 flex-shrink-0 rounded-full bg-stone-300"
@@ -39,7 +39,7 @@ const ProjectCard = ({ project, image, content, lang }: Props) => {
                     rel="noopener noreferrer"
                     target="_blank"
                     href={project.data.publicUrl}
-                    className="mr-2 mt-2 flex gap-1 text-sm text-slate-500 hover:text-slate-400 dark:text-slate-300 dark:hover:text-slate-200"
+                    className="mt-2 mr-2 flex gap-1 text-sm text-slate-500 hover:text-slate-400 dark:text-slate-300 dark:hover:text-slate-200"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ const ProjectCard = ({ project, image, content, lang }: Props) => {
                     rel="noopener noreferrer"
                     target="_blank"
                     href={project.data.repoUrl}
-                    className="mr-2 mt-2 flex gap-1 text-sm text-slate-500 hover:text-slate-400 dark:text-slate-300 dark:hover:text-slate-200"
+                    className="mt-2 mr-2 flex gap-1 text-sm text-slate-500 hover:text-slate-400 dark:text-slate-300 dark:hover:text-slate-200"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
