@@ -1,5 +1,5 @@
 ---
-import '@fontsource-variable/inter';
+import { Font } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '~/i18n';
 import Nav from '~/layouts/Nav.astro';
 import Footer from '~/layouts/Footer.astro';
@@ -32,8 +32,8 @@ const links: Parameters<typeof Nav>[0]['links'] = [
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Raphaël Catarino | Portfolio</title>
     <meta name="description" content={t('meta.description')} />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -42,6 +42,7 @@ const links: Parameters<typeof Nav>[0]['links'] = [
       data-domain="raphael-catarino.fr"
       is:inline
       src="https://vince.raphael-catarino.fr/js/script.js"></script>
+    <Font cssVariable="--font-sans" preload />
   </head>
   <body>
     <Nav base="#hero" links={links} animationDelay={1.5} />

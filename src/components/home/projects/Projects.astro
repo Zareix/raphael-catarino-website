@@ -7,16 +7,18 @@ import { render } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const projects = await Promise.all(
-  (
-    await getCollection('projects', ({ id }) => {
-      return id.startsWith(`${lang}/`);
-    })
-  ).map(async (project) => ({
-    ...project,
-    content: await render(project),
-  })),
-);
+const projects = (
+  await Promise.all(
+    (
+      await getCollection('projects', ({ id }) => {
+        return id.startsWith(`${lang}/`);
+      })
+    ).map(async (project) => ({
+      ...project,
+      content: await render(project),
+    })),
+  )
+).sort((a, b) => a.id.localeCompare(b.id));
 ---
 
 <section id="projects" class="grid w-full place-content-center py-24">

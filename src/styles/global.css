@@ -4,8 +4,7 @@
 
 html,
 body {
-  @apply bg-stone-50 text-sm text-slate-900 lg:text-base dark:bg-slate-900 dark:text-stone-50;
-  font-family: 'Inter Variable', sans-serif;
+  @apply bg-stone-50 font-sans text-sm text-slate-900 lg:text-base dark:bg-slate-900 dark:text-stone-50;
   font-size: 1.2rem;
   line-height: 1.5;
   scroll-behavior: smooth;
