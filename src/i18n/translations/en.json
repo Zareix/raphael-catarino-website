@@ -1,48 +1,48 @@
 {
-  "contact": {
-    "title": "Contact me",
-    "buttonText": "Contact",
-    "emailLabel": "Your email",
-    "emailPlaceholder": "name@example.com",
-    "nameLabel": "Your name",
-    "namePlaceholder": "John Doe",
-    "messageLabel": "Your message",
-    "messagePlaceholder": "Type here your message...",
-    "sending": "Sending...",
-    "send": "Send"
-  },
-  "experiences": {
-    "title": "Experiences",
-    "subtitle": "My professional experiences"
-  },
-  "hero": {
-    "title": "Raphaël Catarino",
-    "subtitle": "Fullstack Developer",
-    "subtitle-techno": "Using"
-  },
-  "loading": {
-    "title": "Loading"
-  },
-  "meta": {
-    "description": "You will find on this site all my skills in this field as well as my various projects."
-  },
-  "nav": {
-    "blog": "Blog",
-    "experiences": "Experiences",
-    "portfolio": "Portfolio",
-    "projects": "Projects",
-    "skills": "Skills"
-  },
-  "skills": {
-    "title": "Skills",
-    "subtitle": "Technologies and tools I use"
-  },
-  "projects": {
-    "title": "Projects",
-    "subtitle": "Some projects I worked on",
-    "project": {
-      "publicLink": "Project",
-      "sourceLink": "Source"
-    }
-  }
+	"contact": {
+		"title": "Contact me",
+		"buttonText": "Contact",
+		"emailLabel": "Your email",
+		"emailPlaceholder": "name@example.com",
+		"nameLabel": "Your name",
+		"namePlaceholder": "John Doe",
+		"messageLabel": "Your message",
+		"messagePlaceholder": "Type here your message...",
+		"sending": "Sending...",
+		"send": "Send"
+	},
+	"experiences": {
+		"title": "Experiences",
+		"subtitle": "My professional experiences"
+	},
+	"hero": {
+		"title": "Raphaël Catarino",
+		"subtitle": "Fullstack Developer",
+		"subtitle-techno": "Using"
+	},
+	"loading": {
+		"title": "Loading"
+	},
+	"meta": {
+		"description": "You will find on this site all my skills in this field as well as my various projects."
+	},
+	"nav": {
+		"blog": "Blog",
+		"experiences": "Experiences",
+		"portfolio": "Portfolio",
+		"projects": "Projects",
+		"skills": "Skills"
+	},
+	"skills": {
+		"title": "Skills",
+		"subtitle": "Technologies and tools I use"
+	},
+	"projects": {
+		"title": "Projects",
+		"subtitle": "Some projects I worked on",
+		"project": {
+			"publicLink": "Project",
+			"sourceLink": "Source"
+		}
+	}
 }

@@ -32,7 +32,7 @@ const experiences = EXPERIENCES.map((exp) => ({
 
 <section id="experiences" class="flex flex-col items-center py-24 lg:px-12">
   <h1
-    class="bg-gradient-to-br from-purple-950 from-[-40%] to-purple-700 to-[90%] bg-clip-text text-transparent dark:from-slate-500 dark:from-0% dark:to-slate-50 dark:to-100%"
+    class="bg-linear-to-br from-purple-950 from-[-40%] to-purple-700 to-90% bg-clip-text text-transparent dark:from-slate-500 dark:from-0% dark:to-slate-50 dark:to-100%"
   >
     {t('experiences.title')}
   </h1>
@@ -52,7 +52,7 @@ const experiences = EXPERIENCES.map((exp) => ({
                 alt={exp.enterprise}
                 width={48}
                 height={48}
-                class="h-[48px] w-[48px] object-contain"
+                class="h-12 w-12 object-contain"
                 densities={[1, 2]}
               />
             )}

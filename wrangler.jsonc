@@ -1,17 +1,23 @@
 {
-  "$schema": "./node_modules/wrangler/config-schema.json",
-  "main": "dist/_worker.js/index.js",
-  "name": "raphael-catarino-website",
-  "compatibility_date": "2025-11-27",
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  "assets": {
-    "binding": "ASSETS",
-    "directory": "./dist",
-  },
-  "build": {
-    "command": "bun run build",
-  },
-  "observability": {
-    "enabled": true,
-  },
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"main": "dist/_worker.js/index.js",
+	"name": "raphael-catarino-website",
+	"compatibility_date": "2025-11-27",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./dist"
+	},
+	"build": {
+		"command": "bun run build"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"routes": [
+		{
+			"pattern": "raphael-catarino.fr",
+			"custom_domain": true
+		}
+	]
 }

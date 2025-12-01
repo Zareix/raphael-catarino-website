@@ -1,11 +1,11 @@
 {
-  "prettier.documentSelectors": ["**/*.astro"],
-  "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "files.exclude": {
-    ".wrangler": true,
-    "unlighthouse": true
-  },
-  "typescript.tsdk": "node_modules/typescript/lib"
+	"prettier.documentSelectors": ["**/*.astro"],
+	"[astro]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"files.exclude": {
+		".wrangler": true,
+		"unlighthouse": true
+	},
+	"typescript.tsdk": "node_modules/typescript/lib"
 }
