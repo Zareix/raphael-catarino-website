@@ -10,14 +10,14 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "0.9.6",
+		"@astrojs/check": "0.9.7",
 		"@astrojs/cloudflare": "^12.6.12",
 		"@astrojs/react": "4.4.2",
-		"@astrojs/sitemap": "3.7.0",
+		"@astrojs/sitemap": "3.7.1",
 		"@astrojs/tailwind": "^6.0.2",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.17",
-		"astro": "5.18.0",
+		"astro": "5.18.1",
 		"open-props": "^1.7.16",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
