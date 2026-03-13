@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as icons from "~/components/home/skills/Icons";
+import { SkillIcon } from "~/components/home/skills/icon";
 import { DOMAINS } from "~/content/skills";
 import { type Lang, useTranslations } from "~/i18n";
 
@@ -43,10 +43,7 @@ const SkillsSubtitle = ({ lang }: Props) => {
 				}
 				key={currentIndex}
 			>
-				{/* biome-ignore lint/performance/noDynamicNamespaceImportAccess: Optimized by astro */}
-				{icons[domains[currentIndex]]({
-					className: "h-6 w-6",
-				})}
+				<SkillIcon name={domains[currentIndex]} className="h-6 w-6" />
 				{domains[currentIndex].replace("CSharp", "C#")}
 			</div>
 		</h3>

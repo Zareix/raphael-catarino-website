@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import * as icons from "./Icons";
+import { type Icons, SkillIcon } from "./icon";
 
 export type SkillsSelectorProps = {
-	domains: Record<string, Array<keyof typeof icons>>;
+	domains: Record<string, Array<Icons>>;
 };
 
 export const SkillsSelector = ({ domains }: SkillsSelectorProps) => {
@@ -12,7 +12,7 @@ export const SkillsSelector = ({ domains }: SkillsSelectorProps) => {
 	);
 
 	return (
-		<div className="flex h-[250px] w-full flex-col gap-4">
+		<div className="flex h-62.5 w-full flex-col gap-4">
 			<ul className="flex h-min justify-center gap-2">
 				{Object.keys(domains).map((domain) => (
 					<li
@@ -43,12 +43,9 @@ export const SkillsSelector = ({ domains }: SkillsSelectorProps) => {
 								className="relative grid justify-items-center text-center"
 								key={skill}
 							>
-								{/* biome-ignore lint/performance/noDynamicNamespaceImportAccess: Optimized by astro */}
-								{icons[skill]({
-									className: "h-16 w-16 overflow-hidden",
-								})}
+								<SkillIcon name={skill} className="h-16 w-16 overflow-hidden" />
 								<h4 className="absolute -bottom-6 mt-1 text-sm font-light text-gray-600 dark:text-gray-300">
-									{skill.replace("CSharp", "C#")}
+									{skill}
 								</h4>
 							</div>
 						))}

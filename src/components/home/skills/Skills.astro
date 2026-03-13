@@ -1,8 +1,8 @@
 ---
-import { getLangFromUrl, useTranslations } from '~/i18n';
-import GridLines from '~/components/home/skills/GridLines.astro';
-import { SkillsSelector } from './SkillsSelector';
-import { DOMAINS } from '~/content/skills';
+import { getLangFromUrl, useTranslations } from "~/i18n";
+import GridLines from "~/components/home/skills/GridLines.astro";
+import { SkillsSelector } from "./SkillsSelector";
+import { DOMAINS } from "~/content/skills";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -16,10 +16,10 @@ const t = useTranslations(lang);
   <h1
     class="z-10 bg-linear-to-br from-purple-700 to-purple-950 to-180% bg-clip-text text-transparent dark:from-slate-50 dark:to-slate-500 dark:to-100%"
   >
-    {t('skills.title')}
+    {t("skills.title")}
   </h1>
   <h2 class="z-10">
-    {t('skills.subtitle')}
+    {t("skills.subtitle")}
   </h2>
   <section class="domains z-10 container mt-4">
     <SkillsSelector domains={DOMAINS} client:visible />

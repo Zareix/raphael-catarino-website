@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-export const React = (props: SVGProps<SVGSVGElement>) => (
+const ReactIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		viewBox="0 0 256 228"
 		width="1em"
@@ -17,7 +17,7 @@ export const React = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const NextJS = (props: SVGProps<SVGSVGElement>) => (
+const NextJSIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		width="1em"
 		height="1em"
@@ -88,7 +88,7 @@ export const NextJS = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const Astro = (props: SVGProps<SVGSVGElement>) => (
+const AstroIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		viewBox="0 0 256 366"
 		xmlns="http://www.w3.org/2000/svg"
@@ -107,14 +107,14 @@ export const Astro = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const NodeJS = (props: SVGProps<SVGSVGElement>) => (
+const NodeJSIcon = (props: SVGProps<SVGSVGElement>) => (
 	<img
 		src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
 		className={props.className}
 		alt="NodeJS"
 	/>
 );
-export const Svelte = (props: SVGProps<SVGSVGElement>) => (
+const SvelteIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		viewBox="0 0 256 308"
 		width="1em"
@@ -135,7 +135,7 @@ export const Svelte = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const Angular = (props: SVGProps<SVGSVGElement>) => (
+const AngularIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		fill="none"
@@ -204,7 +204,7 @@ export const Angular = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const Java = (props: SVGProps<SVGSVGElement>) => (
+const JavaIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		preserveAspectRatio="xMidYMid"
@@ -237,7 +237,7 @@ export const Java = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const CSharp = (props: SVGProps<SVGSVGElement>) => (
+const CSharpIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		width="1em"
@@ -266,7 +266,7 @@ export const CSharp = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const Python = (props: SVGProps<SVGSVGElement>) => (
+const PythonIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" {...props}>
 		<title>Python</title>
 		<linearGradient
@@ -322,7 +322,7 @@ export const Python = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const Docker = (props: SVGProps<SVGSVGElement>) => (
+const DockerIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 24 24"
@@ -336,7 +336,7 @@ export const Docker = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const Kubernetes = (props: SVGProps<SVGSVGElement>) => (
+const KubernetesIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 722.8 702"
@@ -395,7 +395,7 @@ export const Kubernetes = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const Terraform = (props: SVGProps<SVGSVGElement>) => (
+const TerraformIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" {...props}>
 		<title>Terraform</title>
 		<g fillRule="evenodd">
@@ -412,7 +412,7 @@ export const Terraform = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const Ansible = (props: SVGProps<SVGSVGElement>) => (
+const AnsibleIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" {...props}>
 		<title>Ansible</title>
 		<path
@@ -426,7 +426,7 @@ export const Ansible = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const Go = (props: SVGProps<SVGSVGElement>) => (
+const GoIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		height="1em"
@@ -450,3 +450,56 @@ export const Go = (props: SVGProps<SVGSVGElement>) => (
 		</g>
 	</svg>
 );
+
+export type Icons =
+	| "React"
+	| "Angular"
+	| "Astro"
+	| "NextJS"
+	| "Svelte"
+	| "NodeJS"
+	| "Java"
+	| "C#"
+	| "Python"
+	| "Docker"
+	| "Kubernetes"
+	| "Terraform"
+	| "Ansible"
+	| "Go";
+
+type Props = {
+	name: Icons;
+} & SVGProps<SVGSVGElement>;
+
+export const SkillIcon = ({ name, ...props }: Props) => {
+	switch (name) {
+		case "React":
+			return <ReactIcon {...props} />;
+		case "Angular":
+			return <AngularIcon {...props} />;
+		case "NextJS":
+			return <NextJSIcon {...props} />;
+		case "Astro":
+			return <AstroIcon {...props} />;
+		case "NodeJS":
+			return <NodeJSIcon {...props} />;
+		case "Svelte":
+			return <SvelteIcon {...props} />;
+		case "Java":
+			return <JavaIcon {...props} />;
+		case "C#":
+			return <CSharpIcon {...props} />;
+		case "Python":
+			return <PythonIcon {...props} />;
+		case "Docker":
+			return <DockerIcon {...props} />;
+		case "Kubernetes":
+			return <KubernetesIcon {...props} />;
+		case "Terraform":
+			return <TerraformIcon {...props} />;
+		case "Ansible":
+			return <AnsibleIcon {...props} />;
+		case "Go":
+			return <GoIcon {...props} />;
+	}
+};

@@ -1,26 +1,26 @@
 ---
-import { Font } from 'astro:assets';
-import { getLangFromUrl, useTranslations } from '~/i18n';
-import Nav from '~/layouts/Nav.astro';
-import Footer from '~/layouts/Footer.astro';
+import { Font } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "~/i18n";
+import Nav from "~/layouts/Nav.astro";
+import Footer from "~/layouts/Footer.astro";
 
-import '~/styles/global.css';
+import "~/styles/global.css";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const links: Parameters<typeof Nav>[0]['links'] = [
+const links: Parameters<typeof Nav>[0]["links"] = [
   {
-    href: '#experiences',
-    label: t('nav.experiences'),
+    href: "#experiences",
+    label: t("nav.experiences"),
   },
   {
-    href: '#skills',
-    label: t('nav.skills'),
+    href: "#skills",
+    label: t("nav.skills"),
   },
   {
-    href: '#projects',
-    label: t('nav.projects'),
+    href: "#projects",
+    label: t("nav.projects"),
   },
   // {
   //   href: '/blog',
@@ -35,7 +35,7 @@ const links: Parameters<typeof Nav>[0]['links'] = [
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Raphaël Catarino | Portfolio</title>
-    <meta name="description" content={t('meta.description')} />
+    <meta name="description" content={t("meta.description")} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <script
       defer
@@ -69,7 +69,7 @@ const links: Parameters<typeof Nav>[0]['links'] = [
     }
   }
 
-  :is(h1, h2):not(#hero :is(h1, h2)) {
+  section > :is(h1, h2):not(#hero :is(h1, h2)) {
     opacity: 0;
     transition:
       opacity 0.3s,
@@ -77,13 +77,13 @@ const links: Parameters<typeof Nav>[0]['links'] = [
     animation-delay: 0.5s;
   }
 
-  :is(h1, h2):not(#hero :is(h1, h2)).visible {
+  section > :is(h1, h2):not(#hero :is(h1, h2)).visible {
     animation: fadeIn 0.5s ease-out forwards;
   }
 </style>
 
 <script>
-  import { createObserver } from '~/lib/utils';
+  import { createObserver } from "~/lib/utils";
 
-  createObserver(':is(h1, h2):not(#hero :is(h1,h2))', 'visible');
+  createObserver(":is(h1, h2):not(#hero :is(h1,h2))", "visible");
 </script>

@@ -31,7 +31,9 @@ const ProjectCard = ({ project, image, content, lang }: Props) => {
 							aria-label="close"
 						/>
 						<div className="mx-auto max-w-md">
-							<Drawer.Title className="mx-0">{project.data.title}</Drawer.Title>
+							<Drawer.Title className="font-medium">
+								{project.data.title}
+							</Drawer.Title>
 							<div className="text-xs italic">
 								{formatList(lang, project.data.technologies)}
 							</div>
