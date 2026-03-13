@@ -13,6 +13,6 @@ technologies:
 date:
 ---
 
-For some time now, I'm more and more interested in the field of self-hosted and homelab. The goal is to host by myself as many applications and softwares as I can in my daily use.
+Recently, I have cultivated a growing interest in self-hosting and homelab infrastructure. My primary objective is to independently host the software and applications I rely on daily.
 
-Using virtual machines or docker, I have a server on which I work to deploy my solutions.
+To achieve this, I manage a dedicated server where I architect and deploy various solutions utilizing virtual machines and containerization technologies such as Docker.

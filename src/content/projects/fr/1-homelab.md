@@ -13,6 +13,6 @@ technologies:
 date:
 ---
 
-Depuis quelques temps je m'intéresse de plus en plus au domaine du self-hosted et des homelab. Le but étant d'héberger par moi-même le plus d'applications et logiciels utiles dans mon utilisation quotidienne.
+Récemment, j'ai développé un intérêt croissant pour l'auto-hébergement et les infrastructures de type homelab. Mon objectif principal est d'héberger de manière autonome les logiciels et les applications que j'utilise au quotidien.
 
-A l'aide de machines virtuelles ou de docker, je dispose d'un serveur sur lequel je travaille pour déployer mes solutions.
+Pour cel, j'administre un serveur dédié sur lequel je conçois et déploie différentes solutions, en m'appuyant sur des machines virtuelles et des technologies de conteneurisation telles que Docker.
