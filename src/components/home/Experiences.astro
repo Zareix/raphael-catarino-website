@@ -1,7 +1,7 @@
 ---
-import { getLangFromUrl, useTranslations } from '~/i18n';
-import { Image } from 'astro:assets';
-import { EXPERIENCES } from '~/content/experiences';
+import { getLangFromUrl, useTranslations } from "~/i18n";
+import { Image } from "astro:assets";
+import { EXPERIENCES } from "~/content/experiences";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -11,11 +11,11 @@ const images: Array<
     name: string;
   }
 > = Object.values(
-  import.meta.glob('/src/assets/experiences/*', { eager: true }),
+  import.meta.glob("/src/assets/experiences/*", { eager: true }),
 )
   .map((file) => {
     const f = file as { default: ImageMetadata };
-    const name = f.default.src.split('.')[0].split('/').pop();
+    const name = f.default.src.split(".")[0].split("/").pop();
     if (!name) return;
     return {
       ...f.default,
@@ -34,10 +34,10 @@ const experiences = EXPERIENCES.map((exp) => ({
   <h1
     class="bg-linear-to-br from-purple-950 from-[-40%] to-purple-700 to-90% bg-clip-text text-transparent dark:from-slate-500 dark:from-0% dark:to-slate-50 dark:to-100%"
   >
-    {t('experiences.title')}
+    {t("experiences.title")}
   </h1>
   <h2>
-    {t('experiences.subtitle')}
+    {t("experiences.subtitle")}
   </h2>
   <div
     class="container my-10 flex snap-x items-end overflow-x-scroll overflow-y-hidden px-2 py-4 md:snap-none"
@@ -45,24 +45,31 @@ const experiences = EXPERIENCES.map((exp) => ({
     {
       experiences.map((exp) => (
         <article class="snap-center">
-          <div class="content mx-4 flex w-max max-w-[400px] items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50/60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50">
-            {exp.logo && (
+          <div class="content mx-4 flex w-max max-w-100 items-center justify-center gap-3 rounded-md border border-gray-300 bg-stone-50/60 px-6 py-4 shadow transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50">
+            {exp.logo && exp.logoType === "image" && (
               <Image
                 src={exp.logo}
                 alt={exp.enterprise}
                 width={48}
-                height={48}
-                class="h-12 w-12 object-contain"
-                densities={[1, 2]}
+                layout="constrained"
               />
             )}
             <div>
               <h3 class="w-min text-base font-bold md:text-lg">
-                {lang === 'en' ? exp.titleEn : exp.titleFr}
+                {lang === "en" ? exp.titleEn : exp.titleFr}
               </h3>
               <a href={exp.link} class="hover:underline">
                 <h4 class="text-sm text-zinc-600 dark:text-zinc-400">
-                  {exp.enterprise}
+                  {exp.logo && exp.logoType === "text" ? (
+                    <Image
+                      src={exp.logo}
+                      alt={exp.enterprise}
+                      width={56}
+                      layout="constrained"
+                    />
+                  ) : (
+                    exp.enterprise
+                  )}
                 </h4>
               </a>
             </div>
@@ -80,7 +87,7 @@ const experiences = EXPERIENCES.map((exp) => ({
   article {
     position: relative;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       top: auto;
@@ -90,7 +97,7 @@ const experiences = EXPERIENCES.map((exp) => ({
       background-color: #61616a;
     }
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 50%;
       transform: translateX(-50%);

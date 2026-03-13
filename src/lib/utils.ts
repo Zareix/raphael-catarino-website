@@ -71,4 +71,4 @@ const createObserver = (
 	});
 };
 
-export { flatten, type FlattenObjectKeys, groupBy, createObserver };
+export { createObserver, type FlattenObjectKeys, flatten, groupBy };

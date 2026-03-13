@@ -1,16 +1,16 @@
 ---
-import { getLangFromUrl, useTranslations } from '~/i18n';
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import ProjectCard from '~/components/home/projects/ProjectCard';
-import { render } from 'astro:content';
+import { getLangFromUrl, useTranslations } from "~/i18n";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import ProjectCard from "~/components/home/projects/ProjectCard";
+import { render } from "astro:content";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const projects = (
   await Promise.all(
     (
-      await getCollection('projects', ({ id }) => {
+      await getCollection("projects", ({ id }) => {
         return id.startsWith(`${lang}/`);
       })
     ).map(async (project) => ({
@@ -25,10 +25,10 @@ const projects = (
   <h1
     class="bg-linear-to-br from-purple-950 to-purple-700 to-80% bg-clip-text leading-normal text-transparent dark:from-slate-500 dark:from-0% dark:to-slate-50 dark:to-100%"
   >
-    {t('projects.title')}
+    {t("projects.title")}
   </h1>
   <h2>
-    {t('projects.subtitle')}
+    {t("projects.subtitle")}
   </h2>
   <div
     class="container grid grid-cols-1 md:grid-cols-2 lg:px-12 xl:grid-cols-3"
@@ -40,7 +40,7 @@ const projects = (
             src={project.data.featuredImage}
             alt={project.data.title}
             width={600}
-            height={400}
+            layout="constrained"
             class="aspect-video w-full object-cover"
             slot="image"
           />

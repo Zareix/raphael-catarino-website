@@ -26,17 +26,15 @@ export default defineConfig({
 		],
 	},
 
-	experimental: {
-		fonts: [
-			{
-				name: "Inter",
-				provider: fontProviders.fontsource(),
-				cssVariable: "--font-sans",
-				weights: ["100 900"],
-				subsets: ["latin"],
-			},
-		],
-	},
+	fonts: [
+		{
+			name: "Inter",
+			provider: fontProviders.fontsource(),
+			cssVariable: "--font-sans",
+			weights: ["100 900"],
+			subsets: ["latin"],
+		},
+	],
 
 	integrations: [
 		sitemap({

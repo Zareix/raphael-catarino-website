@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
-	"main": "dist/_worker.js/index.js",
+	"main": "@astrojs/cloudflare/entrypoints/server",
 	"name": "raphael-catarino-website",
 	"compatibility_date": "2025-11-27",
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],

@@ -1,9 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from '~/i18n';
-import heroPP from '~/assets/hero-pp.jpg';
-import { Image } from 'astro:assets';
-import SocialsIcon from './SocialsIcon.astro';
-import SkillsSubtitle from '~/components/home/hero/SkillsSubtitle';
+import { getLangFromUrl, useTranslations } from "~/i18n";
+import heroPP from "~/assets/hero-pp.jpg";
+import { Image } from "astro:assets";
+import SocialsIcon from "./SocialsIcon.astro";
+import SkillsSubtitle from "~/components/home/hero/SkillsSubtitle";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -14,26 +14,26 @@ const t = useTranslations(lang);
   class="flex h-screen flex-col items-center justify-center gap-4 bg-linear-to-b from-stone-300 to-stone-50 md:flex-row dark:from-slate-950 dark:to-slate-900"
 >
   <div class="mx-8">
-    <h1 class="text-3xl font-bold lg:text-4xl">{t('hero.title')}</h1>
+    <h1 class="text-3xl font-bold lg:text-4xl">{t("hero.title")}</h1>
     <h2
       class="mx-0 bg-linear-to-br from-blue-400 to-purple-800 bg-clip-text text-2xl font-semibold text-transparent lg:text-3xl"
     >
-      {t('hero.subtitle')}
+      {t("hero.subtitle")}
     </h2>
     <SkillsSubtitle client:load lang={lang} />
     <div class="mt-2 hidden md:block">
       <SocialsIcon />
     </div>
   </div>
-  <div id="hero-image" class="max-w-[300px] md:w-1/3">
+  <div id="hero-image" class="max-w-75 md:w-1/3">
     <Image
       src={heroPP}
-      width="800"
-      height="800"
-      sizes="(max-width: 800px) 80vw, 800px"
+      width={300}
+      layout="constrained"
       alt="descriptive text"
       loading="eager"
-      class="aspect-square rounded-xl object-cover shadow-2xl shadow-blue-500/30 dark:shadow-purple-800/70"
+      fit="cover"
+      class="rounded-xl aspect-square object-cover shadow-2xl shadow-blue-500/30 dark:shadow-purple-800/70"
     />
     <div class="mt-2 flex justify-end md:hidden">
       <SocialsIcon />
