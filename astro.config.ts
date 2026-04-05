@@ -64,7 +64,5 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 	},
 
-	adapter: cloudflare({
-		imageService: "compile",
-	}),
+	adapter: cloudflare(),
 });
