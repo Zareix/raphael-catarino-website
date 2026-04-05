@@ -3,10 +3,10 @@
 	"compilerOptions": {
 		"jsx": "react-jsx",
 		"jsxImportSource": "react",
-		"baseUrl": ".",
 		"paths": {
-			"~/*": ["src/*"]
-		}
+			"~/*": ["./src/*"]
+		},
+		"types": ["bun"]
 	},
 	"include": [".astro/types.d.ts", "**/*"],
 	"exclude": ["node_modules", "dist", ".wrangler", "public", "unlighthouse"]

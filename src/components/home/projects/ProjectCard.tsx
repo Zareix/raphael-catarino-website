@@ -25,7 +25,7 @@ const ProjectCard = ({ project, image, content, lang }: Props) => {
 			<Drawer.Portal>
 				<Drawer.Overlay className="fixed inset-0 z-40 bg-black/40 backdrop-blur" />
 				<Drawer.Content className="fixed right-0 bottom-0 left-0 z-50 -mx-px flex flex-col">
-					<div className="border-b-none mx-auto flex max-w-[600px] flex-1 flex-col rounded-t-[10px] border border-gray-200 bg-stone-50 p-4 pb-12 md:px-12 dark:border-slate-800 dark:bg-slate-900">
+					<div className="border-b-none mx-auto flex max-w-150 flex-1 flex-col rounded-t-[10px] border border-gray-200 bg-stone-50 p-4 pb-12 md:px-12 dark:border-slate-800 dark:bg-slate-900">
 						<Drawer.Close
 							className="mx-auto mb-4 h-1.5 w-12 shrink-0 rounded-full bg-stone-300"
 							aria-label="close"
