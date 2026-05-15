@@ -1,7 +1,7 @@
 ---
 title: Subtracker
 featuredImage: '../assets/subtracker.png'
-repoUrl: https://github.com/zareix/sub-tracker
+repoUrl: https://github.com/zareix/subtracker
 publicUrl:
 technologies:
   - NextJS
