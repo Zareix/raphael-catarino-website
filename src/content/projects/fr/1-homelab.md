@@ -1,6 +1,6 @@
 ---
 title: Homelab
-featuredImage: '../assets/homelab.png'
+featuredImage: "../assets/homelab.png"
 repoUrl:
 publicUrl: https://homelab.raphael-catarino.fr
 technologies:

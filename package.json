@@ -1,42 +1,47 @@
 {
-	"name": "raphael-catarino-website",
-	"type": "module",
-	"version": "1.0.0",
-	"scripts": {
-		"dev": "bun run astro dev",
-		"build": "NODE_ENV=production bun astro build",
-		"check": "biome check --write && astro check",
-		"preview": "bunx wrangler pages dev ./dist",
-		"deploy": "bunx wrangler deploy",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"@astrojs/check": "0.9.9",
-		"@astrojs/cloudflare": "13.5.5",
-		"@astrojs/react": "5.0.7",
-		"@astrojs/sitemap": "3.7.3",
-		"@astrojs/tailwind": "^6.0.2",
-		"@tailwindcss/typography": "^0.5.20",
-		"@tailwindcss/vite": "^4.3.1",
-		"astro": "6.4.8",
-		"babel-plugin-react-compiler": "^1.0.0",
-		"open-props": "^1.7.23",
-		"react": "^19.2.7",
-		"react-dom": "^19.2.7",
-		"tailwindcss": "^4.3.1",
-		"vaul": "^1.1.2",
-		"wrangler": "^4.80.0",
-		"zod": "^4.4.3"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.5.0",
-		"@types/bun": "^1.3.14",
-		"@types/react": "^19.2.17",
-		"@types/react-dom": "^19.2.3",
-		"prettier": "^3.8.4",
-		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-tailwindcss": "^0.8.0",
-		"typescript": "^6.0.3"
-	},
-	"packageManager": "bun@1.3.11"
+  "name": "raphael-catarino-website",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run astro dev",
+    "build": "NODE_ENV=production bun astro build",
+    "preview": "bunx wrangler pages dev ./dist",
+    "deploy": "bunx wrangler deploy",
+    "astro": "astro",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt",
+    "check": "bun run format && bun run lint:fix && astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.9.9",
+    "@astrojs/cloudflare": "13.5.5",
+    "@astrojs/react": "5.0.7",
+    "@astrojs/sitemap": "3.7.3",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.1",
+    "astro": "6.4.8",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "open-props": "^1.7.23",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwindcss": "^4.3.1",
+    "vaul": "^1.1.2",
+    "wrangler": "^4.80.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "oxfmt": "^0.55.0",
+    "oxlint": "^1.70.0",
+    "oxlint-tsgolint": "^0.23.0",
+    "prettier": "^3.8.4",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "typescript": "^6.0.3"
+  },
+  "packageManager": "bun@1.3.11"
 }

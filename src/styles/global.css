@@ -1,6 +1,6 @@
-@import 'tailwindcss';
-@import 'open-props/easings';
-@plugin '@tailwindcss/typography';
+@import "tailwindcss";
+@import "open-props/easings";
+@plugin "@tailwindcss/typography";
 
 html,
 body {

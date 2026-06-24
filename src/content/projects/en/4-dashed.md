@@ -1,6 +1,6 @@
 ---
 title: Dashed
-featuredImage: '../assets/dashed.png'
+featuredImage: "../assets/dashed.png"
 repoUrl: https://github.com/Zareix/dashed
 publicUrl:
 technologies:

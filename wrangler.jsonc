@@ -1,16 +1,13 @@
 {
-	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "raphael-catarino-website",
-	"build": {
-		"command": "bun run build"
-	},
-	"observability": {
-		"enabled": true
-	},
-	"routes": [
-		{
-			"pattern": "raphael-catarino.fr",
-			"custom_domain": true
-		}
-	]
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "raphael-catarino-website",
+  "observability": {
+    "enabled": true,
+  },
+  "routes": [
+    {
+      "pattern": "raphael-catarino.fr",
+      "custom_domain": true,
+    },
+  ],
 }

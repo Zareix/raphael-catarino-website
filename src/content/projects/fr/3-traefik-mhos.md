@@ -1,6 +1,6 @@
 ---
 title: Traefik-mhos
-featuredImage: '../assets/traefik-mhos.png'
+featuredImage: "../assets/traefik-mhos.png"
 repoUrl: https://github.com/Zareix/traefik-mhos
 publicUrl:
 technologies:

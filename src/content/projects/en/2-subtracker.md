@@ -1,6 +1,6 @@
 ---
 title: Subtracker
-featuredImage: '../assets/subtracker.png'
+featuredImage: "../assets/subtracker.png"
 repoUrl: https://github.com/zareix/subtracker
 publicUrl:
 technologies:

@@ -1,70 +1,69 @@
-import cloudflare from "@astrojs/cloudflare";
-import react from "@astrojs/react";
-import sitemap from "@astrojs/sitemap";
-import tailwindcss from "@tailwindcss/vite";
-import { defineConfig, fontProviders } from "astro/config";
+import cloudflare from "@astrojs/cloudflare"
+import react from "@astrojs/react"
+import sitemap from "@astrojs/sitemap"
+import tailwindcss from "@tailwindcss/vite"
+import { defineConfig, fontProviders } from "astro/config"
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://raphael-catarino.fr",
+  site: "https://raphael-catarino.fr",
 
-	prefetch: {
-		prefetchAll: true,
-	},
+  prefetch: {
+    prefetchAll: true,
+  },
 
-	i18n: {
-		defaultLocale: "en",
-		locales: [
-			{
-				path: "fr",
-				codes: ["fr", "fr-FR"],
-			},
-			{
-				path: "en",
-				codes: ["en", "en-US"],
-			},
-		],
-	},
+  i18n: {
+    defaultLocale: "en",
+    locales: [
+      {
+        path: "fr",
+        codes: ["fr", "fr-FR"],
+      },
+      {
+        path: "en",
+        codes: ["en", "en-US"],
+      },
+    ],
+  },
 
-	fonts: [
-		{
-			name: "Inter",
-			provider: fontProviders.fontsource(),
-			cssVariable: "--font-sans",
-			weights: ["100 900"],
-			subsets: ["latin"],
-		},
-	],
+  fonts: [
+    {
+      name: "Inter",
+      provider: fontProviders.fontsource(),
+      cssVariable: "--font-sans",
+      weights: ["100 900"],
+      subsets: ["latin"],
+    },
+  ],
 
-	integrations: [
-		sitemap({
-			i18n: {
-				defaultLocale: "en",
-				locales: {
-					en: "en-US",
-					fr: "fr-FR",
-				},
-			},
-		}),
-		react({
-			babel: {
-				plugins: [["babel-plugin-react-compiler"]],
-			},
-		}),
-	],
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: "en",
+        locales: {
+          en: "en-US",
+          fr: "fr-FR",
+        },
+      },
+    }),
+    react({
+      babel: {
+        plugins: [["babel-plugin-react-compiler"]],
+      },
+    }),
+  ],
 
-	redirects: {
-		"/s/github": "https://github.com/Zareix",
-		"/s/instagram": "https://www.instagram.com/raphaelgc",
-		"/s/linkedin":
-			"https://www.linkedin.com/in/rapha%C3%ABl-gon%C3%A7alves-catarino/",
-	},
+  redirects: {
+    "/s/github": "https://github.com/Zareix",
+    "/s/instagram": "https://www.instagram.com/raphaelgc",
+    "/s/linkedin": "https://www.linkedin.com/in/rapha%C3%ABl-gon%C3%A7alves-catarino/",
+  },
 
-	vite: {
-		plugins: [tailwindcss()],
-	},
+  vite: {
+    plugins: [tailwindcss()],
+  },
 
-	adapter: cloudflare({
-		imageService: "compile",
-	}),
-});
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
+})

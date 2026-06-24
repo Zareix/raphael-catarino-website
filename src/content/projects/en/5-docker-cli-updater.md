@@ -1,6 +1,6 @@
 ---
 title: docker-cli-updater
-featuredImage: '../assets/docker-cli-updater.png'
+featuredImage: "../assets/docker-cli-updater.png"
 repoUrl: https://github.com/Zareix/docker-cli-updater
 publicUrl:
 technologies:
