@@ -4,7 +4,7 @@ featuredImage: '../assets/subtracker.png'
 repoUrl: https://github.com/zareix/subtracker
 publicUrl:
 technologies:
-  - NextJS
+  - TanStack Start
   - TailwindCSS
   - Docker
   - SQLite
@@ -12,6 +12,6 @@ technologies:
 date:
 ---
 
-In response to the growing number of subscription-based services, I designed and developed Sub-Tracker using the Next.js framework.
+In response to the growing number of subscription-based services, I designed and developed Subtracker using the TanStack Start framework.
 
 This web application provides a clear overview of recurring expenses (software, streaming, services) and helps optimize personal budget management through a smooth and responsive interface.

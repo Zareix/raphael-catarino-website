@@ -2,7 +2,8 @@
 	"language_servers": ["!biome", "..."],
 	"languages": {
 		"Astro": {
-			"language_servers": ["!biome", "..."]
+			"language_servers": ["!biome", "..."],
+			"formatter": "prettier"
 		},
 		"JavaScript": {
 			"formatter": [

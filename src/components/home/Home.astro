@@ -1,30 +1,30 @@
 ---
-import Layout from '~/layouts/home/Layout.astro';
-import Hero from '~/components/home/hero/Hero.astro';
-import Experiences from '~/components/home/Experiences.astro';
-import Skills from '~/components/home/skills/Skills.astro';
-import Projects from '~/components/home/projects/Projects.astro';
-import { getLangFromUrl, useTranslations } from '~/i18n';
+import Layout from "~/layouts/home/Layout.astro";
+import Hero from "~/components/home/hero/Hero.astro";
+import Experiences from "~/components/home/Experiences.astro";
+import Skills from "~/components/home/skills/Skills.astro";
+import Projects from "~/components/home/projects/Projects.astro";
+import { getLangFromUrl, useTranslations } from "~/i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const links = [
   {
-    href: '#experiences',
-    label: t('nav.experiences'),
+    href: "#experiences",
+    label: t("nav.experiences"),
   },
   {
-    href: '#skills',
-    label: t('nav.skills'),
+    href: "#skills",
+    label: t("nav.skills"),
   },
   {
-    href: '#projects',
-    label: t('nav.projects'),
+    href: "#projects",
+    label: t("nav.projects"),
   },
   {
-    href: '/blog',
-    label: t('nav.blog'),
+    href: "/blog",
+    label: t("nav.blog"),
   },
 ];
 ---
