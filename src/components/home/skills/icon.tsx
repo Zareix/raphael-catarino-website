@@ -425,11 +425,18 @@ const GoIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
+const TanstackStartIcon = ({ ...props }: React.HTMLProps<HTMLDivElement>) => (
+  <div {...props}>
+    <img src="https://tanstack.com/images/logos/logo-color-600.png" />
+  </div>
+)
+
 export type Icons =
   | "React"
   | "Angular"
   | "Astro"
   | "NextJS"
+  | "Tanstack Start"
   | "Svelte"
   | "NodeJS"
   | "Java"
@@ -443,7 +450,8 @@ export type Icons =
 
 type Props = {
   name: Icons
-} & SVGProps<SVGSVGElement>
+  className?: string
+}
 
 export const SkillIcon = ({ name, ...props }: Props) => {
   switch (name) {
@@ -455,6 +463,8 @@ export const SkillIcon = ({ name, ...props }: Props) => {
       return <NextJSIcon {...props} />
     case "Astro":
       return <AstroIcon {...props} />
+    case "Tanstack Start":
+      return <TanstackStartIcon {...props} />
     case "NodeJS":
       return <NodeJSIcon {...props} />
     case "Svelte":
